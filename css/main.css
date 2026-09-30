@@ -28,6 +28,8 @@
 
 /* Components, layout and pages */
 @import url("components/button.css");
+@import url("components/arrows.css");
+@import url("components/heading-line.css");
 @import url("layout/site.css");
 @import url("layout/header.css");
 @import url("components/intro-modal.css");

@@ -101,7 +101,7 @@
 }
 
 .mobile-menu {
-  display: flex;
+  display: none;
   flex-direction: column;
   border-top: 1px solid rgba(110,180,247,.25);
   padding: 8px 24px 20px;
@@ -131,4 +131,39 @@
   letter-spacing: .14em;
   text-transform: uppercase;
   padding: 14px 20px;
+}
+
+/* Hover states — link colors are set inline from state, so hover must override them */
+
+.site-nav__link:hover,
+.site-nav__dropdown-link:hover {
+  color: var(--color-bright-blue) !important;
+}
+
+.site-header__contact:hover {
+  opacity: .85;
+}
+
+/* Responsive */
+
+@media (max-width:960px) {
+  .site-nav,
+  .site-header__contact {
+    display: none;
+  }
+
+  .site-header__menu-toggle {
+    display: inline-flex;
+  }
+
+  .mobile-menu {
+    display: flex;
+  }
+}
+
+@media (max-width:640px) {
+  .site-header__inner {
+    padding-left: 24px;
+    padding-right: 24px;
+  }
 }

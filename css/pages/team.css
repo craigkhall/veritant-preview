@@ -230,6 +230,12 @@
   transition: color 160ms,border-color 160ms;
 }
 
+/* inline-flex drops a leading space, so the chevron uses a non-breaking one */
+.team-bio__linkedin::after {
+  content: "\00a0>";
+  content: "\00a0>" / "";
+}
+
 .contact-modal {
   position: fixed;
   inset: 0;
@@ -335,4 +341,68 @@
 .contact-modal__field--message {
   line-height: 1.5;
   resize: vertical;
+}
+
+/* Hover states */
+
+.team-member__link:hover,
+.team-bio__back:hover {
+  color: var(--color-bright-blue);
+}
+
+.team-bio__contact:hover,
+.contact-modal__submit:hover {
+  background: var(--color-royal-blue);
+  border-color: var(--color-royal-blue);
+  color: var(--color-white);
+}
+
+.team-bio__linkedin:hover {
+  color: var(--color-bright-blue);
+  border-color: var(--color-bright-blue);
+}
+
+.contact-modal__close:hover {
+  color: var(--color-sapphire);
+}
+
+/* Responsive */
+
+@media (max-width:960px) {
+  .team-bio__grid {
+    grid-template-columns: minmax(0,1fr);
+    gap: 40px;
+  }
+
+  .team__grid {
+    grid-template-columns: repeat(3,minmax(0,1fr));
+    gap: 48px 16px;
+  }
+}
+
+@media (max-width:640px) {
+  .team__inner,
+  .team-bio__inner {
+    padding-left: 24px;
+    padding-right: 24px;
+  }
+
+  .team__grid {
+    grid-template-columns: repeat(2,minmax(0,1fr));
+    gap: 36px 12px;
+  }
+}
+
+@media (min-width:641px) {
+  .team__grid[data-team-cols="3"] {
+    grid-template-columns: repeat(6,minmax(0,1fr));
+  }
+
+  .team__grid[data-team-cols="3"] > * {
+    grid-column: span 2;
+  }
+
+  .team__grid[data-team-cols="3"] > :nth-child(4) {
+    grid-column: 2 / span 2;
+  }
 }

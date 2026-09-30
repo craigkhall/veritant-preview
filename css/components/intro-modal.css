@@ -148,3 +148,15 @@
   top: 80%;
   animation: vt-in-fade 1400ms 900ms both;
 }
+
+/* Hover states */
+
+.intro-modal__close:hover {
+  color: var(--color-turquoise);
+}
+
+.intro-modal__enter:hover {
+  background: var(--color-royal-blue);
+  border-color: var(--color-royal-blue);
+  color: var(--color-white);
+}

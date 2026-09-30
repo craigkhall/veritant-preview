@@ -67,3 +67,30 @@
   justify-self: end;
   text-align: right;
 }
+
+/* Hover states */
+
+.event-row:hover {
+  background: var(--color-ice-blue);
+}
+
+/* Responsive */
+
+@media (max-width:960px) {
+  .event-row {
+    grid-template-columns: minmax(0,1fr);
+    gap: 16px;
+  }
+
+  .event-row__date {
+    justify-self: start;
+    text-align: left;
+  }
+}
+
+@media (max-width:640px) {
+  .events-list__inner {
+    padding-left: 24px;
+    padding-right: 24px;
+  }
+}

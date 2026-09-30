@@ -355,9 +355,16 @@
   max-width: 550px;
 }
 
-.home-blue-mission__art {
-  position: relative;
-  min-height: 420px;
+/* The empty second column keeps the row at least 420px tall on desktop. On
+   narrow screens the old spacer's empty row (plus the grid gap) is kept. */
+.home-blue-mission__inner {
+  grid-template-rows: minmax(420px,auto);
+}
+
+@media (max-width:960px) {
+  .home-blue-mission__inner {
+    grid-template-rows: auto 0;
+  }
 }
 
 .home-blue-independence {
@@ -495,4 +502,34 @@
   letter-spacing: .14em;
   text-transform: uppercase;
   color: var(--color-sapphire);
+}
+
+/* Responsive */
+
+@media (max-width:960px) {
+  .home-independence,
+  .home-methodology__inner,
+  .home-team__inner,
+  .home-insights__inner,
+  .home-insights__grid,
+  .home-blue-mission__inner,
+  .home-blue-insights__inner,
+  .home-blue-insight {
+    grid-template-columns: minmax(0,1fr);
+    gap: 40px;
+  }
+}
+
+@media (max-width:640px) {
+  .home-mission__inner,
+  .home-independence__content,
+  .home-methodology__inner,
+  .home-team__inner,
+  .home-insights__inner,
+  .home-blue-mission__inner,
+  .home-blue-independence__inner,
+  .home-blue-insights__inner {
+    padding-left: 24px;
+    padding-right: 24px;
+  }
 }

@@ -70,3 +70,19 @@
   transition: opacity 360ms var(--ease-standard) 140ms,transform 460ms var(--ease-standard) 100ms;
   text-wrap: pretty;
 }
+
+/* Responsive */
+
+@media (max-width:960px) {
+  .charter-principle__grid {
+    grid-template-columns: minmax(0,1fr);
+    gap: 40px;
+  }
+}
+
+@media (max-width:640px) {
+  .charter-principles__inner {
+    padding-left: 24px;
+    padding-right: 24px;
+  }
+}

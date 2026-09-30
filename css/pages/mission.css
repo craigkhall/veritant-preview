@@ -307,3 +307,27 @@
   flex: 1;
   min-height: 24px;
 }
+
+/* Hover states */
+
+.mission-values__switch:hover {
+  color: var(--color-sapphire);
+}
+
+/* Responsive */
+
+@media (max-width:960px) {
+  .mission-trust__inner {
+    grid-template-columns: minmax(0,1fr);
+    gap: 40px;
+  }
+}
+
+@media (max-width:640px) {
+  .mission-values__switcher-inner,
+  .mission-values__inner,
+  .mission-trust__inner {
+    padding-left: 24px;
+    padding-right: 24px;
+  }
+}

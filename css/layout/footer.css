@@ -150,3 +150,48 @@
 .site-footer__legal-link {
   color: rgba(210,240,252,.6);
 }
+
+/* Hover states — the newsletter button colors are set inline from state */
+
+.newsletter__submit:hover {
+  background: var(--color-royal-blue) !important;
+  border-color: var(--color-royal-blue) !important;
+  color: var(--color-white) !important;
+}
+
+.site-footer__link:hover,
+.site-footer__legal-link:hover {
+  color: var(--color-bright-blue);
+}
+
+/* Responsive */
+
+@media (max-width:960px) {
+  .site-footer__inner {
+    grid-template-columns: minmax(0,1fr);
+    gap: 40px;
+  }
+}
+
+@media (max-width:640px) {
+  .site-footer__inner,
+  .site-footer__bottom {
+    padding-left: 24px;
+    padding-right: 24px;
+  }
+
+  .newsletter__inner {
+    /* overrides the inline padding set from state */
+    padding-left: 24px !important;
+    padding-right: 24px !important;
+  }
+
+  .newsletter__form {
+    flex-direction: column;
+  }
+
+  .newsletter__form > * {
+    width: 100%;
+    box-sizing: border-box;
+  }
+}

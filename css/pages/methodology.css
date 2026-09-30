@@ -123,3 +123,22 @@
 .methodology-transparency__text--last {
   margin: 0;
 }
+
+/* Responsive */
+
+@media (max-width:960px) {
+  .methodology-cycle__inner,
+  .methodology-cost__inner {
+    grid-template-columns: minmax(0,1fr);
+    gap: 40px;
+  }
+}
+
+@media (max-width:640px) {
+  .methodology-transparency__inner,
+  .methodology-cycle__inner,
+  .methodology-cost__inner {
+    padding-left: 24px;
+    padding-right: 24px;
+  }
+}

@@ -108,3 +108,30 @@
 .ranking-row__bar--ocean {
   background: var(--color-ocean-blue);
 }
+
+/* Hover states */
+
+.ranking-row:hover {
+  background: var(--color-ice-blue);
+}
+
+/* Responsive */
+
+@media (max-width:960px) {
+  .ranking-row {
+    grid-template-columns: minmax(0,1fr);
+    gap: 40px;
+  }
+
+  .ranking-row__cta {
+    justify-self: start;
+    text-align: left;
+  }
+}
+
+@media (max-width:640px) {
+  .rankings-list__inner {
+    padding-left: 24px;
+    padding-right: 24px;
+  }
+}

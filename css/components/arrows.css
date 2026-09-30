@@ -1,0 +1,25 @@
+/* ==========================================================================
+   Link arrows — decorative arrows after (or before) CTA labels, kept out of
+   the markup. The second `content` hides them from screen readers where the
+   alt-text syntax is supported.
+   ========================================================================== */
+
+.link-chevron::after {
+  content: " >";
+  content: " >" / "";
+}
+
+.link-arrow::after {
+  content: " →";
+  content: " →" / "";
+}
+
+.link-arrow--spaced::after {
+  content: " \00a0→";
+  content: " \00a0→" / "";
+}
+
+.link-back::before {
+  content: "< ";
+  content: "< " / "";
+}

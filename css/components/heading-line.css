@@ -1,0 +1,10 @@
+/* ==========================================================================
+   Heading lines — each .heading-line starts on its own line from 641px up;
+   on phones the lines run together as one sentence.
+   ========================================================================== */
+
+@media (min-width:641px) {
+  .heading-line {
+    display: block;
+  }
+}

@@ -69,3 +69,18 @@
   line-height: 1.6;
   color: var(--color-sapphire);
 }
+
+/* Hover states */
+
+.faq-item__link:hover {
+  color: var(--color-bright-blue);
+}
+
+/* Responsive */
+
+@media (max-width:640px) {
+  .faq-list__inner {
+    padding-left: 24px;
+    padding-right: 24px;
+  }
+}
