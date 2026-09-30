@@ -80,8 +80,17 @@
   height: calc(50% - 68px);
 }
 
+.value-track__line--top {
+  top: 0;
+}
+
+.value-track__line--bottom {
+  bottom: 0;
+}
+
 .value-track__node {
   position: absolute;
+  top: 50%;
   transform: translate(-50%,-50%);
   z-index: 1;
 }
@@ -107,6 +116,7 @@
 .value-track__title {
   position: absolute;
   top: 50%;
+  left: calc(100% + 28px);
   transform: translateY(-50%);
   margin: 0;
   white-space: nowrap;
@@ -115,6 +125,11 @@
   line-height: 1.1;
   letter-spacing: -.01em;
   transition: color 300ms;
+}
+
+.value-track__item:nth-child(even) .value-track__title {
+  left: unset;
+  right: calc(100% + 28px);
 }
 
 .value-track__card {
