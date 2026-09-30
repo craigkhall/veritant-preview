@@ -132,6 +132,12 @@
 	grid-template-columns: minmax(0,1fr);
 	gap: 40px;
   }
+
+  .methodology-transparency__inner,
+  .methodology-cycle__inner,
+  .methodology-cost__inner {
+	padding-block: 80px;
+  }
 }
 
 @media (max-width:640px) {
@@ -140,5 +146,12 @@
   .methodology-cost__inner {
 	padding-left: 24px;
 	padding-right: 24px;
+	padding-block: 60px;
+  }
+
+  .methodology-cost__text,
+  .methodology-transparency__text,
+  .methodology-cycle__text {
+	font-size: 16px;
   }
 }

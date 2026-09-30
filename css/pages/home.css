@@ -518,6 +518,21 @@
 		grid-template-columns: minmax(0,1fr);
 		gap: 40px;
 	}
+	
+	.home-independence {
+		gap: 0;
+	}
+
+	.home-mission__inner,
+	.home-independence__content,
+	.home-methodology__inner,
+	.home-team__inner,
+	.home-insights__inner,
+	.home-blue-mission__inner,
+	.home-blue-independence__inner,
+	.home-blue-insights__inner {
+		padding-block: 80px;
+	}	
 }
 
 @media (max-width:640px) {
@@ -529,7 +544,38 @@
 	.home-blue-mission__inner,
 	.home-blue-independence__inner,
 	.home-blue-insights__inner {
-		padding-left: 24px;
-		padding-right: 24px;
+		padding: 60px 24px;
+	}
+
+	.home-mission__text,
+	.home-independence__text,
+	.home-methodology__text,
+	.home-team__text,
+	.home-insights__text,
+	.insight-card__text, 
+	.news-card__text {
+		font-size: 16px;
+	}
+
+	.home-mission__text,
+	.home-independence__text,
+	.home-methodology__text,
+	.home-team__text,
+	.home-insights__intro,
+	.home-mission__title,
+	.home-independence__title {
+		margin-bottom: 20px;
+	}
+
+	.home-team__title, 
+	.home-insights__title {
+		margin-bottom: 16px;
+	}
+}
+
+@media (max-width:390px) {
+	.home-team__grid,
+	.home-insights__grid {
+		grid-template-columns: 1fr;
 	}
 }

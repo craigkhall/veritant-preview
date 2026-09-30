@@ -170,6 +170,7 @@
 	.site-footer__inner {
 		grid-template-columns: minmax(0,1fr);
 		gap: 40px;
+		padding-top: 60px;
 	}
 }
 
@@ -178,6 +179,14 @@
 	.site-footer__bottom {
 		padding-left: 24px;
 		padding-right: 24px;
+	}
+
+	.site-footer__inner {
+		padding-top: 40px;
+	}
+
+	.site-footer__bottom {
+		margin-top: 40px;
 	}
 
 	.newsletter__inner {
@@ -193,5 +202,9 @@
 	.newsletter__form > * {
 		width: 100%;
 		box-sizing: border-box;
+	}
+
+	.newsletter__text {
+		font-size: 16px;
 	}
 }

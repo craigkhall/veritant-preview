@@ -120,18 +120,27 @@
 @media (max-width:960px) {
 	.ranking-row {
 		grid-template-columns: minmax(0,1fr);
-		gap: 40px;
+		gap: 30px;
 	}
 
 	.ranking-row__cta {
 		justify-self: start;
 		text-align: left;
 	}
+
+	.rankings-list__inner {
+		padding-block: 80px;
+	}
 }
 
 @media (max-width:640px) {
+	.ranking-row {
+		gap: 20px;
+	}
+
 	.rankings-list__inner {
 		padding-left: 24px;
 		padding-right: 24px;
+		padding-block: 60px;
 	}
 }
