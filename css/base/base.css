@@ -1,0 +1,33 @@
+/* ==========================================================================
+   Base — element defaults for the whole site (sits in the "legacy" layer, so
+   every component class overrides it, exactly like the old inline styles did).
+   ========================================================================== */
+
+html,
+body {
+  margin: 0;
+  background: var(--body-background);
+  color: var(--body-color);
+  font-family: var(--body-font-family);
+  -webkit-font-smoothing: antialiased;
+}
+
+a {
+  color: var(--color-sapphire);
+  text-decoration: none;
+}
+
+a:hover {
+  color: var(--color-bright-blue);
+}
+
+button {
+  font-family: inherit;
+}
+
+input::placeholder {
+  color: var(--color-text-muted);
+  letter-spacing: .14em;
+  font-size: 11px;
+  text-transform: uppercase;
+}

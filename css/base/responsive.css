@@ -1,0 +1,198 @@
+/* ==========================================================================
+   Responsive overrides — keyed on the data-rsp* hooks in the markup.
+   These use !important so they win over component classes at small widths.
+   ========================================================================== */
+
+[data-demo-control] {
+  display: none !important;
+}
+
+[data-rsp="menu"] {
+  display: none !important;
+}
+
+@media (max-width:960px) {
+  [data-rsp="grid"] {
+    grid-template-columns: minmax(0,1fr) !important;
+    gap: 40px !important;
+  }
+  [data-rsp-end] {
+    justify-self: start !important;
+    text-align: left !important;
+  }
+  [data-rsp="grid"][data-rsp-tight] {
+    gap: 16px !important;
+  }
+  [data-rsp="nav"] {
+    display: none !important;
+  }
+  [data-rsp="menubtn"] {
+    display: inline-flex !important;
+  }
+  [data-rsp="contact"] {
+    display: none !important;
+  }
+  [data-rsp="menu"] {
+    display: flex !important;
+  }
+  [data-news-ov] {
+    grid-template-columns: minmax(0,1fr) !important;
+  }
+  [data-news-img],
+  [data-news-txt] {
+    grid-column: 1 !important;
+    grid-row: auto !important;
+  }
+  [data-rsp="team4"] {
+    grid-template-columns: repeat(3,minmax(0,1fr)) !important;
+    gap: 48px 16px !important;
+  }
+  [data-rsp-hide] {
+    display: none !important;
+  }
+  [data-rsp-full] {
+    max-width: none !important;
+  }
+  [data-rsp-end] {
+    justify-self: start !important;
+    text-align: left !important;
+  }
+  footer [data-rsp-pad] > div {
+    flex-wrap: wrap;
+  }
+  [data-rsp="artwrap"] {
+    min-height: 0 !important;
+  }
+  [data-rsp="art"] {
+    position: relative !important;
+    right: auto !important;
+    top: auto !important;
+    transform: none !important;
+    width: 100% !important;
+    max-width: 440px;
+    margin: 0 auto;
+  }
+  main section > img[src*="/icons/"] {
+    height: 80% !important;
+    max-width: 70vw;
+  }
+  main h1 {
+    text-wrap: pretty !important;
+    white-space: normal !important;
+  }
+}
+
+@media (max-width:640px) {
+  [data-rsp-pad] {
+    padding-left: 24px !important;
+    padding-right: 24px !important;
+  }
+  [data-vt-hero] > div {
+    padding-top: 72px !important;
+    padding-bottom: 88px !important;
+  }
+  [data-vt-hero] {
+    min-height: 0 !important;
+  }
+  main h1 br,
+  main h2 br {
+    display: none;
+  }
+  main h1 {
+    font-size: 34px !important;
+  }
+  main h2 {
+    font-size: 26px !important;
+  }
+  [data-rsp="form"] {
+    flex-direction: column;
+    gap: 8px;
+  }
+  [data-val-curve] {
+    display: none !important;
+  }
+  [data-val-gap] {
+    display: block !important;
+  }
+  [data-v2-row] {
+    flex-direction: column !important;
+    margin: 0 !important;
+    gap: 20px !important;
+  }
+  [data-v2-node] {
+    width: auto !important;
+    margin: 0 !important;
+    flex-direction: row !important;
+    gap: 20px;
+  }
+  [data-v2-seg],
+  [data-v2-curve] {
+    display: none !important;
+  }
+  [data-v2-gap] {
+    display: block !important;
+  }
+  [data-v2-box] {
+    width: 100% !important;
+    transform: none !important;
+  }
+  [data-val-row] {
+    flex-direction: column !important;
+    align-items: flex-start !important;
+    min-height: 0 !important;
+    gap: 20px;
+  }
+  [data-val-line] {
+    display: none !important;
+  }
+  [data-val-node] {
+    position: relative !important;
+    left: 0 !important;
+    top: 0 !important;
+    transform: none !important;
+    display: flex;
+    align-items: center;
+    gap: 20px;
+  }
+  [data-val-title] {
+    position: static !important;
+    transform: none !important;
+    white-space: normal !important;
+  }
+  [data-val-box] {
+    width: 100% !important;
+    transform: none !important;
+  }
+  [data-rsp="team4"] {
+    grid-template-columns: repeat(2,minmax(0,1fr)) !important;
+    gap: 36px 12px !important;
+  }
+  [data-vt-hero] > div[data-home-pad],
+  [data-vt-hero] div[data-home-pad] {
+    padding-top: 140px !important;
+    padding-bottom: 96px !important;
+  }
+  main section[data-vt-hero] h1 {
+    white-space: normal !important;
+  }
+  [data-rsp="form"] > * {
+    width: 100% !important;
+    box-sizing: border-box;
+  }
+  main section > img[src*="/icons/"] {
+    height: 60% !important;
+    opacity: .1 !important;
+  }
+}
+
+@media (min-width:641px) {
+  [data-rsp="team4"][data-team-cols="3"] {
+    grid-template-columns: repeat(6,minmax(0,1fr)) !important;
+  }
+  [data-rsp="team4"][data-team-cols="3"] > * {
+    grid-column: span 2 !important;
+  }
+  [data-rsp="team4"][data-team-cols="3"] > :nth-child(4) {
+    grid-column: 2 / span 2 !important;
+  }
+}

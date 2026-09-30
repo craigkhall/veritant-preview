@@ -1,0 +1,26 @@
+/* Corners, borders, shadow, motion. Veritant is a square-cornered system: structure is the point.
+   Shadows are near-absent — separation comes from color fields, not elevation. */
+:root{
+  --radius-none:0;
+  --radius-sm:2px;      /* inputs, small chips */
+  --radius-pill:999px;  /* tags only */
+
+  --border-hairline:1px solid var(--line-hairline); /* @kind other */
+  --border-strong:1px solid var(--line-strong); /* @kind other */
+  --border-rule:2px solid currentColor; /* @kind other */   /* the vertical rule in partnership lockups */
+  --border-accent:4px solid var(--veritant-bright-blue); /* @kind other */
+
+  --shadow-none:none;
+  --shadow-card:0 1px 2px rgba(2,33,56,.06);
+  --shadow-raised:0 8px 24px rgba(2,33,56,.12);
+
+  --ease-standard:cubic-bezier(.2,0,.2,1); /* @kind other */
+  --duration-fast:120ms; /* @kind other */
+  --duration-base:200ms; /* @kind other */
+  --duration-slow:400ms; /* @kind other */
+
+  --focus-ring:0 0 0 3px rgba(3,208,255,.55); /* @kind shadow */
+
+  /* Analysis-graphic linework: icons are placed large, cropped, low-contrast, behind content */
+  --graphic-watermark-opacity:.18; /* @kind other */
+}

@@ -1,0 +1,68 @@
+/* Veritant color palette — values transcribed verbatim from Veritant Identity & Messaging Guidelines V1, p.4 */
+:root{
+  /* Primary — the core colors of the brand. Most designs use at least one. */
+  --veritant-midnight-blue:#022138;
+  --veritant-royal-blue:#022E59;
+  --veritant-sapphire:#0556CC;
+  --veritant-bright-blue:#03D0FF;
+
+  /* Secondary — range, contrast and flexibility */
+  --veritant-ocean-blue:#6EB4F7;
+  --veritant-teal:#12797C;
+  --veritant-turquoise:#02C9B5;
+  --veritant-slight-blue:#D2F0FC;
+
+  /* Accent — used sparingly for emphasis or variety */
+  --veritant-deep-magenta:#680062;
+  --veritant-magenta:#CE2FAC;
+  --veritant-yellow:#F4DF19;
+  --veritant-off-white:#FAFAFA; /* backgrounds only, never text */
+  --veritant-white:#FFFFFF;
+  --veritant-black:#000000;
+
+  /* Print references (for handoff, not screen use)
+     Midnight Blue PMS 2965 · Royal Blue PMS 295 · Sapphire PMS 2935 · Bright Blue PMS 306
+     Ocean Blue PMS 292 · Teal PMS 7718 · Turquoise PMS 3255 · Slight Blue PMS 656
+     Deep Magenta PMS 2425 · Magenta PMS 240 · Yellow PMS 107 · Off White PMS 663 */
+
+  /* Semantic surfaces */
+  --surface-page:var(--veritant-off-white);
+  --surface-card:var(--veritant-white);
+  --surface-inverse:var(--veritant-royal-blue);
+  --surface-deep:var(--veritant-midnight-blue);
+  --surface-tint:var(--veritant-slight-blue);
+  --surface-accent:var(--veritant-sapphire);
+
+  /* Semantic text */
+  --text-body:var(--veritant-midnight-blue);
+  --text-heading:var(--veritant-royal-blue);
+  --text-muted:#4A6076;              /* Midnight Blue at reduced presence, for metadata only */
+  --text-on-dark:var(--veritant-white);
+  --text-on-dark-soft:var(--veritant-slight-blue);
+  --text-accent:var(--veritant-sapphire);
+  --text-highlight:var(--veritant-bright-blue);
+
+  /* Interactive */
+  --action-primary:var(--veritant-bright-blue);
+  --action-primary-text:var(--veritant-royal-blue);
+  --action-secondary:var(--veritant-sapphire);
+  --action-secondary-text:var(--veritant-white);
+  --action-nav:var(--veritant-royal-blue);
+
+  /* Lines */
+  --line-hairline:rgba(2,33,56,.14);
+  --line-strong:var(--veritant-royal-blue);
+  --line-on-dark:rgba(255,255,255,.28);
+}
+
+/* Summit color themes (p.15): each summit is anchored by one core color + one primary icon */
+:root{
+  --summit-top-advisor:var(--veritant-bright-blue);
+  --summit-top-advisor-field:var(--veritant-sapphire);
+  --summit-top-teams:var(--veritant-turquoise);
+  --summit-top-teams-field:var(--veritant-teal);
+  --summit-top-women:var(--veritant-magenta);
+  --summit-top-women-field:var(--veritant-deep-magenta);
+  --summit-top-ria:var(--veritant-ocean-blue);
+  --summit-top-ria-field:var(--veritant-royal-blue);
+}

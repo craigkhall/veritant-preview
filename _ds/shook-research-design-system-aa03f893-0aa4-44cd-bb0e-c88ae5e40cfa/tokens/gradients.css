@@ -1,0 +1,33 @@
+/* The 12 approved Veritant gradients (p.5). Each carries the mandated text color.
+   Gradients must move cleanly between these pairs — no unapproved pairings, no muddy blends. */
+:root{
+  --gradient-royal-sapphire:linear-gradient(135deg,#022E59 0%,#0556CC 100%); /* @kind other */ /* text: White */
+  
+  --gradient-ocean-slight:linear-gradient(135deg,#6EB4F7 0%,#D2F0FC 100%); /* @kind other */ /* text: Midnight Blue */
+  
+  --gradient-royal-magenta:linear-gradient(135deg,#022E59 0%,#CE2FAC 100%); /* @kind other */ /* text: White */
+  
+  --gradient-royal-bright:linear-gradient(135deg,#022E59 0%,#03D0FF 100%); /* @kind other */ /* text: White */
+  
+  --gradient-teal-turquoise:linear-gradient(135deg,#12797C 0%,#02C9B5 100%); /* @kind other */ /* text: White */
+  
+  --gradient-deepmagenta-magenta:linear-gradient(135deg,#680062 0%,#CE2FAC 100%); /* @kind other */ /* text: White */
+  
+  --gradient-sapphire-bright:linear-gradient(135deg,#0556CC 0%,#03D0FF 100%); /* @kind other */ /* text: White */
+  
+  --gradient-royal-turquoise:linear-gradient(135deg,#022E59 0%,#02C9B5 100%); /* @kind other */ /* text: White */
+  
+  --gradient-magenta-soft:linear-gradient(135deg,#CE2FAC 0%,rgba(206,47,172,.3) 100%); /* @kind other */ /* text: White */
+  
+  --gradient-bright-slight:linear-gradient(135deg,#03D0FF 0%,#D2F0FC 100%); /* @kind other */ /* text: Midnight Blue */
+  
+  --gradient-turquoise-slight:linear-gradient(135deg,#02C9B5 0%,#D2F0FC 100%); /* @kind other */ /* text: Midnight Blue */
+  
+  --gradient-slight-offwhite:linear-gradient(135deg,#D2F0FC 0%,#FAFAFA 100%); /* @kind other */ /* text: Midnight Blue */
+  
+
+  /* Photography protection: Veritant messaging sits on images via a directional field of brand
+     color, not a neutral scrim. */
+  --scrim-royal:linear-gradient(90deg,rgba(2,46,89,.94) 0%,rgba(2,46,89,.72) 48%,rgba(2,46,89,0) 100%); /* @kind other */
+  --scrim-midnight-bottom:linear-gradient(0deg,rgba(2,33,56,.9) 0%,rgba(2,33,56,0) 70%); /* @kind other */
+}

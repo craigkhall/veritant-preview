@@ -1,0 +1,43 @@
+/* ==========================================================================
+   Veritant — stylesheet entry point
+   --------------------------------------------------------------------------
+   Cascade layers: the design system ("ds") and the global element/responsive/
+   motion rules ("legacy") are layered; all BEM component classes are
+   unlayered, so they take precedence over both (as inline styles used to).
+   ========================================================================== */
+
+@layer ds, legacy;
+
+/* Design system tokens + element defaults */
+@import url("../_ds/shook-research-design-system-aa03f893-0aa4-44cd-bb0e-c88ae5e40cfa/tokens/fonts.css") layer(ds);
+@import url("../_ds/shook-research-design-system-aa03f893-0aa4-44cd-bb0e-c88ae5e40cfa/tokens/colors.css") layer(ds);
+@import url("../_ds/shook-research-design-system-aa03f893-0aa4-44cd-bb0e-c88ae5e40cfa/tokens/gradients.css") layer(ds);
+@import url("../_ds/shook-research-design-system-aa03f893-0aa4-44cd-bb0e-c88ae5e40cfa/tokens/typography.css") layer(ds);
+@import url("../_ds/shook-research-design-system-aa03f893-0aa4-44cd-bb0e-c88ae5e40cfa/tokens/spacing.css") layer(ds);
+@import url("../_ds/shook-research-design-system-aa03f893-0aa4-44cd-bb0e-c88ae5e40cfa/tokens/surfaces.css") layer(ds);
+@import url("../_ds/shook-research-design-system-aa03f893-0aa4-44cd-bb0e-c88ae5e40cfa/tokens/base.css") layer(ds);
+@import url("../_ds/shook-research-design-system-aa03f893-0aa4-44cd-bb0e-c88ae5e40cfa/styles.css") layer(ds);
+
+/* Settings */
+@import url("settings/variables.css");
+
+/* Base (layered) */
+@import url("base/base.css") layer(legacy);
+@import url("base/responsive.css") layer(legacy);
+@import url("base/motion.css") layer(legacy);
+
+/* Components, layout and pages */
+@import url("components/button.css");
+@import url("layout/site.css");
+@import url("layout/header.css");
+@import url("components/intro-modal.css");
+@import url("pages/home.css");
+@import url("pages/mission.css");
+@import url("pages/independence.css");
+@import url("pages/insights.css");
+@import url("pages/events.css");
+@import url("pages/rankings.css");
+@import url("pages/methodology.css");
+@import url("pages/team.css");
+@import url("pages/faq.css");
+@import url("layout/footer.css");

@@ -1,0 +1,110 @@
+/* ==========================================================================
+   Rankings page
+   ========================================================================== */
+
+.rankings-list {
+  background: var(--color-white);
+}
+
+.rankings-list__inner {
+  max-width: var(--container-max-width);
+  margin: 0 auto;
+  padding: 112px 40px;
+  box-sizing: border-box;
+}
+
+.rankings-list__list {
+  display: flex;
+  flex-direction: column;
+  border-top: 1px solid rgba(2,33,56,.14);
+}
+
+.ranking-row {
+  position: relative;
+  display: grid;
+  grid-template-columns: minmax(0,.9fr) minmax(0,2.6fr) minmax(0,.8fr) minmax(0,1.1fr);
+  gap: 12px 32px;
+  align-items: center;
+  padding: clamp(28px,3vw,44px) clamp(20px,3vw,40px);
+  border-bottom: 1px solid rgba(2,33,56,.14);
+  text-decoration: none;
+  transition: background 200ms;
+}
+
+.ranking-row__bar {
+  position: absolute;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  width: 6px;
+}
+
+.ranking-row__date {
+  font-size: 13px;
+  letter-spacing: .18em;
+  text-transform: uppercase;
+  color: var(--color-text-muted);
+}
+
+.ranking-row__title {
+  font-weight: 300;
+  font-size: clamp(20px,2.2vw,28px);
+  line-height: 1.2;
+  color: var(--color-royal-blue);
+}
+
+.ranking-row__meta {
+  font-size: 15px;
+  color: var(--color-text-muted);
+}
+
+.ranking-row__cta {
+  font-size: 15px;
+  color: var(--color-sapphire);
+  justify-self: end;
+  white-space: nowrap;
+}
+
+.ranking-row__bar--midnight {
+  background: var(--color-midnight-blue);
+}
+
+.ranking-row__bar--sapphire {
+  background: var(--color-sapphire);
+}
+
+.ranking-row__bar--royal-sapphire {
+  background: linear-gradient(180deg,var(--color-royal-blue),var(--color-sapphire));
+}
+
+.ranking-row__bar--royal-turquoise {
+  background: linear-gradient(180deg,var(--color-royal-blue),var(--color-turquoise));
+}
+
+.ranking-row__bar--magenta-gradient {
+  background: linear-gradient(180deg,var(--color-deep-magenta),var(--color-magenta));
+}
+
+.ranking-row__bar--magenta {
+  background: var(--color-magenta);
+}
+
+.ranking-row__bar--teal-turquoise {
+  background: linear-gradient(180deg,var(--color-teal),var(--color-turquoise));
+}
+
+.ranking-row__bar--teal {
+  background: var(--color-teal);
+}
+
+.ranking-row__bar--turquoise {
+  background: var(--color-turquoise);
+}
+
+.ranking-row__bar--royal {
+  background: var(--color-royal-blue);
+}
+
+.ranking-row__bar--ocean {
+  background: var(--color-ocean-blue);
+}

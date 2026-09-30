@@ -1,0 +1,319 @@
+/* ==========================================================================
+   Home — hero variants and home sections
+   ========================================================================== */
+
+.home-mission,
+.home-team {
+  background: var(--color-white);
+}
+
+.home-mission__inner {
+  max-width: var(--container-max-width);
+  margin: 0 auto;
+  padding: 128px 40px;
+  box-sizing: border-box;
+}
+
+.home-mission__content {
+  max-width: 820px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.home-mission__title {
+  margin: 0 0 32px;
+  font-weight: 300;
+  font-size: clamp(28px,3vw,40px);
+  line-height: 1.2;
+  color: var(--color-royal-blue);
+  text-wrap: pretty;
+}
+
+.home-mission__highlight,
+.home-team__highlight,
+.home-insights__highlight {
+  color: var(--color-sapphire);
+}
+
+.home-mission__text {
+  margin: 0 0 36px;
+  font-size: 18px;
+  line-height: 1.6;
+  color: var(--color-midnight-blue);
+  max-width: 770px;
+}
+
+.home-independence {
+  background: var(--color-bright-blue);
+  display: grid;
+  grid-template-columns: minmax(0,1fr) minmax(0,1fr);
+  min-height: 560px;
+}
+
+.home-independence__content {
+  padding: 128px clamp(40px,6vw,96px);
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+}
+
+.home-independence__title {
+  margin: 0 0 28px;
+  font-weight: 300;
+  font-size: clamp(28px,3vw,40px);
+  line-height: 1.2;
+  color: var(--color-midnight-blue);
+}
+
+.home-independence__highlight {
+  color: var(--color-royal-blue);
+}
+
+.home-independence__text {
+  margin: 0 0 40px;
+  font-size: 18px;
+  line-height: 1.6;
+  max-width: 540px;
+  color: var(--color-midnight-blue);
+}
+
+.home-independence__media {
+  position: relative;
+  min-height: 360px;
+}
+
+.home-methodology {
+  background: var(--gradient-midnight-glow);
+}
+
+.home-methodology__inner {
+  max-width: var(--container-max-width);
+  margin: 0 auto;
+  padding: 112px 40px;
+  box-sizing: border-box;
+  display: grid;
+  grid-template-columns: minmax(0,1fr) minmax(0,1.3fr);
+  gap: 64px;
+  align-items: center;
+}
+
+.home-methodology__title {
+  margin: 0 0 24px;
+  font-weight: 300;
+  font-size: clamp(28px,3vw,40px);
+  line-height: 1.15;
+  color: var(--color-white);
+}
+
+.home-methodology__highlight {
+  color: var(--color-bright-blue);
+}
+
+.home-methodology__text {
+  margin: 0 0 36px;
+  font-size: 18px;
+  line-height: 1.6;
+  color: var(--color-white);
+  max-width: 430px;
+}
+
+.home-methodology__cycle {
+  display: flex;
+  justify-content: center;
+}
+
+.home-team__inner,
+.home-insights__inner {
+  max-width: var(--container-max-width);
+  margin: 0 auto;
+  padding: 128px 40px;
+  box-sizing: border-box;
+  display: grid;
+  grid-template-columns: minmax(0,1fr) minmax(0,2fr);
+  gap: 64px;
+  align-items: start;
+}
+
+.home-team__title,
+.home-insights__title {
+  margin: 0 0 20px;
+  font-weight: 300;
+  font-size: clamp(28px,3vw,40px);
+  line-height: 1.15;
+  color: var(--color-royal-blue);
+}
+
+.home-team__text {
+  margin: 0 0 32px;
+  font-size: 18px;
+  line-height: 1.6;
+  max-width: 360px;
+}
+
+.home-team__grid,
+.home-insights__grid {
+  display: grid;
+  grid-template-columns: repeat(2,minmax(0,1fr));
+  gap: 20px;
+}
+
+.home-team__photo {
+  aspect-ratio: 4/5;
+  overflow: hidden;
+}
+
+.home-team__image,
+.news-card__image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.home-team__name {
+  margin-top: 20px;
+  font-size: 13px;
+  letter-spacing: .1em;
+  text-transform: uppercase;
+  color: var(--color-royal-blue);
+}
+
+.home-team__bio {
+  margin: 8px 0 0;
+  font-size: 16px;
+  line-height: 1.6;
+  color: var(--color-text-muted);
+}
+
+.home-insights {
+  background: var(--color-ice-blue);
+}
+
+.home-insights__intro {
+  margin-bottom: 32px;
+}
+
+.home-insights__text {
+  margin: 0;
+  font-size: 18px;
+  line-height: 1.6;
+  max-width: 360px;
+  color: var(--color-midnight-blue);
+}
+
+.insight-card {
+  position: relative;
+  overflow: hidden;
+  min-height: 480px;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  background: var(--color-royal-blue);
+  color: var(--color-white);
+  text-decoration: none;
+}
+
+.insight-card__image {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  opacity: .85;
+}
+
+.insight-card__gradient {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(180deg,rgba(47,134,232,0) 10%,rgba(47,134,232,.55) 40%,rgba(5,86,204,.9) 75%,rgba(5,72,224,.96) 100%);
+}
+
+.insight-card__body {
+  position: relative;
+  padding: clamp(28px,3.5vw,48px);
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  max-width: 560px;
+}
+
+.insight-card__eyebrow,
+.news-card__eyebrow {
+  font-size: 11px;
+  letter-spacing: .16em;
+  text-transform: uppercase;
+  color: var(--color-white);
+}
+
+.insight-card__title {
+  margin: 0;
+  font-weight: 300;
+  font-size: clamp(26px,2.6vw,36px);
+  line-height: 1.15;
+  color: var(--color-white);
+}
+
+.insight-card__text,
+.news-card__text {
+  margin: 0;
+  font-size: 17px;
+  line-height: 1.6;
+  color: var(--color-white);
+}
+
+.insight-card__cta {
+  margin-top: 8px;
+  font-size: 11px;
+  letter-spacing: .14em;
+  text-transform: uppercase;
+  color: var(--color-white);
+}
+
+.news-card {
+  display: flex;
+  flex-direction: column;
+  background: var(--gradient-brand);
+  color: var(--color-white);
+  text-decoration: none;
+}
+
+.news-card__media {
+  aspect-ratio: 16/10;
+  overflow: hidden;
+  background: var(--color-royal-blue);
+}
+
+.news-card__body {
+  flex: 1;
+  padding: clamp(24px,3vw,36px);
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.news-card__title {
+  margin: 0;
+  font-weight: 300;
+  font-size: clamp(22px,2vw,26px);
+  line-height: 1.2;
+  color: var(--color-white);
+}
+
+.news-card__cta {
+  margin-top: auto;
+  padding-top: 12px;
+  font-size: 11px;
+  letter-spacing: .14em;
+  text-transform: uppercase;
+  color: var(--color-white);
+}
+
+.home-team__photo--sapphire {
+  background: var(--color-sapphire);
+}
+
+.home-team__photo--teal {
+  background: var(--color-teal);
+}

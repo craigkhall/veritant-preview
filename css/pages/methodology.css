@@ -1,0 +1,125 @@
+/* ==========================================================================
+   Methodology page
+   ========================================================================== */
+
+.methodology-transparency {
+  background: var(--color-white);
+}
+
+.methodology-transparency__inner {
+  max-width: var(--container-max-width);
+  margin: 0 auto;
+  padding: 112px 40px 96px;
+  box-sizing: border-box;
+}
+
+.methodology-transparency__title {
+  margin: 0 0 40px;
+  font-weight: 300;
+  font-size: clamp(28px,3vw,40px);
+  line-height: 1.2;
+  color: var(--color-royal-blue);
+  max-width: 980px;
+  text-wrap: pretty;
+}
+
+.methodology-transparency__highlight {
+  color: var(--color-sapphire);
+}
+
+.methodology-transparency__text {
+  font-size: 18px;
+  line-height: 1.6;
+  max-width: 1010px;
+}
+
+.methodology-cycle {
+  background: var(--gradient-midnight-glow);
+}
+
+.methodology-cycle__inner {
+  max-width: var(--container-max-width);
+  margin: 0 auto;
+  padding: 112px 40px;
+  box-sizing: border-box;
+  display: grid;
+  grid-template-columns: minmax(0,1fr) minmax(0,1.3fr);
+  gap: 64px;
+  align-items: center;
+}
+
+.methodology-cycle__title {
+  margin: 0 0 24px;
+  font-weight: 300;
+  font-size: clamp(28px,3vw,40px);
+  line-height: 1.15;
+  color: var(--color-white);
+}
+
+.methodology-cycle__highlight {
+  color: var(--color-bright-blue);
+}
+
+.methodology-cycle__text {
+  margin: 0;
+  font-size: 18px;
+  line-height: 1.6;
+  color: var(--color-white);
+  max-width: 430px;
+}
+
+.methodology-cycle__diagram {
+  display: flex;
+  justify-content: center;
+}
+
+.methodology-cost {
+  background: var(--color-cloud);
+}
+
+.methodology-cost__inner {
+  max-width: var(--container-max-width);
+  margin: 0 auto;
+  padding: 112px 40px;
+  box-sizing: border-box;
+  display: grid;
+  grid-template-columns: minmax(0,1fr) minmax(0,1fr);
+  gap: 64px;
+  align-items: center;
+}
+
+.methodology-cost__title {
+  margin: 0 0 24px;
+  font-weight: 300;
+  font-size: clamp(28px,3vw,40px);
+  line-height: 1.15;
+  color: var(--color-royal-blue);
+}
+
+.methodology-cost__text {
+  margin: 0 0 36px;
+  font-size: 18px;
+  line-height: 1.6;
+  max-width: 540px;
+}
+
+.methodology-cost__media {
+  aspect-ratio: 1;
+  overflow: hidden;
+  background: var(--color-royal-blue);
+}
+
+.methodology-cost__image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.methodology-transparency__text--spaced {
+  margin: 0 0 24px;
+}
+
+.methodology-transparency__text--last {
+  margin: 0;
+}

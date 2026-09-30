@@ -1,0 +1,54 @@
+/* Typography — Neue Haas Grotesk Display, weights 35 Extra Light / 45 Light / 55 Roman / 65 Medium.
+   Arial is the approved alternative for Microsoft Office environments.
+
+   The licensed webfont files are not in this project yet. These faces resolve the family
+   from the viewer's locally installed Neue Haas Grotesk Display; where it isn't installed,
+   the fallback stack on --font-display / --font-body renders instead. When the licensed
+   .woff2 files are added under assets/fonts/, append url() sources ahead of each local(). */
+@font-face{font-family:"Neue Haas Grotesk Display";font-style:normal;font-weight:200;font-display:swap;src:local("Neue Haas Grotesk Display XThin"),local("NeueHaasDisplayExtraLight"),local("Neue Haas Grotesk Display")}
+@font-face{font-family:"Neue Haas Grotesk Display";font-style:normal;font-weight:300;font-display:swap;src:local("Neue Haas Grotesk Display Light"),local("NeueHaasDisplayLight"),local("Neue Haas Grotesk Display")}
+@font-face{font-family:"Neue Haas Grotesk Display";font-style:normal;font-weight:400;font-display:swap;src:local("Neue Haas Grotesk Display Roman"),local("NeueHaasDisplayRoman"),local("Neue Haas Grotesk Display")}
+@font-face{font-family:"Neue Haas Grotesk Display";font-style:normal;font-weight:500;font-display:swap;src:local("Neue Haas Grotesk Display Mediu"),local("NeueHaasDisplayMediu"),local("Neue Haas Grotesk Display")}
+:root{
+  --font-display:"Neue Haas Grotesk Display","NeueHaasDisplay","Inter Tight",Arial,Helvetica,sans-serif;
+  --font-body:"Neue Haas Grotesk Display","NeueHaasDisplay","Inter Tight",Arial,Helvetica,sans-serif;
+  --font-office:Arial,Helvetica,sans-serif;
+
+  /* Weight map to the Neue Haas naming */
+  --weight-extralight:200; /* @kind font */ /* NH 35 Extra Light */
+  --weight-light:300; /* @kind font */      /* NH 45 Light — the workhorse */
+  --weight-roman:400; /* @kind font */      /* NH 55 Roman */
+  --weight-medium:500; /* @kind font */     /* NH 65 Medium */
+
+  /* Scale (derived from the guideline layouts; ratio ≈1.25) */
+  --text-display-xl:76px;
+  --text-display-lg:56px;
+  --text-display-md:42px;
+  --text-headline:32px;
+  --text-title:24px;
+  --text-subtitle:20px;
+  --text-body-lg:18px;
+  --text-body:16px;
+  --text-body-sm:14px;
+  --text-caption:12px;
+  --text-eyebrow:11px;
+
+  /* Line heights — tight for all-caps statements, open for editorial copy */
+  --leading-statement:1.02; /* @kind other */
+  --leading-display:1.08; /* @kind other */
+  --leading-headline:1.15; /* @kind other */
+  --leading-body:1.5; /* @kind other */
+  --leading-caption:1.35; /* @kind other */
+
+  /* Tracking — event titles and eyebrows are letterspaced; long copy is not */
+  --tracking-statement:0.005em; /* @kind other */
+  --tracking-eventtitle:0.06em; /* @kind other */
+  --tracking-eyebrow:0.14em; /* @kind other */
+  --tracking-body:0; /* @kind other */
+
+  /* Semantic roles */
+  --type-statement-weight:var(--weight-light); /* @kind font */   /* ALL CAPS event titles + short headlines */
+  --type-editorial-weight:var(--weight-light); /* @kind font */   /* sentence case, longer statements */
+  --type-ui-weight:var(--weight-roman); /* @kind font */
+  --type-emphasis-weight:var(--weight-medium); /* @kind font */
+}

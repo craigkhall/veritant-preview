@@ -1,0 +1,4 @@
+/* Brand font: Neue Haas Grotesk Display (licensed via MyFonts — binaries NOT supplied in the brand assets).
+   Inter Tight (shipped in the guidelines' Document fonts folder) is the stand-in webfont.
+   Arial is the approved Microsoft Office / fallback face. */
+@font-face{font-family:"Inter Tight";src:url("../assets/fonts/InterTight-Variable.ttf") format("truetype-variations");font-weight:100 900;font-style:normal;font-display:swap}
