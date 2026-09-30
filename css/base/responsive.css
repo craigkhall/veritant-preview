@@ -66,3 +66,110 @@
 		opacity: .1 !important;
 	}
 }
+
+/* --------------------------------------------------------------------------
+	 Hero art ([data-hero-art]) — the masked graphic on the inner-page heroes
+	 must never sit behind the copy.
+	 >1200px: cap its width so its left edge stays clear of the text column
+	 (--hero-text-w = widest copy line, --hero-art-r = the art's right offset).
+	 769–1200px: the art keeps a fixed share of the width beside the copy and
+	 the copy column narrows to make room for it.
+	 ≤768px: the art becomes a small mark in the hero's bottom-right corner,
+	 inside the bottom padding.
+	 -------------------------------------------------------------------------- */
+[data-vt-hero] {
+	--hero-text-w: 760px;
+	--hero-art-r: 0%;
+}
+[data-screen-label="Mission hero"] {
+	--hero-text-w: calc(clamp(0px, 6vw, 120px) + 680px);
+	--hero-art-r: 6%;
+}
+[data-screen-label="Forbes hero"] {
+	--hero-text-w: 710px;
+	--hero-art-r: 5%;
+}
+[data-screen-label="Events hero"] {
+	--hero-art-r: 6%;
+}
+[data-screen-label="Methodology hero"] {
+	--hero-text-w: 680px;
+	--hero-art-r: 4%;
+}
+[data-screen-label="Rankings hero"] {
+	--hero-text-w: 640px;
+}
+
+@media (min-width:1201px) {
+	main [data-vt-hero] [data-hero-art] {
+		max-width: calc(100% - var(--hero-art-r) - max(0px, (100% - 1280px) / 2) - 40px - var(--hero-text-w) - 32px) !important;
+	}
+}
+
+@media (min-width:769px) and (max-width:1200px) {
+	[data-vt-hero] {
+		--hero-art-w: 30vw;
+	}
+	main [data-vt-hero] [data-hero-art] {
+		top: 50% !important;
+		right: 40px !important;
+		bottom: auto !important;
+		left: auto !important;
+		transform: translateY(-50%) !important;
+		width: var(--hero-art-w) !important;
+		height: auto !important;
+		max-width: none !important;
+		aspect-ratio: 1;
+	}
+	[data-vt-hero]:has([data-hero-art]) > div[data-rsp-pad] {
+		padding-right: calc(40px + var(--hero-art-w) + 32px) !important;
+	}
+}
+
+@media (max-width:960px) {
+	[data-vt-hero]:has([data-hero-art]) > div[data-rsp-pad] > div {
+		margin-left: 0 !important;
+	}
+	[data-vt-hero]:has([data-hero-art]) > div[data-rsp-pad] {
+		padding-top: 100px !important;
+		padding-bottom: 140px !important;
+	}
+}
+
+@media (max-width:768px) {
+	main [data-vt-hero] [data-hero-art] {
+		top: auto !important;
+		right: 24px !important;
+		bottom: 20px !important;
+		left: auto !important;
+		transform: none !important;
+		width: 88px !important;
+		height: auto !important;
+		max-width: none !important;
+		padding: 0 !important;
+		aspect-ratio: 1;
+	}
+}
+
+/* Inner-page hero copy on phones: tighter type, spacing and no indent. */
+@media (max-width:640px) {
+	[data-vt-hero]:has([data-hero-art]) > div[data-rsp-pad] {
+		padding-top: 48px !important;
+		padding-bottom: 120px !important;
+	}
+	main [data-vt-hero]:has([data-hero-art]) h1 {
+		font-size: 28px !important;
+		margin-bottom: 16px !important;
+	}
+	main [data-vt-hero]:has([data-hero-art]) h2 {
+		font-size: 19px !important;
+		margin-bottom: 12px !important;
+	}
+	main [data-vt-hero]:has([data-hero-art]) p {
+		font-size: 16px !important;
+		line-height: 1.55 !important;
+	}
+	[data-vt-hero]:has([data-hero-art]) > div[data-rsp-pad] div[style*="flex-direction:column"] {
+		gap: 12px !important;
+	}
+}
