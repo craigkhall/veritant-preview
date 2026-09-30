@@ -1,88 +1,88 @@
 /* ==========================================================================
-   Independence Charter page
-   ========================================================================== */
+	 Independence Charter page
+	 ========================================================================== */
 
 .charter-principles {
-  background: var(--color-white);
+	background: var(--color-white);
 }
 
 .charter-principles__inner {
-  max-width: var(--container-max-width);
-  margin: 0 auto;
-  padding: 112px 40px;
-  box-sizing: border-box;
+	max-width: var(--container-max-width);
+	margin: 0 auto;
+	padding: 112px 40px;
+	box-sizing: border-box;
 }
 
 .charter-principles__list {
-  display: flex;
-  flex-direction: column;
-  border-top: 1px solid rgba(2,33,56,.14);
+	display: flex;
+	flex-direction: column;
+	border-top: 1px solid rgba(2,33,56,.14);
 }
 
 .charter-principle {
-  position: relative;
-  overflow: hidden;
-  border-bottom: 1px solid rgba(2,33,56,.14);
-  cursor: default;
-  outline: none;
+	position: relative;
+	overflow: hidden;
+	border-bottom: 1px solid rgba(2,33,56,.14);
+	cursor: default;
+	outline: none;
 }
 
 .charter-principle__fill {
-  position: absolute;
-  inset: 0;
-  background: var(--color-sapphire);
-  transform-origin: left;
-  transition: transform 520ms cubic-bezier(.7,0,.2,1);
+	position: absolute;
+	inset: 0;
+	background: var(--color-sapphire);
+	transform-origin: left;
+	transition: transform 520ms cubic-bezier(.7,0,.2,1);
 }
 
 .charter-principle__grid {
-  position: relative;
-  display: grid;
-  grid-template-columns: 96px minmax(0,1.1fr) minmax(0,1fr);
-  gap: 16px 48px;
-  align-items: center;
-  padding: clamp(28px,3vw,40px) clamp(0px,2vw,32px);
+	position: relative;
+	display: grid;
+	grid-template-columns: 96px minmax(0,1.1fr) minmax(0,1fr);
+	gap: 16px 48px;
+	align-items: center;
+	padding: clamp(28px,3vw,40px) clamp(0px,2vw,32px);
 }
 
 .charter-principle__number {
-  font-weight: 300;
-  font-size: clamp(28px,3vw,44px);
-  line-height: 1;
-  letter-spacing: -.02em;
-  transition: color 300ms;
+	font-weight: 300;
+	font-size: clamp(28px,3vw,44px);
+	line-height: 1;
+	letter-spacing: -.02em;
+	transition: color 300ms;
 }
 
 .charter-principle__title {
-  margin: 0;
-  font-weight: 300;
-  font-size: clamp(24px,2.6vw,36px);
-  line-height: 1.1;
-  letter-spacing: -.01em;
-  transition: color 300ms,transform 420ms var(--ease-standard);
+	margin: 0;
+	font-weight: 300;
+	font-size: clamp(24px,2.6vw,36px);
+	line-height: 1.1;
+	letter-spacing: -.01em;
+	transition: color 300ms,transform 420ms var(--ease-standard);
 }
 
 .charter-principle__text {
-  margin: 0;
-  font-size: 18px;
-  line-height: 1.6;
-  color: var(--color-white);
-  max-width: 520px;
-  transition: opacity 360ms var(--ease-standard) 140ms,transform 460ms var(--ease-standard) 100ms;
-  text-wrap: pretty;
+	margin: 0;
+	font-size: 18px;
+	line-height: 1.6;
+	color: var(--color-white);
+	max-width: 520px;
+	transition: opacity 360ms var(--ease-standard) 140ms,transform 460ms var(--ease-standard) 100ms;
+	text-wrap: pretty;
 }
 
 /* Responsive */
 
 @media (max-width:960px) {
-  .charter-principle__grid {
-    grid-template-columns: minmax(0,1fr);
-    gap: 40px;
-  }
+	.charter-principle__grid {
+		grid-template-columns: minmax(0,1fr);
+		gap: 40px;
+	}
 }
 
 @media (max-width:640px) {
-  .charter-principles__inner {
-    padding-left: 24px;
-    padding-right: 24px;
-  }
+	.charter-principles__inner {
+		padding-left: 24px;
+		padding-right: 24px;
+	}
 }

@@ -1,162 +1,162 @@
 /* ==========================================================================
-   Intro modal — "SHOOK Research is now Veritant" announcement
-   ========================================================================== */
+	 Intro modal — "SHOOK Research is now Veritant" announcement
+	 ========================================================================== */
 
 .intro-modal {
-  position: fixed;
-  inset: 0;
-  z-index: 100;
-  background: rgba(2,33,56,.78);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  padding: 24px;
-  box-sizing: border-box;
+	position: fixed;
+	inset: 0;
+	z-index: 100;
+	background: rgba(2,33,56,.78);
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	padding: 24px;
+	box-sizing: border-box;
 }
 
 .intro-modal__dialog {
-  position: relative;
-  width: 100%;
-  max-width: 920px;
-  background: var(--gradient-brand-light);
-  color: var(--color-white);
-  overflow: hidden;
-  box-shadow: 0 40px 120px rgba(0,0,0,.45);
+	position: relative;
+	width: 100%;
+	max-width: 920px;
+	background: var(--gradient-brand-light);
+	color: var(--color-white);
+	overflow: hidden;
+	box-shadow: 0 40px 120px rgba(0,0,0,.45);
 }
 
 .intro-modal__rings {
-  position: absolute;
-  inset: 0;
-  pointer-events: none;
-  overflow: hidden;
+	position: absolute;
+	inset: 0;
+	pointer-events: none;
+	overflow: hidden;
 }
 
 .intro-modal__ring {
-  position: absolute;
-  width: 380px;
-  height: 380px;
-  border: 1.5px solid var(--color-turquoise);
-  border-radius: 50%;
-  box-sizing: border-box;
+	position: absolute;
+	width: 380px;
+	height: 380px;
+	border: 1.5px solid var(--color-turquoise);
+	border-radius: 50%;
+	box-sizing: border-box;
 }
 
 .intro-modal__body {
-  position: relative;
-  padding: clamp(32px,5vw,64px);
-  display: flex;
-  flex-direction: column;
-  gap: clamp(40px,6vw,72px);
-  min-height: clamp(380px,48vw,520px);
-  box-sizing: border-box;
+	position: relative;
+	padding: clamp(32px,5vw,64px);
+	display: flex;
+	flex-direction: column;
+	gap: clamp(40px,6vw,72px);
+	min-height: clamp(380px,48vw,520px);
+	box-sizing: border-box;
 }
 
 .intro-modal__top {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  gap: 24px;
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	gap: 24px;
 }
 
 .intro-modal__logo {
-  height: 24px;
-  display: block;
-  animation: vt-in-up 800ms 200ms var(--ease-standard) both;
+	height: 24px;
+	display: block;
+	animation: vt-in-up 800ms 200ms var(--ease-standard) both;
 }
 
 .intro-modal__close {
-  position: absolute;
-  top: clamp(16px,2.5vw,28px);
-  right: clamp(20px,3vw,36px);
-  z-index: 2;
-  background: transparent;
-  border: 0;
-  color: var(--color-white);
-  font: inherit;
-  font-size: 12px;
-  letter-spacing: .18em;
-  text-transform: uppercase;
-  cursor: pointer;
-  padding: 12px 0;
-  transition: color 160ms;
+	position: absolute;
+	top: clamp(16px,2.5vw,28px);
+	right: clamp(20px,3vw,36px);
+	z-index: 2;
+	background: transparent;
+	border: 0;
+	color: var(--color-white);
+	font: inherit;
+	font-size: 12px;
+	letter-spacing: .18em;
+	text-transform: uppercase;
+	cursor: pointer;
+	padding: 12px 0;
+	transition: color 160ms;
 }
 
 .intro-modal__content {
-  flex: 1;
-  display: flex;
-  flex-direction: column;
-  justify-content: flex-end;
-  gap: 32px;
+	flex: 1;
+	display: flex;
+	flex-direction: column;
+	justify-content: flex-end;
+	gap: 32px;
 }
 
 .intro-modal__rule {
-  width: 72px;
-  height: 2px;
-  background: var(--color-turquoise);
-  transform-origin: left;
-  animation: vt-in-rule 900ms 800ms var(--ease-standard) both;
+	width: 72px;
+	height: 2px;
+	background: var(--color-turquoise);
+	transform-origin: left;
+	animation: vt-in-rule 900ms 800ms var(--ease-standard) both;
 }
 
 .intro-modal__title {
-  margin: 0;
-  color: var(--color-white);
-  font-weight: 400;
-  font-size: clamp(28px,3.6vw,44px);
-  line-height: 1.1;
-  letter-spacing: -.01em;
-  max-width: 480px;
-  text-wrap: balance;
-  animation: vt-in-mask 1100ms 1100ms var(--ease-standard) both;
+	margin: 0;
+	color: var(--color-white);
+	font-weight: 400;
+	font-size: clamp(28px,3.6vw,44px);
+	line-height: 1.1;
+	letter-spacing: -.01em;
+	max-width: 480px;
+	text-wrap: balance;
+	animation: vt-in-mask 1100ms 1100ms var(--ease-standard) both;
 }
 
 .intro-modal__action {
-  animation: vt-in-fade 700ms 2100ms both;
+	animation: vt-in-fade 700ms 2100ms both;
 }
 
 .intro-modal__enter {
-  background: var(--color-turquoise);
-  color: var(--color-royal-blue);
-  border: 0;
-  padding: 16px 28px;
-  font: inherit;
-  font-size: 12px;
-  letter-spacing: .18em;
-  text-transform: uppercase;
-  cursor: pointer;
-  transition: background 160ms,color 160ms,border-color 160ms;
+	background: var(--color-turquoise);
+	color: var(--color-royal-blue);
+	border: 0;
+	padding: 16px 28px;
+	font: inherit;
+	font-size: 12px;
+	letter-spacing: .18em;
+	text-transform: uppercase;
+	cursor: pointer;
+	transition: background 160ms,color 160ms,border-color 160ms;
 }
 
 .intro-modal__ring--1 {
-  left: 60%;
-  top: 52%;
-  animation: vt-in-fade 1400ms 300ms both;
+	left: 60%;
+	top: 52%;
+	animation: vt-in-fade 1400ms 300ms both;
 }
 
 .intro-modal__ring--2 {
-  left: 80%;
-  top: 34%;
-  animation: vt-in-fade 1400ms 500ms both;
+	left: 80%;
+	top: 34%;
+	animation: vt-in-fade 1400ms 500ms both;
 }
 
 .intro-modal__ring--3 {
-  left: 66%;
-  top: 86%;
-  animation: vt-in-fade 1400ms 700ms both;
+	left: 66%;
+	top: 86%;
+	animation: vt-in-fade 1400ms 700ms both;
 }
 
 .intro-modal__ring--4 {
-  left: 90%;
-  top: 80%;
-  animation: vt-in-fade 1400ms 900ms both;
+	left: 90%;
+	top: 80%;
+	animation: vt-in-fade 1400ms 900ms both;
 }
 
 /* Hover states */
 
 .intro-modal__close:hover {
-  color: var(--color-turquoise);
+	color: var(--color-turquoise);
 }
 
 .intro-modal__enter:hover {
-  background: var(--color-royal-blue);
-  border-color: var(--color-royal-blue);
-  color: var(--color-white);
+	background: var(--color-royal-blue);
+	border-color: var(--color-royal-blue);
+	color: var(--color-white);
 }

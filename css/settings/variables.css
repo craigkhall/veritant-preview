@@ -1,50 +1,50 @@
 /* ==========================================================================
-   Global design tokens.
-   Brand colors alias the design-system palette (_ds/.../tokens/colors.css);
-   the remaining values are the site-specific colors used by the layouts.
-   ========================================================================== */
+	 Global design tokens.
+	 Brand colors alias the design-system palette (_ds/.../tokens/colors.css);
+	 the remaining values are the site-specific colors used by the layouts.
+	 ========================================================================== */
 
 :root {
-  /* Brand palette */
-  --color-midnight-blue: var(--veritant-midnight-blue); /* #022138 */
-  --color-royal-blue: var(--veritant-royal-blue);       /* #022E59 */
-  --color-sapphire: var(--veritant-sapphire);           /* #0556CC */
-  --color-bright-blue: var(--veritant-bright-blue);     /* #03D0FF */
-  --color-ocean-blue: var(--veritant-ocean-blue);       /* #6EB4F7 */
-  --color-teal: var(--veritant-teal);                   /* #12797C */
-  --color-turquoise: var(--veritant-turquoise);         /* #02C9B5 */
-  --color-slight-blue: var(--veritant-slight-blue);     /* #D2F0FC */
-  --color-deep-magenta: var(--veritant-deep-magenta);   /* #680062 */
-  --color-magenta: var(--veritant-magenta);             /* #CE2FAC */
-  --color-white: var(--veritant-white);                 /* #FFFFFF */
-  --color-black: var(--veritant-black);                 /* #000000 */
+	/* Brand palette */
+	--color-midnight-blue: var(--veritant-midnight-blue); /* #022138 */
+	--color-royal-blue: var(--veritant-royal-blue);       /* #022E59 */
+	--color-sapphire: var(--veritant-sapphire);           /* #0556CC */
+	--color-bright-blue: var(--veritant-bright-blue);     /* #03D0FF */
+	--color-ocean-blue: var(--veritant-ocean-blue);       /* #6EB4F7 */
+	--color-teal: var(--veritant-teal);                   /* #12797C */
+	--color-turquoise: var(--veritant-turquoise);         /* #02C9B5 */
+	--color-slight-blue: var(--veritant-slight-blue);     /* #D2F0FC */
+	--color-deep-magenta: var(--veritant-deep-magenta);   /* #680062 */
+	--color-magenta: var(--veritant-magenta);             /* #CE2FAC */
+	--color-white: var(--veritant-white);                 /* #FFFFFF */
+	--color-black: var(--veritant-black);                 /* #000000 */
 
-  /* Supporting colors */
-  --color-text-muted: #4A6076;
-  --color-cobalt: #0548E0;
-  --color-azure: #2F86E8;
-  --color-sky-blue: #4FA3F2;
-  --color-ice-blue: #ECF6FC;
-  --color-cloud: #EEF2F8;
-  --color-mist: #F6F7F9;
-  --color-silver: #E6E8EB;
+	/* Supporting colors */
+	--color-text-muted: #4A6076;
+	--color-cobalt: #0548E0;
+	--color-azure: #2F86E8;
+	--color-sky-blue: #4FA3F2;
+	--color-ice-blue: #ECF6FC;
+	--color-cloud: #EEF2F8;
+	--color-mist: #F6F7F9;
+	--color-silver: #E6E8EB;
 
-  /* Gradients */
-  --gradient-brand: linear-gradient(160deg, var(--color-cobalt) 0%, var(--color-sapphire) 45%, var(--color-azure) 100%);
-  --gradient-brand-light: linear-gradient(160deg, var(--color-cobalt) 0%, var(--color-sapphire) 45%, var(--color-sky-blue) 100%);
-  --gradient-midnight-glow: radial-gradient(60% 80% at 70% 50%, rgba(5, 86, 204, .55), transparent 70%), var(--color-midnight-blue);
+	/* Gradients */
+	--gradient-brand: linear-gradient(160deg, var(--color-cobalt) 0%, var(--color-sapphire) 45%, var(--color-azure) 100%);
+	--gradient-brand-light: linear-gradient(160deg, var(--color-cobalt) 0%, var(--color-sapphire) 45%, var(--color-sky-blue) 100%);
+	--gradient-midnight-glow: radial-gradient(60% 80% at 70% 50%, rgba(5, 86, 204, .55), transparent 70%), var(--color-midnight-blue);
 
-  /* Typography */
-  --font-family-base: var(--font-display);
+	/* Typography */
+	--font-family-base: var(--font-display);
 
-  /* Body */
-  --body-background: var(--color-white);
-  --body-color: var(--color-midnight-blue);
-  --body-font-family: var(--font-family-base);
+	/* Body */
+	--body-background: var(--color-white);
+	--body-color: var(--color-midnight-blue);
+	--body-font-family: var(--font-family-base);
 
-  /* Layout */
-  --container-max-width: 1280px;
+	/* Layout */
+	--container-max-width: 1280px;
 
-  /* Motion */
-  --ease-standard: cubic-bezier(.2, 0, .2, 1);
+	/* Motion */
+	--ease-standard: cubic-bezier(.2, 0, .2, 1);
 }

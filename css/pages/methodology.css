@@ -129,8 +129,8 @@
 @media (max-width:960px) {
   .methodology-cycle__inner,
   .methodology-cost__inner {
-    grid-template-columns: minmax(0,1fr);
-    gap: 40px;
+	grid-template-columns: minmax(0,1fr);
+	gap: 40px;
   }
 }
 
@@ -138,7 +138,7 @@
   .methodology-transparency__inner,
   .methodology-cycle__inner,
   .methodology-cost__inner {
-    padding-left: 24px;
-    padding-right: 24px;
+	padding-left: 24px;
+	padding-right: 24px;
   }
 }
