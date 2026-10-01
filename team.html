@@ -194,7 +194,7 @@
 									<div onMouseEnter="{{ p.enter }}" onMouseLeave="{{ p.leave }}" onClick="{{ p.open }}" class="team-member__photo" style="background:{{ p.bg }};cursor:{{ p.cursor }}">
 										<img src="assets/icons/assessment-white.svg" alt="" class="team-member__mark" style="opacity:{{ p.markOpacity }}">
 										<sc-if value="{{ p.hasPhoto }}" hint-placeholder-val="{{ true }}">
-											<img src="{{ p.img }}" alt="" class="team-member__image" style="opacity:{{ p.imgOpacity }};mix-blend-mode:{{ p.blend }}">
+											<img src="{{ p.img }}" loading="lazy" alt="" class="team-member__image" style="opacity:{{ p.imgOpacity }};mix-blend-mode:{{ p.blend }}">
 										</sc-if>
 										<sc-if value="{{ p.noPhoto }}" hint-placeholder-val="{{ false }}">
 											<div class="team-member__initials">{{ p.initials }}</div>

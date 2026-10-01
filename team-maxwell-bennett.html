@@ -205,7 +205,7 @@
 						<div class="team-bio__grid">
 							<div class="team-bio__photo">
 								<sc-if value="{{ bio.hasPhoto }}" hint-placeholder-val="{{ true }}">
-									<img src="{{ bio.img }}" alt="{{ bio.name }}" class="team-bio__image">
+									<img src="{{ bio.img }}" loading="lazy" alt="{{ bio.name }}" class="team-bio__image">
 								</sc-if>
 								<sc-if value="{{ bio.noPhoto }}" hint-placeholder-val="{{ false }}">
 									<div class="team-bio__initials">{{ bio.initials }}</div>
