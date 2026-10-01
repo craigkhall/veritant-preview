@@ -663,7 +663,8 @@ class Component extends DCLogic {
           noPhoto: !PHOTOS[n],
           initials: n.split(' ')[0][0] + n.split(' ').slice(-1)[0][0],
           paras: BIOS[n] || [],
-          linkedin: LINKEDIN[n] || 'https://www.linkedin.com/',
+          linkedin: LINKEDIN[n] || '',
+          hasLinkedin: !!LINKEDIN[n],
         };
       })(),
       email: s.email,

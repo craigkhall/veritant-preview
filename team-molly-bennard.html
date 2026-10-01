@@ -80,10 +80,7 @@
 		        "@id": "https://www.veritantresearch.com/#organization"
 		      },
 		      "url": "https://www.veritantresearch.com/team-molly-bennard.html",
-		      "image": "https://www.veritantresearch.com/assets/photo/team-molly.jpg",
-		      "sameAs": [
-		        "https://www.linkedin.com/in/"
-		      ]
+		      "image": "https://www.veritantresearch.com/assets/photo/team-molly.jpg"
 		    },
 		    {
 		      "@type": "BreadcrumbList",
@@ -224,7 +221,9 @@
 								</div>
 								<div class="team-bio__actions">
 									<button type="button" onClick="{{ openContact }}" class="team-bio__contact">Contact {{ bio.first }}</button>
-									<a href="{{ bio.linkedin }}" target="_blank" rel="noopener" class="team-bio__linkedin">LinkedIn</a>
+									<sc-if value="{{ bio.hasLinkedin }}" hint-placeholder-val="{{ false }}">
+										<a href="{{ bio.linkedin }}" target="_blank" rel="noopener" class="team-bio__linkedin">LinkedIn</a>
+									</sc-if>
 								</div>
 							</div>
 						</div>
