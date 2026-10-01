@@ -27,11 +27,6 @@
 	color: var(--color-royal-blue);
 }
 
-.button--white-sapphire {
-	background: var(--color-white);
-	color: var(--color-sapphire);
-}
-
 .button:hover {
 	background: var(--color-royal-blue);
 	border-color: var(--color-royal-blue);

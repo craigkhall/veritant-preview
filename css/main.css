@@ -16,7 +16,6 @@
 @import url("../_ds/shook-research-design-system-aa03f893-0aa4-44cd-bb0e-c88ae5e40cfa/tokens/spacing.css") layer(ds);
 @import url("../_ds/shook-research-design-system-aa03f893-0aa4-44cd-bb0e-c88ae5e40cfa/tokens/surfaces.css") layer(ds);
 @import url("../_ds/shook-research-design-system-aa03f893-0aa4-44cd-bb0e-c88ae5e40cfa/tokens/base.css") layer(ds);
-@import url("../_ds/shook-research-design-system-aa03f893-0aa4-44cd-bb0e-c88ae5e40cfa/styles.css") layer(ds);
 
 /* Settings */
 @import url("settings/variables.css");
