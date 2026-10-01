@@ -3,6 +3,64 @@
 <head>
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<!-- SEO -->
+	<title>Veritant Research | Independent Financial Advisor Research &amp; Rankings</title>
+	<meta name="description" content="Veritant Research identifies and elevates leading financial advisors through rigorous, independent research, helping investors find an advisor they can trust.">
+	<link rel="canonical" href="https://www.veritantresearch.com/">
+	<meta name="robots" content="index, follow">
+
+	<!-- Favicons -->
+	<link rel="icon" href="favicon.ico" sizes="32x32">
+	<link rel="icon" href="assets/favicon/favicon.svg" type="image/svg+xml">
+	<link rel="apple-touch-icon" href="assets/favicon/apple-touch-icon.png">
+	<link rel="manifest" href="site.webmanifest">
+	<meta name="theme-color" content="#022E59">
+
+	<!-- Open Graph (Facebook, LinkedIn, etc.) -->
+	<meta property="og:type" content="website">
+	<meta property="og:site_name" content="Veritant Research">
+	<meta property="og:locale" content="en_US">
+	<meta property="og:title" content="Veritant Research | Independent Financial Advisor Research &amp; Rankings">
+	<meta property="og:description" content="Veritant Research identifies and elevates leading financial advisors through rigorous, independent research, helping investors find an advisor they can trust.">
+	<meta property="og:url" content="https://www.veritantresearch.com/">
+	<meta property="og:image" content="https://www.veritantresearch.com/assets/social/og-default.jpg">
+	<meta property="og:image:width" content="1200">
+	<meta property="og:image:height" content="630">
+	<meta property="og:image:alt" content="Veritant: independent research, trusted advisor rankings">
+
+	<!-- Twitter / X -->
+	<meta name="twitter:card" content="summary_large_image">
+	<meta name="twitter:title" content="Veritant Research | Independent Financial Advisor Research &amp; Rankings">
+	<meta name="twitter:description" content="Veritant Research identifies and elevates leading financial advisors through rigorous, independent research, helping investors find an advisor they can trust.">
+	<meta name="twitter:image" content="https://www.veritantresearch.com/assets/social/og-default.jpg">
+	<meta name="twitter:image:alt" content="Veritant: independent research, trusted advisor rankings">
+
+	<!-- Structured data -->
+	<script type="application/ld+json">
+		{
+		  "@context": "https://schema.org",
+		  "@graph": [
+		    {
+		      "@type": "Organization",
+		      "@id": "https://www.veritantresearch.com/#organization",
+		      "name": "Veritant Research",
+		      "alternateName": "SHOOK Research",
+		      "url": "https://www.veritantresearch.com/",
+		      "logo": "https://www.veritantresearch.com/assets/favicon/icon-512.png",
+		      "email": "research@veritantresearch.com"
+		    },
+		    {
+		      "@type": "WebSite",
+		      "@id": "https://www.veritantresearch.com/#website",
+		      "name": "Veritant Research",
+		      "url": "https://www.veritantresearch.com/",
+		      "publisher": {
+		        "@id": "https://www.veritantresearch.com/#organization"
+		      }
+		    }
+		  ]
+		}
+	</script>
 	<meta name="ext-resource-dependency" content="./assets/photo/team-molly.jpg" data-resource-id="rt0">
 	<meta name="ext-resource-dependency" content="./assets/photo/team-josh.jpg" data-resource-id="rt1">
 	<meta name="ext-resource-dependency" content="./assets/photo/team-lindsey.jpg" data-resource-id="rt2">
@@ -65,7 +123,6 @@
 	<meta name="ext-resource-dependency" content="./assets/photo/event-audience-web.jpg" data-resource-id="r7">
 	<meta name="ext-resource-dependency" content="./assets/photo/event-applause.jpg" data-resource-id="r8">
 	<meta name="ext-resource-dependency" content="./assets/icons/pathways-white.svg" data-resource-id="r12">
-	<title>Veritant Research</title>
 	<template id="__bundler_thumbnail" data-bg-color="#0556CC">
 		<svg viewBox="0 0 1200 800" xmlns="http://www.w3.org/2000/svg"><rect width="1200" height="800" fill="#0556CC"/><text x="600" y="420" text-anchor="middle" font-family="Helvetica, Arial, sans-serif" font-size="72" font-weight="300" fill="#FFFFFF" letter-spacing="2">Veritant</text></svg>
 	</template>
@@ -83,7 +140,7 @@
 			<!-- NAV -->
 			<header ref="{{ headerRef }}" class="site-header" style="background:{{ navBg }};border-bottom:{{ navBorder }};margin-bottom:{{ navMb }}">
 				<div class="site-header__inner">
-					<a href="#home" onClick="{{ goHome }}" class="site-header__brand">
+					<a href="{{ hrefs.home }}" onClick="{{ goHome }}" class="site-header__brand">
 						<sc-if value="{{ navLight }}" hint-placeholder-val="{{ false }}">
 							<img src="assets/veritant-midnight.svg" alt="Veritant" class="site-header__logo">
 						</sc-if>
@@ -185,7 +242,7 @@
 							<div data-home-pad="1" data-rsp-pad="1" style="position:relative;max-width:1280px;margin:0 auto;padding:201px 40px 120px;width:100%;box-sizing:border-box;pointer-events:none">
 								<h1 data-vt-reveal="1" style="margin:0 0 28px;color:#fff;font-weight:300;font-size:clamp(26px,3.4vw,46px);line-height:1.15;white-space:nowrap">Our methodology is exhaustive. <br><span style="color:var(--veritant-turquoise)">Our network is unmatched.</span> <br><span style="color:var(--veritant-bright-blue)">Our independence is resolute.</span></h1>
 								<p data-vt-reveal="1" style="margin:0 0 40px;color:#fff;font-size:16px;line-height:1.6;max-width:390px;font-weight:300">We identify and elevate leading advisors through rigorous, independent research.</p>
-								<a href="#independence" onClick="{{ goIndependence }}" style="pointer-events:auto;display:inline-block;border:1px solid var(--veritant-bright-blue);background:var(--veritant-bright-blue);color:var(--veritant-royal-blue);font-weight:500;font-size:11px;letter-spacing:.14em;text-transform:uppercase;padding:14px 28px;transition:background 160ms,color 160ms,border-color 160ms" style-hover="background:#022E59;border-color:#022E59;color:#fff">Read our Independence Charter</a>
+								<a href="{{ hrefs.independence }}" onClick="{{ goIndependence }}" style="pointer-events:auto;display:inline-block;border:1px solid var(--veritant-bright-blue);background:var(--veritant-bright-blue);color:var(--veritant-royal-blue);font-weight:500;font-size:11px;letter-spacing:.14em;text-transform:uppercase;padding:14px 28px;transition:background 160ms,color 160ms,border-color 160ms" style-hover="background:#022E59;border-color:#022E59;color:#fff">Read our Independence Charter</a>
 							</div>
 						</sc-if>
 					</section>
@@ -198,7 +255,7 @@
 							<div>
 								<h1 style="margin:0 0 40px;color:#fff;font-weight:300;font-size:clamp(34px,4.2vw,56px);line-height:1.25;max-width:640px;text-wrap:nowrap">Advisor excellence, <br>defined through <br>independent research.</h1>
 								<p style="margin:0 0 48px;color:#fff;font-size:18px;line-height:1.6;max-width:410px;font-weight:300">We identify and elevate leading advisors through rigorous, independent research.</p>
-								<a href="#independence" onClick="{{ goIndependence }}" style="display:inline-block;background:#fff;color:var(--veritant-midnight-blue);font-size:11px;letter-spacing:.14em;text-transform:uppercase;padding:16px 24px;transition:background 160ms,color 160ms,border-color 160ms" style-hover="background:#022E59;border-color:#022E59;color:#fff">Read our Independence Charter</a>
+								<a href="{{ hrefs.independence }}" onClick="{{ goIndependence }}" style="display:inline-block;background:#fff;color:var(--veritant-midnight-blue);font-size:11px;letter-spacing:.14em;text-transform:uppercase;padding:16px 24px;transition:background 160ms,color 160ms,border-color 160ms" style-hover="background:#022E59;border-color:#022E59;color:#fff">Read our Independence Charter</a>
 							</div>
 							<div onClick="{{ playVideo }}" role="button" aria-label="Play: a message from our CEO" style="background:#fff;cursor:pointer;position:relative;overflow:hidden">
 								<div style="aspect-ratio:16/9;overflow:hidden;background:var(--veritant-royal-blue);position:relative">
@@ -229,7 +286,7 @@
 							<div class="home-mission__content">
 								<h2 class="home-mission__title">We conduct rigorous, independent research to identify and elevate <span class="home-mission__highlight">the advisors who define excellence within the profession.</span></h2>
 								<p class="home-mission__text">That helps investors find an advisor they can trust, and gives the industry a standard to live up to.</p>
-								<a href="#mission" onClick="{{ goMission }}" class="button button--sapphire">Explore our mission</a>
+								<a href="{{ hrefs.mission }}" onClick="{{ goMission }}" class="button button--sapphire">Explore our mission</a>
 							</div>
 						</div>
 					</section>
@@ -238,7 +295,7 @@
 						<div class="home-independence__content">
 							<h2 class="home-independence__title"><span class="heading-line">Veritant Research alone</span> <span class="heading-line home-independence__highlight">decides who is ranked.</span></h2>
 							<p class="home-independence__text">No publisher, sponsor or commercial partner influences eligibility, ranking order or research conclusions. Participation is free, and research is kept separate from commerce.</p>
-							<a href="#independence" onClick="{{ goIndependence }}" class="button button--sapphire">Read the seven commitments</a>
+							<a href="{{ hrefs.independence }}" onClick="{{ goIndependence }}" class="button button--sapphire">Read the seven commitments</a>
 						</div>
 						<div class="home-independence__media">
 							<image-slot id="home-independence-photo" shape="rect" src="assets/photo/texture-glass-web.jpg" placeholder="Drop a photo (architecture / glass)"></image-slot>
@@ -250,7 +307,7 @@
 							<div>
 								<h2 class="home-methodology__title"><span class="heading-line">Data is a starting point,</span> <span class="heading-line home-methodology__highlight">not the measure.</span></h2>
 								<p class="home-methodology__text">Data and human due diligence work together to create a complete view of advisor excellence.</p>
-								<a href="#methodology" onClick="{{ goMethodology }}" class="button button--bright-outlined">See the full cycle</a>
+								<a href="{{ hrefs.methodology }}" onClick="{{ goMethodology }}" class="button button--bright-outlined">See the full cycle</a>
 							</div>
 							<div class="home-methodology__cycle">{{ cycleDark }}</div>
 						</div>
@@ -261,7 +318,7 @@
 							<div>
 								<h2 class="home-team__title"><span class="heading-line">The people</span> <span class="heading-line home-team__highlight">behind the research.</span></h2>
 								<p class="home-team__text">Researchers, analysts and event specialists, led by Molly Bennard.</p>
-								<a href="#team" onClick="{{ goTeam }}" class="button button--sapphire">Meet the team</a>
+								<a href="{{ hrefs.team }}" onClick="{{ goTeam }}" class="button button--sapphire">Meet the team</a>
 							</div>
 							<div class="home-team__grid">
 								<div>
@@ -289,10 +346,10 @@
 									<h2 class="home-insights__title"><span class="heading-line">What the research</span> <span class="heading-line home-insights__highlight">tells us.</span></h2>
 									<p class="home-insights__text">Reports, findings and practical insights drawn from the research we conduct.</p>
 								</div>
-								<a href="#insights" onClick="{{ goInsights }}" class="button button--sapphire">All insights</a>
+								<a href="{{ hrefs.insights }}" onClick="{{ goInsights }}" class="button button--sapphire">All insights</a>
 							</div>
 							<div class="home-insights__grid">
-								<a href="#article" onClick="{{ goArticle }}" class="insight-card">
+								<a href="{{ hrefs.article }}" onClick="{{ goArticle }}" class="insight-card">
 									<img src="assets/photo/event-audience-web.jpg" alt="" class="insight-card__image">
 									<div class="insight-card__gradient"></div>
 									<div class="insight-card__body">
@@ -302,7 +359,7 @@
 										<span class="insight-card__cta link-chevron">Read article</span>
 									</div>
 								</a>
-								<a href="#press" onClick="{{ goPress }}" class="news-card">
+								<a href="{{ hrefs.press }}" onClick="{{ goPress }}" class="news-card">
 									<div class="news-card__media">
 										<img src="assets/photo/event-applause.jpg" alt="" class="news-card__image">
 									</div>
@@ -327,7 +384,7 @@
 						<div data-rsp-pad="1" style="position:relative;max-width:1280px;margin:0 auto;padding:120px 40px;width:100%;box-sizing:border-box">
 							<h1 style="margin:0 0 28px;color:#fff;font-weight:300;font-size:clamp(38px,4.6vw,60px);line-height:1.1;max-width:700px">Advisor excellence, <br>defined through <br>independent research.</h1>
 							<p style="margin:0 0 40px;color:#fff;font-size:16px;line-height:1.6;max-width:390px;font-weight:300">We identify and elevate leading advisors through rigorous, independent research.</p>
-							<a href="#independence" onClick="{{ goIndependence }}" style="display:inline-block;background:#fff;color:var(--veritant-midnight-blue);font-size:11px;letter-spacing:.14em;text-transform:uppercase;padding:14px 28px;transition:background 160ms,color 160ms,border-color 160ms" style-hover="background:#022E59;border-color:#022E59;color:#fff">Read our Independence Charter</a>
+							<a href="{{ hrefs.independence }}" onClick="{{ goIndependence }}" style="display:inline-block;background:#fff;color:var(--veritant-midnight-blue);font-size:11px;letter-spacing:.14em;text-transform:uppercase;padding:14px 28px;transition:background 160ms,color 160ms,border-color 160ms" style-hover="background:#022E59;border-color:#022E59;color:#fff">Read our Independence Charter</a>
 						</div>
 					</section>
 				</sc-if>
@@ -362,7 +419,7 @@
 							<div>
 								<h1 style="margin:0 0 40px;color:var(--veritant-royal-blue);font-weight:300;font-size:clamp(34px,4.2vw,56px);line-height:1.15;max-width:640px;text-wrap:nowrap">Advisor excellence, <br>defined through <br><span style="color:var(--veritant-sapphire)">independent research.</span></h1>
 								<p style="margin:0 0 48px;color:var(--veritant-midnight-blue);font-size:19px;line-height:1.6;max-width:540px;font-weight:300">We identify and elevate leading advisors through rigorous, independent research.</p>
-								<a href="#independence" onClick="{{ goIndependence }}" style="display:inline-block;background:var(--veritant-bright-blue);color:var(--veritant-royal-blue);font-size:11px;letter-spacing:.14em;text-transform:uppercase;padding:16px 24px;transition:background 160ms,color 160ms,border-color 160ms" style-hover="background:#022E59;border-color:#022E59;color:#fff">Read our Independence Charter &nbsp;→</a>
+								<a href="{{ hrefs.independence }}" onClick="{{ goIndependence }}" style="display:inline-block;background:var(--veritant-bright-blue);color:var(--veritant-royal-blue);font-size:11px;letter-spacing:.14em;text-transform:uppercase;padding:16px 24px;transition:background 160ms,color 160ms,border-color 160ms" style-hover="background:#022E59;border-color:#022E59;color:#fff">Read our Independence Charter &nbsp;→</a>
 							</div>
 							<div onClick="{{ playVideo }}" role="button" aria-label="Play: a message from our CEO" style="background:var(--veritant-royal-blue);cursor:pointer;position:relative;overflow:hidden">
 								<div style="aspect-ratio:16/9;overflow:hidden;background:var(--veritant-royal-blue);position:relative">
@@ -393,7 +450,7 @@
 							<div>
 								<h2 class="home-blue-mission__title">We conduct rigorous, independent research to identify and elevate the advisors who define excellence within the profession.</h2>
 								<p class="home-blue-mission__text">That helps investors find an advisor they can trust, and gives the industry a standard to live up to.</p>
-								<a href="#mission" onClick="{{ goMission }}" class="button button--sapphire">Explore our mission</a>
+								<a href="{{ hrefs.mission }}" onClick="{{ goMission }}" class="button button--sapphire">Explore our mission</a>
 							</div>
 						</div>
 					</section>
@@ -403,7 +460,7 @@
 						<div class="home-blue-independence__inner">
 							<h2 class="home-blue-independence__title"><span class="heading-line">Veritant Research alone</span> <span class="heading-line">decides who is ranked.</span></h2>
 							<p class="home-blue-independence__text">No publisher, sponsor or commercial partner influences eligibility, ranking order or research conclusions. Participation is free, and research is kept separate from commerce.</p>
-							<a href="#independence" onClick="{{ goIndependence }}" class="button button--sapphire">Read the seven commitments</a>
+							<a href="{{ hrefs.independence }}" onClick="{{ goIndependence }}" class="button button--sapphire">Read the seven commitments</a>
 						</div>
 					</section>
 
@@ -412,7 +469,7 @@
 							<div>
 								<h2 class="home-methodology__title"><span class="heading-line">Data is a starting point,</span> <span class="heading-line">not the measure.</span></h2>
 								<p class="home-blue-methodology__text">Data and human due diligence work together to create a complete view of advisor excellence.</p>
-								<a href="#methodology" onClick="{{ goMethodology }}" class="button button--white-sapphire">See the full cycle</a>
+								<a href="{{ hrefs.methodology }}" onClick="{{ goMethodology }}" class="button button--white-sapphire">See the full cycle</a>
 							</div>
 							<div class="home-methodology__cycle">{{ cycleSapphire }}</div>
 						</div>
@@ -423,7 +480,7 @@
 							<div>
 								<h2 class="home-team__title"><span class="heading-line">The people</span> <span class="heading-line">behind the research.</span></h2>
 								<p class="home-blue-team__text">Researchers, analysts and event specialists, led by Molly Bennard.</p>
-								<a href="#team" onClick="{{ goTeam }}" class="button button--sapphire">Meet the team</a>
+								<a href="{{ hrefs.team }}" onClick="{{ goTeam }}" class="button button--sapphire">Meet the team</a>
 							</div>
 							<div class="home-team__grid">
 								<div>
@@ -470,805 +527,6 @@
 					</section>
 				</sc-if>
 
-				<!-- ================= MISSION ================= -->
-				<sc-if value="{{ isMission }}" hint-placeholder-val="{{ false }}">
-					<section data-screen-label="Mission hero" data-vt-hero="1" style="background:linear-gradient(160deg,#0548E0 0%,#0556CC 45%,#2F86E8 100%);position:relative;overflow:hidden">
-						<sc-if value="{{ art0 }}" hint-placeholder-val="{{ false }}">
-							<img data-hero-art="1" src="assets/icons/evidence-white.svg" alt="" style="position:absolute;right:6%;top:42%;transform:translateY(-50%);width:clamp(240px,28vw,380px);opacity:.14;pointer-events:none">
-						</sc-if>
-						<sc-if value="{{ artA }}" hint-placeholder-val="{{ true }}">
-							<div data-hero-art="1" style="position:absolute;right:6%;top:42%;transform:translateY(-50%);width:clamp(240px,28vw,380px);aspect-ratio:1;background:{{ artColor }};opacity:.85;-webkit-mask-image:{{ artMask }};mask-image:{{ artMask }};-webkit-mask-size:contain;mask-size:contain;-webkit-mask-repeat:no-repeat;mask-repeat:no-repeat;-webkit-mask-position:center;mask-position:center;pointer-events:none;transition:background 300ms"></div>
-						</sc-if>
-						<sc-if value="{{ artB }}" hint-placeholder-val="{{ false }}">
-							<div data-hero-art="1" style="position:absolute;right:6%;top:42%;transform:translateY(-50%);width:clamp(276px,32vw,448px);aspect-ratio:1;background:{{ artColor }};opacity:.85;-webkit-mask-image:{{ artMask }};mask-image:{{ artMask }};-webkit-mask-size:contain;mask-size:contain;-webkit-mask-repeat:no-repeat;mask-repeat:no-repeat;-webkit-mask-position:center;mask-position:center;pointer-events:none;transition:background 300ms"></div>
-						</sc-if>
-						<div style="position:absolute;right:16px;bottom:16px;z-index:3;display:flex;flex-direction:column;align-items:flex-end;gap:8px">
-							<sc-if value="{{ artColored }}" hint-placeholder-val="{{ true }}">
-								<div style="display:flex;gap:6px;padding:6px;background:rgba(2,33,56,.25)">
-									<sc-for list="{{ artSwatches }}" as="sw" hint-placeholder-count="5">
-										<button type="button" onClick="{{ sw.pick }}" aria-label="{{ sw.name }}" title="{{ sw.name }}" style="width:22px;height:22px;padding:0;border:2px solid {{ sw.ring }};background:{{ sw.c }};cursor:pointer"></button>
-									</sc-for>
-								</div>
-							</sc-if>
-							<div style="display:flex;gap:6px">
-								<button type="button" onClick="{{ artSet0 }}" style="background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.12);color:{{ artFg0 }};font:inherit;font-size:9px;letter-spacing:.14em;text-transform:uppercase;padding:6px 10px;cursor:pointer;transition:color 160ms" style-hover="color:rgba(255,255,255,.85)">Current</button>
-								<button type="button" onClick="{{ artSet1 }}" style="background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.12);color:{{ artFg1 }};font:inherit;font-size:9px;letter-spacing:.14em;text-transform:uppercase;padding:6px 10px;cursor:pointer;transition:color 160ms" style-hover="color:rgba(255,255,255,.85)">A: Color</button>
-								<button type="button" onClick="{{ artSet2 }}" style="background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.12);color:{{ artFg2 }};font:inherit;font-size:9px;letter-spacing:.14em;text-transform:uppercase;padding:6px 10px;cursor:pointer;transition:color 160ms" style-hover="color:rgba(255,255,255,.85)">B: Larger</button>
-							</div>
-						</div>
-						<div data-rsp-pad="1" style="max-width:1280px;margin:0 auto;padding:180px 40px 200px;box-sizing:border-box;position:relative">
-							<div style="margin-left:clamp(0px,6vw,120px);max-width:760px">
-								<h1 style="margin:0 0 28px;color:#fff;font-weight:300;font-size:clamp(28px,3vw,40px);line-height:1.25">Our methodology is exhaustive. <br>Our independence is resolute. <br>Our network is unmatched.</h1>
-								<p style="margin:0;font-size:18px;line-height:1.7;color:#fff;max-width:680px">We conduct rigorous, independent research to identify and elevate the advisors who define excellence within the profession. That helps individuals and families find an advisor they can trust, and gives the industry a standard to live up to.</p>
-							</div>
-						</div>
-					</section>
-
-					<section class="mission-values">
-						<div class="mission-values__switcher">
-							<div class="mission-values__switcher-inner">
-								<button type="button" onClick="{{ valL2 }}" class="mission-values__switch" style="border-bottom:2px solid {{ valLine2 }}">Layout 1</button>
-								<button type="button" onClick="{{ valL1 }}" class="mission-values__switch" style="border-bottom:2px solid {{ valLine1 }}">Layout 2</button>
-							</div>
-						</div>
-						<div class="mission-values__inner">
-							<h2 data-v2-title="1" class="mission-values__title">Our Values</h2>
-							<sc-if value="{{ valLayout1 }}" hint-placeholder-val="{{ false }}">
-								<div onMouseLeave="{{ valLeave }}" class="value-track">
-									<sc-for list="{{ valItems }}" as="v" hint-placeholder-count="5">
-										<div class="value-track__item">
-											<div data-val-row="1" onMouseEnter="{{ v.enter }}" onFocus="{{ v.enter }}" onClick="{{ v.enter }}" tabindex="0" class="value-track__row" style="justify-content:{{ v.justify }}">
-												<div data-val-line="1" data-val-seg="t" class="value-track__line value-track__line--top" style="left:calc({{ v.x }} - 1px);background:{{ v.topSeg }}"></div>
-												<div data-val-line="1" data-val-seg="b" class="value-track__line value-track__line--bottom" style="left:calc({{ v.x }} - 1px);background:{{ v.botSeg }}"></div>
-												<div data-val-node="1" class="value-track__node" style="left:{{ v.x }}">
-													<div class="value-track__ring" style="background:{{ v.ringBg }};border:2px solid {{ v.ringBorder }};transform:{{ v.ringScale }}">
-														<img src="{{ v.iconBlue }}" alt="" class="value-track__icon" style="opacity:{{ v.blueOp }}">
-														<img src="{{ v.iconWhite }}" alt="" class="value-track__icon" style="opacity:{{ v.whiteOp }}">
-													</div>
-													<h3 data-val-title="1" class="value-track__title" style="{{ v.titleside }}:calc(100% + 28px);color:{{ v.titleColor }}">{{ v.t }}</h3>
-												</div>
-												<div data-val-box="1" class="value-track__card" style="background:{{ v.boxBg }};transform:{{ v.boxLift }}">
-													<img src="{{ v.wmIcon }}" alt="" class="value-track__watermark" style="opacity:{{ v.wmOp }}">
-													<p class="value-track__text" style="color:{{ v.boxFg }}"><strong class="value-track__lead">{{ v.lead }}</strong> {{ v.b }}</p>
-												</div>
-											</div>
-											<sc-if value="{{ v.hasNext }}" hint-placeholder-val="{{ true }}">
-												<svg data-val-curve="1" viewBox="0 0 100 100" preserveAspectRatio="none" class="value-track__curve">
-													<path d="{{ v.curve }}" pathLength="100" fill="none" stroke="{{ v.curveColor }}" stroke-width="2" vector-effect="non-scaling-stroke"></path>
-												</svg>
-											</sc-if>
-											<sc-if value="{{ v.hasNext }}" hint-placeholder-val="{{ true }}">
-												<div data-val-gap="1" class="value-track__gap"></div>
-											</sc-if>
-										</div>
-									</sc-for>
-								</div>
-							</sc-if>
-							<sc-if value="{{ valLayout2 }}" hint-placeholder-val="{{ true }}">
-								<div onMouseLeave="{{ valLeave }}" class="value-steps">
-									<sc-for list="{{ valItems }}" as="v" hint-placeholder-count="5">
-										<div class="value-steps__item">
-											<div data-v2-row="1" onMouseEnter="{{ v.enter }}" onFocus="{{ v.enter }}" onClick="{{ v.enter }}" tabindex="0" class="value-steps__row" style="flex-direction:{{ v.dir2 }}">
-												<div data-v2-node="1" class="value-steps__node" style="margin-left:{{ v.ml2 }};margin-right:{{ v.mr2 }}">
-													<div data-v2-seg="1" class="value-steps__segment value-steps__segment--top" style="background:{{ v.topSeg }}"></div>
-													<div class="value-steps__ring" style="background:{{ v.ringBg }};border:2px solid {{ v.ringBorder }};transform:{{ v.ringScale }}">
-														<img src="{{ v.iconBlue }}" alt="" class="value-steps__icon" style="opacity:{{ v.blueOp }}">
-														<img src="{{ v.iconWhite }}" alt="" class="value-steps__icon" style="opacity:{{ v.whiteOp }}">
-													</div>
-													<h3 class="value-steps__title" style="color:{{ v.titleColor }}">{{ v.t }}</h3>
-													<div data-v2-seg="1" class="value-steps__segment value-steps__segment--bottom" style="background:{{ v.botSeg }}"></div>
-												</div>
-												<div data-v2-box="1" class="value-steps__card" style="background:{{ v.boxBg }};transform:{{ v.boxLift }}">
-													<img src="{{ v.wmIcon }}" alt="" class="value-steps__watermark" style="opacity:{{ v.wmOp }}">
-													<p class="value-steps__text" style="color:{{ v.boxFg }}"><strong class="value-steps__lead">{{ v.lead }}</strong> {{ v.b }}</p>
-												</div>
-											</div>
-											<sc-if value="{{ v.hasNext }}" hint-placeholder-val="{{ true }}">
-												<svg data-v2-curve="1" viewBox="0 0 100 100" preserveAspectRatio="none" class="value-steps__curve">
-													<path d="{{ v.curve2 }}" pathLength="100" fill="none" stroke="{{ v.curveColor }}" stroke-width="2" vector-effect="non-scaling-stroke"></path>
-												</svg>
-											</sc-if>
-											<sc-if value="{{ v.hasNext }}" hint-placeholder-val="{{ true }}">
-												<div data-v2-gap="1" class="value-steps__gap"></div>
-											</sc-if>
-										</div>
-									</sc-for>
-								</div>
-							</sc-if>
-						</div>
-					</section>
-
-					<section class="mission-trust">
-						<div class="mission-trust__inner">
-							<div class="mission-trust__content">
-								<h2 class="mission-trust__title">We earn trust through the quality of the research and the integrity of the process behind every ranking.</h2>
-								<div class="mission-trust__actions">
-									<a href="#independence" onClick="{{ goIndependence }}" class="button button--sapphire link-arrow">Read the charter</a>
-									<a href="#methodology" onClick="{{ goMethodology }}" class="button button--outline-royal">See the methodology</a>
-								</div>
-							</div>
-							<div class="mission-trust__media">
-								<img src="assets/photo/event-woman-seated-web.jpg" alt="" class="mission-trust__image">
-							</div>
-						</div>
-					</section>
-				</sc-if>
-
-				<!-- ================= INDEPENDENCE ================= -->
-				<sc-if value="{{ isIndependence }}" hint-placeholder-val="{{ false }}">
-					<section data-screen-label="Independence hero" data-vt-hero="1" style="background:linear-gradient(160deg,#0548E0 0%,#0556CC 45%,#2F86E8 100%);position:relative;overflow:hidden">
-						<sc-if value="{{ art0 }}" hint-placeholder-val="{{ false }}">
-							<img data-hero-art="1" src="assets/icons/momentum-white.svg" alt="" style="position:absolute;right:-2%;top:50%;transform:translateY(-50%);width:clamp(300px,40vw,560px);opacity:.14;pointer-events:none">
-						</sc-if>
-						<sc-if value="{{ artColored }}" hint-placeholder-val="{{ true }}">
-							<div data-hero-art="1" style="position:absolute;right:{{ artRight }};top:50%;transform:translateY(-50%);width:{{ artW }};aspect-ratio:1;background:{{ artColor }};opacity:.85;-webkit-mask-image:{{ artMask }};mask-image:{{ artMask }};-webkit-mask-size:contain;mask-size:contain;-webkit-mask-repeat:no-repeat;mask-repeat:no-repeat;-webkit-mask-position:center;mask-position:center;pointer-events:none;transition:background 300ms"></div>
-						</sc-if>
-						<div style="position:absolute;right:16px;bottom:16px;z-index:3;display:flex;flex-direction:column;align-items:flex-end;gap:8px">
-							<sc-if value="{{ artColored }}" hint-placeholder-val="{{ true }}">
-								<div style="display:flex;gap:6px;padding:6px;background:rgba(2,33,56,.25)">
-									<sc-for list="{{ artSwatches }}" as="sw" hint-placeholder-count="5">
-										<button type="button" onClick="{{ sw.pick }}" aria-label="{{ sw.name }}" title="{{ sw.name }}" style="width:22px;height:22px;padding:0;border:2px solid {{ sw.ring }};background:{{ sw.c }};cursor:pointer"></button>
-									</sc-for>
-								</div>
-							</sc-if>
-							<div style="display:flex;gap:6px">
-								<button type="button" onClick="{{ artSet0 }}" style="background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.12);color:{{ artFg0 }};font:inherit;font-size:9px;letter-spacing:.14em;text-transform:uppercase;padding:6px 10px;cursor:pointer;transition:color 160ms" style-hover="color:rgba(255,255,255,.85)">Current</button>
-								<button type="button" onClick="{{ artSet1 }}" style="background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.12);color:{{ artFg1 }};font:inherit;font-size:9px;letter-spacing:.14em;text-transform:uppercase;padding:6px 10px;cursor:pointer;transition:color 160ms" style-hover="color:rgba(255,255,255,.85)">A: Color</button>
-								<button type="button" onClick="{{ artSet2 }}" style="background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.12);color:{{ artFg2 }};font:inherit;font-size:9px;letter-spacing:.14em;text-transform:uppercase;padding:6px 10px;cursor:pointer;transition:color 160ms" style-hover="color:rgba(255,255,255,.85)">B: Larger</button>
-							</div>
-						</div>
-						<div data-rsp-pad="1" style="max-width:1280px;margin:0 auto;padding:140px 40px 180px;box-sizing:border-box;position:relative">
-							<h1 style="margin:0 0 80px;color:#fff;font-weight:300;font-size:clamp(34px,4vw,52px);line-height:1.12;max-width:760px">Veritant Independence Charter</h1>
-							<h2 style="margin:0 0 20px;color:#fff;font-weight:300;font-size:clamp(20px,2vw,26px);line-height:1.3;max-width:760px">Our commitment to independent, conflict-free research</h2>
-							<div style="display:flex;flex-direction:column;gap:20px;max-width:640px">
-								<p style="margin:0;color:#fff;font-size:20px;line-height:1.5;font-weight:300">Veritant’s rankings are built on a single foundation: independent, rigorous research conducted under a governance structure that no third party can influence.</p>
-								<p style="margin:0;color:#fff;font-size:20px;line-height:1.5;font-weight:300;max-width:710px">This Charter formalizes the principles that govern our independence so every advisor, firm, sponsor, and the public can see exactly how our rankings are built, and why they can be trusted.</p>
-							</div>
-						</div>
-					</section>
-					<section data-screen-label="Charter principles" class="charter-principles">
-						<div class="charter-principles__inner">
-							<div onMouseLeave="{{ chLeave }}" class="charter-principles__list">
-								<sc-for list="{{ chItems }}" as="c" hint-placeholder-count="7">
-									<div tabindex="0" onMouseEnter="{{ c.enter }}" onFocus="{{ c.enter }}" onClick="{{ c.enter }}" class="charter-principle">
-										<div class="charter-principle__fill" style="transform:{{ c.fill }}"></div>
-										<div class="charter-principle__grid">
-											<div class="charter-principle__number" style="color:{{ c.numColor }}">{{ c.n }}</div>
-											<h3 class="charter-principle__title" style="color:{{ c.titleColor }};transform:{{ c.titleShift }}">{{ c.t }}</h3>
-											<p class="charter-principle__text" style="opacity:{{ c.bodyOpacity }};transform:{{ c.bodyShift }}">{{ c.b }}</p>
-										</div>
-									</div>
-								</sc-for>
-							</div>
-						</div>
-					</section>
-				</sc-if>
-
-				<!-- ================= NEWS & INSIGHTS ================= -->
-				<sc-if value="{{ isInsights }}" hint-placeholder-val="{{ false }}">
-					<section data-screen-label="News hero" data-vt-hero="1" style="background:linear-gradient(160deg,#0548E0 0%,#0556CC 45%,#2F86E8 100%);position:relative;overflow:hidden">
-						<sc-if value="{{ art0 }}" hint-placeholder-val="{{ false }}">
-							<img data-hero-art="1" src="assets/icons/perspective-white.svg" alt="" style="position:absolute;right:-2%;top:50%;transform:translateY(-50%);width:clamp(300px,40vw,560px);opacity:.14;pointer-events:none">
-						</sc-if>
-						<sc-if value="{{ artA }}" hint-placeholder-val="{{ true }}">
-							<div data-hero-art="1" style="position:absolute;right:-2%;top:50%;transform:translateY(-50%);width:clamp(300px,40vw,560px);aspect-ratio:1;background:{{ artColor }};opacity:.85;-webkit-mask-image:{{ artMask }};mask-image:{{ artMask }};-webkit-mask-size:contain;mask-size:contain;-webkit-mask-repeat:no-repeat;mask-repeat:no-repeat;-webkit-mask-position:center;mask-position:center;pointer-events:none;transition:background 300ms"></div>
-						</sc-if>
-						<sc-if value="{{ artB }}" hint-placeholder-val="{{ false }}">
-							<div data-hero-art="1" style="position:absolute;right:-2%;top:50%;transform:translateY(-50%);width:clamp(345px,46vw,661px);aspect-ratio:1;background:{{ artColor }};opacity:.85;-webkit-mask-image:{{ artMask }};mask-image:{{ artMask }};-webkit-mask-size:contain;mask-size:contain;-webkit-mask-repeat:no-repeat;mask-repeat:no-repeat;-webkit-mask-position:center;mask-position:center;pointer-events:none;transition:background 300ms"></div>
-						</sc-if>
-						<div style="position:absolute;right:16px;bottom:16px;z-index:3;display:flex;flex-direction:column;align-items:flex-end;gap:8px">
-							<sc-if value="{{ artColored }}" hint-placeholder-val="{{ true }}">
-								<div style="display:flex;gap:6px;padding:6px;background:rgba(2,33,56,.25)">
-									<sc-for list="{{ artSwatches }}" as="sw" hint-placeholder-count="5">
-										<button type="button" onClick="{{ sw.pick }}" aria-label="{{ sw.name }}" title="{{ sw.name }}" style="width:22px;height:22px;padding:0;border:2px solid {{ sw.ring }};background:{{ sw.c }};cursor:pointer"></button>
-									</sc-for>
-								</div>
-							</sc-if>
-							<div style="display:flex;gap:6px">
-								<button type="button" onClick="{{ artSet0 }}" style="background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.12);color:{{ artFg0 }};font:inherit;font-size:9px;letter-spacing:.14em;text-transform:uppercase;padding:6px 10px;cursor:pointer;transition:color 160ms" style-hover="color:rgba(255,255,255,.85)">Current</button>
-								<button type="button" onClick="{{ artSet1 }}" style="background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.12);color:{{ artFg1 }};font:inherit;font-size:9px;letter-spacing:.14em;text-transform:uppercase;padding:6px 10px;cursor:pointer;transition:color 160ms" style-hover="color:rgba(255,255,255,.85)">A: Color</button>
-								<button type="button" onClick="{{ artSet2 }}" style="background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.12);color:{{ artFg2 }};font:inherit;font-size:9px;letter-spacing:.14em;text-transform:uppercase;padding:6px 10px;cursor:pointer;transition:color 160ms" style-hover="color:rgba(255,255,255,.85)">B: Larger</button>
-							</div>
-						</div>
-						<div data-rsp-pad="1" style="max-width:1280px;margin:0 auto;padding:140px 40px 180px;box-sizing:border-box;position:relative">
-							<h1 style="margin:0 0 20px;color:#fff;font-weight:300;font-size:clamp(34px,4vw,52px);line-height:1.12;max-width:640px">News &amp; Insights</h1>
-							<h2 style="margin:0;color:#fff;font-weight:300;font-size:clamp(20px,2vw,26px);line-height:1.3;max-width:760px">Latest Happenings and Insights</h2>
-						</div>
-					</section>
-					<section data-screen-label="News list" class="news-list">
-						<div class="news-list__inner">
-							<div class="news-list__switcher">
-								<button type="button" onClick="{{ newsSet1 }}" class="news-list__switch" style="border-bottom:2px solid {{ newsLine1 }}">Option 1</button>
-								<button type="button" onClick="{{ newsSet2 }}" class="news-list__switch" style="border-bottom:2px solid {{ newsLine2 }}">Option 2</button>
-							</div>
-							<sc-if value="{{ newsOpt1 }}" hint-placeholder-val="{{ true }}">
-								<div class="news-list__stack">
-									<a href="#press" onClick="{{ goPress }}" data-news-ov="1" class="news-feature">
-										<div data-news-img="1" class="news-feature__media news-feature__media--left">
-											<img src="assets/photo/event-applause.jpg" alt="" class="news-feature__image">
-										</div>
-										<div data-news-txt="1" class="news-feature__panel news-feature__panel--blue">
-											<div class="news-feature__meta">
-												<span class="news-feature__tag news-feature__tag--light">News</span>
-												<span class="news-feature__date news-feature__date--light">October 12, 2026</span>
-											</div>
-											<h2 class="news-feature__title news-feature__title--light">SHOOK Research is now Veritant.</h2>
-											<p class="news-feature__text news-feature__text--light">A new name for the independent research behind the industry’s advisor rankings.</p>
-											<div class="news-feature__cta news-feature__cta--light link-chevron">Read the announcement</div>
-										</div>
-									</a>
-									<a href="#article" onClick="{{ goArticle }}" data-news-ov="1" class="news-feature">
-										<div data-news-img="1" class="news-feature__media news-feature__media--right">
-											<img src="assets/photo/event-audience-web.jpg" alt="" class="news-feature__image">
-										</div>
-										<div data-news-txt="1" class="news-feature__panel news-feature__panel--white">
-											<div class="news-feature__meta">
-												<span class="news-feature__tag news-feature__tag--sapphire">Insight</span>
-												<span class="news-feature__date news-feature__date--muted">August 3, 2026</span>
-											</div>
-											<h2 class="news-feature__title news-feature__title--dark">What Actually Makes a Great Financial Advisor?</h2>
-											<p class="news-feature__text news-feature__text--muted">In wealth management, success gets measured in numbers.</p>
-											<div class="news-feature__author">Molly Bennard</div>
-											<div class="news-feature__cta news-feature__cta--sapphire link-chevron">Read the article</div>
-										</div>
-									</a>
-								</div>
-							</sc-if>
-							<sc-if value="{{ newsOpt2 }}" hint-placeholder-val="{{ false }}">
-								<div class="news-list__grid">
-									<a href="#press" onClick="{{ goPress }}" class="news-tile news-tile--blue">
-										<div class="news-tile__media">
-											<img src="assets/photo/event-applause.jpg" alt="" class="news-tile__image">
-											<span class="news-tile__tag news-tile__tag--light">News</span>
-										</div>
-										<div class="news-tile__body">
-											<div class="news-tile__date news-tile__date--light">
-												<span class="news-tile__day news-tile__day--light">12</span>
-												<span class="news-tile__month news-tile__month--light">Oct 2026</span>
-											</div>
-											<div class="news-tile__content">
-												<h2 class="news-tile__title news-tile__title--light">SHOOK Research is now Veritant.</h2>
-												<p class="news-tile__text news-tile__text--light">A new name for the independent research behind the industry’s advisor rankings.</p>
-												<div class="news-tile__cta news-tile__cta--light link-chevron">Read the announcement</div>
-											</div>
-										</div>
-									</a>
-									<a href="#article" onClick="{{ goArticle }}" class="news-tile news-tile--white">
-										<div class="news-tile__media">
-											<img src="assets/photo/event-audience-web.jpg" alt="" class="news-tile__image">
-											<span class="news-tile__tag news-tile__tag--sapphire">Insight</span>
-										</div>
-										<div class="news-tile__body">
-											<div class="news-tile__date news-tile__date--dark">
-												<span class="news-tile__day news-tile__day--sapphire">03</span>
-												<span class="news-tile__month news-tile__month--muted">Aug 2026</span>
-											</div>
-											<div class="news-tile__content">
-												<h2 class="news-tile__title news-tile__title--dark">What Actually Makes a Great Financial Advisor?</h2>
-												<p class="news-tile__text news-tile__text--muted">In wealth management, success gets measured in numbers.</p>
-												<div class="news-tile__author">Molly Bennard</div>
-												<div class="news-tile__cta news-tile__cta--sapphire link-chevron">Read the article</div>
-											</div>
-										</div>
-									</a>
-								</div>
-							</sc-if>
-						</div>
-					</section>
-				</sc-if>
-
-				<sc-if value="{{ isPress }}" hint-placeholder-val="{{ false }}">
-					<section data-screen-label="Press release" class="press-release">
-						<div class="press-release__inner">
-							<div class="press-release__toolbar">
-								<a href="#insights" onClick="{{ goInsights }}" class="press-release__back link-back">News &amp; Insights</a>
-								<div class="press-release__switcher">
-									<button type="button" onClick="{{ prImgOn }}" class="press-release__switch" style="border-bottom:2px solid {{ prLineOn }}">With image</button>
-									<button type="button" onClick="{{ prImgOff }}" class="press-release__switch" style="border-bottom:2px solid {{ prLineOff }}">Without image</button>
-								</div>
-							</div>
-							<div class="press-release__meta">
-								<span>Press release</span>
-								<span>October 12, 2026</span>
-							</div>
-							<h1 class="press-release__title">SHOOK Research is now Veritant.</h1>
-							<sc-if value="{{ prImg }}" hint-placeholder-val="{{ true }}">
-								<div class="press-release__media">
-									<img src="assets/photo/event-applause.jpg" alt="" class="press-release__image">
-								</div>
-							</sc-if>
-							<div class="press-release__body">
-								<p class="press-release__text">SHOOK Research today announced that it is now Veritant Research. The new name reflects the independent, research-driven process that has guided the firm’s advisor rankings for more than a decade.</p>
-								<p class="press-release__text">Veritant will continue to produce the rankings advisors and investors know, built on the same methodology: quantitative analysis paired with in-person due diligence. Over 10 years, the team has reviewed more than 50,000 survey submissions and met with over 7,000 advisors in person.</p>
-								<p class="press-release__text">[Placeholder quote from Molly Bennard, Chief Executive Officer.]</p>
-								<p class="press-release__text">Forbes remains Veritant’s strategic marketing partner, distributing and marketing the rankings. All previously published rankings remain live on Forbes.com.</p>
-								<p class="press-release__text">The first rankings published under the Veritant name will be released in December 2026, starting with the Top RIA Firms.</p>
-							</div>
-							<div class="press-release__about">
-								<h2 class="press-release__about-title">About Veritant Research</h2>
-								<p class="press-release__about-text">Veritant Research is an independent research firm focused on identifying and elevating advisor excellence in wealth management.</p>
-								<p class="press-release__contact">Media contact: [Name, email]</p>
-							</div>
-						</div>
-					</section>
-				</sc-if>
-
-				<sc-if value="{{ isArticle }}" hint-placeholder-val="{{ false }}">
-					<section data-screen-label="Insight article" class="insight-article">
-						<div class="insight-article__inner">
-							<a href="#insights" onClick="{{ goInsights }}" class="insight-article__back">News &amp; Insights</a>
-							<h1 class="insight-article__title">What Actually Makes a Great Financial Advisor?</h1>
-							<div class="insight-article__byline">
-								<span class="insight-article__author">Molly Bennard | SHOOK Research</span>
-								<span class="insight-article__source">Originally seen in Advisorpedia</span>
-							</div>
-							<div class="insight-article__body">
-								<p class="insight-article__text">In wealth management, success gets measured in numbers.</p>
-								<p class="insight-article__text">Assets under management. Revenue growth. New clients. Market performance.</p>
-								<p class="insight-article__text">Those metrics matter. They tell you a lot about the health and scale of a business. But after spending decades in this industry, and now running an organization built around identifying excellence across the profession, I’m more convinced than ever: the qualities that make someone a successful advisor aren’t always the same qualities that make someone a great one.</p>
-								<p class="insight-article__text">That distinction matters more than people realize. Financial advisors sit in a unique spot in their clients’ lives. Unlike most professionals, they get invited into deeply personal conversations, about family, retirement, education, philanthropy, legacy, business ownership, life transitions. They’re often sitting across from their clients during moments of real uncertainty: market volatility, the sale of a business, the death of a spouse, challenges with the next generation.</p>
-								<p class="insight-article__text">In those moments, what clients need has very little to do with portfolio construction. They need wisdom. They need perspective. Above all, they need trust.</p>
-								<p class="insight-article__text">At SHOOK Research, we’ve spent years going beyond the numbers, meeting with advisors in their offices, watching how they run their practices, understanding how they actually serve clients, evaluating the things that never show up in a spreadsheet. It’s reinforced one lesson for me, over and over: excellence is multidimensional.</p>
-								<p class="insight-article__text">The best advisors pair technical competence with real emotional intelligence. They understand that managing investments is only one piece of the relationship. They’re excellent listeners. They communicate clearly when things get uncertain. They have the discipline to put clients first, even when that may not be the easiest or most profitable path.</p>
-								<p class="insight-article__text">The strongest advisors also know that trust is earned over years and can be lost in minutes. Credibility comes from consistency, transparency, and follow-through. Their clients know what to expect, because these advisors’ values show up in every single interaction.</p>
-								<p class="insight-article__text">Curiosity is another trait I see again and again in top advisors. Wealth management doesn’t sit still. Client expectations keep shifting. Technology continues to reshape how work gets done. Regulations evolve. Products get more complex.</p>
-								<p class="insight-article__text">The advisors who last aren’t the ones who resist these changes. They’re the ones who keep learning and adapting, while staying grounded in the same principles: responsibility and service.</p>
-								<p class="insight-article__text">Maybe the most underappreciated trait, though, is that instead of being driven by ego or chasing the spotlight, great advisors think beyond themselves and focus on purpose.</p>
-								<p class="insight-article__text">They invest in their teams. They mentor the next generation of professionals. They give back to their communities. They share what they know and lead within the profession. Their impact reaches well past their own client list and shapes where wealth management is headed.</p>
-								<p class="insight-article__text">As our industry keeps growing, there’s real interest in finding better ways to measure and recognize excellence. Ratings, research, awards, data-driven insights, they all play a role. But we shouldn’t lose sight of the fact that some of the most important parts of being a great advisor can’t be fully measured.</p>
-								<p class="insight-article__text">The future of this business belongs to the people who combine expertise with empathy, rigor with judgment, and achievement with purpose. Those qualities are harder to put a number on than assets or revenue, but they’re the ones clients remember most.</p>
-							</div>
-						</div>
-					</section>
-				</sc-if>
-
-				<!-- ================= FORBES ================= -->
-				<sc-if value="{{ isForbes }}" hint-placeholder-val="{{ false }}">
-					<section data-screen-label="Forbes hero" data-vt-hero="1" style="background:linear-gradient(160deg,#0548E0 0%,#0556CC 45%,#2F86E8 100%);position:relative;overflow:hidden">
-						<sc-if value="{{ art0 }}" hint-placeholder-val="{{ false }}">
-							<img data-hero-art="1" src="assets/icons/connection-white.svg" alt="" style="position:absolute;right:-2%;top:50%;transform:translateY(-50%);width:clamp(300px,40vw,560px);opacity:.14;pointer-events:none">
-						</sc-if>
-						<sc-if value="{{ artA }}" hint-placeholder-val="{{ true }}">
-							<div data-hero-art="1" style="position:absolute;right:5%;top:50%;transform:translateY(-50%);width:clamp(220px,26vw,380px);aspect-ratio:1;background:{{ artColor }};opacity:.85;-webkit-mask-image:{{ artMask }};mask-image:{{ artMask }};-webkit-mask-size:contain;mask-size:contain;-webkit-mask-repeat:no-repeat;mask-repeat:no-repeat;-webkit-mask-position:center;mask-position:center;pointer-events:none;transition:background 300ms"></div>
-						</sc-if>
-						<sc-if value="{{ artB }}" hint-placeholder-val="{{ false }}">
-							<div data-hero-art="1" style="position:absolute;right:-2%;top:50%;transform:translateY(-50%);width:clamp(345px,46vw,661px);aspect-ratio:1;background:{{ artColor }};opacity:.85;-webkit-mask-image:{{ artMask }};mask-image:{{ artMask }};-webkit-mask-size:contain;mask-size:contain;-webkit-mask-repeat:no-repeat;mask-repeat:no-repeat;-webkit-mask-position:center;mask-position:center;pointer-events:none;transition:background 300ms"></div>
-						</sc-if>
-						<div style="position:absolute;right:16px;bottom:16px;z-index:3;display:flex;flex-direction:column;align-items:flex-end;gap:8px">
-							<sc-if value="{{ artColored }}" hint-placeholder-val="{{ true }}">
-								<div style="display:flex;gap:6px;padding:6px;background:rgba(2,33,56,.25)">
-									<sc-for list="{{ artSwatches }}" as="sw" hint-placeholder-count="5">
-										<button type="button" onClick="{{ sw.pick }}" aria-label="{{ sw.name }}" title="{{ sw.name }}" style="width:22px;height:22px;padding:0;border:2px solid {{ sw.ring }};background:{{ sw.c }};cursor:pointer"></button>
-									</sc-for>
-								</div>
-							</sc-if>
-							<div style="display:flex;gap:6px">
-								<button type="button" onClick="{{ artSet0 }}" style="background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.12);color:{{ artFg0 }};font:inherit;font-size:9px;letter-spacing:.14em;text-transform:uppercase;padding:6px 10px;cursor:pointer;transition:color 160ms" style-hover="color:rgba(255,255,255,.85)">Current</button>
-								<button type="button" onClick="{{ artSet1 }}" style="background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.12);color:{{ artFg1 }};font:inherit;font-size:9px;letter-spacing:.14em;text-transform:uppercase;padding:6px 10px;cursor:pointer;transition:color 160ms" style-hover="color:rgba(255,255,255,.85)">A: Color</button>
-								<button type="button" onClick="{{ artSet2 }}" style="background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.12);color:{{ artFg2 }};font:inherit;font-size:9px;letter-spacing:.14em;text-transform:uppercase;padding:6px 10px;cursor:pointer;transition:color 160ms" style-hover="color:rgba(255,255,255,.85)">B: Larger</button>
-							</div>
-						</div>
-						<div data-rsp-pad="1" style="max-width:1280px;margin:0 auto;padding:140px 40px 180px;box-sizing:border-box;position:relative">
-							<h1 style="margin:0 0 28px;color:#fff;font-weight:300;font-size:clamp(34px,4vw,52px);line-height:1.12;max-width:640px">Forbes Partnership</h1>
-							<p style="margin:0;color:#fff;font-size:20px;line-height:1.5;max-width:710px;font-weight:300">Forbes is our strategic marketing partner, who distributes and markets the rankings.</p>
-						</div>
-					</section>
-				</sc-if>
-
-				<!-- ================= EVENTS ================= -->
-				<sc-if value="{{ isEvents }}" hint-placeholder-val="{{ false }}">
-					<section data-screen-label="Events hero" data-vt-hero="1" style="background:linear-gradient(160deg,#0548E0 0%,#0556CC 45%,#2F86E8 100%);position:relative;overflow:hidden">
-						<sc-if value="{{ art0 }}" hint-placeholder-val="{{ false }}">
-							<img data-hero-art="1" src="assets/icons/connection-white.svg" alt="" style="position:absolute;right:6%;top:50%;transform:translateY(-50%);width:clamp(240px,28vw,420px);opacity:.22;pointer-events:none">
-						</sc-if>
-						<sc-if value="{{ artA }}" hint-placeholder-val="{{ true }}">
-							<div data-hero-art="1" style="position:absolute;right:6%;top:50%;transform:translateY(-50%);width:clamp(240px,28vw,420px);aspect-ratio:1;background:{{ artColor }};opacity:.85;-webkit-mask-image:{{ artMask }};mask-image:{{ artMask }};-webkit-mask-size:contain;mask-size:contain;-webkit-mask-repeat:no-repeat;mask-repeat:no-repeat;-webkit-mask-position:center;mask-position:center;pointer-events:none;transition:background 300ms"></div>
-						</sc-if>
-						<sc-if value="{{ artB }}" hint-placeholder-val="{{ false }}">
-							<div data-hero-art="1" style="position:absolute;right:6%;top:50%;transform:translateY(-50%);width:clamp(276px,32vw,496px);aspect-ratio:1;background:{{ artColor }};opacity:.85;-webkit-mask-image:{{ artMask }};mask-image:{{ artMask }};-webkit-mask-size:contain;mask-size:contain;-webkit-mask-repeat:no-repeat;mask-repeat:no-repeat;-webkit-mask-position:center;mask-position:center;pointer-events:none;transition:background 300ms"></div>
-						</sc-if>
-						<div style="position:absolute;right:16px;bottom:16px;z-index:3;display:flex;flex-direction:column;align-items:flex-end;gap:8px">
-							<sc-if value="{{ artColored }}" hint-placeholder-val="{{ true }}">
-								<div style="display:flex;gap:6px;padding:6px;background:rgba(2,33,56,.25)">
-									<sc-for list="{{ artSwatches }}" as="sw" hint-placeholder-count="5">
-										<button type="button" onClick="{{ sw.pick }}" aria-label="{{ sw.name }}" title="{{ sw.name }}" style="width:22px;height:22px;padding:0;border:2px solid {{ sw.ring }};background:{{ sw.c }};cursor:pointer"></button>
-									</sc-for>
-								</div>
-							</sc-if>
-							<div style="display:flex;gap:6px">
-								<button type="button" onClick="{{ artSet0 }}" style="background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.12);color:{{ artFg0 }};font:inherit;font-size:9px;letter-spacing:.14em;text-transform:uppercase;padding:6px 10px;cursor:pointer;transition:color 160ms" style-hover="color:rgba(255,255,255,.85)">Current</button>
-								<button type="button" onClick="{{ artSet1 }}" style="background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.12);color:{{ artFg1 }};font:inherit;font-size:9px;letter-spacing:.14em;text-transform:uppercase;padding:6px 10px;cursor:pointer;transition:color 160ms" style-hover="color:rgba(255,255,255,.85)">A: Color</button>
-								<button type="button" onClick="{{ artSet2 }}" style="background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.12);color:{{ artFg2 }};font:inherit;font-size:9px;letter-spacing:.14em;text-transform:uppercase;padding:6px 10px;cursor:pointer;transition:color 160ms" style-hover="color:rgba(255,255,255,.85)">B: Larger</button>
-							</div>
-						</div>
-						<div data-rsp-pad="1" style="max-width:1280px;margin:0 auto;padding:140px 40px 180px;box-sizing:border-box;position:relative">
-							<h1 style="margin:0 0 20px;color:#fff;font-weight:300;font-size:clamp(34px,4vw,52px);line-height:1.12;max-width:640px">Upcoming Events</h1>
-							<h2 style="margin:0;color:#fff;font-weight:300;font-size:clamp(20px,2vw,26px);line-height:1.3;max-width:760px">2027 event calendar to be updated as additional information becomes available. Come back for more!</h2>
-						</div>
-					</section>
-					<section data-screen-label="Events list" class="events-list">
-						<div class="events-list__inner">
-							<div class="events-list__list">
-								<a href="https://www.shookresearch.com/events/" target="_blank" rel="noopener" class="event-row">
-									<div class="event-row__info">
-										<span class="event-row__name">Top Advisor Summit</span>
-										<span class="event-row__venue">The Wynn, Las Vegas, NV</span>
-									</div>
-									<span class="event-row__cta link-chevron">View event</span>
-									<span class="event-row__date">October 13–16, 2026</span>
-								</a>
-								<a href="https://www.shookresearch.com/2027-forbes-shook-top-teams-summit.php" target="_blank" rel="noopener" class="event-row">
-									<div class="event-row__info">
-										<span class="event-row__name">Top Teams Summit</span>
-										<span class="event-row__venue">Fontainebleau Miami Beach</span>
-									</div>
-									<span class="event-row__cta link-chevron">View event</span>
-									<span class="event-row__date">March 1–3, 2027</span>
-								</a>
-								<a href="https://www.shookresearch.com/2027-forbes-shook-top-women-advisor-summit.php" target="_blank" rel="noopener" class="event-row">
-									<div class="event-row__info">
-										<span class="event-row__name">Top Women Advisor Summit</span>
-										<span class="event-row__venue">The Boca Raton</span>
-									</div>
-									<span class="event-row__cta link-chevron">View event</span>
-									<span class="event-row__date">May 11–13, 2027</span>
-								</a>
-							</div>
-						</div>
-					</section>
-				</sc-if>
-
-				<!-- ================= RANKINGS ================= -->
-				<sc-if value="{{ isRankings }}" hint-placeholder-val="{{ false }}">
-					<section data-screen-label="Rankings hero" data-vt-hero="1" style="background:linear-gradient(160deg,#0548E0 0%,#0556CC 45%,#2F86E8 100%);position:relative;overflow:hidden">
-						<sc-if value="{{ art0 }}" hint-placeholder-val="{{ false }}">
-							<img data-hero-art="1" src="assets/icons/benchmarks-white.svg" alt="" style="position:absolute;right:-1%;top:50%;transform:translateY(-50%);height:120%;width:auto;max-width:60vw;opacity:.14;pointer-events:none">
-						</sc-if>
-						<sc-if value="{{ artA }}" hint-placeholder-val="{{ true }}">
-							<div data-hero-art="1" style="position:absolute;right:-1%;top:50%;transform:translateY(-50%);height:120%;aspect-ratio:1;max-width:60vw;background:{{ artColor }};opacity:.85;-webkit-mask-image:{{ artMask }};mask-image:{{ artMask }};-webkit-mask-size:contain;mask-size:contain;-webkit-mask-repeat:no-repeat;mask-repeat:no-repeat;-webkit-mask-position:center;mask-position:center;pointer-events:none;transition:background 300ms"></div>
-						</sc-if>
-						<sc-if value="{{ artB }}" hint-placeholder-val="{{ false }}">
-							<div data-hero-art="1" style="position:absolute;right:-1%;top:50%;transform:translateY(-50%);height:calc((120%) * 1.15);width:auto;max-width:60vw;aspect-ratio:1;background:{{ artColor }};opacity:.85;-webkit-mask-image:{{ artMask }};mask-image:{{ artMask }};-webkit-mask-size:contain;mask-size:contain;-webkit-mask-repeat:no-repeat;mask-repeat:no-repeat;-webkit-mask-position:center;mask-position:center;pointer-events:none;transition:background 300ms"></div>
-						</sc-if>
-						<div style="position:absolute;right:16px;bottom:16px;z-index:3;display:flex;flex-direction:column;align-items:flex-end;gap:8px">
-							<sc-if value="{{ artColored }}" hint-placeholder-val="{{ true }}">
-								<div style="display:flex;gap:6px;padding:6px;background:rgba(2,33,56,.25)">
-									<sc-for list="{{ artSwatches }}" as="sw" hint-placeholder-count="5">
-										<button type="button" onClick="{{ sw.pick }}" aria-label="{{ sw.name }}" title="{{ sw.name }}" style="width:22px;height:22px;padding:0;border:2px solid {{ sw.ring }};background:{{ sw.c }};cursor:pointer"></button>
-									</sc-for>
-								</div>
-							</sc-if>
-							<div style="display:flex;gap:6px">
-								<button type="button" onClick="{{ artSet0 }}" style="background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.12);color:{{ artFg0 }};font:inherit;font-size:9px;letter-spacing:.14em;text-transform:uppercase;padding:6px 10px;cursor:pointer;transition:color 160ms" style-hover="color:rgba(255,255,255,.85)">Current</button>
-								<button type="button" onClick="{{ artSet1 }}" style="background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.12);color:{{ artFg1 }};font:inherit;font-size:9px;letter-spacing:.14em;text-transform:uppercase;padding:6px 10px;cursor:pointer;transition:color 160ms" style-hover="color:rgba(255,255,255,.85)">A: Color</button>
-								<button type="button" onClick="{{ artSet2 }}" style="background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.12);color:{{ artFg2 }};font:inherit;font-size:9px;letter-spacing:.14em;text-transform:uppercase;padding:6px 10px;cursor:pointer;transition:color 160ms" style-hover="color:rgba(255,255,255,.85)">B: Larger</button>
-							</div>
-						</div>
-						<div data-rsp-pad="1" style="max-width:1280px;margin:0 auto;padding:140px 40px 180px;box-sizing:border-box;position:relative">
-							<h1 style="margin:0 0 28px;color:#fff;font-weight:300;font-size:clamp(34px,4vw,52px);line-height:1.12;max-width:640px">Rankings</h1>
-						</div>
-					</section>
-					<section data-screen-label="Rankings list" class="rankings-list">
-						<div class="rankings-list__inner">
-							<div class="rankings-list__list">
-								<a href="https://www.forbes.com/lists/top-next-gen-advisors/" target="_blank" rel="noopener" class="ranking-row">
-									<span class="ranking-row__bar ranking-row__bar--midnight"></span>
-									<span class="ranking-row__date">August 2026</span>
-									<span class="ranking-row__title">Top Next-Gen Wealth Advisors</span>
-									<span class="ranking-row__meta">United States</span>
-									<span class="ranking-row__cta link-arrow link-arrow--spaced">View on Forbes.com</span>
-								</a>
-								<a href="https://www.forbes.com/lists/best-in-state-next-gen-advisors/" target="_blank" rel="noopener" class="ranking-row">
-									<span class="ranking-row__bar ranking-row__bar--sapphire"></span>
-									<span class="ranking-row__date">August 2026</span>
-									<span class="ranking-row__title">Best-in-State Top Next-Gen Wealth Advisors</span>
-									<span class="ranking-row__meta">United States</span>
-									<span class="ranking-row__cta link-arrow link-arrow--spaced">View on Forbes.com</span>
-								</a>
-								<a href="https://www.forbes.com/lists/top-financial-security-professionals/" target="_blank" rel="noopener" class="ranking-row">
-									<span class="ranking-row__bar ranking-row__bar--royal-sapphire"></span>
-									<span class="ranking-row__date">July 2026</span>
-									<span class="ranking-row__title">Top Financial Security Professionals</span>
-									<span class="ranking-row__meta">United States</span>
-									<span class="ranking-row__cta link-arrow link-arrow--spaced">View on Forbes.com</span>
-								</a>
-								<a href="https://www.forbes.com/lists/best-in-state-financial-security-professionals/" target="_blank" rel="noopener" class="ranking-row">
-									<span class="ranking-row__bar ranking-row__bar--royal-turquoise"></span>
-									<span class="ranking-row__date">July 2026</span>
-									<span class="ranking-row__title">Best-in-State Financial Security Professionals</span>
-									<span class="ranking-row__meta">United States</span>
-									<span class="ranking-row__cta link-arrow link-arrow--spaced">View on Forbes.com</span>
-								</a>
-								<a href="https://www.forbes.com/lists/top-wealth-advisors/" target="_blank" rel="noopener" class="ranking-row">
-									<span class="ranking-row__bar ranking-row__bar--sapphire"></span>
-									<span class="ranking-row__date">April 2026</span>
-									<span class="ranking-row__title">Top Wealth Advisors</span>
-									<span class="ranking-row__meta">United States</span>
-									<span class="ranking-row__cta link-arrow link-arrow--spaced">View on Forbes.com</span>
-								</a>
-								<a href="https://www.forbes.com/lists/best-in-state-wealth-advisors/" target="_blank" rel="noopener" class="ranking-row">
-									<span class="ranking-row__bar ranking-row__bar--sapphire"></span>
-									<span class="ranking-row__date">April 2026</span>
-									<span class="ranking-row__title">Best-in-State Wealth Advisors</span>
-									<span class="ranking-row__meta">United States</span>
-									<span class="ranking-row__cta link-arrow link-arrow--spaced">View on Forbes.com</span>
-								</a>
-								<a href="https://www.forbes.com/lists/top-women-advisors/" target="_blank" rel="noopener" class="ranking-row">
-									<span class="ranking-row__bar ranking-row__bar--magenta-gradient"></span>
-									<span class="ranking-row__date">February 2026</span>
-									<span class="ranking-row__title">Top Women Wealth Advisors</span>
-									<span class="ranking-row__meta">United States</span>
-									<span class="ranking-row__cta link-arrow link-arrow--spaced">View on Forbes.com</span>
-								</a>
-								<a href="https://www.forbes.com/lists/best-in-state-women-advisors/" target="_blank" rel="noopener" class="ranking-row">
-									<span class="ranking-row__bar ranking-row__bar--magenta"></span>
-									<span class="ranking-row__date">February 2026</span>
-									<span class="ranking-row__title">Top Women Wealth Advisors: Best-in-State</span>
-									<span class="ranking-row__meta">United States</span>
-									<span class="ranking-row__cta link-arrow link-arrow--spaced">View on Forbes.com</span>
-								</a>
-								<a href="https://www.forbes.com/lists/wealth-management-teams-best-in-state/" target="_blank" rel="noopener" class="ranking-row">
-									<span class="ranking-row__bar ranking-row__bar--teal-turquoise"></span>
-									<span class="ranking-row__date">January 2026</span>
-									<span class="ranking-row__title">Best-in-State Wealth Management Teams</span>
-									<span class="ranking-row__meta">United States</span>
-									<span class="ranking-row__cta link-arrow link-arrow--spaced">View on Forbes.com</span>
-								</a>
-								<a href="https://www.forbes.com/lists/top-wealth-management-teams-private-wealth/" target="_blank" rel="noopener" class="ranking-row">
-									<span class="ranking-row__bar ranking-row__bar--teal"></span>
-									<span class="ranking-row__date">November 2025</span>
-									<span class="ranking-row__title">Top Wealth Management Teams – Private Wealth</span>
-									<span class="ranking-row__meta">United States</span>
-									<span class="ranking-row__cta link-arrow link-arrow--spaced">View on Forbes.com</span>
-								</a>
-								<a href="https://www.forbes.com/lists/top-wealth-management-teams-high-net-worth/" target="_blank" rel="noopener" class="ranking-row">
-									<span class="ranking-row__bar ranking-row__bar--turquoise"></span>
-									<span class="ranking-row__date">November 2025</span>
-									<span class="ranking-row__title">Top Wealth Management Teams – High Net Worth</span>
-									<span class="ranking-row__meta">United States</span>
-									<span class="ranking-row__cta link-arrow link-arrow--spaced">View on Forbes.com</span>
-								</a>
-								<a href="https://www.forbes.com/lists/top-ria-firms/" target="_blank" rel="noopener" class="ranking-row">
-									<span class="ranking-row__bar ranking-row__bar--royal"></span>
-									<span class="ranking-row__date">October 2025</span>
-									<span class="ranking-row__title">Top RIA Firms</span>
-									<span class="ranking-row__meta">United States</span>
-									<span class="ranking-row__cta link-arrow link-arrow--spaced">View on Forbes.com</span>
-								</a>
-								<a href="https://www.theglobeandmail.com/business/rob-magazine/article-canadas-top-women-wealth-advisors/" target="_blank" rel="noopener" class="ranking-row">
-									<span class="ranking-row__bar ranking-row__bar--ocean"></span>
-									<span class="ranking-row__date">April 2023</span>
-									<span class="ranking-row__title">Canada’s Top Women Wealth Advisors 2023</span>
-									<span class="ranking-row__meta">Canada</span>
-									<span class="ranking-row__cta link-arrow link-arrow--spaced">View on The Globe and Mail</span>
-								</a>
-								<a href="https://www.theglobeandmail.com/business/rob-magazine/article-canadas-2022-top-wealth-advisors/" target="_blank" rel="noopener" class="ranking-row">
-									<span class="ranking-row__bar ranking-row__bar--ocean"></span>
-									<span class="ranking-row__date">October 2022</span>
-									<span class="ranking-row__title">Canada’s Top Wealth Advisors</span>
-									<span class="ranking-row__meta">Canada</span>
-									<span class="ranking-row__cta link-arrow link-arrow--spaced">View on The Globe and Mail</span>
-								</a>
-								<a href="https://www.theglobeandmail.com/business/rob-magazine/article-canadas-top-wealth-advisors-best-in-province-2022/" target="_blank" rel="noopener" class="ranking-row">
-									<span class="ranking-row__bar ranking-row__bar--ocean"></span>
-									<span class="ranking-row__date">November 2022</span>
-									<span class="ranking-row__title">Canada’s Top Wealth Advisors Best-In-Province</span>
-									<span class="ranking-row__meta">Canada</span>
-									<span class="ranking-row__cta link-arrow link-arrow--spaced">View on The Globe and Mail</span>
-								</a>
-							</div>
-						</div>
-					</section>
-				</sc-if>
-
-				<!-- ================= METHODOLOGY ================= -->
-				<sc-if value="{{ isMethodology }}" hint-placeholder-val="{{ false }}">
-					<section data-screen-label="Methodology hero" data-vt-hero="1" style="background:linear-gradient(160deg,#0548E0 0%,#0556CC 45%,#2F86E8 100%);position:relative;overflow:hidden">
-						<sc-if value="{{ art0 }}" hint-placeholder-val="{{ false }}">
-							<img data-hero-art="1" src="assets/icons/comparison-white.svg" alt="" style="position:absolute;right:4%;top:50%;transform:translateY(-46%);width:clamp(280px,36vw,500px);opacity:.14;pointer-events:none">
-						</sc-if>
-						<sc-if value="{{ artA }}" hint-placeholder-val="{{ true }}">
-							<div data-hero-art="1" style="position:absolute;right:4%;top:50%;transform:translateY(-46%);width:clamp(280px,36vw,500px);aspect-ratio:1;background:{{ artColor }};opacity:.85;-webkit-mask-image:{{ artMask }};mask-image:{{ artMask }};-webkit-mask-size:contain;mask-size:contain;-webkit-mask-repeat:no-repeat;mask-repeat:no-repeat;-webkit-mask-position:center;mask-position:center;pointer-events:none;transition:background 300ms"></div>
-						</sc-if>
-						<sc-if value="{{ artB }}" hint-placeholder-val="{{ false }}">
-							<div data-hero-art="1" style="position:absolute;right:4%;top:50%;transform:translateY(-46%);width:clamp(322px,41vw,590px);aspect-ratio:1;background:{{ artColor }};opacity:.85;-webkit-mask-image:{{ artMask }};mask-image:{{ artMask }};-webkit-mask-size:contain;mask-size:contain;-webkit-mask-repeat:no-repeat;mask-repeat:no-repeat;-webkit-mask-position:center;mask-position:center;pointer-events:none;transition:background 300ms"></div>
-						</sc-if>
-						<div style="position:absolute;right:16px;bottom:16px;z-index:3;display:flex;flex-direction:column;align-items:flex-end;gap:8px">
-							<sc-if value="{{ artColored }}" hint-placeholder-val="{{ true }}">
-								<div style="display:flex;gap:6px;padding:6px;background:rgba(2,33,56,.25)">
-									<sc-for list="{{ artSwatches }}" as="sw" hint-placeholder-count="5">
-										<button type="button" onClick="{{ sw.pick }}" aria-label="{{ sw.name }}" title="{{ sw.name }}" style="width:22px;height:22px;padding:0;border:2px solid {{ sw.ring }};background:{{ sw.c }};cursor:pointer"></button>
-									</sc-for>
-								</div>
-							</sc-if>
-							<div style="display:flex;gap:6px">
-								<button type="button" onClick="{{ artSet0 }}" style="background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.12);color:{{ artFg0 }};font:inherit;font-size:9px;letter-spacing:.14em;text-transform:uppercase;padding:6px 10px;cursor:pointer;transition:color 160ms" style-hover="color:rgba(255,255,255,.85)">Current</button>
-								<button type="button" onClick="{{ artSet1 }}" style="background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.12);color:{{ artFg1 }};font:inherit;font-size:9px;letter-spacing:.14em;text-transform:uppercase;padding:6px 10px;cursor:pointer;transition:color 160ms" style-hover="color:rgba(255,255,255,.85)">A: Color</button>
-								<button type="button" onClick="{{ artSet2 }}" style="background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.12);color:{{ artFg2 }};font:inherit;font-size:9px;letter-spacing:.14em;text-transform:uppercase;padding:6px 10px;cursor:pointer;transition:color 160ms" style-hover="color:rgba(255,255,255,.85)">B: Larger</button>
-							</div>
-						</div>
-						<div data-rsp-pad="1" style="max-width:1280px;margin:0 auto;padding:150px 40px 170px;box-sizing:border-box;position:relative">
-							<h1 style="margin:0 0 24px;color:#fff;font-weight:300;font-size:clamp(32px,3.6vw,46px);line-height:1.15;max-width:560px">Data is a starting point. <br>Not the measure.</h1>
-							<p style="margin:0;color:#fff;font-size:18px;line-height:1.55;max-width:680px;font-weight:300">Veritant Research combines quantitative analysis with qualitative due diligence to develop a fuller view of advisor excellence.</p>
-						</div>
-					</section>
-					<section class="methodology-transparency">
-						<div class="methodology-transparency__inner">
-							<h2 class="methodology-transparency__title">We show how the research works, including the data sources, quantitative factors and qualitative considerations <span class="methodology-transparency__highlight">behind the rankings.</span></h2>
-							<p class="methodology-transparency__text methodology-transparency__text--spaced">That transparency starts during the research process, not after a ranking is published.</p>
-							<p class="methodology-transparency__text methodology-transparency__text--last">We listen directly to advisors, firms, compliance teams and sponsors. Their feedback helps us continually strengthen the research and the Independence Charter.</p>
-						</div>
-					</section>
-					<section data-screen-label="Methodology cycle" class="methodology-cycle">
-						<div class="methodology-cycle__inner">
-							<div>
-								<h2 class="methodology-cycle__title"><span class="heading-line">Research from</span> <span class="heading-line methodology-cycle__highlight">every angle.</span></h2>
-								<p class="methodology-cycle__text">Each step is designed to improve consistency, depth and accountability.</p>
-							</div>
-							<div class="methodology-cycle__diagram">{{ cycleDark }}</div>
-						</div>
-					</section>
-					<section class="methodology-cost">
-						<div class="methodology-cost__inner">
-							<div>
-								<h2 class="methodology-cost__title"><span class="heading-line">There is no cost</span> <span class="heading-line">to be considered.</span></h2>
-								<p class="methodology-cost__text">Buying marketing materials, attending an event or supporting a philanthropic initiative does not affect an advisor's evaluation or placement. Research alone determines who is recognized. Commercial activity comes only after recognition.</p>
-								<a href="#independence" onClick="{{ goIndependence }}" class="button button--sapphire link-arrow">Read the Independence Charter</a>
-							</div>
-							<div class="methodology-cost__media">
-								<img src="assets/photo/texture-architecture.jpg" alt="" class="methodology-cost__image">
-							</div>
-						</div>
-					</section>
-				</sc-if>
-
-				<!-- ================= TEAM ================= -->
-				<sc-if value="{{ isTeam }}" hint-placeholder-val="{{ false }}">
-					<section data-screen-label="Team" class="team">
-						<div class="team__inner">
-							<h1 class="team__title">The people behind the research.</h1>
-							<p class="team__intro">Researchers, analysts, and event builders who spend the year talking to advisors, their firms, their peers, and their competitors.</p>
-							<div class="team__filters">
-								<sc-for list="{{ filters }}" as="f" hint-placeholder-count="5">
-									<button type="button" onClick="{{ f.select }}" class="team__filter" style="border-bottom:1px solid {{ f.underline }}">{{ f.label }}</button>
-								</sc-for>
-							</div>
-							<div data-team-cols="{{ teamCols }}" class="team__grid">
-								<sc-for list="{{ people }}" as="p" hint-placeholder-count="8">
-									<div>
-										<div onMouseEnter="{{ p.enter }}" onMouseLeave="{{ p.leave }}" onClick="{{ p.open }}" class="team-member__photo" style="background:{{ p.bg }};cursor:{{ p.cursor }}">
-											<img src="assets/icons/assessment-white.svg" alt="" class="team-member__mark" style="opacity:{{ p.markOpacity }}">
-											<sc-if value="{{ p.hasPhoto }}" hint-placeholder-val="{{ true }}">
-												<img src="{{ p.img }}" alt="" class="team-member__image" style="opacity:{{ p.imgOpacity }};mix-blend-mode:{{ p.blend }}">
-											</sc-if>
-											<sc-if value="{{ p.noPhoto }}" hint-placeholder-val="{{ false }}">
-												<div class="team-member__initials">{{ p.initials }}</div>
-											</sc-if>
-										</div>
-										<div class="team-member__name" style="font-weight:{{ p.weight }}">{{ p.name }}</div>
-										<div class="team-member__role">{{ p.title }}</div>
-										<sc-if value="{{ p.hasBio }}" hint-placeholder-val="{{ false }}">
-											<a href="#bio" onClick="{{ p.open }}" class="team-member__link link-chevron">Read bio</a>
-										</sc-if>
-									</div>
-								</sc-for>
-							</div>
-						</div>
-					</section>
-				</sc-if>
-
-				<!-- ================= BIO ================= -->
-				<sc-if value="{{ isBio }}" hint-placeholder-val="{{ false }}">
-					<section data-screen-label="Team bio" class="team-bio">
-						<div class="team-bio__inner">
-							<a href="#team" onClick="{{ goTeam }}" class="team-bio__back">Team</a>
-							<div class="team-bio__grid">
-								<div class="team-bio__photo">
-									<sc-if value="{{ bio.hasPhoto }}" hint-placeholder-val="{{ true }}">
-										<img src="{{ bio.img }}" alt="{{ bio.name }}" class="team-bio__image">
-									</sc-if>
-									<sc-if value="{{ bio.noPhoto }}" hint-placeholder-val="{{ false }}">
-										<div class="team-bio__initials">{{ bio.initials }}</div>
-									</sc-if>
-								</div>
-								<div>
-									<h1 class="team-bio__name">{{ bio.name }}</h1>
-									<div class="team-bio__role">{{ bio.title }}</div>
-									<div class="team-bio__body">
-										<sc-for list="{{ bio.paras }}" as="para" hint-placeholder-count="3">
-											<p class="team-bio__text">{{ para }}</p>
-										</sc-for>
-									</div>
-									<div class="team-bio__actions">
-										<button type="button" onClick="{{ openContact }}" class="team-bio__contact">Contact {{ bio.first }}</button>
-										<a href="{{ bio.linkedin }}" target="_blank" rel="noopener" class="team-bio__linkedin">LinkedIn</a>
-									</div>
-								</div>
-							</div>
-						</div>
-					</section>
-					<sc-if value="{{ contactOpen }}" hint-placeholder-val="{{ false }}">
-						<div onClick="{{ closeContact }}" class="contact-modal">
-							<div role="dialog" aria-modal="true" aria-label="{{ contactLabel }}" onClick="{{ stopProp }}" class="contact-modal__dialog">
-								<div class="contact-modal__header">
-									<div class="contact-modal__recipient">To: {{ bio.name }}</div>
-									<button type="button" onClick="{{ closeContact }}" class="contact-modal__close">Close</button>
-								</div>
-								<sc-if value="{{ contactForm }}" hint-placeholder-val="{{ true }}">
-									<h2 class="contact-modal__title contact-modal__title--form">Send {{ bio.first }} a note.</h2>
-									<form onSubmit="{{ submitContact }}" class="contact-modal__form">
-										<input type="hidden" name="recipient" value="{{ bio.name }}">
-										<input required="{{ true }}" name="name" placeholder="Name" aria-label="Name" class="contact-modal__field">
-										<input required="{{ true }}" type="email" name="email" placeholder="Email address" aria-label="Email address" class="contact-modal__field contact-modal__field--email">
-										<input name="firm" placeholder="Firm" aria-label="Firm" class="contact-modal__field">
-										<textarea required="{{ true }}" name="message" rows="5" placeholder="Message" aria-label="Message" class="contact-modal__field contact-modal__field--message"></textarea>
-										<button type="submit" class="contact-modal__submit">Send note</button>
-									</form>
-								</sc-if>
-								<sc-if value="{{ contactSent }}" hint-placeholder-val="{{ false }}">
-									<h2 class="contact-modal__title contact-modal__title--success">Thank you.</h2>
-									<p class="contact-modal__text">Your note has been sent to {{ bio.first }}.</p>
-								</sc-if>
-							</div>
-						</div>
-					</sc-if>
-				</sc-if>
-
-				<!-- ================= FAQ ================= -->
-				<sc-if value="{{ isFaq }}" hint-placeholder-val="{{ false }}">
-					<section data-screen-label="FAQ hero" data-vt-hero="1" style="background:linear-gradient(160deg,#0548E0 0%,#0556CC 45%,#2F86E8 100%);position:relative;overflow:hidden">
-						<sc-if value="{{ art0 }}" hint-placeholder-val="{{ false }}">
-							<img data-hero-art="1" src="assets/icons/assessment-white.svg" alt="" style="position:absolute;right:-4%;top:50%;transform:translateY(-50%);height:calc(118% - 60px);width:auto;opacity:.14;pointer-events:none">
-						</sc-if>
-						<sc-if value="{{ artA }}" hint-placeholder-val="{{ true }}">
-							<div data-hero-art="1" style="position:absolute;right:-4%;top:50%;transform:translateY(-50%);height:calc(118% - 60px);width:auto;aspect-ratio:1;background:{{ artColor }};opacity:.85;-webkit-mask-image:{{ artMask }};mask-image:{{ artMask }};-webkit-mask-size:contain;mask-size:contain;-webkit-mask-repeat:no-repeat;mask-repeat:no-repeat;-webkit-mask-position:center;mask-position:center;pointer-events:none;transition:background 300ms"></div>
-						</sc-if>
-						<sc-if value="{{ artB }}" hint-placeholder-val="{{ false }}">
-							<div data-hero-art="1" style="position:absolute;right:-4%;top:50%;transform:translateY(-50%);height:calc((calc(118% - 60px)) * 1.15);width:auto;aspect-ratio:1;background:{{ artColor }};opacity:.85;-webkit-mask-image:{{ artMask }};mask-image:{{ artMask }};-webkit-mask-size:contain;mask-size:contain;-webkit-mask-repeat:no-repeat;mask-repeat:no-repeat;-webkit-mask-position:center;mask-position:center;pointer-events:none;transition:background 300ms"></div>
-						</sc-if>
-						<div style="position:absolute;right:16px;bottom:16px;z-index:3;display:flex;flex-direction:column;align-items:flex-end;gap:8px">
-							<sc-if value="{{ artColored }}" hint-placeholder-val="{{ true }}">
-								<div style="display:flex;gap:6px;padding:6px;background:rgba(2,33,56,.25)">
-									<sc-for list="{{ artSwatches }}" as="sw" hint-placeholder-count="5">
-										<button type="button" onClick="{{ sw.pick }}" aria-label="{{ sw.name }}" title="{{ sw.name }}" style="width:22px;height:22px;padding:0;border:2px solid {{ sw.ring }};background:{{ sw.c }};cursor:pointer"></button>
-									</sc-for>
-								</div>
-							</sc-if>
-							<div style="display:flex;gap:6px">
-								<button type="button" onClick="{{ artSet0 }}" style="background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.12);color:{{ artFg0 }};font:inherit;font-size:9px;letter-spacing:.14em;text-transform:uppercase;padding:6px 10px;cursor:pointer;transition:color 160ms" style-hover="color:rgba(255,255,255,.85)">Current</button>
-								<button type="button" onClick="{{ artSet1 }}" style="background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.12);color:{{ artFg1 }};font:inherit;font-size:9px;letter-spacing:.14em;text-transform:uppercase;padding:6px 10px;cursor:pointer;transition:color 160ms" style-hover="color:rgba(255,255,255,.85)">A: Color</button>
-								<button type="button" onClick="{{ artSet2 }}" style="background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.12);color:{{ artFg2 }};font:inherit;font-size:9px;letter-spacing:.14em;text-transform:uppercase;padding:6px 10px;cursor:pointer;transition:color 160ms" style-hover="color:rgba(255,255,255,.85)">B: Larger</button>
-							</div>
-						</div>
-						<div data-rsp-pad="1" style="max-width:1280px;margin:0 auto;padding:140px 40px 180px;box-sizing:border-box;position:relative">
-							<h1 style="margin:0 0 28px;color:#fff;font-weight:300;font-size:clamp(34px,4vw,52px);line-height:1.12">What is coming next!</h1>
-							<p style="margin:0;color:#fff;font-weight:300;font-size:clamp(20px,2vw,26px);line-height:1.3;max-width:760px">Information you need to know now!</p>
-						</div>
-					</section>
-					<section class="faq-list">
-						<div class="faq-list__inner">
-							<sc-for list="{{ faqItems }}" as="q" hint-placeholder-count="12">
-								<div class="faq-item">
-									<button type="button" onClick="{{ q.toggle }}" aria-expanded="{{ q.open }}" class="faq-item__toggle">
-										<span class="faq-item__question" style="color:{{ q.color }}">{{ q.q }}</span>
-										<span class="faq-item__sign">{{ q.sign }}</span>
-									</button>
-									<sc-if value="{{ q.open }}" hint-placeholder-val="{{ false }}">
-										<div class="faq-item__answer">
-											<sc-for list="{{ q.a }}" as="para" hint-placeholder-count="1">
-												<p class="faq-item__text">{{ para }}</p>
-											</sc-for>
-											<sc-if value="{{ q.hasLink }}" hint-placeholder-val="{{ false }}">
-												<a href="{{ q.linkHref }}" target="{{ q.linkTarget }}" rel="noopener" onClick="{{ q.goLink }}" class="faq-item__link link-chevron">{{ q.linkLabel }}</a>
-											</sc-if>
-										</div>
-									</sc-if>
-								</div>
-							</sc-for>
-						</div>
-					</section>
-				</sc-if>
-
 				<!-- NEWSLETTER -->
 				<section data-screen-label="Newsletter" class="newsletter" style="background:{{ nlBg }}">
 					<sc-if value="{{ nlPhoto }}" hint-placeholder-val="{{ true }}">
@@ -1299,31 +557,31 @@
 			<!-- FOOTER -->
 			<footer class="site-footer">
 				<div class="site-footer__inner">
-					<a href="#home" onClick="{{ goHome }}">
+					<a href="{{ hrefs.home }}" onClick="{{ goHome }}">
 						<img src="assets/veritant-white.svg" alt="Veritant" class="site-footer__logo">
 					</a>
 					<div>
 						<div class="site-footer__heading">Who We Are</div>
 						<div class="site-footer__links">
-							<a href="#mission" onClick="{{ goMission }}" class="site-footer__link">Our Why</a>
-							<a href="#independence" onClick="{{ goIndependence }}" class="site-footer__link">Independence Charter</a>
-							<a href="#team" onClick="{{ goTeam }}" class="site-footer__link">Team</a>
-							<a href="#forbes" onClick="{{ goForbes }}" class="site-footer__link">Forbes Partnership</a>
+							<a href="{{ hrefs.mission }}" onClick="{{ goMission }}" class="site-footer__link">Our Why</a>
+							<a href="{{ hrefs.independence }}" onClick="{{ goIndependence }}" class="site-footer__link">Independence Charter</a>
+							<a href="{{ hrefs.team }}" onClick="{{ goTeam }}" class="site-footer__link">Team</a>
+							<a href="{{ hrefs.forbes }}" onClick="{{ goForbes }}" class="site-footer__link">Forbes Partnership</a>
 						</div>
 					</div>
 					<div>
 						<div class="site-footer__heading">Our Approach</div>
 						<div class="site-footer__links">
-							<a href="#methodology" onClick="{{ goMethodology }}" class="site-footer__link">Methodology</a>
-							<a href="#rankings" onClick="{{ goRankings }}" class="site-footer__link">Rankings</a>
+							<a href="{{ hrefs.methodology }}" onClick="{{ goMethodology }}" class="site-footer__link">Methodology</a>
+							<a href="{{ hrefs.rankings }}" onClick="{{ goRankings }}" class="site-footer__link">Rankings</a>
 						</div>
 					</div>
 					<div>
 						<div class="site-footer__heading">Explore</div>
 						<div class="site-footer__links">
-							<a href="#summit" onClick="{{ goEvents }}" class="site-footer__link">Events</a>
-							<a href="#insights" onClick="{{ goInsights }}" class="site-footer__link">News &amp; Insights</a>
-							<a href="#faq" onClick="{{ goFaq }}" class="site-footer__link">FAQs</a>
+							<a href="{{ hrefs.events }}" onClick="{{ goEvents }}" class="site-footer__link">Events</a>
+							<a href="{{ hrefs.insights }}" onClick="{{ goInsights }}" class="site-footer__link">News &amp; Insights</a>
+							<a href="{{ hrefs.faq }}" onClick="{{ goFaq }}" class="site-footer__link">FAQs</a>
 						</div>
 					</div>
 				</div>
@@ -1335,6 +593,6 @@
 		</div>
 	</x-dc>
 
-	<script type="text/x-dc" data-dc-script data-props="{&quot;startPage&quot;:{&quot;editor&quot;:&quot;enum&quot;,&quot;default&quot;:&quot;home&quot;,&quot;options&quot;:[&quot;home&quot;,&quot;home-ceo&quot;,&quot;home-blue&quot;,&quot;home-min&quot;,&quot;home-light&quot;,&quot;mission&quot;,&quot;independence&quot;,&quot;methodology&quot;,&quot;team&quot;,&quot;faq&quot;],&quot;tsType&quot;:&quot;string&quot;,&quot;section&quot;:&quot;Prototype&quot;}}" data-src="js/content.js js/resources.js js/app.js"></script>
+	<script type="text/x-dc" data-dc-script data-props="{&quot;startPage&quot;:{&quot;editor&quot;:&quot;enum&quot;,&quot;default&quot;:&quot;home&quot;,&quot;options&quot;:[&quot;home&quot;,&quot;home-ceo&quot;,&quot;home-blue&quot;,&quot;home-min&quot;,&quot;home-light&quot;],&quot;tsType&quot;:&quot;string&quot;,&quot;section&quot;:&quot;Prototype&quot;}}" data-src="js/content.js js/resources.js js/app.js"></script>
 </body>
 </html>

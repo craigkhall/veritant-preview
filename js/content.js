@@ -3,6 +3,15 @@
 // evaluated together as the page logic of the <x-dc> template in index.html.
 
 const PAGES = ['home','home-ceo','home-blue','home-min','home-light','mission','independence','methodology','team','faq','forbes','rankings','insights','press','article','bio','events'];
+// Every page has its own HTML file; index.html only renders the home page (and its unlinked
+// design variants). When adding a page, add it here and to sitemap.xml.
+const PAGE_FILES = { home: 'index.html', mission: 'our-why.html', independence: 'independence-charter.html', team: 'team.html', forbes: 'forbes-partnership.html', methodology: 'methodology.html', rankings: 'rankings.html', events: 'events.html', insights: 'news-insights.html', press: 'shook-research-is-now-veritant.html', article: 'what-makes-a-great-financial-advisor.html', faq: 'faq.html', bio: 'team.html' };
+// The page a standalone HTML file renders (<html data-page="...">); null inside index.html.
+const FILE_PAGE = document.documentElement.getAttribute('data-page') || null;
+// Team bio files (<html data-page="bio" data-bio="Full Name">) are named team-<full-name>.html.
+const BIO_NAME = document.documentElement.getAttribute('data-bio') || null;
+const bioHref = name => 'team-' + name.toLowerCase().normalize('NFD').replace(/[\u0300-\u036f]/g, '').replace(/[^a-z0-9]+/g, '-').replace(/^-|-$/g, '') + '.html';
+const pageHref = page => (PAGE_FILES[page] && (page !== 'home' || FILE_PAGE)) ? PAGE_FILES[page] : (FILE_PAGE ? 'index.html#' + page : '#' + page);
 const CHARTER = [["Independent Research","We alone design our methodology and decide who's ranked, with every applicant judged the same way."],["Research Firewall","Research and commercial activities are separate. There is no cost to apply, no payment for placement."],["No Outside Influence","Observers may watch, never influence. No one outside Veritant shapes who gets ranked."],["Conflict Management","We disclose and manage conflicts of interest, and recuse anyone too close to an evaluation."],["Full Transparency","We're open about our process and methodology while we build each ranking, not just after it's published."],["Independent Oversight","A third party audits our governance and methodology every year and certifies our practices."],["Direct Engagement","We listen to advisors, firms, and sponsors, and use their feedback to strengthen our business"]];
 const NAV = [['who','Who We Are',[['mission','Our Why'],['independence','Independence Charter'],['team','Team'],['forbes','Forbes Partnership']]],['approach','Our Approach',[['methodology','Methodology'],['rankings','Rankings']]],['events','Events'],['insights','News & Insights'],['faq','FAQs']];
 const FAQ = [
