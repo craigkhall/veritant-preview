@@ -1,0 +1,364 @@
+<!DOCTYPE html>
+<html lang="en" data-page="event" data-event-theme="turquoise" data-event="top-ria-summit">
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<!-- SEO -->
+	<title>Top RIA Summit | Veritant Research</title>
+	<meta name="description" content="Forbes | Veritant Top RIA Summit — November 29–30, 2026 at Hilton West Palm Beach. Two days with the nation’s Top RIAs.">
+	<link rel="canonical" href="https://www.veritantresearch.com/event-top-ria-summit.html">
+	<meta name="robots" content="index, follow">
+
+	<!-- Favicons -->
+	<link rel="icon" href="favicon.ico" sizes="32x32">
+	<link rel="icon" href="assets/favicon/favicon.svg" type="image/svg+xml">
+	<link rel="apple-touch-icon" href="assets/favicon/apple-touch-icon.png">
+	<link rel="manifest" href="site.webmanifest">
+	<meta name="theme-color" content="#12797C">
+
+	<!-- Open Graph -->
+	<meta property="og:type" content="website">
+	<meta property="og:site_name" content="Veritant Research">
+	<meta property="og:locale" content="en_US">
+	<meta property="og:title" content="Top RIA Summit | Veritant Research">
+	<meta property="og:description" content="Forbes | Veritant Top RIA Summit — November 29–30, 2026 at Hilton West Palm Beach.">
+	<meta property="og:url" content="https://www.veritantresearch.com/event-top-ria-summit.html">
+	<meta property="og:image" content="https://www.veritantresearch.com/assets/social/og-default.jpg">
+	<meta property="og:image:width" content="1200">
+	<meta property="og:image:height" content="630">
+	<meta property="og:image:alt" content="Veritant Top RIA Summit">
+
+	<!-- Twitter / X -->
+	<meta name="twitter:card" content="summary_large_image">
+	<meta name="twitter:title" content="Top RIA Summit | Veritant Research">
+	<meta name="twitter:description" content="Forbes | Veritant Top RIA Summit — November 29–30, 2026 at Hilton West Palm Beach.">
+	<meta name="twitter:image" content="https://www.veritantresearch.com/assets/social/og-default.jpg">
+
+	<script type="application/ld+json">
+		{
+		  "@context": "https://schema.org",
+		  "@type": "Event",
+		  "name": "Forbes | Veritant Top RIA Summit",
+		  "startDate": "2026-11-29",
+		  "endDate": "2026-11-30",
+		  "eventAttendanceMode": "https://schema.org/OfflineEventAttendanceMode",
+		  "eventStatus": "https://schema.org/EventScheduled",
+		  "location": {
+		    "@type": "Place",
+		    "name": "Hilton West Palm Beach",
+		    "address": {
+		      "@type": "PostalAddress",
+		      "streetAddress": "600 Okeechobee Blvd",
+		      "addressLocality": "West Palm Beach",
+		      "addressRegion": "FL",
+		      "postalCode": "33401",
+		      "addressCountry": "US"
+		    }
+		  },
+		  "organizer": {
+		    "@type": "Organization",
+		    "name": "Veritant Research",
+		    "url": "https://www.veritantresearch.com/"
+		  },
+		  "url": "https://www.veritantresearch.com/event-top-ria-summit.html"
+		}
+	</script>
+	<script src="js/vendor/dc-runtime.js"></script>
+</head>
+<body>
+	<x-dc>
+		<helmet>
+			<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter+Tight:ital,wght@0,200..800;1,200..800&display=swap">
+			<link rel="stylesheet" href="css/main.css?v=107">
+		</helmet>
+
+		<div class="site">
+			<header ref="{{ headerRef }}" class="site-header" style="background:{{ navBg }};border-bottom:{{ navBorder }};margin-bottom:{{ navMb }}">
+				<div class="site-header__inner">
+					<a href="index.html" class="site-header__brand">
+						<img src="assets/veritant-white.svg" alt="Veritant" class="site-header__logo">
+					</a>
+					<nav class="site-nav">
+						<sc-for list="{{ navItems }}" as="n" hint-placeholder-count="6">
+							<div onMouseEnter="{{ n.open }}" onMouseLeave="{{ n.close }}" class="site-nav__item">
+								<a href="{{ n.href }}" aria-haspopup="{{ n.hasKids }}" class="site-nav__link" style="color:{{ n.color }};border-bottom:1px solid {{ n.underline }}">{{ n.label }}</a>
+								<sc-if value="{{ n.showKids }}" hint-placeholder-val="{{ false }}">
+									<div class="site-nav__dropdown">
+										<div class="site-nav__dropdown-panel" style="background:{{ dropBg }};border:1px solid {{ dropBorder }}">
+											<sc-for list="{{ n.kids }}" as="k" hint-placeholder-count="3">
+												<a href="{{ k.href }}" class="site-nav__dropdown-link" style="color:{{ k.color }}">{{ k.label }}</a>
+											</sc-for>
+										</div>
+									</div>
+								</sc-if>
+							</div>
+						</sc-for>
+					</nav>
+					<a href="#contact" onClick="{{ contact }}" class="site-header__contact" style="background:{{ contactBg }};color:{{ contactFg }}">Contact us</a>
+					<button type="button" onClick="{{ toggleMenu }}" aria-label="{{ menuLabel }}" aria-expanded="{{ menuOpen }}" class="site-header__menu-toggle">
+						<sc-if value="{{ menuClosed }}" hint-placeholder-val="{{ true }}">
+							<svg viewBox="0 0 24 24" width="24" height="24" aria-hidden="true">
+								<path d="M2 6h20M2 12h20M2 18h20" stroke="{{ navFg }}" stroke-width="1.5"></path>
+							</svg>
+						</sc-if>
+						<sc-if value="{{ menuOpen }}" hint-placeholder-val="{{ false }}">
+							<svg viewBox="0 0 24 24" width="24" height="24" aria-hidden="true">
+								<path d="M4 4l16 16M20 4L4 20" stroke="{{ navFg }}" stroke-width="1.5"></path>
+							</svg>
+						</sc-if>
+					</button>
+				</div>
+				<sc-if value="{{ menuOpen }}" hint-placeholder-val="{{ false }}">
+					<div class="mobile-menu" style="background:{{ navBg }}">
+						<sc-for list="{{ navItems }}" as="n" hint-placeholder-count="6">
+							<a href="{{ n.href }}" class="mobile-menu__link" style="color:{{ n.color }}">{{ n.label }}</a>
+							<sc-for list="{{ n.kids }}" as="k" hint-placeholder-count="0">
+								<a href="{{ k.href }}" class="mobile-menu__sublink" style="color:{{ k.color }}">{{ k.label }}</a>
+							</sc-for>
+						</sc-for>
+						<a href="#contact" onClick="{{ contact }}" class="mobile-menu__contact" style="background:{{ contactBg }};color:{{ contactFg }}">Contact us</a>
+					</div>
+				</sc-if>
+			</header>
+
+			<sc-if value="{{ toast }}" hint-placeholder-val="{{ false }}">
+				<div class="toast">{{ toast }}</div>
+			</sc-if>
+
+			<main class="site-main">
+				<section data-screen-label="Summit hero" class="event-hero">
+					<div class="event-hero__panel">
+						<div class="event-hero__rule" aria-hidden="true"></div>
+						<div class="event-hero__stack">
+							<img src="assets/summit/forbes-veritant.svg" alt="Forbes | Veritant" class="event-hero__lockup">
+							<h1 class="event-hero__title">Top RIA<br>Summit</h1>
+						</div>
+					</div>
+					<div class="event-hero__media">
+						<img src="assets/summit/west-palm-beach.png" alt="West Palm Beach skyline at dusk" class="event-hero__image">
+						<div class="event-hero__scrim" aria-hidden="true"></div>
+					</div>
+				</section>
+
+				<section data-screen-label="Summit event details" class="event-details">
+					<dl class="event-details__inner">
+						<div class="event-details__block">
+							<dt class="event-details__label">Dates</dt>
+							<dd class="event-details__value">November 29–30, 2026</dd>
+							<dd class="event-details__note">Sunday – Monday</dd>
+						</div>
+						<div class="event-details__block">
+							<dt class="event-details__label">Time</dt>
+							<dd class="event-details__value">2:00–3:00 PM ET</dd>
+						</div>
+						<div class="event-details__block">
+							<dt class="event-details__label">Venue</dt>
+							<dd class="event-details__value">Hilton West Palm Beach</dd>
+							<dd class="event-details__note">600 Okeechobee Blvd, West Palm Beach, FL 33401</dd>
+						</div>
+					</dl>
+				</section>
+
+				<nav data-screen-label="Summit subnav" class="event-subnav" style="top:{{ headerH }}" aria-label="Event sections">
+					<div class="event-subnav__inner">
+						<sc-for list="{{ eventSubnav }}" as="sn" hint-placeholder-count="6">
+							<a href="{{ sn.href }}" class="event-subnav__link" style="color:{{ sn.color }};border-bottom-color:{{ sn.line }}">{{ sn.label }}</a>
+						</sc-for>
+					</div>
+				</nav>
+
+				<section data-screen-label="Summit overview" class="event-overview">
+					<div class="event-overview__inner">
+						<div>
+							<h2 id="overview" class="event-overview__title">Two days in the room <span class="event-overview__highlight">where advisor excellence is defined.</span></h2>
+							<div class="event-overview__copy">
+								<p class="event-overview__lead">The inaugural Forbes | Veritant Top RIA Summit brings together the nation’s Top RIAs for two days of insight, connection, and forward-looking conversation about the future of independent wealth management.</p>
+								<p class="event-overview__text">Hosted in partnership by Forbes and Veritant, the Summit unites RIAs recognized on the Forbes Top RIA rankings for keynote sessions, panel discussions, and a packed schedule of networking events — including a Partner Dinner Series, Cocktail Receptions, and Dine-Arounds.</p>
+								<p class="event-overview__text">Join us as we launch this inaugural gathering and celebrate the RIAs setting the standard for the industry.</p>
+							</div>
+						</div>
+						<div class="event-overview__cta">
+							<span class="event-overview__cta-rule" aria-hidden="true"></span>
+							<div class="event-overview__cta-group">
+								<a href="{{ registerUrl }}" target="_blank" rel="noopener" class="event-btn event-btn--solid">Register now</a>
+								<a href="{{ registerUrl }}" target="_blank" rel="noopener" class="event-link">Already registered?</a>
+							</div>
+							<a href="#agenda" class="event-btn event-btn--ghost">View agenda</a>
+						</div>
+					</div>
+				</section>
+
+				<section data-screen-label="Summit agenda" class="event-agenda">
+					<div class="event-agenda__inner">
+						<div class="event-section-head">
+							<h2 id="agenda" class="event-section-title">Two days,<br><span>one standard.</span></h2>
+							<div>
+								<p class="event-section-text">Session titles and times are confirmed closer to the event.</p>
+								<a href="#agenda" class="event-link--field">Download the agenda &gt;</a>
+							</div>
+						</div>
+						<div class="event-agenda__list">
+							<sc-for list="{{ eventAgenda }}" as="d" hint-placeholder-count="2">
+								<div class="event-agenda__day">
+									<div>
+										<h3 class="event-agenda__day-title">{{ d.day }}<br>{{ d.date }}</h3>
+										<div class="event-agenda__day-note">{{ d.note }}</div>
+									</div>
+									<div>
+										<sc-for list="{{ d.slots }}" as="sl" hint-placeholder-count="3">
+											<div class="event-agenda__slot">
+												<time class="event-agenda__time">{{ sl.t }}</time>
+												<span class="event-agenda__slot-body">
+													<span class="event-agenda__slot-title">{{ sl.title }}</span>
+													<span class="event-agenda__slot-loc">{{ sl.loc }}</span>
+												</span>
+											</div>
+										</sc-for>
+									</div>
+								</div>
+							</sc-for>
+						</div>
+					</div>
+				</section>
+
+				<section data-screen-label="Summit speakers" class="event-speakers">
+					<div class="event-speakers__inner">
+						<div class="event-section-head">
+							<h2 id="speakers" class="event-section-title">Who you’ll<br><span>hear from.</span></h2>
+							<div>
+								<p class="event-section-text">Advisors, allocators, and managers who lead the conversation.</p>
+								<a href="#speakers" class="event-link--field">View all speakers &gt;</a>
+							</div>
+						</div>
+						<div class="event-speakers__grid">
+							<sc-for list="{{ eventSpeakers }}" as="sp" hint-placeholder-count="5">
+								<div>
+									<div class="event-speaker__photo">
+										<img src="{{ sp.img }}" alt="{{ sp.name }}">
+									</div>
+									<div class="event-speaker__name">{{ sp.name }}</div>
+									<p class="event-speaker__meta">{{ sp.title }}, {{ sp.firm }}</p>
+								</div>
+							</sc-for>
+						</div>
+					</div>
+				</section>
+
+				<section data-screen-label="Summit venue" class="event-venue">
+					<div class="event-venue__copy">
+						<h2 id="venue" class="event-venue__title">Hilton West Palm Beach</h2>
+						<p class="event-venue__address">600 Okeechobee Blvd<br>West Palm Beach, FL 33401</p>
+						<p class="event-venue__text">A reserved room block opens with registration. Travel guidance, menus, and accessibility details are sent with your confirmation.</p>
+						<a href="#venue" class="event-btn event-btn--field">Venue details</a>
+					</div>
+					<div class="event-venue__media">
+						<img src="assets/summit/west-palm-beach.png" alt="West Palm Beach skyline at dusk">
+					</div>
+				</section>
+
+				<section data-screen-label="Summit partners" class="event-partners">
+					<div class="event-partners__inner">
+						<div class="event-section-head">
+							<h2 id="partners" class="event-section-title">Event<br><span>partners.</span></h2>
+							<div>
+								<a href="mailto:partnerships@veritantresearch.com" class="event-link--field">Partnership opportunities &gt;</a>
+							</div>
+						</div>
+						<div class="event-partners__grid">
+							<sc-for list="{{ eventPartners }}" as="tp" hint-placeholder-count="10">
+								<div class="event-partners__tile">
+									<img src="{{ tp.img }}" alt="{{ tp.name }}">
+								</div>
+							</sc-for>
+						</div>
+					</div>
+				</section>
+
+				<section data-screen-label="Summit FAQs" class="event-faqs">
+					<div class="event-faqs__inner">
+						<div class="event-faqs__layout">
+							<h2 id="faqs" class="event-section-title">Summit<br><span>FAQs.</span></h2>
+							<div class="event-faqs__list">
+								<sc-for list="{{ eventFaqs }}" as="fq" hint-placeholder-count="4">
+									<div class="event-faq">
+										<button type="button" onClick="{{ fq.toggle }}" aria-expanded="{{ fq.open }}" class="event-faq__toggle">
+											{{ fq.q }}
+											<span class="event-faq__sign">{{ fq.sign }}</span>
+										</button>
+										<sc-if value="{{ fq.open }}" hint-placeholder-val="{{ false }}">
+											<p class="event-faq__answer">{{ fq.a }}</p>
+										</sc-if>
+									</div>
+								</sc-for>
+							</div>
+						</div>
+					</div>
+				</section>
+
+				<section data-screen-label="Newsletter" id="contact" class="newsletter" style="background:{{ nlBg }}">
+					<sc-if value="{{ nlPhoto }}" hint-placeholder-val="{{ true }}">
+						<div class="newsletter__backdrop">
+							<img src="assets/photo/newsletter-skyline-web.jpg" alt="" class="newsletter__image">
+						</div>
+						<div class="newsletter__tint"></div>
+					</sc-if>
+					<div class="newsletter__inner" style="padding:{{ nlPad }}">
+						<h2 class="newsletter__title" style="color:{{ nlHead }}">What’s next.</h2>
+						<p class="newsletter__text" style="color:{{ nlText }}">Get the latest from Veritant, including research, insights and company updates.</p>
+						<sc-if value="{{ subscribed }}" hint-placeholder-val="{{ false }}">
+							<p class="newsletter__success">Thanks. We measure twice, publish once; you will hear from us when there is something worth reading.</p>
+						</sc-if>
+						<sc-if value="{{ notSubscribed }}" hint-placeholder-val="{{ true }}">
+							<form onSubmit="{{ subscribe }}" class="newsletter__form">
+								<input type="email" required="{{ true }}" value="{{ email }}" onChange="{{ setEmail }}" placeholder="Email address" aria-label="Email address" class="newsletter__input" style="border:1px solid {{ emailBorder }}">
+								<button type="submit" class="newsletter__submit" style="background:{{ nlBtn }};color:{{ nlBtnFg }}">Keep me posted</button>
+							</form>
+							<sc-if value="{{ emailError }}" hint-placeholder-val="{{ false }}">
+								<p class="newsletter__error">{{ emailError }}</p>
+							</sc-if>
+						</sc-if>
+					</div>
+				</section>
+			</main>
+
+			<footer class="site-footer">
+				<div class="site-footer__inner">
+					<a href="index.html">
+						<img src="assets/veritant-white.svg" alt="Veritant" class="site-footer__logo">
+					</a>
+					<div>
+						<div class="site-footer__heading">Who We Are</div>
+						<div class="site-footer__links">
+							<a href="our-why.html" class="site-footer__link">Our Why</a>
+							<a href="independence-charter.html" class="site-footer__link">Independence Charter</a>
+							<a href="team.html" class="site-footer__link">Team</a>
+							<a href="forbes-partnership.html" class="site-footer__link">Forbes Partnership</a>
+						</div>
+					</div>
+					<div>
+						<div class="site-footer__heading">Our Approach</div>
+						<div class="site-footer__links">
+							<a href="methodology.html" class="site-footer__link">Methodology</a>
+							<a href="rankings.html" class="site-footer__link">Rankings</a>
+						</div>
+					</div>
+					<div>
+						<div class="site-footer__heading">Explore</div>
+						<div class="site-footer__links">
+							<a href="events.html" class="site-footer__link">Events</a>
+							<a href="news-insights.html" class="site-footer__link">News &amp; Insights</a>
+							<a href="faq.html" class="site-footer__link">FAQs</a>
+						</div>
+					</div>
+				</div>
+				<div class="site-footer__bottom">
+					<span>© 2026 Veritant Research. All rights reserved.</span>
+					<a href="#legal" onClick="{{ comingSoon }}" class="site-footer__legal-link">User Agreement and Privacy Statement</a>
+				</div>
+			</footer>
+		</div>
+	</x-dc>
+
+	<script type="text/x-dc" data-dc-script data-src="js/content.js?v=107 js/app.js?v=107"></script>
+</body>
+</html>

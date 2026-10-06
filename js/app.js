@@ -9,6 +9,8 @@ class Component extends DCLogic {
     page: FILE_PAGE,
     bioName: BIO_NAME,
     faqOpen: 0,
+    eventFaqOpen: 0,
+    eventSection: 'overview',
     filter: 0,
     hoverIdx: -1,
     menuOpen: false,
@@ -54,6 +56,23 @@ class Component extends DCLogic {
     if (sc !== !!this.state.scrolled) this.setState({ scrolled: sc });
     const h = this.headerRef.current && this.headerRef.current.offsetHeight;
     if (h && h !== this.state.headerH) this.setState({ headerH: h });
+    if (FILE_PAGE === 'event') {
+      const sub = document.querySelector('.event-subnav');
+      const headerH = h || this.state.headerH || 80;
+      const subH = (sub && sub.offsetHeight) || 56;
+      /* Breathing room under sticky header + subnav when jumping to a section */
+      const anchorOffset = headerH + subH + 24;
+      document.documentElement.style.setProperty(
+        '--event-anchor-offset',
+        anchorOffset + 'px'
+      );
+      let cur = 'overview';
+      EVENT_SUBNAV.forEach(([id]) => {
+        const el = document.getElementById(id);
+        if (el && el.getBoundingClientRect().top < anchorOffset + 8) cur = id;
+      });
+      if (cur !== this.state.eventSection) this.setState({ eventSection: cur });
+    }
   };
   componentDidMount() {
     setTimeout(() => this.valAnim(), 300);
@@ -544,16 +563,19 @@ class Component extends DCLogic {
       menuClosed: !s.menuOpen,
       toggleMenu: () => this.setState({ menuOpen: !s.menuOpen }),
       navBg:
-        p === 'home' && !s.scrolled
-          ? 'transparent'
-          : p === 'home'
-            ? '#0556CC'
-            : 'linear-gradient(90deg,#0548E0 0%,#0551D4 100%)',
+        EVENT_THEME
+          ? EVENT_THEME.header
+          : p === 'home' && !s.scrolled
+            ? 'transparent'
+            : p === 'home'
+              ? '#0556CC'
+              : 'linear-gradient(90deg,#0548E0 0%,#0551D4 100%)',
       navMb: p === 'home' ? -(s.headerH || 81) + 'px' : '0px',
       headerRef: this.headerRef,
+      headerH: (s.headerH || 81) + 'px',
       navFg: '#fff',
-      contactBg: '#03D0FF',
-      contactFg: '#022E59',
+      contactBg: EVENT_THEME ? EVENT_THEME.accent : '#03D0FF',
+      contactFg: EVENT_THEME ? EVENT_THEME.onAccent : '#022E59',
       navBorder: '1px solid transparent',
       comingSoon,
       contact: e => {
@@ -563,8 +585,10 @@ class Component extends DCLogic {
       toast: s.toast,
       navItems: NAV.map(([id, label, kids], i) => {
         const fg = '#fff';
+        const navHi = EVENT_THEME ? EVENT_THEME.navAccent || EVENT_THEME.accent : '#03D0FF';
         const act =
           p === id ||
+          (id === 'events' && p === 'event') ||
           (id === 'who' && p === 'bio') ||
           (id === 'insights' && (p === 'press' || p === 'article')) ||
           (kids || []).some(k => k[0] === p);
@@ -576,19 +600,53 @@ class Component extends DCLogic {
           showKids: !!kids && s.navOpen === i,
           open: () => kids && this.setState({ navOpen: i }),
           close: () => this.setState({ navOpen: -1 }),
-          color: act ? '#03D0FF' : fg,
-          underline: act ? '#03D0FF' : 'transparent',
+          color: act ? navHi : fg,
+          underline: act ? navHi : 'transparent',
           kids: (kids || []).map(([kid, kl]) => ({
             label: kl,
             href: pageHref(kid),
-            color: p === kid ? '#03D0FF' : fg,
+            color: p === kid ? navHi : fg,
           })),
         };
       }),
-      dropBg: '#0556CC',
+      dropBg: EVENT_THEME ? EVENT_THEME.drop : '#0556CC',
       dropBorder: 'rgba(255,255,255,.18)',
       cycleDark: this.cycle(true),
       faqItems: acc(FAQ, 'faqOpen'),
+      eventSubnav: EVENT_SUBNAV.map(([id, label]) => {
+        const on = (s.eventSection || 'overview') === id;
+        const hi = EVENT_THEME ? EVENT_THEME.navAccent || '#02C9B5' : '#03D0FF';
+        return {
+          href: '#' + id,
+          label,
+          color: on ? hi : '#fff',
+          line: on ? hi : 'transparent',
+        };
+      }),
+      eventAgenda: EVENT_AGENDA.map(([day, date, note, slots]) => ({
+        day,
+        date,
+        note,
+        slots: slots.map(([t, title, loc]) => ({ t, title, loc })),
+      })),
+      eventSpeakers: EVENT_SPEAKERS.map(([name, title, firm, img]) => ({
+        name,
+        title,
+        firm,
+        img,
+      })),
+      eventPartners: EVENT_PARTNERS.map(([name, img]) => ({ name, img })),
+      eventFaqs: EVENT_FAQS.map(([q, a], i) => {
+        const open = s.eventFaqOpen === i;
+        return {
+          q,
+          a,
+          open,
+          sign: open ? '–' : '+',
+          toggle: () => this.setState({ eventFaqOpen: open ? -1 : i }),
+        };
+      }),
+      registerUrl: 'https://www.shookresearch.com/events/',
       chItems: CHARTER.map(([t, b], i) => {
         const on = s.chHover === i;
         return {

@@ -3,11 +3,102 @@
 // page logic of the <x-dc> template in every page.
 
 // Every page has its own HTML file. When adding a page, add it here and to sitemap.xml.
-const PAGE_FILES = { home: 'index.html', mission: 'our-why.html', independence: 'independence-charter.html', team: 'team.html', forbes: 'forbes-partnership.html', methodology: 'methodology.html', rankings: 'rankings.html', events: 'events.html', insights: 'news-insights.html', press: 'shook-research-is-now-veritant.html', article: 'what-makes-a-great-financial-advisor.html', faq: 'faq.html', bio: 'team.html' };
+const PAGE_FILES = { home: 'index.html', mission: 'our-why.html', independence: 'independence-charter.html', team: 'team.html', forbes: 'forbes-partnership.html', methodology: 'methodology.html', rankings: 'rankings.html', events: 'events.html', event: 'event-top-ria-summit.html', insights: 'news-insights.html', press: 'shook-research-is-now-veritant.html', article: 'what-makes-a-great-financial-advisor.html', faq: 'faq.html', bio: 'team.html' };
 // The page this HTML file renders (<html data-page="...">).
 const FILE_PAGE = document.documentElement.getAttribute('data-page') || 'home';
+// Event detail pages: <html data-page="event" data-event-theme="turquoise" data-event="top-ria-summit">
+const EVENT_THEME_KEY = document.documentElement.getAttribute('data-event-theme') || '';
+const EVENT_SLUG = document.documentElement.getAttribute('data-event') || '';
 // Team bio files (<html data-page="bio" data-bio="Full Name">) are named team-<full-name>.html.
 const BIO_NAME = document.documentElement.getAttribute('data-bio') || null;
+// Per-event header/page palettes. Only turquoise is fully live; other keys are reserved hooks.
+const EVENT_THEMES = {
+	turquoise: {
+		header: '#12797C',
+		drop: '#12797C',
+		field: '#12797C',
+		accent: '#FFFFFF',
+		onAccent: '#12797C',
+		navAccent: '#02C9B5',
+		deep: '#12797C',
+		night: '#022138',
+		tint: '#E8F6F4',
+		tint2: '#C8EEE9',
+		bold: '#02C9B5',
+		boldBtn: '#12797C',
+		boldInk: '#022138',
+		boldInk2: '#022E59',
+		glow: 'rgba(2,201,181,.4)',
+		card: 'rgba(18,121,124,.75)',
+		grad: 'linear-gradient(135deg,#12797C 0%,#02C9B5 100%)',
+		heroGrad: 'linear-gradient(135deg,#02C9B5 0%,#D2F0FC 100%)',
+		ruleGrad: 'linear-gradient(90deg,#12797C 0%,#02C9B5 100%)',
+	},
+	/* Reserved for future summit branding — fill when those pages ship */
+	magenta: null,
+	'bright-blue': null,
+	'deep-magenta': null,
+	yellow: null,
+};
+const EVENT_THEME = EVENT_THEMES[EVENT_THEME_KEY] || null;
+const EVENT_SUBNAV = [
+	['overview', 'Overview'],
+	['agenda', 'Agenda'],
+	['speakers', 'Speakers'],
+	['venue', 'Venue'],
+	['partners', 'Partners'],
+	['faqs', 'FAQs'],
+];
+const EVENT_AGENDA = [
+	[
+		'Sunday',
+		'November 29',
+		'',
+		[
+			['2:00 PM–3:00 PM', 'Registration', 'Oceana Ballroom Foyer'],
+			['3:00 PM–4:30 PM', 'General Session', 'Oceana Salon B'],
+			['5:00 PM–6:00 PM', 'Cocktail Reception', 'Event Lawn'],
+			['6:00 PM', 'Dine-Arounds with Partners', ''],
+		],
+	],
+	[
+		'Monday',
+		'November 30',
+		'',
+		[
+			['7:00 AM–8:00 AM', 'Breakfast', 'Oceana Ballroom Foyer'],
+			['8:00 AM–10:45 AM', 'General Session', 'Oceana Salon B'],
+			['10:45 AM–11:50 AM', 'Breakout Sessions', 'Oceana Salon C & D'],
+			['12:00 PM–12:45 PM', 'Networking Lunch', 'Oceana Salon A'],
+			['12:45 PM–3:00 PM', 'General Session', 'Oceana Salon B'],
+		],
+	],
+];
+const EVENT_SPEAKERS = [
+	['Sarah Mitchell', 'Head of Advisory', 'Merrill Lynch', 'assets/summit/photo-1.png'],
+	['James Harrington', 'Managing Director', 'Morgan Stanley', 'assets/summit/photo-2.png'],
+	['Karen Voss', 'Private Wealth Advisor', 'UBS Wealth Management', 'assets/summit/photo-3.png'],
+	['David Chen', 'Head of Private Markets', 'Raymond James', 'assets/summit/photo-4.png'],
+	['Patricia Holden', 'Senior Portfolio Manager', 'Bank of America', 'assets/summit/photo-5.png'],
+];
+const EVENT_PARTNERS = [
+	['Allspring', 'assets/summit/logo-1.png'],
+	['Ares', 'assets/summit/logo-2.png'],
+	['Blackstone', 'assets/summit/logo-3.png'],
+	['BNY', 'assets/summit/logo-4.png'],
+	['Capital Group', 'assets/summit/logo-5.png'],
+	['First Trust', 'assets/summit/logo-6.png'],
+	['Hartford Funds', 'assets/summit/logo-7.png'],
+	['Invesco QQQ', 'assets/summit/logo-8.png'],
+	['State Street Investment Management', 'assets/summit/logo-9.png'],
+	['TPG', 'assets/summit/logo-10.png'],
+];
+const EVENT_FAQS = [
+	['Who can attend?', 'Attendance is by invitation, extended to advisors on Veritant’s independent rankings and to confirmed partners.'],
+	['Are CE credits available?', 'Yes. Indicate your designation during registration and we will confirm eligible sessions.'],
+	['Is press permitted?', 'Sessions are closed to press so conversations stay candid.'],
+	['What is included?', 'All sessions, meals, and evening events. Travel and accommodation are booked separately through the room block.'],
+];
 const bioHref = name => 'team-' + name.toLowerCase().normalize('NFD').replace(/[\u0300-\u036f]/g, '').replace(/[^a-z0-9]+/g, '-').replace(/^-|-$/g, '') + '.html';
 const pageHref = page => PAGE_FILES[page] || 'index.html';
 const CHARTER = [["Independent Research","We alone design our methodology and decide who's ranked, with every applicant judged the same way."],["Research Firewall","Research and commercial activities are separate. There is no cost to apply, no payment for placement."],["No Outside Influence","Observers may watch, never influence. No one outside Veritant shapes who gets ranked."],["Conflict Management","We disclose and manage conflicts of interest, and recuse anyone too close to an evaluation."],["Full Transparency","We're open about our process and methodology while we build each ranking, not just after it's published."],["Independent Oversight","A third party audits our governance and methodology every year and certifies our practices."],["Direct Engagement","We listen to advisors, firms, and sponsors, and use their feedback to strengthen our business"]];
