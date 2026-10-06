@@ -27,7 +27,12 @@
 	padding: clamp(32px,3.5vw,48px) clamp(20px,3vw,40px);
 	border-bottom: 1px solid rgba(2,33,56,.14);
 	text-decoration: none;
+	box-sizing: border-box;
 	transition: background 200ms;
+}
+
+.event-row:not(:has(.event-row__cta)) {
+	grid-template-columns: minmax(0,2.4fr) minmax(0,1fr);
 }
 
 .event-row__info {
@@ -68,16 +73,19 @@
 	text-align: right;
 }
 
-/* Hover states */
+/* Hover states — fine pointers only so tap doesn’t leave a stuck fill on phones */
 
-.event-row:hover {
-	background: var(--color-ice-blue);
+@media (hover: hover) {
+	a.event-row:hover {
+		background: var(--color-ice-blue);
+	}
 }
 
 /* Responsive */
 
 @media (max-width:960px) {
-	.event-row {
+	.event-row,
+	.event-row:not(:has(.event-row__cta)) {
 		grid-template-columns: minmax(0,1fr);
 		gap: 16px;
 	}
@@ -98,7 +106,8 @@
 	}
 
 	.event-row {
-		padding: 28px 0;
+		/* Keep side padding so the row (and any hover fill) doesn’t hug the screen edge */
+		padding: 28px 16px;
 		gap: 14px;
 	}
 
@@ -116,5 +125,6 @@
 		font-size: 12px;
 		padding: 14px 20px;
 		margin-top: 4px;
+		justify-self: start;
 	}
 }
