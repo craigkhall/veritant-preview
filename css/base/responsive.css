@@ -51,6 +51,11 @@
 	[data-vt-hero] {
 		min-height: 0 !important;
 	}
+	/* Home hero: hug copy — kill empty blue band under the lead */
+	main section[data-vt-hero][data-screen-label="Home hero"] {
+		min-height: 0 !important;
+		align-items: flex-start !important;
+	}
 	main h1 br,
 	main h2 br {
 		display: none;
@@ -65,8 +70,8 @@
 	}
 	[data-vt-hero] > div[data-home-pad],
 	[data-vt-hero] div[data-home-pad] {
-		padding-top: 120px !important;
-		padding-bottom: 88px !important;
+		padding-top: 112px !important;
+		padding-bottom: 48px !important;
 	}
 	main section[data-vt-hero] h1 {
 		white-space: normal !important;

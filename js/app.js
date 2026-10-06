@@ -114,6 +114,8 @@ class Component extends DCLogic {
       if (r.top < vh * 0.9 && r.bottom > 0 && !el.hasAttribute('data-in')) el.setAttribute('data-in', '');
     });
     // Layout 2 (value-steps): grow top → node/card → bottom → curve → next top.
+    // On tablet/phone curves are display:none (no height), so skip the curve gate
+    // or later values never unlock past the first.
     document.querySelectorAll('[data-v2-row]').forEach((row, idx) => {
       const item = row.parentElement;
       const r = row.getBoundingClientRect();
@@ -125,7 +127,11 @@ class Component extends DCLogic {
       const box = row.querySelector('[data-v2-box]');
       const prevItem = item && item.previousElementSibling;
       const prevCurve = prevItem && prevItem.querySelector('[data-v2-curve]');
-      const prevReady = !prevCurve || +(prevCurve.dataset.p || 0) >= 0.98;
+      const curveBlocked =
+        prevCurve &&
+        getComputedStyle(prevCurve).display !== 'none' &&
+        prevCurve.getBoundingClientRect().height > 0;
+      const prevReady = !curveBlocked || +(prevCurve.dataset.p || 0) >= 0.98;
       if (idx === 0 || prevReady) {
         if (top && !top.hasAttribute('data-in')) top.setAttribute('data-in', '');
       }
@@ -133,6 +139,12 @@ class Component extends DCLogic {
         if (node && !node.hasAttribute('data-in')) node.setAttribute('data-in', '');
         if (box && !box.hasAttribute('data-in')) box.setAttribute('data-in', '');
         if (bot && !bot.hasAttribute('data-in')) bot.setAttribute('data-in', '');
+      }
+      // Stacked layout: once this row is in, unlock the next top immediately
+      if (!curveBlocked && bot && bot.hasAttribute('data-in')) {
+        const nx = item && item.nextElementSibling;
+        const sg = nx && nx.querySelector('[data-v2-seg]');
+        if (sg && !sg.hasAttribute('data-in')) sg.setAttribute('data-in', '');
       }
     });
     document.querySelectorAll('[data-val-row]').forEach(row => {
