@@ -63,10 +63,6 @@
 		font-size: 26px !important;
 		line-height: 1.25 !important;
 	}
-	main p {
-		font-size: 16px !important;
-		line-height: 1.55 !important;
-	}
 	[data-vt-hero] > div[data-home-pad],
 	[data-vt-hero] div[data-home-pad] {
 		padding-top: 140px !important;
