@@ -180,29 +180,7 @@
 			<main class="site-main">
 				<!-- ================= OUR WHY ================= -->
 				<section data-screen-label="Mission hero" data-vt-hero="1" style="background:linear-gradient(160deg,#0548E0 0%,#0556CC 45%,#2F86E8 100%);position:relative;overflow:hidden">
-					<sc-if value="{{ art0 }}" hint-placeholder-val="{{ false }}">
-						<img data-hero-art="1" src="assets/icons/evidence-white.svg" alt="" style="position:absolute;right:6%;top:42%;transform:translateY(-50%);width:clamp(240px,28vw,380px);opacity:.14;pointer-events:none">
-					</sc-if>
-					<sc-if value="{{ artA }}" hint-placeholder-val="{{ true }}">
-						<div data-hero-art="1" style="position:absolute;right:6%;top:42%;transform:translateY(-50%);width:clamp(240px,28vw,380px);aspect-ratio:1;background:{{ artColor }};opacity:.85;-webkit-mask-image:{{ artMask }};mask-image:{{ artMask }};-webkit-mask-size:contain;mask-size:contain;-webkit-mask-repeat:no-repeat;mask-repeat:no-repeat;-webkit-mask-position:center;mask-position:center;pointer-events:none;transition:background 300ms"></div>
-					</sc-if>
-					<sc-if value="{{ artB }}" hint-placeholder-val="{{ false }}">
-						<div data-hero-art="1" style="position:absolute;right:6%;top:42%;transform:translateY(-50%);width:clamp(276px,32vw,448px);aspect-ratio:1;background:{{ artColor }};opacity:.85;-webkit-mask-image:{{ artMask }};mask-image:{{ artMask }};-webkit-mask-size:contain;mask-size:contain;-webkit-mask-repeat:no-repeat;mask-repeat:no-repeat;-webkit-mask-position:center;mask-position:center;pointer-events:none;transition:background 300ms"></div>
-					</sc-if>
-					<div style="position:absolute;right:16px;bottom:16px;z-index:3;display:flex;flex-direction:column;align-items:flex-end;gap:8px">
-						<sc-if value="{{ artColored }}" hint-placeholder-val="{{ true }}">
-							<div style="display:flex;gap:6px;padding:6px;background:rgba(2,33,56,.25)">
-								<sc-for list="{{ artSwatches }}" as="sw" hint-placeholder-count="5">
-									<button type="button" onClick="{{ sw.pick }}" aria-label="{{ sw.name }}" title="{{ sw.name }}" style="width:22px;height:22px;padding:0;border:2px solid {{ sw.ring }};background:{{ sw.c }};cursor:pointer"></button>
-								</sc-for>
-							</div>
-						</sc-if>
-						<div style="display:flex;gap:6px">
-							<button type="button" onClick="{{ artSet0 }}" style="background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.12);color:{{ artFg0 }};font:inherit;font-size:9px;letter-spacing:.14em;text-transform:uppercase;padding:6px 10px;cursor:pointer;transition:color 160ms" style-hover="color:rgba(255,255,255,.85)">Current</button>
-							<button type="button" onClick="{{ artSet1 }}" style="background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.12);color:{{ artFg1 }};font:inherit;font-size:9px;letter-spacing:.14em;text-transform:uppercase;padding:6px 10px;cursor:pointer;transition:color 160ms" style-hover="color:rgba(255,255,255,.85)">A: Color</button>
-							<button type="button" onClick="{{ artSet2 }}" style="background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.12);color:{{ artFg2 }};font:inherit;font-size:9px;letter-spacing:.14em;text-transform:uppercase;padding:6px 10px;cursor:pointer;transition:color 160ms" style-hover="color:rgba(255,255,255,.85)">B: Larger</button>
-						</div>
-					</div>
+					<div data-hero-art="1" style="position:absolute;right:6%;top:42%;transform:translateY(-50%);width:clamp(276px,32vw,448px);aspect-ratio:1;background:{{ artColor }};opacity:.85;-webkit-mask-image:{{ artMask }};mask-image:{{ artMask }};-webkit-mask-size:contain;mask-size:contain;-webkit-mask-repeat:no-repeat;mask-repeat:no-repeat;-webkit-mask-position:center;mask-position:center;pointer-events:none"></div>
 					<div data-rsp-pad="1" style="max-width:1280px;margin:0 auto;padding:180px 40px 200px;box-sizing:border-box;position:relative">
 						<div style="margin-left:clamp(0px,6vw,120px);max-width:760px">
 							<h1 style="margin:0 0 28px;color:#fff;font-weight:300;font-size:clamp(28px,3vw,40px);line-height:1.25">Our methodology is exhaustive. <br>Our independence is resolute. <br>Our network is unmatched.</h1>
@@ -212,74 +190,36 @@
 				</section>
 
 				<section class="mission-values">
-					<div class="mission-values__switcher">
-						<div class="mission-values__switcher-inner">
-							<button type="button" onClick="{{ valL2 }}" class="mission-values__switch" style="border-bottom:2px solid {{ valLine2 }}">Layout 1</button>
-							<button type="button" onClick="{{ valL1 }}" class="mission-values__switch" style="border-bottom:2px solid {{ valLine1 }}">Layout 2</button>
-						</div>
-					</div>
 					<div class="mission-values__inner">
 						<h2 data-v2-title="1" class="mission-values__title">Our Values</h2>
-						<sc-if value="{{ valLayout1 }}" hint-placeholder-val="{{ false }}">
-							<div onMouseLeave="{{ valLeave }}" class="value-track">
-								<sc-for list="{{ valItems }}" as="v" hint-placeholder-count="5">
-									<div class="value-track__item">
-										<div data-val-row="1" onMouseEnter="{{ v.enter }}" onFocus="{{ v.enter }}" onClick="{{ v.enter }}" tabindex="0" class="value-track__row" style="justify-content:{{ v.justify }}">
-											<div data-val-line="1" data-val-seg="t" class="value-track__line value-track__line--top" style="left:calc({{ v.x }} - 1px);background:{{ v.topSeg }}"></div>
-											<div data-val-line="1" data-val-seg="b" class="value-track__line value-track__line--bottom" style="left:calc({{ v.x }} - 1px);background:{{ v.botSeg }}"></div>
-											<div data-val-node="1" class="value-track__node" style="left:{{ v.x }}">
-												<div class="value-track__ring" style="background:{{ v.ringBg }};border:2px solid {{ v.ringBorder }};transform:{{ v.ringScale }}">
-													<img src="{{ v.iconWhite }}" loading="lazy" alt="" class="value-track__icon">
-												</div>
-												<h3 data-val-title="1" class="value-track__title" style="{{ v.titleSide }}:calc(100% + 28px);color:{{ v.titleColor }}">{{ v.t }}</h3>
+						<div onMouseLeave="{{ valLeave }}" class="value-steps">
+							<sc-for list="{{ valItems }}" as="v" hint-placeholder-count="5">
+								<div class="value-steps__item">
+									<div data-v2-row="1" onMouseEnter="{{ v.enter }}" onFocus="{{ v.enter }}" onClick="{{ v.enter }}" tabindex="0" class="value-steps__row" style="flex-direction:{{ v.dir2 }}">
+										<div data-v2-node="1" class="value-steps__node" style="margin-left:{{ v.ml2 }};margin-right:{{ v.mr2 }}">
+											<div data-v2-seg="1" class="value-steps__segment value-steps__segment--top" style="background:{{ v.topSeg }}"></div>
+											<div class="value-steps__ring" style="background:{{ v.ringBg }};border:2px solid {{ v.ringBorder }};transform:{{ v.ringScale }}">
+												<img src="{{ v.iconWhite }}" loading="lazy" alt="" class="value-steps__icon">
 											</div>
-											<div data-val-box="1" class="value-track__card" style="background:{{ v.boxBg }};transform:{{ v.boxLift }}">
-												<img src="{{ v.wmIcon }}" loading="lazy" alt="" class="value-track__watermark" style="opacity:{{ v.wmOp }}">
-												<p class="value-track__text" style="color:{{ v.boxFg }}"><strong class="value-track__lead">{{ v.lead }}</strong> {{ v.b }}</p>
-											</div>
+											<h3 class="value-steps__title" style="color:{{ v.titleColor }}">{{ v.t }}</h3>
+											<div data-v2-seg="1" class="value-steps__segment value-steps__segment--bottom" style="background:{{ v.botSeg }}"></div>
 										</div>
-										<sc-if value="{{ v.hasNext }}" hint-placeholder-val="{{ true }}">
-											<svg data-val-curve="1" viewBox="0 0 100 100" preserveAspectRatio="none" class="value-track__curve">
-												<path d="{{ v.curve }}" pathLength="100" fill="none" stroke="{{ v.curveColor }}" stroke-width="2" vector-effect="non-scaling-stroke"></path>
-											</svg>
-										</sc-if>
-										<sc-if value="{{ v.hasNext }}" hint-placeholder-val="{{ true }}">
-											<div data-val-gap="1" class="value-track__gap"></div>
-										</sc-if>
-									</div>
-								</sc-for>
-							</div>
-						</sc-if>
-						<sc-if value="{{ valLayout2 }}" hint-placeholder-val="{{ true }}">
-							<div onMouseLeave="{{ valLeave }}" class="value-steps">
-								<sc-for list="{{ valItems }}" as="v" hint-placeholder-count="5">
-									<div class="value-steps__item">
-										<div data-v2-row="1" onMouseEnter="{{ v.enter }}" onFocus="{{ v.enter }}" onClick="{{ v.enter }}" tabindex="0" class="value-steps__row" style="flex-direction:{{ v.dir2 }}">
-											<div data-v2-node="1" class="value-steps__node" style="margin-left:{{ v.ml2 }};margin-right:{{ v.mr2 }}">
-												<div data-v2-seg="1" class="value-steps__segment value-steps__segment--top" style="background:{{ v.topSeg }}"></div>
-												<div class="value-steps__ring" style="background:{{ v.ringBg }};border:2px solid {{ v.ringBorder }};transform:{{ v.ringScale }}">
-													<img src="{{ v.iconWhite }}" loading="lazy" alt="" class="value-steps__icon">
-												</div>
-												<h3 class="value-steps__title" style="color:{{ v.titleColor }}">{{ v.t }}</h3>
-												<div data-v2-seg="1" class="value-steps__segment value-steps__segment--bottom" style="background:{{ v.botSeg }}"></div>
-											</div>
-											<div data-v2-box="1" class="value-steps__card" style="background:{{ v.boxBg }};transform:{{ v.boxLift }}">
-												<img src="{{ v.wmIcon }}" loading="lazy" alt="" class="value-steps__watermark" style="opacity:{{ v.wmOp }}">
-												<p class="value-steps__text" style="color:{{ v.boxFg }}"><strong class="value-steps__lead">{{ v.lead }}</strong> {{ v.b }}</p>
-											</div>
+										<div data-v2-box="1" class="value-steps__card" style="background:{{ v.boxBg }};transform:{{ v.boxLift }}">
+											<img src="{{ v.wmIcon }}" loading="lazy" alt="" class="value-steps__watermark" style="opacity:{{ v.wmOp }}">
+											<p class="value-steps__text" style="color:{{ v.boxFg }}"><strong class="value-steps__lead">{{ v.lead }}</strong> {{ v.b }}</p>
 										</div>
-										<sc-if value="{{ v.hasNext }}" hint-placeholder-val="{{ true }}">
-											<svg data-v2-curve="1" viewBox="0 0 100 100" preserveAspectRatio="none" class="value-steps__curve">
-												<path d="{{ v.curve2 }}" pathLength="100" fill="none" stroke="{{ v.curveColor }}" stroke-width="2" vector-effect="non-scaling-stroke"></path>
-											</svg>
-										</sc-if>
-										<sc-if value="{{ v.hasNext }}" hint-placeholder-val="{{ true }}">
-											<div data-v2-gap="1" class="value-steps__gap"></div>
-										</sc-if>
 									</div>
-								</sc-for>
-							</div>
-						</sc-if>
+									<sc-if value="{{ v.hasNext }}" hint-placeholder-val="{{ true }}">
+										<svg data-v2-curve="1" viewBox="0 0 100 100" preserveAspectRatio="none" class="value-steps__curve">
+											<path d="{{ v.curve2 }}" pathLength="100" fill="none" stroke="{{ v.curveColor }}" stroke-width="2" vector-effect="non-scaling-stroke"></path>
+										</svg>
+									</sc-if>
+									<sc-if value="{{ v.hasNext }}" hint-placeholder-val="{{ true }}">
+										<div data-v2-gap="1" class="value-steps__gap"></div>
+									</sc-if>
+								</div>
+							</sc-for>
+						</div>
 					</div>
 				</section>
 
@@ -364,6 +304,6 @@
 		</div>
 	</x-dc>
 
-	<script type="text/x-dc" data-dc-script data-src="js/content.js js/app.js"></script>
+	<script type="text/x-dc" data-dc-script data-src="js/content.js?v=86 js/app.js?v=86"></script>
 </body>
 </html>

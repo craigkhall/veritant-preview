@@ -66,7 +66,7 @@
 <body>
 	<x-dc>
 		<helmet>
-			<link rel="stylesheet" href="css/main.css">
+			<link rel="stylesheet" href="css/main.css?v=90e">
 		</helmet>
 
 		<div class="site">
@@ -152,7 +152,7 @@
 			<main class="site-main">
 				<!-- ================= HOME ================= -->
 				<section data-screen-label="Home hero" data-vt-hero="1" style="position:relative;background:var(--veritant-midnight-blue);overflow:hidden;min-height:721px;display:flex;align-items:center">
-					<div data-vt-reveal="1" style="position:absolute;right:16px;bottom:16px;z-index:3;display:flex;gap:6px">
+					<div class="hero-art-controls" data-vt-reveal="1" style="position:absolute;right:16px;bottom:16px;z-index:3;flex-direction:row;gap:6px">
 						<button type="button" onClick="{{ openIntro }}" style="background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.12);color:rgba(255,255,255,.35);font:inherit;font-size:9px;letter-spacing:.14em;text-transform:uppercase;padding:6px 10px;cursor:pointer;opacity:1;transition:color 160ms" style-hover="color:rgba(255,255,255,.7)">View pop-up</button>
 						<button type="button" onClick="{{ speedCur }}" style="background:rgba(255,255,255,.06);border:1px solid {{ spBd0 }};color:rgba(255,255,255,.35);font:inherit;font-size:9px;letter-spacing:.14em;text-transform:uppercase;padding:6px 10px;cursor:pointer;opacity:1;transition:color 160ms" style-hover="color:rgba(255,255,255,.7)">Current</button>
 						<button type="button" onClick="{{ speedSlow }}" style="background:rgba(255,255,255,.06);border:1px solid {{ spBd1 }};color:rgba(255,255,255,.35);font:inherit;font-size:9px;letter-spacing:.14em;text-transform:uppercase;padding:6px 10px;cursor:pointer;opacity:1;transition:color 160ms" style-hover="color:rgba(255,255,255,.7)">Slower</button>
@@ -165,14 +165,14 @@
 					<div style="position:absolute;inset:0;pointer-events:none;background:linear-gradient(90deg,rgba(5,86,204,1) 0%,rgba(5,86,204,.9) 22%,rgba(5,86,204,.55) 50%,rgba(2,46,89,.35) 100%)"></div>
 					<div data-home-pad="1" data-rsp-pad="1" style="position:relative;max-width:1280px;margin:0 auto;padding:201px 40px 120px;width:100%;box-sizing:border-box;pointer-events:none">
 						<h1 data-vt-reveal="1" style="margin:0 0 28px;color:#fff;font-weight:300;font-size:clamp(26px,3.4vw,46px);line-height:1.15;white-space:nowrap">Our methodology is exhaustive. <br><span style="color:var(--veritant-turquoise)">Our network is unmatched.</span> <br><span style="color:var(--veritant-bright-blue)">Our independence is resolute.</span></h1>
-						<p data-vt-reveal="1" style="margin:0 0 40px;color:#fff;font-size:16px;line-height:1.6;max-width:390px;font-weight:300">We identify and elevate leading advisors through rigorous, independent research.</p>
-						<a href="independence-charter.html" style="pointer-events:auto;display:inline-block;border:1px solid var(--veritant-bright-blue);background:var(--veritant-bright-blue);color:var(--veritant-royal-blue);font-weight:500;font-size:11px;letter-spacing:.14em;text-transform:uppercase;padding:14px 28px;transition:background 160ms,color 160ms,border-color 160ms" style-hover="background:#022E59;border-color:#022E59;color:#fff">Read our Independence Charter</a>
+						<p data-vt-reveal="1" style="margin:0;color:#fff;font-size:16px;line-height:1.6;max-width:390px;font-weight:300">We identify and elevate leading advisors through rigorous, independent research.</p>
 					</div>
 				</section>
 
 				<section data-screen-label="Home mission" class="home-mission">
 					<div class="home-mission__inner">
 						<div class="home-mission__content">
+							<p class="home-band__eyebrow">Our Mission</p>
 							<h2 class="home-mission__title">We conduct rigorous, independent research to identify and elevate <span class="home-mission__highlight">the advisors who define excellence within the profession.</span></h2>
 							<p class="home-mission__text">That helps investors find an advisor they can trust, and gives the industry a standard to live up to.</p>
 							<a href="our-why.html" class="button button--sapphire">Explore our mission</a>
@@ -182,9 +182,10 @@
 
 				<section data-screen-label="Home independence" class="home-independence">
 					<div class="home-independence__content">
-						<h2 class="home-independence__title"><span class="heading-line">Veritant Research alone</span> <span class="heading-line home-independence__highlight">decides who is ranked.</span></h2>
-						<p class="home-independence__text">No publisher, sponsor or commercial partner influences eligibility, ranking order or research conclusions. Participation is free, and research is kept separate from commerce.</p>
-						<a href="independence-charter.html" class="button button--sapphire">Read the seven commitments</a>
+						<p class="home-band__eyebrow home-band__eyebrow--on-bright">Our Purpose</p>
+						<h2 class="home-independence__title">Few decisions carry more weight than who one trusts for financial advice.</h2>
+						<p class="home-independence__text">That confidence only means something if it can’t be bought. That’s why we hold our own research to the same rigor and independence we expect of the advisors we rank.</p>
+						<a href="independence-charter.html" class="button button--sapphire">Read our Independence Charter</a>
 					</div>
 					<div class="home-independence__media">
 						<img src="assets/photo/texture-glass-web.jpg" alt="" class="home-independence__image">
@@ -194,37 +195,12 @@
 				<section data-screen-label="Home methodology" class="home-methodology">
 					<div class="home-methodology__inner">
 						<div>
+							<p class="home-band__eyebrow home-band__eyebrow--on-dark">Our Approach</p>
 							<h2 class="home-methodology__title"><span class="heading-line">Data is a starting point,</span> <span class="heading-line home-methodology__highlight">not the measure.</span></h2>
 							<p class="home-methodology__text">Data and human due diligence work together to create a complete view of advisor excellence.</p>
 							<a href="methodology.html" class="button button--bright-outlined">See the full cycle</a>
 						</div>
 						<div class="home-methodology__cycle">{{ cycleDark }}</div>
-					</div>
-				</section>
-
-				<section data-screen-label="Home team" class="home-team">
-					<div class="home-team__inner">
-						<div>
-							<h2 class="home-team__title"><span class="heading-line">The people</span> <span class="heading-line home-team__highlight">behind the research.</span></h2>
-							<p class="home-team__text">Researchers, analysts and event specialists, led by Molly Bennard.</p>
-							<a href="team.html" class="button button--sapphire">Meet the team</a>
-						</div>
-						<div class="home-team__grid">
-							<div>
-								<div class="home-team__photo home-team__photo--sapphire">
-									<img src="assets/photo/event-woman-seated-web.jpg" alt="" class="home-team__image">
-								</div>
-								<div class="home-team__name">Molly Bennard</div>
-								<p class="home-team__bio">Chief Executive Officer. Leads the research and events team behind the rankings.</p>
-							</div>
-							<div>
-								<div class="home-team__photo home-team__photo--teal">
-									<img src="assets/photo/venue-teal-podium.jpg" alt="" class="home-team__image">
-								</div>
-								<div class="home-team__name">Ian McGuinness</div>
-								<p class="home-team__bio">Chief Revenue Officer. Keeps commercial activity separate from research decisions.</p>
-							</div>
-						</div>
 					</div>
 				</section>
 
@@ -329,6 +305,6 @@
 		</div>
 	</x-dc>
 
-	<script type="text/x-dc" data-dc-script data-src="js/content.js js/app.js"></script>
+	<script type="text/x-dc" data-dc-script data-src="js/content.js?v=86 js/app.js?v=86"></script>
 </body>
 </html>

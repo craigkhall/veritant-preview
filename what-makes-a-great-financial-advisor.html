@@ -209,12 +209,23 @@
 				<!-- ================= INSIGHT ARTICLE ================= -->
 				<section data-screen-label="Insight article" class="insight-article">
 					<div class="insight-article__inner">
-						<a href="news-insights.html" class="insight-article__back">News &amp; Insights</a>
+						<div class="insight-article__toolbar">
+							<a href="news-insights.html" class="insight-article__back link-back">News &amp; Insights</a>
+							<div class="insight-article__switcher">
+								<button type="button" onClick="{{ prImgOn }}" class="insight-article__switch" style="border-bottom:2px solid {{ prLineOn }}">With image</button>
+								<button type="button" onClick="{{ prImgOff }}" class="insight-article__switch" style="border-bottom:2px solid {{ prLineOff }}">Without image</button>
+							</div>
+						</div>
 						<h1 class="insight-article__title">What Actually Makes a Great Financial Advisor?</h1>
 						<div class="insight-article__byline">
 							<span class="insight-article__author">Molly Bennard | SHOOK Research</span>
 							<span class="insight-article__source">Originally seen in Advisorpedia</span>
 						</div>
+						<sc-if value="{{ prImg }}" hint-placeholder-val="{{ true }}">
+							<div class="insight-article__media">
+								<img src="assets/photo/event-audience-web.jpg" alt="" class="insight-article__image">
+							</div>
+						</sc-if>
 						<div class="insight-article__body">
 							<p class="insight-article__text">In wealth management, success gets measured in numbers.</p>
 							<p class="insight-article__text">Assets under management. Revenue growth. New clients. Market performance.</p>
@@ -300,6 +311,6 @@
 		</div>
 	</x-dc>
 
-	<script type="text/x-dc" data-dc-script data-src="js/content.js js/app.js"></script>
+	<script type="text/x-dc" data-dc-script data-src="js/content.js?v=86 js/app.js?v=86"></script>
 </body>
 </html>

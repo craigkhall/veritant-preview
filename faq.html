@@ -81,7 +81,7 @@
 		          "name": "Where are the historical Rankings?",
 		          "acceptedAnswer": {
 		            "@type": "Answer",
-		            "text": "All current rankings can be found on forbes.com, check back to our website where you can find historical rankings in the future."
+		            "text": "All current rankings can be found on Forbes.com. Check back soon for historical rankings on our website."
 		          }
 		        },
 		        {
@@ -97,7 +97,7 @@
 		          "name": "Can I submit my survey now?",
 		          "acceptedAnswer": {
 		            "@type": "Answer",
-		            "text": "Not yet. Submissions open in January 2027, and there is no cost to apply or be considered. Join our email list and we’ll let you know when the cycle opens. Submissions will be accepted via our website, starting in January 2027."
+		            "text": "Not yet. Submissions open in January 2027, and there is no cost to apply or be considered. Join our email list below and we’ll let you know when the cycle opens. Submissions will be accepted via our website, starting in January 2027."
 		          }
 		        },
 		        {
@@ -288,7 +288,7 @@
 											<p class="faq-item__text">{{ para }}</p>
 										</sc-for>
 										<sc-if value="{{ q.hasLink }}" hint-placeholder-val="{{ false }}">
-											<a href="{{ q.linkHref }}" target="{{ q.linkTarget }}" rel="noopener" class="faq-item__link link-chevron">{{ q.linkLabel }}</a>
+											<a href="{{ q.linkHref }}" target="{{ q.linkTarget }}" rel="noopener" onClick="{{ q.onLink }}" class="faq-item__link link-chevron">{{ q.linkLabel }}</a>
 										</sc-if>
 									</div>
 								</sc-if>
@@ -298,7 +298,7 @@
 				</section>
 
 				<!-- NEWSLETTER -->
-				<section data-screen-label="Newsletter" class="newsletter" style="background:{{ nlBg }}">
+				<section id="newsletter" data-screen-label="Newsletter" class="newsletter" style="background:{{ nlBg }}">
 					<sc-if value="{{ nlPhoto }}" hint-placeholder-val="{{ true }}">
 						<div class="newsletter__backdrop">
 							<img src="assets/photo/newsletter-skyline-web.jpg" alt="" class="newsletter__image">
@@ -363,6 +363,6 @@
 		</div>
 	</x-dc>
 
-	<script type="text/x-dc" data-dc-script data-src="js/content.js js/app.js"></script>
+	<script type="text/x-dc" data-dc-script data-src="js/content.js?v=86 js/app.js?v=86"></script>
 </body>
 </html>

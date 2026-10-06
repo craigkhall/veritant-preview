@@ -7,6 +7,25 @@
 	background: var(--color-white);
 }
 
+.home-band__eyebrow {
+	margin: 0 0 16px;
+	font-size: 12px;
+	font-weight: 500;
+	letter-spacing: .18em;
+	text-transform: uppercase;
+	color: var(--color-sapphire);
+}
+
+.home-band__eyebrow--on-bright,
+.home-independence .home-band__eyebrow {
+	color: var(--color-midnight-blue);
+}
+
+.home-band__eyebrow--on-dark,
+.home-methodology .home-band__eyebrow {
+	color: var(--color-bright-blue);
+}
+
 .home-mission__inner {
 	max-width: var(--container-max-width);
 	margin: 0 auto;
@@ -197,7 +216,7 @@
 }
 
 .home-insights {
-	background: var(--color-ice-blue);
+	background: var(--color-white);
 }
 
 .home-insights__intro {

@@ -5,6 +5,13 @@
 .newsletter {
 	position: relative;
 	overflow: hidden;
+	scroll-margin-top: 96px;
+}
+
+@media (max-width: 768px) {
+	.newsletter {
+		scroll-margin-top: 72px;
+	}
 }
 
 .newsletter__backdrop {

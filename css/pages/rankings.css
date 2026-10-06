@@ -22,7 +22,7 @@
 .ranking-row {
 	position: relative;
 	display: grid;
-	grid-template-columns: minmax(0,.9fr) minmax(0,2.6fr) minmax(0,.8fr) minmax(0,1.1fr);
+	grid-template-columns: minmax(0,.9fr) minmax(0,3.4fr) minmax(0,1.1fr);
 	gap: 12px 32px;
 	align-items: center;
 	padding: clamp(28px,3vw,44px) clamp(20px,3vw,40px);
@@ -51,11 +51,6 @@
 	font-size: clamp(20px,2.2vw,28px);
 	line-height: 1.2;
 	color: var(--color-royal-blue);
-}
-
-.ranking-row__meta {
-	font-size: 15px;
-	color: var(--color-text-muted);
 }
 
 .ranking-row__cta {

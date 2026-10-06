@@ -2,49 +2,44 @@
 	 Mission (Our Why) page
 	 ========================================================================== */
 
+/* Design-review controls (shared by home + Our Why heroes) */
+.hero-art-controls {
+	position: absolute;
+	right: 16px;
+	bottom: 16px;
+	z-index: 3;
+	display: flex;
+	flex-direction: column;
+	align-items: flex-end;
+	gap: 8px;
+}
+
+@media (max-width:768px) {
+	.hero-art-controls {
+		display: none;
+	}
+}
+
 .mission-values {
 	background: var(--color-white);
 	position: relative;
 	overflow: hidden;
 }
 
-.mission-values__switcher,
 .mission-trust {
 	background: var(--color-white);
-}
-
-.mission-values__switcher-inner {
-	max-width: var(--container-max-width);
-	margin: 0 auto;
-	padding: 14px 40px 0;
-	box-sizing: border-box;
-	display: flex;
-	justify-content: flex-end;
-	gap: 24px;
-}
-
-.mission-values__switch {
-	background: transparent;
-	border: 0;
-	font: inherit;
-	font-size: 12px;
-	letter-spacing: .16em;
-	text-transform: uppercase;
-	color: var(--color-royal-blue);
-	padding: 6px 0;
-	cursor: pointer;
 }
 
 .mission-values__inner {
 	max-width: var(--container-max-width);
 	margin: 0 auto;
-	padding: 0 40px 128px;
+	padding: 64px 40px 128px;
 	box-sizing: border-box;
 	position: relative;
 }
 
 .mission-values__title {
-	margin: 32px 0 32px;
+	margin: 0 0 32px;
 	font-weight: 300;
 	font-size: clamp(28px,3vw,40px);
 	line-height: 1.15;
@@ -185,7 +180,7 @@
 
 .value-steps__row {
 	display: flex;
-	align-items: flex-start;
+	align-items: center;
 	gap: 48px;
 	outline: none;
 	cursor: default;
@@ -308,12 +303,6 @@
 	min-height: 24px;
 }
 
-/* Hover states */
-
-.mission-values__switch:hover {
-	color: var(--color-sapphire);
-}
-
 /* Responsive */
 
 @media (max-width:960px) {
@@ -330,6 +319,7 @@
 	/* Value steps: stack each value (icon + title above a full-width card) */
 	.value-steps__row {
 		flex-direction: column !important; /* overrides the inline alternating direction */
+		align-items: stretch;
 		margin: 0;
 		gap: 20px;
 	}
@@ -338,6 +328,7 @@
 		width: auto;
 		margin: 0 !important; /* overrides the inline timeline offsets */
 		flex-direction: row;
+		align-items: center;
 		gap: 20px;
 	}
 
@@ -404,16 +395,9 @@
 }
 
 @media (max-width:640px) {
-	.mission-values__switcher-inner,
 	.mission-values__inner,
 	.mission-trust__inner {
-		padding-left: 24px;
-		padding-right: 24px;
-	}
-
-	.mission-values__inner,
-	.mission-trust__inner {
-		padding-bottom: 60px;
+		padding: 48px 24px 60px;
 	}
 
 	.value-track {

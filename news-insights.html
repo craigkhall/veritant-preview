@@ -205,87 +205,48 @@
 					</div>
 					<div data-rsp-pad="1" style="max-width:1280px;margin:0 auto;padding:140px 40px 180px;box-sizing:border-box;position:relative">
 						<h1 style="margin:0 0 20px;color:#fff;font-weight:300;font-size:clamp(34px,4vw,52px);line-height:1.12;max-width:640px">News &amp; Insights</h1>
-						<h2 style="margin:0;color:#fff;font-weight:300;font-size:clamp(20px,2vw,26px);line-height:1.3;max-width:760px">Latest Happenings and Insights</h2>
+						<h2 style="margin:0;color:#fff;font-weight:300;font-size:clamp(20px,2vw,26px);line-height:1.3;max-width:760px">Read Veritant’s latest happenings and insights</h2>
 					</div>
 				</section>
 				<section data-screen-label="News list" class="news-list">
 					<div class="news-list__inner">
-						<div class="news-list__switcher">
-							<button type="button" onClick="{{ newsSet1 }}" class="news-list__switch" style="border-bottom:2px solid {{ newsLine1 }}">Option 1</button>
-							<button type="button" onClick="{{ newsSet2 }}" class="news-list__switch" style="border-bottom:2px solid {{ newsLine2 }}">Option 2</button>
+						<div class="news-list__grid">
+							<a href="shook-research-is-now-veritant.html" class="news-tile news-tile--blue">
+								<div class="news-tile__media">
+									<img src="assets/photo/event-applause.jpg" alt="" class="news-tile__image">
+									<span class="news-tile__tag news-tile__tag--light">News</span>
+								</div>
+								<div class="news-tile__body">
+									<div class="news-tile__date news-tile__date--light">
+										<span class="news-tile__day news-tile__day--light">12</span>
+										<span class="news-tile__month news-tile__month--light">Oct 2026</span>
+									</div>
+									<div class="news-tile__content">
+										<h2 class="news-tile__title news-tile__title--light">SHOOK Research is now Veritant.</h2>
+										<p class="news-tile__text news-tile__text--light">A new name for the independent research behind the industry’s advisor rankings.</p>
+										<div class="news-tile__cta news-tile__cta--light link-chevron">Read the announcement</div>
+									</div>
+								</div>
+							</a>
+							<a href="what-makes-a-great-financial-advisor.html" class="news-tile news-tile--white">
+								<div class="news-tile__media">
+									<img src="assets/photo/event-audience-web.jpg" alt="" class="news-tile__image">
+									<span class="news-tile__tag news-tile__tag--sapphire">Insight</span>
+								</div>
+								<div class="news-tile__body">
+									<div class="news-tile__date news-tile__date--dark">
+										<span class="news-tile__day news-tile__day--sapphire">03</span>
+										<span class="news-tile__month news-tile__month--muted">Aug 2026</span>
+									</div>
+									<div class="news-tile__content">
+										<h2 class="news-tile__title news-tile__title--dark">What Actually Makes a Great Financial Advisor?</h2>
+										<p class="news-tile__text news-tile__text--muted">In wealth management, success gets measured in numbers.</p>
+										<div class="news-tile__author">Molly Bennard</div>
+										<div class="news-tile__cta news-tile__cta--sapphire link-chevron">Read the article</div>
+									</div>
+								</div>
+							</a>
 						</div>
-						<sc-if value="{{ newsOpt1 }}" hint-placeholder-val="{{ true }}">
-							<div class="news-list__stack">
-								<a href="shook-research-is-now-veritant.html" data-news-ov="1" class="news-feature">
-									<div data-news-img="1" class="news-feature__media news-feature__media--left">
-										<img src="assets/photo/event-applause.jpg" alt="" class="news-feature__image">
-									</div>
-									<div data-news-txt="1" class="news-feature__panel news-feature__panel--blue">
-										<div class="news-feature__meta">
-											<span class="news-feature__tag news-feature__tag--light">News</span>
-											<span class="news-feature__date news-feature__date--light">October 12, 2026</span>
-										</div>
-										<h2 class="news-feature__title news-feature__title--light">SHOOK Research is now Veritant.</h2>
-										<p class="news-feature__text news-feature__text--light">A new name for the independent research behind the industry’s advisor rankings.</p>
-										<div class="news-feature__cta news-feature__cta--light link-chevron">Read the announcement</div>
-									</div>
-								</a>
-								<a href="what-makes-a-great-financial-advisor.html" data-news-ov="1" class="news-feature">
-									<div data-news-img="1" class="news-feature__media news-feature__media--right">
-										<img src="assets/photo/event-audience-web.jpg" alt="" class="news-feature__image">
-									</div>
-									<div data-news-txt="1" class="news-feature__panel news-feature__panel--white">
-										<div class="news-feature__meta">
-											<span class="news-feature__tag news-feature__tag--sapphire">Insight</span>
-											<span class="news-feature__date news-feature__date--muted">August 3, 2026</span>
-										</div>
-										<h2 class="news-feature__title news-feature__title--dark">What Actually Makes a Great Financial Advisor?</h2>
-										<p class="news-feature__text news-feature__text--muted">In wealth management, success gets measured in numbers.</p>
-										<div class="news-feature__author">Molly Bennard</div>
-										<div class="news-feature__cta news-feature__cta--sapphire link-chevron">Read the article</div>
-									</div>
-								</a>
-							</div>
-						</sc-if>
-						<sc-if value="{{ newsOpt2 }}" hint-placeholder-val="{{ false }}">
-							<div class="news-list__grid">
-								<a href="shook-research-is-now-veritant.html" class="news-tile news-tile--blue">
-									<div class="news-tile__media">
-										<img src="assets/photo/event-applause.jpg" alt="" class="news-tile__image">
-										<span class="news-tile__tag news-tile__tag--light">News</span>
-									</div>
-									<div class="news-tile__body">
-										<div class="news-tile__date news-tile__date--light">
-											<span class="news-tile__day news-tile__day--light">12</span>
-											<span class="news-tile__month news-tile__month--light">Oct 2026</span>
-										</div>
-										<div class="news-tile__content">
-											<h2 class="news-tile__title news-tile__title--light">SHOOK Research is now Veritant.</h2>
-											<p class="news-tile__text news-tile__text--light">A new name for the independent research behind the industry’s advisor rankings.</p>
-											<div class="news-tile__cta news-tile__cta--light link-chevron">Read the announcement</div>
-										</div>
-									</div>
-								</a>
-								<a href="what-makes-a-great-financial-advisor.html" class="news-tile news-tile--white">
-									<div class="news-tile__media">
-										<img src="assets/photo/event-audience-web.jpg" alt="" class="news-tile__image">
-										<span class="news-tile__tag news-tile__tag--sapphire">Insight</span>
-									</div>
-									<div class="news-tile__body">
-										<div class="news-tile__date news-tile__date--dark">
-											<span class="news-tile__day news-tile__day--sapphire">03</span>
-											<span class="news-tile__month news-tile__month--muted">Aug 2026</span>
-										</div>
-										<div class="news-tile__content">
-											<h2 class="news-tile__title news-tile__title--dark">What Actually Makes a Great Financial Advisor?</h2>
-											<p class="news-tile__text news-tile__text--muted">In wealth management, success gets measured in numbers.</p>
-											<div class="news-tile__author">Molly Bennard</div>
-											<div class="news-tile__cta news-tile__cta--sapphire link-chevron">Read the article</div>
-										</div>
-									</div>
-								</a>
-							</div>
-						</sc-if>
 					</div>
 				</section>
 
@@ -355,6 +316,6 @@
 		</div>
 	</x-dc>
 
-	<script type="text/x-dc" data-dc-script data-src="js/content.js js/app.js"></script>
+	<script type="text/x-dc" data-dc-script data-src="js/content.js?v=86 js/app.js?v=86"></script>
 </body>
 </html>

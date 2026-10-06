@@ -9,6 +9,13 @@
 	display: none !important;
 }
 
+/* Design-review hero pickers: keep on desktop, clear of copy on small screens */
+@media (max-width:768px) {
+	.hero-art-controls {
+		display: none !important;
+	}
+}
+
 @media (max-width:960px) {
 	[data-rsp="grid"] {
 		grid-template-columns: minmax(0,1fr) !important;
@@ -84,6 +91,10 @@
 [data-screen-label="Mission hero"] {
 	--hero-text-w: calc(clamp(0px, 6vw, 120px) + 680px);
 	--hero-art-r: 6%;
+}
+[data-screen-label="Independence hero"] {
+	--hero-text-w: 760px;
+	--hero-art-r: 4%;
 }
 [data-screen-label="Forbes hero"] {
 	--hero-text-w: 710px;

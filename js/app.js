@@ -113,12 +113,26 @@ class Component extends DCLogic {
       const r = el.getBoundingClientRect();
       if (r.top < vh * 0.9 && r.bottom > 0 && !el.hasAttribute('data-in')) el.setAttribute('data-in', '');
     });
-    document.querySelectorAll('[data-v2-row]').forEach(row => {
+    // Layout 2 (value-steps): grow top → node/card → bottom → curve → next top.
+    document.querySelectorAll('[data-v2-row]').forEach((row, idx) => {
+      const item = row.parentElement;
       const r = row.getBoundingClientRect();
-      if (r.top < vh * 0.85 && r.bottom > 0) {
-        row.querySelectorAll('[data-v2-node],[data-v2-box],[data-v2-seg]:last-child').forEach(el => {
-          if (!el.hasAttribute('data-in')) el.setAttribute('data-in', '');
-        });
+      if (!(r.top < vh * 0.85 && r.bottom > 0)) return;
+      const segs = row.querySelectorAll('[data-v2-seg]');
+      const top = segs[0];
+      const bot = segs[1];
+      const node = row.querySelector('[data-v2-node]');
+      const box = row.querySelector('[data-v2-box]');
+      const prevItem = item && item.previousElementSibling;
+      const prevCurve = prevItem && prevItem.querySelector('[data-v2-curve]');
+      const prevReady = !prevCurve || +(prevCurve.dataset.p || 0) >= 0.98;
+      if (idx === 0 || prevReady) {
+        if (top && !top.hasAttribute('data-in')) top.setAttribute('data-in', '');
+      }
+      if (top && top.hasAttribute('data-in')) {
+        if (node && !node.hasAttribute('data-in')) node.setAttribute('data-in', '');
+        if (box && !box.hasAttribute('data-in')) box.setAttribute('data-in', '');
+        if (bot && !bot.hasAttribute('data-in')) bot.setAttribute('data-in', '');
       }
     });
     document.querySelectorAll('[data-val-row]').forEach(row => {
@@ -163,6 +177,17 @@ class Component extends DCLogic {
       }
     });
     document.querySelectorAll('[data-v2-curve]').forEach(svg => {
+      const item = svg.parentElement;
+      const row = item && item.querySelector('[data-v2-row]');
+      const bot = row && row.querySelectorAll('[data-v2-seg]')[1];
+      if (bot && !bot.hasAttribute('data-in')) return;
+      const path = svg.querySelector('path');
+      // Clear any leftover dash styles from the reverted experiment
+      if (path) {
+        path.style.strokeDasharray = '';
+        path.style.strokeDashoffset = '';
+        delete path.dataset.len;
+      }
       const r = svg.getBoundingClientRect();
       if (!r.height) return;
       const p = Math.max(0, Math.min(1, (vh * 0.75 - r.top) / (r.height + vh * 0.15)));
@@ -171,8 +196,8 @@ class Component extends DCLogic {
         svg.dataset.p = p;
         svg.style.clipPath = 'inset(0 0 ' + ((1 - p) * 100).toFixed(2) + '% 0)';
       }
-      if (p >= 0.97) {
-        const nx = svg.parentElement && svg.parentElement.nextElementSibling;
+      if (p >= 0.98) {
+        const nx = item && item.nextElementSibling;
         const sg = nx && nx.querySelector('[data-v2-seg]');
         if (sg && !sg.hasAttribute('data-in')) sg.setAttribute('data-in', '');
       }
@@ -386,22 +411,48 @@ class Component extends DCLogic {
   renderVals() {
     const s = this.state,
       p = s.page;
+    const goNewsletter = e => {
+      e.preventDefault();
+      const el = document.getElementById('newsletter');
+      if (!el) return;
+      const header = this.headerRef && this.headerRef.current;
+      const offset = (header && header.offsetHeight) || s.headerH || 80;
+      const top = el.getBoundingClientRect().top + window.pageYOffset - offset - 12;
+      window.scrollTo({ top: Math.max(0, top), behavior: 'smooth' });
+      const input = el.querySelector('input[type="email"]');
+      if (input) {
+        window.setTimeout(() => {
+          try {
+            input.focus({ preventScroll: true });
+          } catch (_) {
+            input.focus();
+          }
+        }, 450);
+      }
+    };
     const acc = (list, key) =>
       list.map(([q, a, link], i) => {
         const open = s[key] === i;
+        const isNewsletter = link === 'newsletter';
         return {
           q,
           a: Array.isArray(a) ? a : [a],
           open,
           hasLink: !!link,
-          linkHref: /^https?:/.test(link || '') ? link : pageHref(link || ''),
+          linkHref: isNewsletter
+            ? '#newsletter'
+            : /^https?:/.test(link || '')
+              ? link
+              : pageHref(link || ''),
           linkTarget: /^https?:/.test(link || '') ? '_blank' : '_self',
           linkLabel:
             {
               methodology: 'View our methodology page',
               team: 'Meet the team',
+              newsletter: 'Join our email list',
               'https://www.forbes.com/': 'Visit Forbes.com',
             }[link] || '',
+          onLink: isNewsletter ? goNewsletter : e => {},
           sign: open ? '–' : '+',
           color: open ? '#0556CC' : '#022E59',
           toggle: () => this.setState({ [key]: open ? -1 : i }),
@@ -434,31 +485,12 @@ class Component extends DCLogic {
       spBd0: (s.heroSpeed || 0) === 0 ? 'rgba(255,255,255,.45)' : 'rgba(255,255,255,.12)',
       spBd1: s.heroSpeed === 1 ? 'rgba(255,255,255,.45)' : 'rgba(255,255,255,.12)',
       spBd2: s.heroSpeed === 2 ? 'rgba(255,255,255,.45)' : 'rgba(255,255,255,.12)',
-      valLayout1: s.valLayout === 1,
-      valLayout2: s.valLayout !== 1,
-      valL1: () => this.setState({ valLayout: 1 }),
-      valL2: () => this.setState({ valLayout: 2 }),
-      valLine1: s.valLayout === 1 ? '#0556CC' : 'transparent',
-      valLine2: s.valLayout !== 1 ? '#0556CC' : 'transparent',
       prImg: s.prImg !== false,
       prImgOn: () => this.setState({ prImg: true }),
       prImgOff: () => this.setState({ prImg: false }),
       prLineOn: s.prImg !== false ? '#0556CC' : 'transparent',
       prLineOff: s.prImg === false ? '#0556CC' : 'transparent',
-      newsOpt1: (s.newsOpt ?? 1) === 1,
-      newsOpt2: s.newsOpt === 2,
-      newsSet1: () => this.setState({ newsOpt: 1 }),
-      newsSet2: () => this.setState({ newsOpt: 2 }),
-      newsLine1: (s.newsOpt ?? 1) === 1 ? '#0556CC' : 'transparent',
-      newsLine2: s.newsOpt === 2 ? '#0556CC' : 'transparent',
-      art0: (s.charterArt ?? 1) === 0,
-      artColored: (s.charterArt ?? 1) !== 0,
-      artRight: (s.charterArt ?? 1) === 2 ? '-4%' : '-2%',
-      artW: (s.charterArt ?? 1) === 2 ? 'clamp(340px,46vw,660px)' : 'clamp(300px,40vw,560px)',
-      artColor: s.charterColor || '#03D0FF',
-      artA: (s.charterArt ?? 1) === 1,
-      artB: (s.charterArt ?? 1) === 2,
-      artMask: (() => {
+      ...((() => {
         const icon = {
           independence: 'momentum',
           mission: 'evidence',
@@ -469,26 +501,52 @@ class Component extends DCLogic {
           methodology: 'comparison',
           faq: 'assessment',
         };
-        return 'url("assets/icons/' + (icon[p] || icon.independence) + '-white.svg")';
-      })(),
-      artSwatches: [
-        ['Yellow', '#F4DF19'],
-        ['Turquoise', '#02C9B5'],
-        ['Magenta', '#CE2FAC'],
-        ['Bright Blue', '#03D0FF'],
-        ['Deep Magenta', '#680062'],
-      ].map(([name, c]) => ({
-        name,
-        c,
-        ring: (s.charterColor || '#03D0FF') === c ? '#fff' : 'rgba(255,255,255,.2)',
-        pick: () => this.setState({ charterColor: c }),
-      })),
-      artSet0: () => this.setState({ charterArt: 0 }),
-      artFg0: (s.charterArt ?? 1) === 0 ? 'rgba(255,255,255,.9)' : 'rgba(255,255,255,.4)',
-      artSet1: () => this.setState({ charterArt: 1 }),
-      artFg1: (s.charterArt ?? 1) === 1 ? 'rgba(255,255,255,.9)' : 'rgba(255,255,255,.4)',
-      artSet2: () => this.setState({ charterArt: 2 }),
-      artFg2: (s.charterArt ?? 1) === 2 ? 'rgba(255,255,255,.9)' : 'rgba(255,255,255,.4)',
+        const iconName = icon[p] || icon.independence;
+        // Locked hero treatments (responsive via [data-hero-art] in responsive.css)
+        if (p === 'mission') {
+          return {
+            artColor: '#02C9B5',
+            artMask: 'url("assets/icons/evidence-medium-white.svg")',
+          };
+        }
+        // #74: Independence — larger option + Yellow
+        if (p === 'independence') {
+          return {
+            artColor: '#F4DF19',
+            artMask: 'url("assets/icons/momentum-white.svg")',
+          };
+        }
+        const art = s.charterArt ?? 1;
+        const artColor = s.charterColor || '#03D0FF';
+        return {
+          art0: art === 0,
+          artColored: art !== 0,
+          artRight: art === 2 ? '-4%' : '-2%',
+          artW: art === 2 ? 'clamp(340px,46vw,660px)' : 'clamp(300px,40vw,560px)',
+          artColor,
+          artA: art === 1,
+          artB: art === 2,
+          artMask: 'url("assets/icons/' + iconName + '-white.svg")',
+          artSwatches: [
+            ['Yellow', '#F4DF19'],
+            ['Turquoise', '#02C9B5'],
+            ['Magenta', '#CE2FAC'],
+            ['Bright Blue', '#03D0FF'],
+            ['Deep Magenta', '#680062'],
+          ].map(([name, c]) => ({
+            name,
+            c,
+            ring: artColor === c ? '#fff' : 'rgba(255,255,255,.2)',
+            pick: () => this.setState({ charterColor: c }),
+          })),
+          artSet0: () => this.setState({ charterArt: 0 }),
+          artFg0: art === 0 ? 'rgba(255,255,255,.9)' : 'rgba(255,255,255,.4)',
+          artSet1: () => this.setState({ charterArt: 1 }),
+          artFg1: art === 1 ? 'rgba(255,255,255,.9)' : 'rgba(255,255,255,.4)',
+          artSet2: () => this.setState({ charterArt: 2 }),
+          artFg2: art === 2 ? 'rgba(255,255,255,.9)' : 'rgba(255,255,255,.4)',
+        };
+      })()),
       nlBg: '#0556CC',
       nlHead: '#fff',
       nlText: '#fff',
@@ -566,7 +624,8 @@ class Component extends DCLogic {
         const on = s.valHover === i;
         const ic = ['evidence', 'relationships', 'caliber', 'momentum', 'assessment'][i % 5];
         const left = i % 2 === 0;
-        const pal = ['#0556CC', '#022E59', '#03D0FF', '#12797C', '#680062'][i % 5];
+        // Convening uses a deeper bright-blue so icon, line, and card stay aligned
+        const pal = ['#0556CC', '#022E59', '#028FBF', '#12797C', '#680062'][i % 5];
         const n = VALUES.length;
         return {
           t: tt,
@@ -586,17 +645,17 @@ class Component extends DCLogic {
           dir2: left ? 'row' : 'row-reverse',
           ml2: left ? 'calc(30% - 120px)' : '0',
           mr2: left ? '0' : 'calc(34% - 120px)',
-          topSeg: i === 0 ? 'transparent' : ['#0556CC', '#022E59', '#03D0FF', '#12797C', '#680062'][(i + 4) % 5],
+          topSeg: i === 0 ? 'transparent' : ['#0556CC', '#022E59', '#028FBF', '#12797C', '#680062'][(i + 4) % 5],
           botSeg: i < n - 1 ? pal : 'transparent',
           curveColor: pal,
           curve2: left ? 'M30,0 C30,45 66,55 66,100' : 'M66,0 C66,45 30,55 30,100',
           boxLift: on ? 'translateY(-6px)' : 'none',
-          wmOp: i % 5 === 2 ? 0.4 : 0.12,
+          wmOp: 0.12,
           titleColor: '#022E59',
           boxBg: [
             'linear-gradient(150deg,#0556CC 0%,#2A7FE6 100%)',
             'linear-gradient(150deg,#022E59 0%,#0A4C8A 100%)',
-            'linear-gradient(150deg,#03D0FF 0%,#6EDDFF 100%)',
+            'linear-gradient(150deg,#027AA8 0%,#028FBF 100%)',
             'linear-gradient(150deg,#12797C 0%,#1A9894 100%)',
             'linear-gradient(150deg,#680062 0%,#8C1A80 100%)',
           ][i % 5],
