@@ -257,6 +257,16 @@ class Component extends DCLogic {
     const fresh = [];
     root.querySelectorAll('section > div > *, section > img, section > svg').forEach(el => {
       if (this._seen.has(el)) return;
+      /* Stagger direct kids (incl. cards/links) instead of the wrapper */
+      if (el.hasAttribute('data-vt-stagger-kids')) {
+        this._seen.add(el);
+        [...el.children].forEach(kid => {
+          if (this._seen.has(kid)) return;
+          this._seen.add(kid);
+          fresh.push([kid, false]);
+        });
+        return;
+      }
       this._seen.add(el);
       if (el.closest('[data-vt-hero]')) return;
       const isDecor = el.parentElement.tagName === 'SECTION';

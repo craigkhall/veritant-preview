@@ -215,6 +215,12 @@
 	color: var(--color-text-muted);
 }
 
+@media (prefers-reduced-motion: no-preference) {
+	.home-insights__grid > a[data-vt-reveal] {
+		will-change: opacity, transform;
+	}
+}
+
 .home-insights {
 	background: var(--color-white);
 }
