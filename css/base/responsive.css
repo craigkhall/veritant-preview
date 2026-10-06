@@ -103,8 +103,8 @@
 	}
 	/* Home hero: keep the 3 intended lines; size so each phrase fits one line */
 	main section[data-vt-hero][data-screen-label="Home hero"] h1 {
-		font-size: clamp(18px, 5.2vw, 24px) !important;
-		line-height: 1.25 !important;
+		font-size: clamp(21px, 6.2vw, 28px) !important;
+		line-height: 1.22 !important;
 		white-space: normal !important;
 		max-width: none !important;
 	}
