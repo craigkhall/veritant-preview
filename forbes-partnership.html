@@ -180,29 +180,7 @@
 			<main class="site-main">
 				<!-- ================= FORBES PARTNERSHIP ================= -->
 				<section data-screen-label="Forbes hero" data-vt-hero="1" style="background:linear-gradient(160deg,#0548E0 0%,#0556CC 45%,#2F86E8 100%);position:relative;overflow:hidden">
-					<sc-if value="{{ art0 }}" hint-placeholder-val="{{ false }}">
-						<img data-hero-art="1" src="assets/icons/connection-white.svg" alt="" style="position:absolute;right:-2%;top:50%;transform:translateY(-50%);width:clamp(300px,40vw,560px);opacity:.14;pointer-events:none">
-					</sc-if>
-					<sc-if value="{{ artA }}" hint-placeholder-val="{{ true }}">
-						<div data-hero-art="1" style="position:absolute;right:5%;top:50%;transform:translateY(-50%);width:clamp(220px,26vw,380px);aspect-ratio:1;background:{{ artColor }};opacity:.85;-webkit-mask-image:{{ artMask }};mask-image:{{ artMask }};-webkit-mask-size:contain;mask-size:contain;-webkit-mask-repeat:no-repeat;mask-repeat:no-repeat;-webkit-mask-position:center;mask-position:center;pointer-events:none;transition:background 300ms"></div>
-					</sc-if>
-					<sc-if value="{{ artB }}" hint-placeholder-val="{{ false }}">
-						<div data-hero-art="1" style="position:absolute;right:-2%;top:50%;transform:translateY(-50%);width:clamp(345px,46vw,661px);aspect-ratio:1;background:{{ artColor }};opacity:.85;-webkit-mask-image:{{ artMask }};mask-image:{{ artMask }};-webkit-mask-size:contain;mask-size:contain;-webkit-mask-repeat:no-repeat;mask-repeat:no-repeat;-webkit-mask-position:center;mask-position:center;pointer-events:none;transition:background 300ms"></div>
-					</sc-if>
-					<div style="position:absolute;right:16px;bottom:16px;z-index:3;display:flex;flex-direction:column;align-items:flex-end;gap:8px">
-						<sc-if value="{{ artColored }}" hint-placeholder-val="{{ true }}">
-							<div style="display:flex;gap:6px;padding:6px;background:rgba(2,33,56,.25)">
-								<sc-for list="{{ artSwatches }}" as="sw" hint-placeholder-count="5">
-									<button type="button" onClick="{{ sw.pick }}" aria-label="{{ sw.name }}" title="{{ sw.name }}" style="width:22px;height:22px;padding:0;border:2px solid {{ sw.ring }};background:{{ sw.c }};cursor:pointer"></button>
-								</sc-for>
-							</div>
-						</sc-if>
-						<div style="display:flex;gap:6px">
-							<button type="button" onClick="{{ artSet0 }}" style="background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.12);color:{{ artFg0 }};font:inherit;font-size:9px;letter-spacing:.14em;text-transform:uppercase;padding:6px 10px;cursor:pointer;transition:color 160ms" style-hover="color:rgba(255,255,255,.85)">Current</button>
-							<button type="button" onClick="{{ artSet1 }}" style="background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.12);color:{{ artFg1 }};font:inherit;font-size:9px;letter-spacing:.14em;text-transform:uppercase;padding:6px 10px;cursor:pointer;transition:color 160ms" style-hover="color:rgba(255,255,255,.85)">A: Color</button>
-							<button type="button" onClick="{{ artSet2 }}" style="background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.12);color:{{ artFg2 }};font:inherit;font-size:9px;letter-spacing:.14em;text-transform:uppercase;padding:6px 10px;cursor:pointer;transition:color 160ms" style-hover="color:rgba(255,255,255,.85)">B: Larger</button>
-						</div>
-					</div>
+					<div data-hero-art="1" style="position:absolute;right:5%;top:50%;transform:translateY(-50%);width:clamp(220px,26vw,380px);aspect-ratio:1;background:{{ artColor }};opacity:.85;-webkit-mask-image:{{ artMask }};mask-image:{{ artMask }};-webkit-mask-size:contain;mask-size:contain;-webkit-mask-repeat:no-repeat;mask-repeat:no-repeat;-webkit-mask-position:center;mask-position:center;pointer-events:none"></div>
 					<div data-rsp-pad="1" style="max-width:1280px;margin:0 auto;padding:140px 40px 180px;box-sizing:border-box;position:relative">
 						<h1 style="margin:0 0 28px;color:#fff;font-weight:300;font-size:clamp(34px,4vw,52px);line-height:1.12;max-width:640px">Forbes Partnership</h1>
 						<p style="margin:0;color:#fff;font-size:20px;line-height:1.5;max-width:710px;font-weight:300">Forbes is our strategic marketing partner, who distributes and markets the rankings.</p>
@@ -275,6 +253,6 @@
 		</div>
 	</x-dc>
 
-	<script type="text/x-dc" data-dc-script data-src="js/content.js?v=86 js/app.js?v=86"></script>
+	<script type="text/x-dc" data-dc-script data-src="js/content.js?v=91 js/app.js?v=91"></script>
 </body>
 </html>

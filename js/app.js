@@ -502,49 +502,22 @@ class Component extends DCLogic {
           faq: 'assessment',
         };
         const iconName = icon[p] || icon.independence;
-        // Locked hero treatments (responsive via [data-hero-art] in responsive.css)
+        // Locked hero treatments (selectors removed on all pages except home)
         if (p === 'mission') {
           return {
             artColor: '#02C9B5',
             artMask: 'url("assets/icons/evidence-medium-white.svg")',
           };
         }
-        // #74: Independence — larger option + Yellow
         if (p === 'independence') {
           return {
             artColor: '#F4DF19',
             artMask: 'url("assets/icons/momentum-white.svg")',
           };
         }
-        const art = s.charterArt ?? 1;
-        const artColor = s.charterColor || '#03D0FF';
         return {
-          art0: art === 0,
-          artColored: art !== 0,
-          artRight: art === 2 ? '-4%' : '-2%',
-          artW: art === 2 ? 'clamp(340px,46vw,660px)' : 'clamp(300px,40vw,560px)',
-          artColor,
-          artA: art === 1,
-          artB: art === 2,
+          artColor: '#03D0FF',
           artMask: 'url("assets/icons/' + iconName + '-white.svg")',
-          artSwatches: [
-            ['Yellow', '#F4DF19'],
-            ['Turquoise', '#02C9B5'],
-            ['Magenta', '#CE2FAC'],
-            ['Bright Blue', '#03D0FF'],
-            ['Deep Magenta', '#680062'],
-          ].map(([name, c]) => ({
-            name,
-            c,
-            ring: artColor === c ? '#fff' : 'rgba(255,255,255,.2)',
-            pick: () => this.setState({ charterColor: c }),
-          })),
-          artSet0: () => this.setState({ charterArt: 0 }),
-          artFg0: art === 0 ? 'rgba(255,255,255,.9)' : 'rgba(255,255,255,.4)',
-          artSet1: () => this.setState({ charterArt: 1 }),
-          artFg1: art === 1 ? 'rgba(255,255,255,.9)' : 'rgba(255,255,255,.4)',
-          artSet2: () => this.setState({ charterArt: 2 }),
-          artFg2: art === 2 ? 'rgba(255,255,255,.9)' : 'rgba(255,255,255,.4)',
         };
       })()),
       nlBg: '#0556CC',
