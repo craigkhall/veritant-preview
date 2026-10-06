@@ -44,17 +44,42 @@
 		padding-left: 24px !important;
 		padding-right: 24px !important;
 	}
-	[data-vt-hero] > div {
+	/* Only content pads — never the video/overlays (that left a solid blue band) */
+	[data-vt-hero] > div[data-rsp-pad],
+	[data-vt-hero] > div[data-home-pad] {
 		padding-top: 72px !important;
-		padding-bottom: 88px !important;
+		padding-bottom: 56px !important;
+	}
+	[data-vt-hero] > div[style*="inset:0"] {
+		padding: 0 !important;
 	}
 	[data-vt-hero] {
 		min-height: 0 !important;
 	}
-	/* Home hero: hug copy — kill empty blue band under the lead */
+	/* Home hero: video fills the frame; softer scrim so media shows under the lead */
 	main section[data-vt-hero][data-screen-label="Home hero"] {
 		min-height: 0 !important;
 		align-items: flex-start !important;
+	}
+	main section[data-vt-hero][data-screen-label="Home hero"] > div[style*="inset:0"]:has(video),
+	main section[data-vt-hero][data-screen-label="Home hero"] > div:has(> video) {
+		inset: 0 !important;
+		padding: 0 !important;
+	}
+	main section[data-vt-hero][data-screen-label="Home hero"] video {
+		width: 100% !important;
+		height: 100% !important;
+		object-fit: cover !important;
+		object-position: center center !important;
+	}
+	main section[data-vt-hero][data-screen-label="Home hero"] > div[style*="linear-gradient"] {
+		background: linear-gradient(
+			180deg,
+			rgba(5,86,204,.92) 0%,
+			rgba(5,86,204,.72) 42%,
+			rgba(2,46,89,.45) 72%,
+			rgba(2,33,56,.35) 100%
+		) !important;
 	}
 	main h1 br,
 	main h2 br {
@@ -71,16 +96,27 @@
 	[data-vt-hero] > div[data-home-pad],
 	[data-vt-hero] div[data-home-pad] {
 		padding-top: 112px !important;
-		padding-bottom: 48px !important;
+		padding-bottom: 40px !important;
 	}
 	main section[data-vt-hero] h1 {
 		white-space: normal !important;
 	}
+	/* Home hero: keep the 3 intended lines; size so each phrase fits one line */
+	main section[data-vt-hero][data-screen-label="Home hero"] h1 {
+		font-size: clamp(18px, 5.2vw, 24px) !important;
+		line-height: 1.25 !important;
+		white-space: normal !important;
+		max-width: none !important;
+	}
+	main section[data-vt-hero][data-screen-label="Home hero"] h1 br {
+		display: revert !important;
+	}
 	/* Home hero lead — stay a step above body */
 	main section[data-vt-hero][data-screen-label="Home hero"] p {
-		font-size: 18px !important;
+		font-size: 17px !important;
 		line-height: 1.5 !important;
 		max-width: none !important;
+		margin-top: 8px !important;
 	}
 	main section > img[src*="/icons/"] {
 		height: 60% !important;
