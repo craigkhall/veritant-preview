@@ -69,7 +69,7 @@
 	<x-dc>
 		<helmet>
 			<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter+Tight:ital,wght@0,200..800;1,200..800&display=swap">
-			<link rel="stylesheet" href="css/main.css?v=107">
+			<link rel="stylesheet" href="css/main.css?v=110">
 		</helmet>
 
 		<div class="site">
@@ -131,7 +131,7 @@
 						<div class="event-hero__rule" aria-hidden="true"></div>
 						<div class="event-hero__stack">
 							<img src="assets/summit/forbes-veritant.svg" alt="Forbes | Veritant" class="event-hero__lockup">
-							<h1 class="event-hero__title">Top RIA<br>Summit</h1>
+							<h1 class="event-hero__title"><span class="event-title-line">Top RIA</span>Summit</h1>
 						</div>
 					</div>
 					<div class="event-hero__media">
@@ -191,7 +191,7 @@
 				<section data-screen-label="Summit agenda" class="event-agenda">
 					<div class="event-agenda__inner">
 						<div class="event-section-head">
-							<h2 id="agenda" class="event-section-title">Two days,<br><span>one standard.</span></h2>
+							<h2 id="agenda" class="event-section-title"><span class="event-title-line">Two days,</span><span>one standard.</span></h2>
 							<div>
 								<p class="event-section-text">Session titles and times are confirmed closer to the event.</p>
 								<a href="#agenda" class="event-link--field">Download the agenda &gt;</a>
@@ -201,7 +201,7 @@
 							<sc-for list="{{ eventAgenda }}" as="d" hint-placeholder-count="2">
 								<div class="event-agenda__day">
 									<div>
-										<h3 class="event-agenda__day-title">{{ d.day }}<br>{{ d.date }}</h3>
+										<h3 class="event-agenda__day-title"><span class="event-title-line">{{ d.day }}</span>{{ d.date }}</h3>
 										<div class="event-agenda__day-note">{{ d.note }}</div>
 									</div>
 									<div>
@@ -224,7 +224,7 @@
 				<section data-screen-label="Summit speakers" class="event-speakers">
 					<div class="event-speakers__inner">
 						<div class="event-section-head">
-							<h2 id="speakers" class="event-section-title">Who you’ll<br><span>hear from.</span></h2>
+							<h2 id="speakers" class="event-section-title"><span class="event-title-line">Who you’ll</span><span>hear from.</span></h2>
 							<div>
 								<p class="event-section-text">Advisors, allocators, and managers who lead the conversation.</p>
 								<a href="#speakers" class="event-link--field">View all speakers &gt;</a>
@@ -245,21 +245,23 @@
 				</section>
 
 				<section data-screen-label="Summit venue" class="event-venue">
-					<div class="event-venue__copy">
-						<h2 id="venue" class="event-venue__title">Hilton West Palm Beach</h2>
-						<p class="event-venue__address">600 Okeechobee Blvd<br>West Palm Beach, FL 33401</p>
-						<p class="event-venue__text">A reserved room block opens with registration. Travel guidance, menus, and accessibility details are sent with your confirmation.</p>
-						<a href="#venue" class="event-btn event-btn--field">Venue details</a>
-					</div>
-					<div class="event-venue__media">
-						<img src="assets/summit/west-palm-beach.png" alt="West Palm Beach skyline at dusk">
+					<div class="event-venue__inner">
+						<div class="event-venue__copy">
+							<h2 id="venue" class="event-venue__title">Hilton West Palm Beach</h2>
+							<p class="event-venue__address">600 Okeechobee Blvd<br>West Palm Beach, FL 33401</p>
+							<p class="event-venue__text">A reserved room block opens with registration. Travel guidance, menus, and accessibility details are sent with your confirmation.</p>
+							<a href="#venue" class="event-btn event-btn--field">Venue details</a>
+						</div>
+						<div class="event-venue__media">
+							<img src="assets/summit/west-palm-beach.png" alt="West Palm Beach skyline at dusk">
+						</div>
 					</div>
 				</section>
 
 				<section data-screen-label="Summit partners" class="event-partners">
 					<div class="event-partners__inner">
 						<div class="event-section-head">
-							<h2 id="partners" class="event-section-title">Event<br><span>partners.</span></h2>
+							<h2 id="partners" class="event-section-title"><span class="event-title-line">Event</span><span>partners.</span></h2>
 							<div>
 								<a href="mailto:partnerships@veritantresearch.com" class="event-link--field">Partnership opportunities &gt;</a>
 							</div>
@@ -277,7 +279,7 @@
 				<section data-screen-label="Summit FAQs" class="event-faqs">
 					<div class="event-faqs__inner">
 						<div class="event-faqs__layout">
-							<h2 id="faqs" class="event-section-title">Summit<br><span>FAQs.</span></h2>
+							<h2 id="faqs" class="event-section-title"><span class="event-title-line">Summit</span><span>FAQs.</span></h2>
 							<div class="event-faqs__list">
 								<sc-for list="{{ eventFaqs }}" as="fq" hint-placeholder-count="4">
 									<div class="event-faq">

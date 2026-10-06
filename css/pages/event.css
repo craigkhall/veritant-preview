@@ -396,6 +396,15 @@ html[data-event-theme="yellow"] { ... }
 	color: var(--ev-field);
 }
 
+/* Line split that survives sitewide mobile `main h2 br { display:none }` */
+.event-title-line {
+	display: block;
+}
+
+.event-section-title .event-title-line {
+	color: inherit;
+}
+
 .event-section-text {
 	margin: 0 0 20px;
 	font-size: 18px;
@@ -503,6 +512,14 @@ html[data-event-theme="yellow"] { ... }
 }
 
 .event-venue {
+	background: #fff;
+	padding: 0 40px;
+	box-sizing: border-box;
+}
+
+.event-venue__inner {
+	max-width: var(--container-max-width);
+	margin: 0 auto;
 	display: grid;
 	grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
 	min-height: 560px;
@@ -510,7 +527,7 @@ html[data-event-theme="yellow"] { ... }
 }
 
 .event-venue__copy {
-	padding: 128px clamp(40px, 6vw, 96px);
+	padding: 96px 56px;
 	box-sizing: border-box;
 	display: flex;
 	flex-direction: column;
@@ -648,32 +665,55 @@ html[data-event-theme="yellow"] { ... }
 	}
 
 	.event-hero__panel {
-		min-height: 360px;
-		padding: 72px 24px 64px;
+		min-height: 0;
+		padding: 48px 24px 40px;
 	}
 
 	.event-hero__media {
-		min-height: 260px;
+		min-height: 220px;
+		aspect-ratio: 16 / 10;
+	}
+
+	.event-hero__stack {
+		gap: 16px;
+	}
+
+	.event-hero__lockup {
+		height: 28px;
 	}
 
 	.event-details__inner {
 		grid-template-columns: minmax(0, 1fr);
-		gap: 28px;
-		padding: 40px 24px;
+		gap: 24px;
+		padding: 32px 24px calc(32px + env(safe-area-inset-bottom, 0px));
 	}
 
 	.event-subnav__inner {
 		padding: 0 24px;
-		gap: 28px;
+		gap: 22px;
+		scrollbar-width: none;
+	}
+
+	.event-subnav__inner::-webkit-scrollbar {
+		display: none;
+	}
+
+	.event-subnav__link {
+		padding: 14px 0;
+		font-size: 10px;
+	}
+
+	.event-venue {
+		padding: 0 24px;
 	}
 
 	.event-overview__inner,
 	.event-section-head,
 	.event-agenda__day,
 	.event-faqs__layout,
-	.event-venue {
+	.event-venue__inner {
 		grid-template-columns: minmax(0, 1fr);
-		gap: 36px;
+		gap: 0;
 	}
 
 	.event-overview__inner,
@@ -681,12 +721,17 @@ html[data-event-theme="yellow"] { ... }
 	.event-speakers__inner,
 	.event-partners__inner,
 	.event-faqs__inner {
-		padding: 72px 24px;
+		padding: 48px 24px;
+	}
+
+	.event-section-head {
+		margin-bottom: 32px;
 	}
 
 	.event-overview__cta {
 		min-height: 0;
-		padding: 48px 28px;
+		padding: 40px 24px;
+		gap: 28px;
 	}
 
 	.event-speakers__grid {
@@ -695,7 +740,7 @@ html[data-event-theme="yellow"] { ... }
 	}
 
 	.event-venue__copy {
-		padding: 64px 24px;
+		padding: 48px 28px;
 	}
 
 	.event-partners__tile {
@@ -710,11 +755,31 @@ html[data-event-theme="yellow"] { ... }
 
 @media (max-width: 640px) {
 	.event-hero__title {
-		font-size: clamp(30px, 9vw, 42px);
+		font-size: clamp(28px, 8vw, 36px) !important;
+		line-height: 1.05 !important;
+	}
+
+	.event-section-title,
+	.event-overview__title {
+		font-size: clamp(26px, 7vw, 34px) !important;
+		line-height: 1.15 !important;
+	}
+
+	.event-hero__panel {
+		padding: 40px 24px 32px;
+	}
+
+	.event-overview__inner,
+	.event-agenda__inner,
+	.event-speakers__inner,
+	.event-partners__inner,
+	.event-faqs__inner {
+		padding: 40px 24px;
 	}
 
 	.event-speakers__grid {
 		grid-template-columns: minmax(0, 1fr);
+		max-width: 320px;
 	}
 
 	.event-btn {
@@ -725,5 +790,9 @@ html[data-event-theme="yellow"] { ... }
 
 	.event-overview__cta-group {
 		width: 100%;
+	}
+
+	.event-details__value {
+		font-size: clamp(22px, 6vw, 28px);
 	}
 }

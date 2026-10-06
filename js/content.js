@@ -11,30 +11,16 @@ const EVENT_THEME_KEY = document.documentElement.getAttribute('data-event-theme'
 const EVENT_SLUG = document.documentElement.getAttribute('data-event') || '';
 // Team bio files (<html data-page="bio" data-bio="Full Name">) are named team-<full-name>.html.
 const BIO_NAME = document.documentElement.getAttribute('data-bio') || null;
-// Per-event header/page palettes. Only turquoise is fully live; other keys are reserved hooks.
+// Header/nav colors only — page sections read CSS --ev-* from html[data-event-theme].
+// Turquoise is live; other keys reserved for future summit pages.
 const EVENT_THEMES = {
 	turquoise: {
 		header: '#12797C',
 		drop: '#12797C',
-		field: '#12797C',
 		accent: '#FFFFFF',
 		onAccent: '#12797C',
 		navAccent: '#02C9B5',
-		deep: '#12797C',
-		night: '#022138',
-		tint: '#E8F6F4',
-		tint2: '#C8EEE9',
-		bold: '#02C9B5',
-		boldBtn: '#12797C',
-		boldInk: '#022138',
-		boldInk2: '#022E59',
-		glow: 'rgba(2,201,181,.4)',
-		card: 'rgba(18,121,124,.75)',
-		grad: 'linear-gradient(135deg,#12797C 0%,#02C9B5 100%)',
-		heroGrad: 'linear-gradient(135deg,#02C9B5 0%,#D2F0FC 100%)',
-		ruleGrad: 'linear-gradient(90deg,#12797C 0%,#02C9B5 100%)',
 	},
-	/* Reserved for future summit branding — fill when those pages ship */
 	magenta: null,
 	'bright-blue': null,
 	'deep-magenta': null,
