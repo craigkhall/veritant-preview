@@ -32,3 +32,10 @@
 	border-color: var(--color-royal-blue);
 	color: var(--color-white);
 }
+
+@media (max-width:640px) {
+	.button {
+		font-size: 12px;
+		padding: 16px 24px;
+	}
+}

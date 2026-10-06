@@ -56,24 +56,34 @@
 		display: none;
 	}
 	main h1 {
-		font-size: 34px !important;
+		font-size: 32px !important;
 		line-height: 1.2 !important;
 	}
 	main h2 {
-		font-size: 26px !important;
+		font-size: 28px !important;
 		line-height: 1.25 !important;
 	}
 	[data-vt-hero] > div[data-home-pad],
 	[data-vt-hero] div[data-home-pad] {
-		padding-top: 140px !important;
-		padding-bottom: 96px !important;
+		padding-top: 120px !important;
+		padding-bottom: 88px !important;
 	}
 	main section[data-vt-hero] h1 {
 		white-space: normal !important;
 	}
+	/* Home hero lead — stay a step above body */
+	main section[data-vt-hero][data-screen-label="Home hero"] p {
+		font-size: 18px !important;
+		line-height: 1.5 !important;
+		max-width: none !important;
+	}
 	main section > img[src*="/icons/"] {
 		height: 60% !important;
 		opacity: .1 !important;
+	}
+	.button {
+		font-size: 12px !important;
+		padding: 16px 24px !important;
 	}
 }
 
@@ -172,15 +182,15 @@
 		padding-bottom: 120px !important;
 	}
 	main [data-vt-hero]:has([data-hero-art]) h1 {
-		font-size: 28px !important;
+		font-size: 30px !important;
 		margin-bottom: 16px !important;
 	}
 	main [data-vt-hero]:has([data-hero-art]) h2 {
-		font-size: 19px !important;
+		font-size: 22px !important;
 		margin-bottom: 12px !important;
 	}
 	main [data-vt-hero]:has([data-hero-art]) p {
-		font-size: 16px !important;
+		font-size: 17px !important;
 		line-height: 1.55 !important;
 	}
 	[data-vt-hero]:has([data-hero-art]) > div[data-rsp-pad] div[style*="flex-direction:column"] {

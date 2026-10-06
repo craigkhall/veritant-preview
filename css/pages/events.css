@@ -94,20 +94,27 @@
 
 @media (max-width:640px) {
 	.events-list__inner {
-		padding-left: 24px;
-		padding-right: 24px;
-	}
-
-	.events-list__inner {
-		padding-block: 60px;
+		padding: 64px 24px;
 	}
 
 	.event-row {
-		padding: 24px 0;
+		padding: 28px 0;
+		gap: 14px;
+	}
+
+	.event-row__name {
+		font-size: 26px;
 	}
 
 	.event-row__venue,
 	.event-row__date {
-		font-size: 16px;
+		font-size: 17px;
+		line-height: 1.45;
+	}
+
+	.event-row__cta {
+		font-size: 12px;
+		padding: 14px 20px;
+		margin-top: 4px;
 	}
 }

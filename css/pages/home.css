@@ -377,7 +377,21 @@
 	.home-methodology__inner,
 	.home-team__inner,
 	.home-insights__inner {
-		padding: 60px 24px;
+		padding: 64px 24px;
+	}
+
+	.home-band__eyebrow {
+		font-size: 13px;
+		margin-bottom: 14px;
+	}
+
+	.home-mission__title,
+	.home-independence__title,
+	.home-methodology__title,
+	.home-team__title,
+	.home-insights__title {
+		font-size: 28px;
+		line-height: 1.22;
 	}
 
 	.home-mission__text,
@@ -385,9 +399,12 @@
 	.home-methodology__text,
 	.home-team__text,
 	.home-insights__text,
-	.insight-card__text, 
+	.home-insights__intro,
+	.insight-card__text,
 	.news-card__text {
-		font-size: 16px;
+		font-size: 17px;
+		line-height: 1.55;
+		max-width: none;
 	}
 
 	.home-mission__text,
@@ -400,7 +417,7 @@
 		margin-bottom: 20px;
 	}
 
-	.home-team__title, 
+	.home-team__title,
 	.home-insights__title {
 		margin-bottom: 16px;
 	}
