@@ -85,6 +85,16 @@
 	main h2 br {
 		display: none;
 	}
+	/* Hero headlines with intentional <br> lines — keep breaks, fit each phrase */
+	main [data-vt-hero] h1 br {
+		display: revert !important;
+	}
+	main [data-vt-hero] h1:has(br) {
+		font-size: clamp(21px, 6.2vw, 28px) !important;
+		line-height: 1.22 !important;
+		white-space: normal !important;
+		max-width: none !important;
+	}
 	main h1 {
 		font-size: 32px !important;
 		line-height: 1.2 !important;
@@ -100,16 +110,6 @@
 	}
 	main section[data-vt-hero] h1 {
 		white-space: normal !important;
-	}
-	/* Home hero: keep the 3 intended lines; size so each phrase fits one line */
-	main section[data-vt-hero][data-screen-label="Home hero"] h1 {
-		font-size: clamp(21px, 6.2vw, 28px) !important;
-		line-height: 1.22 !important;
-		white-space: normal !important;
-		max-width: none !important;
-	}
-	main section[data-vt-hero][data-screen-label="Home hero"] h1 br {
-		display: revert !important;
 	}
 	/* Home hero lead — stay a step above body */
 	main section[data-vt-hero][data-screen-label="Home hero"] p {
@@ -223,8 +223,11 @@
 		padding-bottom: 120px !important;
 	}
 	main [data-vt-hero]:has([data-hero-art]) h1 {
-		font-size: 30px !important;
+		font-size: clamp(21px, 6.2vw, 28px) !important;
 		margin-bottom: 16px !important;
+	}
+	main [data-vt-hero]:has([data-hero-art]) h1:not(:has(br)) {
+		font-size: 30px !important;
 	}
 	main [data-vt-hero]:has([data-hero-art]) h2 {
 		font-size: 22px !important;
