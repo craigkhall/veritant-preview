@@ -6,10 +6,15 @@
    unlayered, so they take precedence over both (as inline styles used to).
    ========================================================================== */
 
+/* Inter Tight via Google Fonts — must stay first among @imports */
+@import url("https://fonts.googleapis.com/css2?family=Inter+Tight:ital,wght@0,200..800;1,200..800&display=swap");
+
 @layer ds, legacy;
 
+/* Local Inter Tight backup (unlayered so @font-face always registers) */
+@import url("../_ds/shook-research-design-system-aa03f893-0aa4-44cd-bb0e-c88ae5e40cfa/tokens/fonts.css");
+
 /* Design system tokens + element defaults */
-@import url("../_ds/shook-research-design-system-aa03f893-0aa4-44cd-bb0e-c88ae5e40cfa/tokens/fonts.css") layer(ds);
 @import url("../_ds/shook-research-design-system-aa03f893-0aa4-44cd-bb0e-c88ae5e40cfa/tokens/colors.css") layer(ds);
 @import url("../_ds/shook-research-design-system-aa03f893-0aa4-44cd-bb0e-c88ae5e40cfa/tokens/gradients.css") layer(ds);
 @import url("../_ds/shook-research-design-system-aa03f893-0aa4-44cd-bb0e-c88ae5e40cfa/tokens/typography.css") layer(ds);

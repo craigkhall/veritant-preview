@@ -51,14 +51,24 @@
 	[data-vt-hero] {
 		min-height: 0 !important;
 	}
-	main h1 br {
+	main h1 br,
+	main h2 br {
 		display: none;
 	}
 	main h1 {
 		font-size: 34px !important;
+		line-height: 1.2 !important;
 	}
 	main h2 {
 		font-size: 26px !important;
+		line-height: 1.25 !important;
+	}
+	main p {
+		font-size: 16px !important;
+		line-height: 1.55 !important;
+	}
+	.site-header__logo {
+		height: 32px;
 	}
 	[data-vt-hero] > div[data-home-pad],
 	[data-vt-hero] div[data-home-pad] {

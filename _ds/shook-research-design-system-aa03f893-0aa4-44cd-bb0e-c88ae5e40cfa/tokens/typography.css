@@ -10,8 +10,9 @@
 @font-face{font-family:"Neue Haas Grotesk Display";font-style:normal;font-weight:400;font-display:swap;src:local("Neue Haas Grotesk Display Roman"),local("NeueHaasDisplayRoman"),local("Neue Haas Grotesk Display")}
 @font-face{font-family:"Neue Haas Grotesk Display";font-style:normal;font-weight:500;font-display:swap;src:local("Neue Haas Grotesk Display Mediu"),local("NeueHaasDisplayMediu"),local("Neue Haas Grotesk Display")}
 :root{
-  --font-display:"Neue Haas Grotesk Display","NeueHaasDisplay","Inter Tight",Arial,Helvetica,sans-serif;
-  --font-body:"Neue Haas Grotesk Display","NeueHaasDisplay","Inter Tight",Arial,Helvetica,sans-serif;
+  /* Inter Tight first so preview/local/client all match (Neue Haas is local-only; not shipped as webfont) */
+  --font-display:"Inter Tight","Neue Haas Grotesk Display","NeueHaasDisplay",Arial,Helvetica,sans-serif;
+  --font-body:"Inter Tight","Neue Haas Grotesk Display","NeueHaasDisplay",Arial,Helvetica,sans-serif;
   --font-office:Arial,Helvetica,sans-serif;
 
   /* Weight map to the Neue Haas naming */
