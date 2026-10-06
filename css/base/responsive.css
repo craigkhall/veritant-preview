@@ -218,9 +218,13 @@
 
 /* Inner-page hero copy on phones: tighter type, spacing and no indent. */
 @media (max-width:640px) {
+	/* Hide decorative hero icons on phones; keep a modest bottom pad before white */
+	main [data-vt-hero] [data-hero-art] {
+		display: none !important;
+	}
 	[data-vt-hero]:has([data-hero-art]) > div[data-rsp-pad] {
 		padding-top: 48px !important;
-		padding-bottom: 120px !important;
+		padding-bottom: 40px !important;
 	}
 	main [data-vt-hero]:has([data-hero-art]) h1 {
 		font-size: clamp(21px, 6.2vw, 28px) !important;
