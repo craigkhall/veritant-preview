@@ -835,7 +835,7 @@ class Component extends DCLogic {
         underline: s.filter === i ? '#022E59' : 'transparent',
         select: () => this.setState({ filter: i }),
       })).filter(fl => fl.i === 0 || PEOPLE.some(x => x.groups.includes(fl.i))),
-      teamCols: s.filter === 1 ? '3' : '4',
+      teamCols: '4',
       people: PEOPLE.filter(x => s.filter === 0 || x.groups.includes(s.filter)).map((x, i) => {
         const hov = s.hoverIdx === i;
         return {

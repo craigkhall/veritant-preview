@@ -73,6 +73,9 @@ const VT_SITE_END_HTML = `
 		<a href="#legal" class="site-footer__legal-link">User Agreement and Privacy Statement</a>
 	</div>
 </footer>
+`;
+
+const VT_NL_MODAL_HTML = `
 <dialog class="nl-modal" data-vt-nl-modal aria-label="Newsletter signup">
 	<div class="nl-modal__panel">
 		<button type="button" class="nl-modal__close" data-vt-nl-close aria-label="Close">Close</button>
@@ -188,12 +191,30 @@ const VT_SITE_CHROME = {
 		this.bindHeaderOnce();
 	},
 
+	ensureNlModal() {
+		let modal = document.querySelector('[data-vt-nl-modal]');
+		if (!modal) {
+			document.body.insertAdjacentHTML('beforeend', VT_NL_MODAL_HTML);
+			modal = document.querySelector('[data-vt-nl-modal]');
+			const frame = modal && modal.querySelector('[data-vt-nl-frame]');
+			if (frame && !frame.dataset.vtLoadBound) {
+				frame.dataset.vtLoadBound = '1';
+				frame.addEventListener('load', () => vtMarkNlReady(frame));
+			}
+		} else if (modal.parentElement !== document.body) {
+			// Always host on <body> — inside #dc-root, iOS Safari often fails showModal
+			document.body.appendChild(modal);
+		}
+		return modal;
+	},
+
 	mountEnd() {
 		const site = document.querySelector('.site');
 		if (!site) return;
 
-		// Drop orphan chrome left outside #dc-root from earlier mounts
-		document.querySelectorAll('body > [data-vt-newsletter], body > [data-vt-footer], body > [data-vt-nl-modal]').forEach(el => {
+		// Drop orphan newsletter/footer left outside #dc-root — never remove the NL modal
+		// (openNlModal moves it to <body>; deleting it left Keep me posted dead after scroll).
+		document.querySelectorAll('body > [data-vt-newsletter], body > [data-vt-footer]').forEach(el => {
 			if (!site.contains(el)) el.remove();
 		});
 		document.querySelectorAll('[data-vt-site-end]').forEach(el => el.remove());
@@ -205,6 +226,8 @@ const VT_SITE_CHROME = {
 				legal.addEventListener('click', this.handlers.onLegal);
 			}
 		}
+
+		this.ensureNlModal();
 
 		// Prefetch Mailjet + warm the NL iframe so open feels instant
 		vtLoadMailjet();
@@ -222,12 +245,30 @@ const VT_SITE_CHROME = {
 		if (this.nlBound) return;
 		this.nlBound = true;
 
+		const onOpenTap = e => {
+			const openBtn = e.target.closest && e.target.closest('[data-vt-nl-open]');
+			if (!openBtn) return;
+			e.preventDefault();
+			e.stopPropagation();
+			this.openNlModal();
+		};
+
+		// click + touchend: iOS sometimes drops click after scroll/navigation
+		document.addEventListener('click', onOpenTap);
+		document.addEventListener(
+			'touchend',
+			e => {
+				if (!e.target.closest || !e.target.closest('[data-vt-nl-open]')) return;
+				// Avoid synthetic double-open when click also fires
+				if (this._nlTouchOpenAt && Date.now() - this._nlTouchOpenAt < 500) return;
+				this._nlTouchOpenAt = Date.now();
+				onOpenTap(e);
+			},
+			{ passive: false }
+		);
+
 		document.addEventListener('click', e => {
-			if (e.target.closest('[data-vt-nl-open]')) {
-				e.preventDefault();
-				e.stopPropagation();
-				this.openNlModal();
-			} else if (e.target.closest('[data-vt-nl-close]')) {
+			if (e.target.closest('[data-vt-nl-close]')) {
 				e.preventDefault();
 				this.closeNlModal();
 			}
@@ -247,6 +288,8 @@ const VT_SITE_CHROME = {
 			const modal = e.target.closest('[data-vt-nl-modal]');
 			if (modal && e.target === modal) this.closeNlModal();
 		});
+
+		window.addEventListener('pagehide', () => this.closeNlModal());
 	},
 
 	saveNlScroll() {
@@ -267,18 +310,25 @@ const VT_SITE_CHROME = {
 	},
 
 	openNlModal() {
-		const modal = document.querySelector('[data-vt-nl-modal]');
-		if (!modal || modal.open) return;
-		this.saveNlScroll();
-		// Keep dialog on <body> so showModal focus doesn't scroll the footer into view
-		if (modal.parentElement !== document.body) {
-			document.body.appendChild(modal);
+		const modal = this.ensureNlModal();
+		if (!modal) return;
+		if (modal.open) {
+			// Already open — still refresh Mailjet in case iframe stalled
+			vtLoadMailjet();
+			vtResizeMailjetFrames();
+			return;
 		}
+		this.saveNlScroll();
 		const embed = modal.querySelector('[data-vt-nl-embed]');
 		if (embed) embed.classList.remove('is-loading');
 		document.documentElement.classList.add('is-nl-modal-open');
-		if (typeof modal.showModal === 'function') modal.showModal();
-		else modal.setAttribute('open', '');
+		try {
+			if (typeof modal.showModal === 'function') modal.showModal();
+			else modal.setAttribute('open', '');
+		} catch (err) {
+			// Safari can throw if dialog was already open or not connected
+			modal.setAttribute('open', '');
+		}
 		this.pinNlScroll();
 		vtLoadMailjet();
 		setTimeout(vtResizeMailjetFrames, 150);
@@ -288,10 +338,18 @@ const VT_SITE_CHROME = {
 
 	closeNlModal() {
 		const modal = document.querySelector('[data-vt-nl-modal]');
-		if (!modal || !modal.open) return;
-		// Keep the scroll Y saved at open — don't re-read after a jump
-		if (typeof modal.close === 'function') modal.close();
-		else {
+		if (!modal) {
+			document.documentElement.classList.remove('is-nl-modal-open');
+			return;
+		}
+		if (!modal.open && !modal.hasAttribute('open')) return;
+		try {
+			if (typeof modal.close === 'function' && modal.open) modal.close();
+			else {
+				modal.removeAttribute('open');
+				this.restoreNlScroll();
+			}
+		} catch (err) {
 			modal.removeAttribute('open');
 			this.restoreNlScroll();
 		}
