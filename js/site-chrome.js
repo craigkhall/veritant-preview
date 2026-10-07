@@ -293,7 +293,7 @@ const VT_SITE_CHROME = {
 			if (!a || !header.contains(a)) return;
 			const href = a.getAttribute('href');
 			if (!href || href.charAt(0) === '#') return;
-			if (e.metaKey || e.ctrlKey || e.shiftKey || e.altKey || e.button !== 0) return;
+			if (e.metaKey || e.ctrlKey || e.shiftKey || e.altKey) return;
 			e.preventDefault();
 			window.location.assign(href);
 		});
