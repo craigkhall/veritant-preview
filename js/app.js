@@ -1,7 +1,6 @@
 // Page logic: state, scroll reveals and the methodology cycle diagram.
 // Loaded (after content.js) by js/vendor/dc-runtime.js and evaluated as the page logic of the
-// <x-dc> template in every page. Each HTML file names the page it renders in <html data-page>.
-
+// \<x-dc> template in every page. Each HTML file names the page it renders in \<html data-page>.
 class Component extends DCLogic {
   state = {
     chHover: -1,
@@ -154,16 +153,32 @@ class Component extends DCLogic {
       if (idx === 0 || prevReady) {
         if (top && !top.hasAttribute('data-in')) top.setAttribute('data-in', '');
       }
-      if (top && top.hasAttribute('data-in')) {
-        if (node && !node.hasAttribute('data-in')) node.setAttribute('data-in', '');
-        if (box && !box.hasAttribute('data-in')) box.setAttribute('data-in', '');
-        if (bot && !bot.hasAttribute('data-in')) bot.setAttribute('data-in', '');
-      }
-      // Stacked layout: once this row is in, unlock the next top immediately
-      if (!curveBlocked && bot && bot.hasAttribute('data-in')) {
+      // Icon, title, card and bottom segment reveal as soon as the row is in view;
+      // only the top segment waits for the previous curve to reach it
+      [node, box, bot].forEach(el => {
+        if (el && !el.hasAttribute('data-in')) el.setAttribute('data-in', '');
+      });
+      // Stacked layout (no visible curve after this row): unlock the next top immediately
+      const ownCurve = item && item.querySelector('[data-v2-curve]');
+      const ownCurveVisible =
+        ownCurve &&
+        getComputedStyle(ownCurve).display !== 'none' &&
+        ownCurve.getBoundingClientRect().height > 0;
+      if (!ownCurveVisible && bot && bot.hasAttribute('data-in')) {
         const nx = item && item.nextElementSibling;
         const sg = nx && nx.querySelector('[data-v2-seg]');
         if (sg && !sg.hasAttribute('data-in')) sg.setAttribute('data-in', '');
+      }
+    });
+    document.querySelectorAll('.value-steps__segment--bottom').forEach(sg => {
+      const r = sg.getBoundingClientRect();
+      const h = sg.offsetHeight;
+      if (!h) return;
+      const p = Math.max(0, Math.min(1, (vh * 0.7 - r.top) / (h + vh * 0.05)));
+      const prev = +(sg.dataset.p || 0);
+      if (p > prev) {
+        sg.dataset.p = p;
+        sg.style.setProperty('--line-progress', p.toFixed(3));
       }
     });
     document.querySelectorAll('[data-val-row]').forEach(row => {
@@ -187,7 +202,7 @@ class Component extends DCLogic {
       const prev = +(sg.dataset.p || 0);
       if (p > prev) {
         sg.dataset.p = p;
-        sg.style.scale = '1 ' + p.toFixed(3);
+        sg.style.setProperty('--line-progress', p.toFixed(3));
       }
     });
     document.querySelectorAll('[data-val-curve]').forEach(svg => {
@@ -212,6 +227,7 @@ class Component extends DCLogic {
       const row = item && item.querySelector('[data-v2-row]');
       const bot = row && row.querySelectorAll('[data-v2-seg]')[1];
       if (bot && !bot.hasAttribute('data-in')) return;
+      if (bot && +(bot.dataset.p || 0) < 1) return;
       const path = svg.querySelector('path');
       // Clear any leftover dash styles from the reverted experiment
       if (path) {
@@ -381,8 +397,8 @@ class Component extends DCLogic {
       {
         'data-cyc': '1',
         viewBox: '0 0 520 520',
-        xmlns: 'http://www.w3.org/2000/svg',
-        xmlnsXlink: 'http://www.w3.org/1999/xlink',
+        xmlns: 'http\://www.w3.org/2000/svg',
+        xmlnsXlink: 'http\://www.w3.org/1999/xlink',
         style: { width: '100%', maxWidth: 540, height: 'auto', display: 'block', overflow: 'visible' },
       },
       h(
@@ -491,7 +507,7 @@ class Component extends DCLogic {
               methodology: 'View our methodology page',
               team: 'Meet the team',
               newsletter: 'Join our email list',
-              'https://www.forbes.com/': 'Visit Forbes.com',
+              'https\://www.forbes.com/': 'Visit Forbes.com',
             }[link] || '',
           onLink: isNewsletter ? goNewsletter : e => {},
           sign: open ? '–' : '+',
@@ -590,7 +606,7 @@ class Component extends DCLogic {
       comingSoon,
       contact: e => {
         e.preventDefault();
-        this.flash('Contact form coming soon. Write to research@veritantresearch.com.');
+        this.flash('Contact form coming soon. Write to research\@veritantresearch.com.');
       },
       toast: s.toast,
       navItems: NAV.map(([id, label, kids], i) => {
@@ -656,7 +672,7 @@ class Component extends DCLogic {
           toggle: () => this.setState({ eventFaqOpen: open ? -1 : i }),
         };
       }),
-      registerUrl: 'https://www.shookresearch.com/events/',
+      registerUrl: 'https\://www.shookresearch.com/events/',
       chItems: CHARTER.map(([t, b], i) => {
         const on = s.chHover === i;
         return {

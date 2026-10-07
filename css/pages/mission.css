@@ -1,82 +1,81 @@
 /* ==========================================================================
-	 Mission (Our Why) page
-	 ========================================================================== */
-
+     Mission (Our Why) page
+     ========================================================================== */
 /* Design-review controls (shared by home + Our Why heroes) */
 .hero-art-controls {
-	position: absolute;
-	right: 16px;
-	bottom: 16px;
-	z-index: 3;
-	display: flex;
-	flex-direction: column;
-	align-items: flex-end;
-	gap: 8px;
+    position: absolute;
+    right: 16px;
+    bottom: 16px;
+    z-index: 3;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    gap: 8px;
 }
 
 @media (max-width:768px) {
-	.hero-art-controls {
-		display: none;
-	}
+    .hero-art-controls {
+        display: none;
+    }
 }
 
 .mission-values {
-	background: var(--color-white);
-	position: relative;
-	overflow: hidden;
+    background: var(--color-white);
+    position: relative;
+    overflow: hidden;
 }
 
 .mission-trust {
-	background: var(--color-white);
+    background: var(--color-white);
 }
 
 .mission-values__inner {
-	max-width: var(--container-max-width);
-	margin: 0 auto;
-	padding: 64px 40px 128px;
-	box-sizing: border-box;
-	position: relative;
+    max-width: var(--container-max-width);
+    margin: 0 auto;
+    padding: 64px 40px 128px;
+    box-sizing: border-box;
+    position: relative;
 }
 
 .mission-values__title {
-	margin: 0 0 32px;
-	font-weight: 300;
-	font-size: clamp(28px,3vw,40px);
-	line-height: 1.15;
-	color: var(--color-sapphire);
+    margin: 0 0 32px;
+    font-weight: 300;
+    font-size: clamp(28px,3vw,40px);
+    line-height: 1.15;
+    color: var(--color-sapphire);
 }
 
 .value-track {
-	display: flex;
-	flex-direction: column;
-	max-width: 1120px;
-	margin: 0 auto;
-	padding-top: 32px;
+    display: flex;
+    flex-direction: column;
+    max-width: 1120px;
+    margin: 0 auto;
+    padding-top: 32px;
 }
 
 .value-track__item,
 .value-steps__item {
-	display: flex;
-	flex-direction: column;
+    display: flex;
+    flex-direction: column;
 }
 
 .value-track__row {
-	position: relative;
-	display: flex;
-	align-items: center;
-	min-height: 240px;
-	outline: none;
-	cursor: default;
+    position: relative;
+    display: flex;
+    align-items: center;
+    min-height: 240px;
+    outline: none;
+    cursor: default;
 }
 
 .value-track__line {
-	position: absolute;
-	width: 2px;
-	height: calc(50% - 68px);
+    position: absolute;
+    width: 2px;
+    height: calc(50% - 68px);
 }
 
 .value-track__line--top {
-	top: 0;
+    top: 0;
 }
 
 .value-track__line--bottom {
@@ -84,357 +83,398 @@
 }
 
 .value-track__node {
-	position: absolute;
-	top: 50%;
-	transform: translate(-50%,-50%);
-	z-index: 1;
+    position: absolute;
+    top: 50%;
+    transform: translate(-50%,-50%);
+    z-index: 1;
 }
 
 .value-track__ring {
-	position: relative;
-	width: 112px;
-	height: 112px;
-	border-radius: 50%;
-	box-sizing: border-box;
-	transition: background 360ms,transform 420ms var(--ease-standard);
+    position: relative;
+    width: 112px;
+    height: 112px;
+    border-radius: 50%;
+    box-sizing: border-box;
+    transition: background 360ms,transform 420ms var(--ease-standard);
 }
 
 .value-track__icon,
 .value-steps__icon {
-	position: absolute;
-	inset: 20px;
-	width: 68px;
-	height: 68px;
-	transition: opacity 300ms;
+    position: absolute;
+    inset: 20px;
+    width: 68px;
+    height: 68px;
+    transition: opacity 300ms;
 }
 
 .value-track__title {
-	position: absolute;
-	top: 50%;
-	left: calc(100% + 28px);
-	transform: translateY(-50%);
-	margin: 0;
-	white-space: nowrap;
-	font-weight: 300;
-	font-size: clamp(24px,2.2vw,32px);
-	line-height: 1.1;
-	letter-spacing: -.01em;
-	transition: color 300ms;
+    position: absolute;
+    top: 50%;
+    left: calc(100% + 28px);
+    transform: translateY(-50%);
+    margin: 0;
+    white-space: nowrap;
+    font-weight: 300;
+    font-size: clamp(24px,2.2vw,32px);
+    line-height: 1.1;
+    letter-spacing: -.01em;
+    transition: color 300ms;
 }
 
 .value-track__item:nth-child(even) .value-track__title {
-	left: unset;
-	right: calc(100% + 28px);
+    left: unset;
+    right: calc(100% + 28px);
 }
 
 .value-track__card {
-	width: 31%;
-	position: relative;
-	overflow: hidden;
-	padding: clamp(32px,3vw,44px) clamp(28px,2.8vw,40px) clamp(56px,5vw,80px);
-	box-sizing: border-box;
-	transition: transform 420ms var(--ease-standard),opacity 1400ms cubic-bezier(.16,1,.3,1) 250ms,translate 2000ms cubic-bezier(.16,1,.3,1) 250ms;
+    width: 31%;
+    position: relative;
+    overflow: hidden;
+    padding: clamp(32px,3vw,44px) clamp(28px,2.8vw,40px) clamp(56px,5vw,80px);
+    box-sizing: border-box;
+    transition: transform 420ms var(--ease-standard),opacity 1400ms cubic-bezier(.16,1,.3,1) 250ms,translate 2000ms cubic-bezier(.16,1,.3,1) 250ms;
 }
 
 .value-track__watermark {
-	position: absolute;
-	right: -6%;
-	bottom: -18%;
-	width: 46%;
-	pointer-events: none;
+    position: absolute;
+    right: -6%;
+    bottom: -18%;
+    width: 46%;
+    pointer-events: none;
 }
 
 .value-track__text,
 .value-steps__text {
-	position: relative;
-	margin: 0;
-	font-size: 18px;
-	line-height: 1.6;
-	text-wrap: pretty;
+    position: relative;
+    margin: 0;
+    font-size: 18px;
+    line-height: 1.6;
+    text-wrap: pretty;
 }
 
 .value-track__lead,
 .value-steps__lead {
-	font-weight: 500;
+    font-weight: 500;
 }
 
 .value-track__curve {
-	display: block;
-	width: 100%;
-	height: clamp(64px,7vw,104px);
-	overflow: visible;
+    display: block;
+    width: 100%;
+    height: clamp(64px,7vw,104px);
+    overflow: visible;
 }
 
 .value-track__gap,
 .value-steps__gap {
-	display: none;
-	height: 40px;
+    display: none;
+    height: 40px;
 }
 
 .value-steps {
-	display: flex;
-	flex-direction: column;
-	max-width: 1120px;
-	margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    max-width: 1120px;
+    margin: 0 auto;
 }
 
 .value-steps__row {
-	display: flex;
-	align-items: center;
-	gap: 48px;
-	outline: none;
-	cursor: default;
+    display: flex;
+    align-items: center;
+    gap: 48px;
+    outline: none;
+    cursor: default;
 }
 
 .value-steps__node {
-	width: 240px;
-	flex: none;
-	align-self: stretch;
-	display: flex;
-	flex-direction: column;
-	align-items: center;
+    width: 240px;
+    flex: none;
+    align-self: stretch;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 
 .value-steps__segment {
-	width: 2px;
+    width: 2px;
 }
 
 .value-steps__ring {
-	position: relative;
-	width: 112px;
-	height: 112px;
-	border-radius: 50%;
-	box-sizing: border-box;
-	transition: background 360ms,transform 420ms var(--ease-standard);
-	flex: none;
+    position: relative;
+    width: 112px;
+    height: 112px;
+    border-radius: 50%;
+    box-sizing: border-box;
+    transition: background 360ms,transform 420ms var(--ease-standard),opacity 600ms var(--ease-standard),scale 700ms var(--ease-standard);
+    flex: none;
 }
 
 .value-steps__title {
-	margin: 18px 0 12px;
-	text-align: center;
-	font-weight: 300;
-	font-size: clamp(24px,2.2vw,32px);
-	line-height: 1.1;
-	letter-spacing: -.01em;
-	transition: color 300ms;
+    margin: 18px 0 12px;
+    text-align: center;
+    font-weight: 300;
+    font-size: clamp(24px,2.2vw,32px);
+    line-height: 1.1;
+    letter-spacing: -.01em;
+    transition: color 300ms,opacity 600ms var(--ease-standard),scale 700ms var(--ease-standard);
+}
+
+/* Ring and title scale in when the row enters view; the top segment is left
+   out so it only draws once the previous curve reaches it (js/app.js valAnim) */
+@media (prefers-reduced-motion: no-preference) {
+    .value-steps__ring,
+    .value-steps__title {
+        opacity: 0;
+        scale: .6;
+    }
+
+    [data-v2-node][data-in] > .value-steps__ring,
+    [data-v2-node][data-in] > .value-steps__title {
+        opacity: 1;
+        scale: 1;
+    }
 }
 
 .value-steps__card {
-	width: 42%;
-	flex: none;
-	position: relative;
-	overflow: hidden;
-	padding: clamp(32px,3vw,44px) clamp(28px,2.8vw,40px) clamp(56px,5vw,80px);
-	box-sizing: border-box;
-	transition: transform 420ms var(--ease-standard),opacity 1400ms cubic-bezier(.16,1,.3,1) 250ms,translate 2000ms cubic-bezier(.16,1,.3,1) 250ms;
+    width: 42%;
+    flex: none;
+    position: relative;
+    overflow: hidden;
+    padding: clamp(32px,3vw,44px) clamp(28px,2.8vw,40px) clamp(56px,5vw,80px);
+    box-sizing: border-box;
+    transition: transform 420ms var(--ease-standard),opacity 1400ms cubic-bezier(.16,1,.3,1) 250ms,translate 2000ms cubic-bezier(.16,1,.3,1) 250ms;
 }
 
 .value-steps__watermark {
-	position: absolute;
-	right: -4%;
-	bottom: -13%;
-	width: 34%;
-	pointer-events: none;
+    position: absolute;
+    right: -4%;
+    bottom: -13%;
+    width: 34%;
+    pointer-events: none;
 }
 
 .value-steps__curve {
-	display: block;
-	width: 100%;
-	height: clamp(160px,18vw,240px);
-	overflow: visible;
+    display: block;
+    width: 100%;
+    height: clamp(160px,18vw,240px);
+    overflow: visible;
+    clip-path: inset(0 0 100% 0); /* hidden until js/app.js draws it in */
 }
 
 .mission-trust__inner {
-	max-width: var(--container-max-width);
-	margin: 0 auto;
-	padding: 64px 40px 128px;
-	box-sizing: border-box;
-	display: grid;
-	grid-template-columns: minmax(0,1fr) minmax(0,1fr);
-	gap: 64px;
-	align-items: center;
+    max-width: var(--container-max-width);
+    margin: 0 auto;
+    padding: 64px 40px 128px;
+    box-sizing: border-box;
+    display: grid;
+    grid-template-columns: minmax(0,1fr) minmax(0,1fr);
+    gap: 64px;
+    align-items: center;
 }
 
 .mission-trust__content {
-	position: relative;
-	top: -80px;
+    position: relative;
+    top: -80px;
 }
 
 .mission-trust__title {
-	margin: 0 0 40px;
-	font-weight: 300;
-	font-size: clamp(26px,2.8vw,36px);
-	line-height: 1.3;
-	color: var(--color-royal-blue);
-	max-width: 460px;
-	text-wrap: pretty;
+    margin: 0 0 40px;
+    font-weight: 300;
+    font-size: clamp(26px,2.8vw,36px);
+    line-height: 1.3;
+    color: var(--color-royal-blue);
+    max-width: 460px;
+    text-wrap: pretty;
 }
 
 .mission-trust__actions {
-	display: flex;
-	gap: 12px;
-	flex-wrap: wrap;
+    display: flex;
+    gap: 12px;
+    flex-wrap: wrap;
 }
 
 .mission-trust__media {
-	aspect-ratio: 1;
-	background: linear-gradient(180deg,var(--color-sapphire) 0%,var(--color-bright-blue) 100%);
-	overflow: hidden;
-	position: relative;
+    aspect-ratio: 1;
+    background: linear-gradient(180deg,var(--color-sapphire) 0%,var(--color-bright-blue) 100%);
+    overflow: hidden;
+    position: relative;
 }
 
 .mission-trust__image {
-	width: 100%;
-	height: 100%;
-	object-fit: cover;
-	display: block;
-	position: relative;
-	z-index: 1;
-	mix-blend-mode: normal;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    position: relative;
+    z-index: 1;
+    mix-blend-mode: normal;
 }
 
 .value-steps__segment--top {
 	height: 32px;
 	margin-bottom: 12px;
+	transform: scaleY(0);
+	transform-origin: top;
+	transition: transform 500ms var(--ease-standard);
+	flex: none;
 }
 
 .value-steps__segment--bottom {
 	flex: 1;
 	min-height: 24px;
+	position: relative;
+	width: 2px;
+	scale: 1;
+}
+
+.value-steps__segment--top[data-in] {
+    transform: scaleY(1);
+}
+
+.value-steps__segment-fill {
+    position: absolute;
+    inset: 0;
+    transform: scaleY(var(--line-progress, 0));
+    transform-origin: top;
+}
+
+.value-track__line-fill {
+    position: absolute;
+    inset: 0;
+    transform: scaleY(var(--line-progress, 0));
+    transform-origin: top;
 }
 
 /* Responsive */
-
 @media (max-width:960px) {
-	.mission-trust__inner {
-		grid-template-columns: minmax(0,1fr);
-		gap: 40px;
-	}
+    .mission-trust__inner {
+        grid-template-columns: minmax(0,1fr);
+        gap: 40px;
+    }
 
-	.mission-values__inner,
-	.mission-trust__inner {
-		padding-bottom: 80px;
-	}
+    .mission-values__inner,
+    .mission-trust__inner {
+        padding-bottom: 80px;
+    }
 
-	/* Value steps: stack each value (icon + title above a full-width card) */
-	.value-steps__row {
-		flex-direction: column !important; /* overrides the inline alternating direction */
-		align-items: stretch;
-		margin: 0;
-		gap: 20px;
-	}
+    /* Value steps: stack each value (icon + title above a full-width card) */
+    .value-steps__row {
+        flex-direction: column !important; /* overrides the inline alternating direction */
+        align-items: stretch;
+        margin: 0;
+        gap: 20px;
+    }
 
-	.value-steps__node {
-		width: auto;
-		margin: 0 !important; /* overrides the inline timeline offsets */
-		flex-direction: row;
-		align-items: center;
-		gap: 20px;
-	}
+    .value-steps__node {
+        width: auto;
+        margin: 0 !important; /* overrides the inline timeline offsets */
+        flex-direction: row;
+        align-items: center;
+        gap: 20px;
+    }
 
-	.value-steps__segment,
-	.value-steps__curve {
-		display: none;
-	}
+    .value-steps__segment,
+    .value-steps__curve {
+        display: none;
+    }
 
-	.value-steps__gap {
-		display: block;
-	}
+    .value-steps__gap {
+        display: block;
+    }
 
-	.value-steps__card {
-		width: 100%;
-		transform: none !important; /* overrides the inline hover lift */
-	}
+    .value-steps__card {
+        width: 100%;
+        transform: none !important; /* overrides the inline hover lift */
+    }
 
-	.value-steps__card,
-	.value-track__card {
-		padding: 24px 16px;
-	}
+    .value-steps__card,
+    .value-track__card {
+        padding: 24px 16px;
+    }
 
-	/* Value track: stack each value (icon + title above a full-width card) */
-	.value-track__row {
-		flex-direction: column;
-		align-items: flex-start;
-		min-height: 0;
-		gap: 20px;
-	}
+    /* Value track: stack each value (icon + title above a full-width card) */
+    .value-track__row {
+        flex-direction: column;
+        align-items: flex-start;
+        min-height: 0;
+        gap: 20px;
+    }
 
-	.value-track__line,
-	.value-track__curve {
-		display: none;
-	}
+    .value-track__line,
+    .value-track__curve {
+        display: none;
+    }
 
-	.value-track__gap {
-		display: block;
-	}
+    .value-track__gap {
+        display: block;
+    }
 
-	.value-track__node {
-		position: relative;
-		left: 0 !important; /* overrides the inline timeline position */
-		top: 0;
-		transform: none;
-		display: flex;
-		align-items: center;
-		gap: 20px;
-	}
+    .value-track__node {
+        position: relative;
+        left: 0 !important; /* overrides the inline timeline position */
+        top: 0;
+        transform: none;
+        display: flex;
+        align-items: center;
+        gap: 20px;
+    }
 
-	.value-track__title {
-		position: static;
-		transform: none;
-		white-space: normal;
-	}
+    .value-track__title {
+        position: static;
+        transform: none;
+        white-space: normal;
+    }
 
-	.value-track__card {
-		width: 100%;
-		transform: none !important; /* overrides the inline hover lift */
-	}
+    .value-track__card {
+        width: 100%;
+        transform: none !important; /* overrides the inline hover lift */
+    }
 
-	.mission-trust__content {
-		top: 0;
-	}
+    .mission-trust__content {
+        top: 0;
+    }
 }
 
 @media (max-width:640px) {
-	.mission-values__inner,
-	.mission-trust__inner {
-		padding: 48px 24px 60px;
-	}
+    .mission-values__inner,
+    .mission-trust__inner {
+        padding: 48px 24px 60px;
+    }
 
-	.mission-trust__actions {
-		flex-direction: column;
-		align-items: stretch;
-		width: 100%;
-		max-width: 280px;
-	}
+    .mission-trust__actions {
+        flex-direction: column;
+        align-items: stretch;
+        width: 100%;
+        max-width: 280px;
+    }
 
-	.mission-trust__actions .button {
-		width: 100%;
-		box-sizing: border-box;
-		text-align: center;
-	}
+    .mission-trust__actions .button {
+        width: 100%;
+        box-sizing: border-box;
+        text-align: center;
+    }
 
-	.value-track {
-		padding-top: 0;
-	}
+    .value-track {
+        padding-top: 0;
+    }
 
-	.value-track__ring,
-	.value-steps__ring {
-		width: 90px;
-		height: 90px;
-	}
+    .value-track__ring,
+    .value-steps__ring {
+        width: 90px;
+        height: 90px;
+    }
 
-	.value-track__icon, .value-steps__icon {
-		width: 48px;
-		height: 48px;
-	}
+    .value-track__icon, .value-steps__icon {
+        width: 48px;
+        height: 48px;
+    }
 
-	.value-track__node,
-	.value-steps__node {
-		gap: 16px;
-	}
+    .value-track__node,
+    .value-steps__node {
+        gap: 16px;
+    }
 
-	.value-track__title,
-	.value-steps__title {
-		font-size: 20px;
-	}
+    .value-track__title,
+    .value-steps__title {
+        font-size: 20px;
+    }
 }
