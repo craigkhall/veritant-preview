@@ -116,7 +116,15 @@ function vtResizeMailjetFrames() {
 		.forEach(frame => {
 			if (frame.dataset.vtResized === '1') return;
 			frame.dataset.vtResized = '1';
-			iFrameResize({ checkOrigin: false, heightCalculationMethod: 'lowestElement' }, frame);
+			iFrameResize(
+				{
+					checkOrigin: false,
+					heightCalculationMethod: 'lowestElement',
+					// Mailjet’s form padding is large; don’t let a floor keep the modal tall
+					minHeight: 180,
+				},
+				frame
+			);
 		});
 }
 
