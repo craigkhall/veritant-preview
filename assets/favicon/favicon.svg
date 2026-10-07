@@ -1,4 +1,6 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" role="img" aria-label="Veritant">
-  <rect width="32" height="32" fill="#0548E0"/>
-  <path fill="#FFFFFF" d="M6.9 6H11L16 21.25 21 6h4.1L16 26 6.9 6Z"/>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
+  <rect width="512" height="512" rx="96" fill="#022E59"/>
+  <g transform="translate(256 260) scale(4.1) translate(-43.07 -46.51)">
+    <path transform="matrix(1,0,0,-1,24.973999,10)" fill="#FFFFFF" d="M0 0 18.461-56.613 36.921 0H51.177L25.948-73.023H10.461L-14.974 0Z"/>
+  </g>
 </svg>
