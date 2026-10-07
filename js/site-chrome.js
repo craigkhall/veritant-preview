@@ -297,6 +297,33 @@ const VT_SITE_CHROME = {
 		}
 	},
 
+	/** Force the mobile drawer shut in the DOM (used before navigate / on bfcache restore). */
+	closeMobileMenuDom() {
+		const header = document.querySelector('[data-vt-header]');
+		if (!header) return;
+		header.classList.remove('is-menu-open');
+		const mobile = header.querySelector('[data-vt-mobile-menu]');
+		if (mobile) {
+			mobile.hidden = true;
+			mobile.style.background = '';
+		}
+		const toggle = header.querySelector('[data-vt-menu-toggle]');
+		if (toggle) {
+			toggle.setAttribute('aria-expanded', 'false');
+			toggle.setAttribute('aria-label', 'Open menu');
+		}
+		const openIcon = header.querySelector('[data-vt-icon-open]');
+		const closeIcon = header.querySelector('[data-vt-icon-close]');
+		if (openIcon) {
+			openIcon.hidden = false;
+			openIcon.style.display = 'block';
+		}
+		if (closeIcon) {
+			closeIcon.hidden = true;
+			closeIcon.style.display = 'none';
+		}
+	},
+
 	bindHeaderOnce() {
 		if (this.headerBound) return;
 		const header = document.querySelector('[data-vt-header]');
@@ -317,8 +344,24 @@ const VT_SITE_CHROME = {
 			if (!href || href.charAt(0) === '#') return;
 			if (e.metaKey || e.ctrlKey || e.shiftKey || e.altKey) return;
 			e.preventDefault();
+			// Shut the drawer before leaving so bfcache never restores an open broken menu
+			if (this.handlers && this.handlers.closeMenu) this.handlers.closeMenu();
+			else this.closeMobileMenuDom();
 			window.location.assign(href);
 		});
+
+		if (!this._menuNavBound) {
+			this._menuNavBound = true;
+			window.addEventListener('pagehide', () => this.closeMobileMenuDom());
+			window.addEventListener('pageshow', e => {
+				this.closeMobileMenuDom();
+				if (this.handlers && this.handlers.closeMenu) this.handlers.closeMenu();
+				// bfcache restore: re-apply chrome so header colors/state match the page
+				if (e.persisted && this.handlers && this.handlers.onBfCacheRestore) {
+					this.handlers.onBfCacheRestore();
+				}
+			});
+		}
 	},
 
 	/**

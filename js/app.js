@@ -100,6 +100,17 @@ class Component extends DCLogic {
         this.flash('Legal page coming soon.');
       },
       toggleMenu: () => this.setState({ menuOpen: !this.state.menuOpen }),
+      closeMenu: () => {
+        if (this.state.menuOpen) this.setState({ menuOpen: false });
+      },
+      onBfCacheRestore: () => {
+        // Back/forward restore can leave the mobile menu half-open over the page
+        this.setState({ menuOpen: false, navOpen: -1 });
+        setTimeout(() => {
+          this.mountSiteChrome();
+          this.onVtScroll();
+        }, 0);
+      },
       openNav: i => this.setState({ navOpen: i }),
       closeNav: () => this.setState({ navOpen: -1 }),
     });

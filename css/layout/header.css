@@ -112,14 +112,26 @@
 	display: none;
 	flex-direction: column;
 	border-top: 1px solid rgba(110,180,247,.25);
-	padding: 8px 24px 20px;
-	background: #0556CC; /* solid fallback — links are white */
+	padding: 8px 24px 24px;
+	background: #0556CC;
 	color: #fff;
+	/* Cover page content so links never ghost over the hero */
+	position: relative;
+	z-index: 2;
+	min-height: calc(100dvh - 72px);
+	box-sizing: border-box;
+	overflow: auto;
+	-webkit-overflow-scrolling: touch;
 }
 
-/* Open state — background may be overridden inline for event themes */
+/* Open state — solid panel; never leave the drawer see-through */
+.site-header.is-menu-open {
+	background: #0556CC !important;
+}
+
 .site-header.is-menu-open .mobile-menu:not([hidden]) {
 	display: flex;
+	background: #0556CC !important;
 }
 
 .mobile-menu__link {
