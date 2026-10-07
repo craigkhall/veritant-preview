@@ -34,7 +34,7 @@
 @import url("layout/site.css");
 @import url("layout/header.css?v=138");
 @import url("components/intro-modal.css");
-@import url("pages/home.css");
+@import url("pages/home.css?v=140");
 @import url("pages/mission.css");
 @import url("pages/independence.css");
 @import url("pages/insights.css");

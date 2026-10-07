@@ -7,9 +7,32 @@
 	background: var(--color-white);
 }
 
+.home-band__label {
+	display: flex;
+	align-items: center;
+	gap: 14px;
+	margin: 0 0 20px;
+}
+
+.home-band__rule {
+	flex: 0 0 auto;
+	width: 28px;
+	height: 2px;
+	border-radius: 1px;
+	background: linear-gradient(90deg, var(--color-sapphire) 0%, var(--color-bright-blue) 100%);
+}
+
+.home-band__rule--on-bright {
+	background: var(--color-midnight-blue);
+}
+
+.home-band__rule--on-dark {
+	background: linear-gradient(90deg, var(--color-turquoise) 0%, var(--color-bright-blue) 100%);
+}
+
 .home-band__eyebrow {
-	margin: 0 0 16px;
-	font-size: 12px;
+	margin: 0;
+	font-size: 14px;
 	font-weight: 500;
 	letter-spacing: .18em;
 	text-transform: uppercase;
@@ -192,8 +215,7 @@
 	overflow: hidden;
 }
 
-.home-team__image,
-.news-card__image {
+.home-team__image {
 	width: 100%;
 	height: 100%;
 	object-fit: cover;
@@ -273,8 +295,7 @@
 	max-width: 560px;
 }
 
-.insight-card__eyebrow,
-.news-card__eyebrow {
+.insight-card__eyebrow {
 	font-size: 11px;
 	letter-spacing: .16em;
 	text-transform: uppercase;
@@ -289,8 +310,7 @@
 	color: var(--color-white);
 }
 
-.insight-card__text,
-.news-card__text {
+.insight-card__text {
 	margin: 0;
 	font-size: 17px;
 	line-height: 1.6;
@@ -299,45 +319,6 @@
 
 .insight-card__cta {
 	margin-top: 8px;
-	font-size: 11px;
-	letter-spacing: .14em;
-	text-transform: uppercase;
-	color: var(--color-white);
-}
-
-.news-card {
-	display: flex;
-	flex-direction: column;
-	background: var(--gradient-brand);
-	color: var(--color-white);
-	text-decoration: none;
-}
-
-.news-card__media {
-	aspect-ratio: 16/10;
-	overflow: hidden;
-	background: var(--color-royal-blue);
-}
-
-.news-card__body {
-	flex: 1;
-	padding: clamp(24px,3vw,36px);
-	display: flex;
-	flex-direction: column;
-	gap: 12px;
-}
-
-.news-card__title {
-	margin: 0;
-	font-weight: 300;
-	font-size: clamp(22px,2vw,26px);
-	line-height: 1.2;
-	color: var(--color-white);
-}
-
-.news-card__cta {
-	margin-top: auto;
-	padding-top: 12px;
 	font-size: 11px;
 	letter-spacing: .14em;
 	text-transform: uppercase;
@@ -386,9 +367,17 @@
 		padding: 64px 24px;
 	}
 
+	.home-band__label {
+		margin-bottom: 16px;
+		gap: 12px;
+	}
+
+	.home-band__rule {
+		width: 24px;
+	}
+
 	.home-band__eyebrow {
-		font-size: 13px;
-		margin-bottom: 14px;
+		font-size: 14px;
 	}
 
 	.home-mission__title,
@@ -406,8 +395,7 @@
 	.home-team__text,
 	.home-insights__text,
 	.home-insights__intro,
-	.insight-card__text,
-	.news-card__text {
+	.insight-card__text {
 		font-size: 17px;
 		line-height: 1.55;
 		max-width: none;
