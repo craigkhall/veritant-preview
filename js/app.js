@@ -835,7 +835,8 @@ class Component extends DCLogic {
         underline: s.filter === i ? '#022E59' : 'transparent',
         select: () => this.setState({ filter: i }),
       })).filter(fl => fl.i === 0 || PEOPLE.some(x => x.groups.includes(fl.i))),
-      teamCols: '4',
+      // Leadership: 3 / 2 centered layout, same card width as the 4-col grid
+      teamCols: s.filter === 1 ? '3' : '4',
       people: PEOPLE.filter(x => s.filter === 0 || x.groups.includes(s.filter)).map((x, i) => {
         const hov = s.hoverIdx === i;
         return {

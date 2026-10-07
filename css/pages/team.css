@@ -474,4 +474,35 @@
 	}
 }
 
-/* Leadership uses the same 4-col grid as other filters so photo size stays consistent. */
+/* Leadership: 3-up then 2 centered, same card width as the 4-col grid (25%). */
+@media (min-width:641px) {
+	.team__grid[data-team-cols="3"] {
+		grid-template-columns: repeat(8, minmax(0, 1fr));
+	}
+
+	.team__grid[data-team-cols="3"] > * {
+		grid-column: span 2;
+	}
+
+	/* Row of 3 — centered in 8 cols (offset 1) */
+	.team__grid[data-team-cols="3"] > :nth-child(1) {
+		grid-column: 2 / span 2;
+	}
+
+	.team__grid[data-team-cols="3"] > :nth-child(2) {
+		grid-column: 4 / span 2;
+	}
+
+	.team__grid[data-team-cols="3"] > :nth-child(3) {
+		grid-column: 6 / span 2;
+	}
+
+	/* Row of 2 — centered (offset 2) */
+	.team__grid[data-team-cols="3"] > :nth-child(4) {
+		grid-column: 3 / span 2;
+	}
+
+	.team__grid[data-team-cols="3"] > :nth-child(5) {
+		grid-column: 5 / span 2;
+	}
+}
