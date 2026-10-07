@@ -109,9 +109,12 @@ class Component extends DCLogic {
     if (typeof VT_SITE_CHROME === 'undefined') return;
     const s = this.state || {};
     const p = FILE_PAGE;
+    // Transparent only on home before scroll — but never while the mobile menu is open
+    // (transparent + white link text reads as a blank white panel).
+    const menuOpen = !!s.menuOpen;
     const navBg = EVENT_THEME
       ? EVENT_THEME.header
-      : p === 'home' && !s.scrolled
+      : p === 'home' && !s.scrolled && !menuOpen
         ? 'transparent'
         : p === 'home'
           ? '#0556CC'
@@ -151,7 +154,7 @@ class Component extends DCLogic {
         contactHref: 'contact.html',
         dropBg: EVENT_THEME ? EVENT_THEME.drop : '#0556CC',
         dropBorder: 'rgba(255,255,255,.18)',
-        menuOpen: !!s.menuOpen,
+        menuOpen,
       },
       navItems
     );
@@ -669,7 +672,7 @@ class Component extends DCLogic {
       navBg:
         EVENT_THEME
           ? EVENT_THEME.header
-          : p === 'home' && !s.scrolled
+          : p === 'home' && !s.scrolled && !s.menuOpen
             ? 'transparent'
             : p === 'home'
               ? '#0556CC'

@@ -113,9 +113,11 @@
 	flex-direction: column;
 	border-top: 1px solid rgba(110,180,247,.25);
 	padding: 8px 24px 20px;
+	background: #0556CC; /* solid fallback — links are white */
+	color: #fff;
 }
 
-/* Open state — background comes from inline theme (incl. event themes) */
+/* Open state — background may be overridden inline for event themes */
 .site-header.is-menu-open .mobile-menu:not([hidden]) {
 	display: flex;
 }
@@ -126,6 +128,7 @@
 	text-transform: uppercase;
 	padding: 14px 0;
 	border-bottom: 1px solid rgba(110,180,247,.15);
+	color: #fff;
 }
 
 .mobile-menu__sublink {
@@ -134,6 +137,7 @@
 	text-transform: uppercase;
 	padding: 12px 0 12px 20px;
 	border-bottom: 1px solid rgba(110,180,247,.15);
+	color: #fff;
 }
 
 .mobile-menu__contact {

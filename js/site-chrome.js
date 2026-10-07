@@ -361,7 +361,12 @@ const VT_SITE_CHROME = {
 		}
 		if (mobile) {
 			mobile.hidden = !menuOpen;
-			mobile.style.background = theme.navBg || '';
+			// Never leave the drawer transparent — white link text vanishes on a blank panel
+			const solidBg =
+				!theme.navBg || theme.navBg === 'transparent'
+					? '#0556CC'
+					: theme.navBg;
+			mobile.style.background = menuOpen ? solidBg : '';
 		}
 
 		const stroke = theme.navFg || '#fff';
