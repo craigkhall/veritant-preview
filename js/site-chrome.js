@@ -78,11 +78,7 @@ const VT_SITE_END_HTML = `
 	<div class="nl-modal__panel">
 		<button type="button" class="nl-modal__close" data-vt-nl-close aria-label="Close">Close</button>
 		<header class="nl-modal__header">
-			<img src="assets/favicon/favicon.svg" alt="" class="nl-modal__mark" width="28" height="28">
-			<div class="nl-modal__intro">
-				<p class="nl-modal__eyebrow">Newsletter</p>
-				<h2 class="nl-modal__title">Keep me posted</h2>
-			</div>
+			<h2 class="nl-modal__title">Enter your email to receive updates</h2>
 		</header>
 		<div class="nl-modal__embed">
 			<iframe
