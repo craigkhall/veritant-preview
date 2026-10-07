@@ -75,21 +75,47 @@
 }
 
 .nl-modal__embed {
+	position: relative;
 	width: 100%;
 	overflow: hidden;
+	min-height: 260px;
 	/* Pull up to hide Mailjet’s large top padding; leave bottom room for the button */
 	margin: -6px 0 0;
+}
+
+.nl-modal__loading {
+	position: absolute;
+	inset: 0;
+	z-index: 1;
+	display: none;
+	align-items: center;
+	justify-content: center;
+	margin: 0;
+	background: #fff;
+	color: rgba(2, 46, 89, 0.55);
+	font-size: 13px;
+	letter-spacing: 0.06em;
+}
+
+.nl-modal__embed.is-loading .nl-modal__loading {
+	display: flex;
+}
+
+.nl-modal__embed.is-loading iframe {
+	opacity: 0;
 }
 
 .nl-modal__embed iframe {
 	display: block !important;
 	width: calc(100% + 30px) !important;
 	max-width: none !important;
-	min-height: 0 !important;
+	min-height: 240px !important;
 	margin: -36px -15px -8px;
 	border: 0;
 	background: #fff;
 	color-scheme: light;
+	opacity: 1;
+	transition: opacity 180ms ease;
 }
 
 html.is-nl-modal-open {

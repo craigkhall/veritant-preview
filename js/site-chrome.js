@@ -49,7 +49,6 @@ const VT_SITE_END_HTML = `
 				<a href="our-why.html" class="site-footer__link">Our Why</a>
 				<a href="independence-charter.html" class="site-footer__link">Independence Charter</a>
 				<a href="team.html" class="site-footer__link">Team</a>
-				<a href="forbes-partnership.html" class="site-footer__link">Forbes Partnership</a>
 			</div>
 		</div>
 		<div>
@@ -80,7 +79,8 @@ const VT_SITE_END_HTML = `
 		<header class="nl-modal__header">
 			<h2 class="nl-modal__title">Enter your email to receive updates</h2>
 		</header>
-		<div class="nl-modal__embed">
+		<div class="nl-modal__embed is-loading" data-vt-nl-embed>
+			<p class="nl-modal__loading" data-vt-nl-loading>Loading form…</p>
 			<iframe
 				data-w-type="embedded"
 				data-vt-nl-frame
@@ -91,7 +91,7 @@ const VT_SITE_END_HTML = `
 				marginwidth="0"
 				src="${VT_MAILJET_NL_SRC}"
 				width="100%"
-				style="height: 0;"
+				style="height: 280px;"
 			></iframe>
 		</div>
 	</div>
@@ -114,14 +114,22 @@ function vtResizeMailjetFrames() {
 			'.nl-modal__embed iframe[data-w-type="embedded"], .contact-form__frame iframe[data-w-type="embedded"]'
 		)
 		.forEach(frame => {
-			if (frame.dataset.vtResized === '1') return;
+			if (frame.dataset.vtResized === '1') {
+				if (typeof frame.iFrameResizer !== 'undefined' && frame.iFrameResizer.resize) {
+					frame.iFrameResizer.resize();
+				}
+				return;
+			}
 			frame.dataset.vtResized = '1';
 			iFrameResize(
 				{
 					checkOrigin: false,
 					heightCalculationMethod: 'lowestElement',
-					// Mailjet’s form padding is large; don’t let a floor keep the modal tall
-					minHeight: 180,
+					minHeight: 220,
+					onResized: () => {
+						const embed = frame.closest('[data-vt-nl-embed]');
+						if (embed) embed.classList.remove('is-loading');
+					},
 				},
 				frame
 			);
@@ -135,12 +143,20 @@ function vtLoadMailjet() {
 	vtEnsureScript('https://app.mailjet.com/pas-nc-embedded-v2.js', { type: 'text/javascript' });
 	const run = () => {
 		vtResizeMailjetFrames();
-		setTimeout(vtResizeMailjetFrames, 600);
-		setTimeout(vtResizeMailjetFrames, 1600);
+		setTimeout(vtResizeMailjetFrames, 400);
+		setTimeout(vtResizeMailjetFrames, 1200);
 	};
 	if (typeof iFrameResize === 'function') run();
 	else if (ir) ir.onload = run;
-	else setTimeout(run, 400);
+	else setTimeout(run, 300);
+}
+
+function vtMarkNlReady(frame) {
+	if (!frame) return;
+	frame.dataset.vtLoaded = '1';
+	const embed = frame.closest('[data-vt-nl-embed]');
+	if (embed) embed.classList.remove('is-loading');
+	vtResizeMailjetFrames();
 }
 
 function vtEsc(s) {
@@ -190,9 +206,12 @@ const VT_SITE_CHROME = {
 			}
 		}
 
-		// Contact page still needs Mailjet for its own iframe
-		if (document.querySelector('.contact-form__frame iframe[data-w-type="embedded"]')) {
-			vtLoadMailjet();
+		// Prefetch Mailjet + warm the NL iframe so open feels instant
+		vtLoadMailjet();
+		const nlFrame = document.querySelector('[data-vt-nl-frame]');
+		if (nlFrame && !nlFrame.dataset.vtLoadBound) {
+			nlFrame.dataset.vtLoadBound = '1';
+			nlFrame.addEventListener('load', () => vtMarkNlReady(nlFrame));
 		}
 
 		this.bindNewsletterOnce();
@@ -255,13 +274,22 @@ const VT_SITE_CHROME = {
 		if (modal.parentElement !== document.body) {
 			document.body.appendChild(modal);
 		}
+		const embed = modal.querySelector('[data-vt-nl-embed]');
+		const frame = modal.querySelector('[data-vt-nl-frame]');
+		if (embed && frame && frame.dataset.vtLoaded !== '1') {
+			embed.classList.add('is-loading');
+		}
 		document.documentElement.classList.add('is-nl-modal-open');
 		if (typeof modal.showModal === 'function') modal.showModal();
 		else modal.setAttribute('open', '');
 		this.pinNlScroll();
 		vtLoadMailjet();
-		setTimeout(vtResizeMailjetFrames, 200);
-		setTimeout(vtResizeMailjetFrames, 800);
+		setTimeout(vtResizeMailjetFrames, 150);
+		setTimeout(vtResizeMailjetFrames, 500);
+		setTimeout(() => {
+			vtResizeMailjetFrames();
+			if (embed) embed.classList.remove('is-loading');
+		}, 1800);
 	},
 
 	closeNlModal() {
