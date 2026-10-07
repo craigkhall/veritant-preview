@@ -77,11 +77,17 @@
 }
 
 .site-nav__dropdown {
+	display: none;
 	position: absolute;
 	left: -20px;
 	top: 100%;
 	padding-top: 18px;
 	z-index: 20;
+}
+
+.site-nav__item:hover .site-nav__dropdown,
+.site-nav__item:focus-within .site-nav__dropdown {
+	display: block;
 }
 
 .site-nav__dropdown-panel {

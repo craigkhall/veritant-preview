@@ -288,19 +288,8 @@ const VT_SITE_CHROME = {
 				this.handlers.toggleMenu();
 			}
 		});
-
-		header.addEventListener('mouseenter', e => {
-			const item = e.target.closest('[data-vt-nav-i]');
-			if (!item || !header.contains(item)) return;
-			const i = +item.getAttribute('data-vt-nav-i');
-			if (this.handlers && this.handlers.openNav) this.handlers.openNav(i);
-		}, true);
-
-		header.addEventListener('mouseleave', e => {
-			const item = e.target.closest('[data-vt-nav-i]');
-			if (!item || !header.contains(item)) return;
-			if (this.handlers && this.handlers.closeNav) this.handlers.closeNav();
-		}, true);
+		// Dropdowns use CSS :hover/:focus-within — do not setState on hover
+		// (rebuilding nav.innerHTML mid-click was killing link navigation).
 	},
 
 	/**
@@ -351,10 +340,10 @@ const VT_SITE_CHROME = {
 
 		const nav = header.querySelector('[data-vt-nav]');
 		if (nav && Array.isArray(navItems)) {
-			nav.innerHTML = navItems
+			const next = navItems
 				.map((n, i) => {
 					const kids =
-						n.showKids && n.kids && n.kids.length
+						n.kids && n.kids.length
 							? `<div class="site-nav__dropdown"><div class="site-nav__dropdown-panel" style="background:${vtEsc(
 									theme.dropBg
 								)};border:1px solid ${vtEsc(theme.dropBorder)}">${n.kids
@@ -366,13 +355,40 @@ const VT_SITE_CHROME = {
 									)
 									.join('')}</div></div>`
 							: '';
-					return `<div data-vt-nav-i="${i}" class="site-nav__item"><a href="${vtEsc(
-						n.href
-					)}" class="site-nav__link" style="color:${vtEsc(n.color)};border-bottom:1px solid ${vtEsc(
-						n.underline
-					)}"${n.hasKids ? ' aria-haspopup="true"' : ''}>${vtEsc(n.label)}</a>${kids}</div>`;
+					return `<div data-vt-nav-i="${i}" class="site-nav__item${
+						n.hasKids ? ' site-nav__item--has-kids' : ''
+					}"><a href="${vtEsc(n.href)}" class="site-nav__link" style="color:${vtEsc(
+						n.color
+					)};border-bottom:1px solid ${vtEsc(n.underline)}"${
+						n.hasKids ? ' aria-haspopup="true"' : ''
+					}>${vtEsc(n.label)}</a>${kids}</div>`;
 				})
 				.join('');
+			// Skip DOM replace when markup is unchanged so in-flight clicks aren't cancelled
+			if (nav.dataset.vtNavHtml !== next) {
+				nav.dataset.vtNavHtml = next;
+				nav.innerHTML = next;
+			} else {
+				// Still refresh inline colors / underlines on existing nodes
+				navItems.forEach((n, i) => {
+					const item = nav.querySelector(`[data-vt-nav-i="${i}"]`);
+					if (!item) return;
+					const link = item.querySelector('.site-nav__link');
+					if (link) {
+						link.style.color = n.color || '';
+						link.style.borderBottom = '1px solid ' + (n.underline || 'transparent');
+					}
+					const panel = item.querySelector('.site-nav__dropdown-panel');
+					if (panel) {
+						panel.style.background = theme.dropBg || '';
+						panel.style.border = '1px solid ' + (theme.dropBorder || 'transparent');
+					}
+					(n.kids || []).forEach((k, ki) => {
+						const kid = item.querySelectorAll('.site-nav__dropdown-link')[ki];
+						if (kid) kid.style.color = k.color || '';
+					});
+				});
+			}
 		}
 
 		if (mobile && Array.isArray(navItems)) {
