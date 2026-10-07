@@ -5,7 +5,7 @@
 .site-header {
 	position: sticky;
 	top: 0;
-	z-index: 10;
+	z-index: 100;
 	transition: background 240ms,border-color 240ms;
 }
 
@@ -81,13 +81,15 @@
 	position: absolute;
 	left: -20px;
 	top: 100%;
-	padding-top: 18px;
+	padding-top: 12px;
 	z-index: 20;
 }
 
-.site-nav__item:hover .site-nav__dropdown,
-.site-nav__item:focus-within .site-nav__dropdown {
-	display: block;
+/* Hover only — :focus-within kept menus stuck open after click */
+@media (hover: hover) and (pointer: fine) {
+	.site-nav__item:hover .site-nav__dropdown {
+		display: block;
+	}
 }
 
 .site-nav__dropdown-panel {

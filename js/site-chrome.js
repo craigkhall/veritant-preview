@@ -286,10 +286,17 @@ const VT_SITE_CHROME = {
 			if (toggle && this.handlers && this.handlers.toggleMenu) {
 				e.preventDefault();
 				this.handlers.toggleMenu();
+				return;
 			}
+			// Ensure nav/menu links always navigate (dc re-renders must not cancel them)
+			const a = e.target.closest('a[href]');
+			if (!a || !header.contains(a)) return;
+			const href = a.getAttribute('href');
+			if (!href || href.charAt(0) === '#') return;
+			if (e.metaKey || e.ctrlKey || e.shiftKey || e.altKey || e.button !== 0) return;
+			e.preventDefault();
+			window.location.assign(href);
 		});
-		// Dropdowns use CSS :hover/:focus-within — do not setState on hover
-		// (rebuilding nav.innerHTML mid-click was killing link navigation).
 	},
 
 	/**
@@ -340,81 +347,103 @@ const VT_SITE_CHROME = {
 
 		const nav = header.querySelector('[data-vt-nav]');
 		if (nav && Array.isArray(navItems)) {
-			const next = navItems
-				.map((n, i) => {
-					const kids =
-						n.kids && n.kids.length
-							? `<div class="site-nav__dropdown"><div class="site-nav__dropdown-panel" style="background:${vtEsc(
-									theme.dropBg
-								)};border:1px solid ${vtEsc(theme.dropBorder)}">${n.kids
-									.map(
-										k =>
-											`<a href="${vtEsc(k.href)}" class="site-nav__dropdown-link" style="color:${vtEsc(
-												k.color
-											)}">${vtEsc(k.label)}</a>`
-									)
-									.join('')}</div></div>`
-							: '';
-					return `<div data-vt-nav-i="${i}" class="site-nav__item${
-						n.hasKids ? ' site-nav__item--has-kids' : ''
-					}"><a href="${vtEsc(n.href)}" class="site-nav__link" style="color:${vtEsc(
-						n.color
-					)};border-bottom:1px solid ${vtEsc(n.underline)}"${
-						n.hasKids ? ' aria-haspopup="true"' : ''
-					}>${vtEsc(n.label)}</a>${kids}</div>`;
-				})
-				.join('');
-			// Skip DOM replace when markup is unchanged so in-flight clicks aren't cancelled
-			if (nav.dataset.vtNavHtml !== next) {
-				nav.dataset.vtNavHtml = next;
-				nav.innerHTML = next;
-			} else {
-				// Still refresh inline colors / underlines on existing nodes
-				navItems.forEach((n, i) => {
-					const item = nav.querySelector(`[data-vt-nav-i="${i}"]`);
-					if (!item) return;
-					const link = item.querySelector('.site-nav__link');
-					if (link) {
-						link.style.color = n.color || '';
-						link.style.borderBottom = '1px solid ' + (n.underline || 'transparent');
-					}
-					const panel = item.querySelector('.site-nav__dropdown-panel');
-					if (panel) {
-						panel.style.background = theme.dropBg || '';
-						panel.style.border = '1px solid ' + (theme.dropBorder || 'transparent');
-					}
-					(n.kids || []).forEach((k, ki) => {
-						const kid = item.querySelectorAll('.site-nav__dropdown-link')[ki];
-						if (kid) kid.style.color = k.color || '';
-					});
-				});
+			// Structure key ignores colors so scroll/theme tweaks never destroy links mid-click
+			const structure = navItems
+				.map(
+					n =>
+						n.label +
+						'>' +
+						n.href +
+						'>' +
+						(n.kids || []).map(k => k.label + ':' + k.href).join(',')
+				)
+				.join('|');
+			if (nav.dataset.vtNavStructure !== structure) {
+				nav.dataset.vtNavStructure = structure;
+				nav.innerHTML = navItems
+					.map((n, i) => {
+						const kids =
+							n.kids && n.kids.length
+								? `<div class="site-nav__dropdown"><div class="site-nav__dropdown-panel">${n.kids
+										.map(
+											k =>
+												`<a href="${vtEsc(k.href)}" class="site-nav__dropdown-link">${vtEsc(
+													k.label
+												)}</a>`
+										)
+										.join('')}</div></div>`
+								: '';
+						return `<div data-vt-nav-i="${i}" class="site-nav__item${
+							n.hasKids ? ' site-nav__item--has-kids' : ''
+						}"><a href="${vtEsc(n.href)}" class="site-nav__link"${
+							n.hasKids ? ' aria-haspopup="true"' : ''
+						}>${vtEsc(n.label)}</a>${kids}</div>`;
+					})
+					.join('');
 			}
+			navItems.forEach((n, i) => {
+				const item = nav.querySelector(`[data-vt-nav-i="${i}"]`);
+				if (!item) return;
+				const link = item.querySelector('.site-nav__link');
+				if (link) {
+					link.style.color = n.color || '';
+					link.style.borderBottom = '1px solid ' + (n.underline || 'transparent');
+				}
+				const panel = item.querySelector('.site-nav__dropdown-panel');
+				if (panel) {
+					panel.style.background = theme.dropBg || '';
+					panel.style.border = '1px solid ' + (theme.dropBorder || 'transparent');
+				}
+				(n.kids || []).forEach((k, ki) => {
+					const kid = item.querySelectorAll('.site-nav__dropdown-link')[ki];
+					if (kid) kid.style.color = k.color || '';
+				});
+			});
 		}
 
 		if (mobile && Array.isArray(navItems)) {
-			const links = navItems
-				.map(n => {
-					const top = `<a href="${vtEsc(n.href)}" class="mobile-menu__link" style="color:${vtEsc(
-						n.color
-					)}">${vtEsc(n.label)}</a>`;
-					const kids = (n.kids || [])
-						.map(
-							k =>
-								`<a href="${vtEsc(k.href)}" class="mobile-menu__sublink" style="color:${vtEsc(
-									k.color
-								)}">${vtEsc(k.label)}</a>`
-						)
-						.join('');
-					return top + kids;
-				})
-				.join('');
-			const cBg = theme.contactBg || '#03D0FF';
-			const cFg = theme.contactFg || '#022E59';
-			mobile.innerHTML =
-				links +
-				`<a href="${vtEsc(theme.contactHref || 'contact.html')}" class="mobile-menu__contact" style="background:${vtEsc(
-					cBg
-				)};color:${vtEsc(cFg)}">Contact us</a>`;
+			const structure =
+				navItems
+					.map(
+						n =>
+							n.label +
+							'>' +
+							n.href +
+							'>' +
+							(n.kids || []).map(k => k.label + ':' + k.href).join(',')
+					)
+					.join('|') +
+				'|contact:' +
+				(theme.contactHref || 'contact.html');
+			if (mobile.dataset.vtNavStructure !== structure) {
+				mobile.dataset.vtNavStructure = structure;
+				const links = navItems
+					.map(n => {
+						const top = `<a href="${vtEsc(n.href)}" class="mobile-menu__link">${vtEsc(n.label)}</a>`;
+						const kids = (n.kids || [])
+							.map(k => `<a href="${vtEsc(k.href)}" class="mobile-menu__sublink">${vtEsc(k.label)}</a>`)
+							.join('');
+						return top + kids;
+					})
+					.join('');
+				mobile.innerHTML =
+					links +
+					`<a href="${vtEsc(theme.contactHref || 'contact.html')}" class="mobile-menu__contact">Contact us</a>`;
+			}
+			navItems.forEach((n, i) => {
+				const tops = mobile.querySelectorAll('.mobile-menu__link');
+				if (tops[i]) tops[i].style.color = n.color || '';
+			});
+			mobile.querySelectorAll('.mobile-menu__sublink').forEach((el, idx) => {
+				const flat = [];
+				navItems.forEach(n => (n.kids || []).forEach(k => flat.push(k)));
+				if (flat[idx]) el.style.color = flat[idx].color || '';
+			});
+			const mContact = mobile.querySelector('.mobile-menu__contact');
+			if (mContact) {
+				mContact.style.background = theme.contactBg || '#03D0FF';
+				mContact.style.color = theme.contactFg || '#022E59';
+			}
 		}
 
 		return header;
