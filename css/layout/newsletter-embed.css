@@ -60,7 +60,7 @@
 }
 
 .nl-modal__header {
-	padding: 2px 48px 0 2px;
+	padding: 2px 48px 8px 2px;
 	margin: 0;
 	text-align: left;
 }
@@ -78,9 +78,8 @@
 	position: relative;
 	width: 100%;
 	overflow: hidden;
-	min-height: 260px;
-	/* Pull up to hide Mailjet’s large top padding; leave bottom room for the button */
-	margin: -6px 0 0;
+	min-height: 280px;
+	margin: 4px 0 0;
 }
 
 .nl-modal__loading {
@@ -107,10 +106,11 @@
 
 .nl-modal__embed iframe {
 	display: block !important;
-	width: calc(100% + 30px) !important;
+	width: calc(100% + 20px) !important;
 	max-width: none !important;
-	min-height: 240px !important;
-	margin: -36px -15px -8px;
+	min-height: 260px !important;
+	/* Light top clip only — heavy negative margin was cutting off the Email label */
+	margin: -18px -10px -6px;
 	border: 0;
 	background: #fff;
 	color-scheme: light;
@@ -140,12 +140,12 @@ html.is-nl-modal-open {
 	}
 
 	.nl-modal__embed {
-		margin: -4px 0 0;
+		margin: 4px 0 0;
 	}
 
 	.nl-modal__embed iframe {
-		margin: -34px -12px -6px;
-		width: calc(100% + 24px) !important;
+		margin: -16px -10px -4px;
+		width: calc(100% + 20px) !important;
 	}
 }
 
@@ -181,11 +181,11 @@ html.is-nl-modal-open {
 	}
 
 	.nl-modal__embed {
-		margin: -2px 0 0;
+		margin: 2px 0 0;
 	}
 
 	.nl-modal__embed iframe {
-		margin: -32px -10px -4px;
-		width: calc(100% + 20px) !important;
+		margin: -14px -8px -2px;
+		width: calc(100% + 16px) !important;
 	}
 }

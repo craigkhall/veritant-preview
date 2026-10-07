@@ -275,10 +275,7 @@ const VT_SITE_CHROME = {
 			document.body.appendChild(modal);
 		}
 		const embed = modal.querySelector('[data-vt-nl-embed]');
-		const frame = modal.querySelector('[data-vt-nl-frame]');
-		if (embed && frame && frame.dataset.vtLoaded !== '1') {
-			embed.classList.add('is-loading');
-		}
+		if (embed) embed.classList.remove('is-loading');
 		document.documentElement.classList.add('is-nl-modal-open');
 		if (typeof modal.showModal === 'function') modal.showModal();
 		else modal.setAttribute('open', '');
@@ -286,10 +283,7 @@ const VT_SITE_CHROME = {
 		vtLoadMailjet();
 		setTimeout(vtResizeMailjetFrames, 150);
 		setTimeout(vtResizeMailjetFrames, 500);
-		setTimeout(() => {
-			vtResizeMailjetFrames();
-			if (embed) embed.classList.remove('is-loading');
-		}, 1800);
+		setTimeout(vtResizeMailjetFrames, 1200);
 	},
 
 	closeNlModal() {
