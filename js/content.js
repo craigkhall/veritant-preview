@@ -3,7 +3,7 @@
 // page logic of the <x-dc> template in every page.
 
 // Every page has its own HTML file. When adding a page, add it here and to sitemap.xml.
-const PAGE_FILES = { home: 'index.html', mission: 'our-why.html', independence: 'independence-charter.html', team: 'team.html', forbes: 'forbes-partnership.html', methodology: 'methodology.html', rankings: 'rankings.html', events: 'events.html', event: 'event-top-ria-summit.html', insights: 'news-insights.html', press: 'shook-research-is-now-veritant.html', article: 'what-makes-a-great-financial-advisor.html', faq: 'faq.html', bio: 'team.html' };
+const PAGE_FILES = { home: 'index.html', mission: 'our-why.html', independence: 'independence-charter.html', team: 'team.html', forbes: 'forbes-partnership.html', methodology: 'methodology.html', rankings: 'rankings.html', events: 'events.html', event: 'event-top-ria-summit.html', insights: 'news-insights.html', press: 'shook-research-is-now-veritant.html', article: 'what-makes-a-great-financial-advisor.html', faq: 'faq.html', contact: 'contact.html', bio: 'team.html' };
 // The page this HTML file renders (<html data-page="...">).
 const FILE_PAGE = document.documentElement.getAttribute('data-page') || 'home';
 // Event detail pages: <html data-page="event" data-event-theme="turquoise" data-event="top-ria-summit">

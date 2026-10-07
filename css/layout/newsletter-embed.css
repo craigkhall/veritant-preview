@@ -1,0 +1,195 @@
+/* Newsletter Mailjet form — dialog over the skyline band */
+
+.nl-modal {
+	border: 0;
+	padding: 0;
+	width: min(520px, calc(100vw - 48px));
+	max-width: calc(100vw - 48px);
+	margin: auto;
+	background: transparent;
+	color: #022e59;
+}
+
+.nl-modal::backdrop {
+	background: rgba(2, 46, 89, 0.72);
+	backdrop-filter: blur(2px);
+}
+
+.nl-modal__panel {
+	position: relative;
+	background: #fff;
+	padding: 24px 24px 20px;
+	box-sizing: border-box;
+	max-height: min(88vh, 720px);
+	max-height: min(88dvh, 720px);
+	overflow: auto;
+	-webkit-overflow-scrolling: touch;
+	overscroll-behavior: contain;
+	border-radius: 4px;
+	box-shadow: 0 16px 48px rgba(2, 46, 89, 0.28);
+}
+
+.nl-modal__close {
+	position: absolute;
+	top: 8px;
+	right: 8px;
+	z-index: 2;
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+	min-width: 44px;
+	min-height: 44px;
+	border: 0;
+	background: transparent;
+	color: rgba(2, 46, 89, 0.55);
+	font: inherit;
+	font-size: 11px;
+	letter-spacing: 0.12em;
+	text-transform: uppercase;
+	cursor: pointer;
+	padding: 8px 12px;
+	-webkit-tap-highlight-color: transparent;
+}
+
+.nl-modal__close:hover,
+.nl-modal__close:focus-visible {
+	color: #0556cc;
+	outline: none;
+}
+
+.nl-modal__header {
+	display: flex;
+	align-items: center;
+	gap: 12px;
+	padding: 4px 48px 16px 0;
+	border-bottom: 1px solid rgba(2, 46, 89, 0.1);
+	margin-bottom: 8px;
+}
+
+.nl-modal__mark {
+	display: block;
+	width: 28px;
+	height: 28px;
+	flex-shrink: 0;
+	border-radius: 4px;
+}
+
+.nl-modal__intro {
+	min-width: 0;
+	text-align: left;
+}
+
+.nl-modal__eyebrow {
+	margin: 0 0 2px;
+	font-size: 10px;
+	letter-spacing: 0.16em;
+	text-transform: uppercase;
+	color: rgba(2, 46, 89, 0.5);
+}
+
+.nl-modal__title {
+	margin: 0;
+	font-size: 18px;
+	font-weight: 400;
+	line-height: 1.25;
+	color: #022e59;
+}
+
+.nl-modal__embed {
+	width: 100%;
+}
+
+.nl-modal__embed iframe {
+	display: block !important;
+	width: 100% !important;
+	max-width: 100% !important;
+	min-height: 300px !important;
+	border: 0;
+	background: #fff;
+	color-scheme: light;
+}
+
+html.is-nl-modal-open {
+	overscroll-behavior: none;
+}
+
+/* Tablet */
+@media (max-width: 960px) {
+	.nl-modal {
+		width: min(480px, calc(100vw - 40px));
+		max-width: calc(100vw - 40px);
+	}
+
+	.nl-modal__panel {
+		padding: 22px 20px 18px;
+		max-height: min(90vh, 680px);
+		max-height: min(90dvh, 680px);
+	}
+
+	.nl-modal__title {
+		font-size: 17px;
+	}
+
+	.nl-modal__embed iframe {
+		min-height: 320px !important;
+	}
+}
+
+/* Phone — bottom sheet, full width, safe areas */
+@media (max-width: 640px) {
+	.nl-modal {
+		width: 100%;
+		max-width: 100%;
+		margin: auto 0 0;
+		max-height: calc(100vh - env(safe-area-inset-top, 0px));
+		max-height: calc(100dvh - env(safe-area-inset-top, 0px));
+	}
+
+	.nl-modal__panel {
+		padding: 16px 16px calc(16px + env(safe-area-inset-bottom, 0px));
+		max-height: calc(92vh - env(safe-area-inset-top, 0px));
+		max-height: calc(92dvh - env(safe-area-inset-top, 0px));
+		border-radius: 16px 16px 0 0;
+		box-shadow: 0 -8px 32px rgba(2, 46, 89, 0.2);
+	}
+
+	.nl-modal__header {
+		gap: 10px;
+		padding: 2px 48px 14px 0;
+		margin-bottom: 4px;
+	}
+
+	.nl-modal__mark {
+		width: 24px;
+		height: 24px;
+	}
+
+	.nl-modal__eyebrow {
+		font-size: 9px;
+	}
+
+	.nl-modal__title {
+		font-size: 16px;
+	}
+
+	.nl-modal__close {
+		top: 4px;
+		right: 4px;
+	}
+
+	.nl-modal__embed iframe {
+		min-height: 340px !important;
+	}
+}
+
+/* Narrow phones */
+@media (max-width: 380px) {
+	.nl-modal__panel {
+		padding-left: 12px;
+		padding-right: 12px;
+	}
+
+	.nl-modal__embed iframe {
+		min-height: 360px !important;
+	}
+}

@@ -80,6 +80,7 @@ class Component extends DCLogic {
     setTimeout(this.onVtScroll, 0);
     setTimeout(() => this.playHeroVideo(), 0);
     setTimeout(() => this.playHeroVideo(), 800);
+    this.mountSiteChrome();
     this.scheduleReveal();
     setTimeout(() => {
       this.scheduleReveal();
@@ -89,6 +90,82 @@ class Component extends DCLogic {
   componentDidUpdate() {
     setTimeout(() => this.valAnim(), 60);
     this.playHeroVideo();
+    this.mountSiteChrome();
+  }
+  mountSiteChrome() {
+    if (typeof VT_SITE_CHROME === 'undefined') return;
+    VT_SITE_CHROME.mount({
+      onLegal: e => {
+        e.preventDefault();
+        this.flash('Legal page coming soon.');
+      },
+      toggleMenu: () => this.setState({ menuOpen: !this.state.menuOpen }),
+      openNav: i => this.setState({ navOpen: i }),
+      closeNav: () => this.setState({ navOpen: -1 }),
+    });
+    this.applySiteChrome();
+  }
+  applySiteChrome() {
+    if (typeof VT_SITE_CHROME === 'undefined') return;
+    const s = this.state || {};
+    const p = FILE_PAGE;
+    const navBg = EVENT_THEME
+      ? EVENT_THEME.header
+      : p === 'home' && !s.scrolled
+        ? 'transparent'
+        : p === 'home'
+          ? '#0556CC'
+          : 'linear-gradient(90deg,#0548E0 0%,#0551D4 100%)';
+    const navHi = EVENT_THEME ? EVENT_THEME.navAccent || EVENT_THEME.accent : '#03D0FF';
+    const fg = '#fff';
+    const navItems = NAV.map(([id, label, kids], i) => {
+      const act =
+        p === id ||
+        (id === 'events' && p === 'event') ||
+        (id === 'who' && p === 'bio') ||
+        (id === 'insights' && (p === 'press' || p === 'article')) ||
+        (kids || []).some(k => k[0] === p);
+      const first = kids ? kids[0][0] : id;
+      return {
+        label,
+        href: pageHref(first),
+        hasKids: !!kids,
+        showKids: !!kids && s.navOpen === i,
+        color: act ? navHi : fg,
+        underline: act ? navHi : 'transparent',
+        kids: (kids || []).map(([kid, kl]) => ({
+          label: kl,
+          href: pageHref(kid),
+          color: p === kid ? navHi : fg,
+        })),
+      };
+    });
+    const headerEl = VT_SITE_CHROME.applyHeader(
+      {
+        navBg,
+        navMb: p === 'home' ? -(s.headerH || 81) + 'px' : '0px',
+        navBorder: '1px solid transparent',
+        navFg: '#fff',
+        contactBg: EVENT_THEME ? EVENT_THEME.accent : '#03D0FF',
+        contactFg: EVENT_THEME ? EVENT_THEME.onAccent : '#022E59',
+        contactHref: 'contact.html',
+        dropBg: EVENT_THEME ? EVENT_THEME.drop : '#0556CC',
+        dropBorder: 'rgba(255,255,255,.18)',
+        menuOpen: !!s.menuOpen,
+      },
+      navItems
+    );
+    if (headerEl && this.headerRef) this.headerRef.current = headerEl;
+
+    VT_SITE_CHROME.applyNewsletter({
+      bg: '#0556CC',
+      head: '#fff',
+      text: '#fff',
+      pad: '128px 40px',
+      photo: true,
+      btnBg: '#02C9B5',
+      btnFg: '#022E59',
+    });
   }
   scheduleReveal() {
     if (this._rafR) return;
@@ -557,6 +634,7 @@ class Component extends DCLogic {
           rankings: 'benchmarks',
           methodology: 'comparison',
           faq: 'assessment',
+          contact: 'assessment',
         };
         const iconName = icon[p] || icon.independence;
         // Locked hero treatments (selectors removed on all pages except home)
@@ -606,7 +684,12 @@ class Component extends DCLogic {
       comingSoon,
       contact: e => {
         e.preventDefault();
-        this.flash('Contact form coming soon. Write to research\@veritantresearch.com.');
+        if (FILE_PAGE === 'contact') {
+          const form = document.querySelector('.contact-form');
+          if (form) form.scrollIntoView({ behavior: 'smooth', block: 'start' });
+          return;
+        }
+        location.href = pageHref('contact');
       },
       toast: s.toast,
       navItems: NAV.map(([id, label, kids], i) => {

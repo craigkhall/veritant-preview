@@ -95,60 +95,11 @@
 	<x-dc>
 		<helmet>
 			<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter+Tight:ital,wght@0,200..800;1,200..800&display=swap">
-			<link rel="stylesheet" href="css/main.css?v=107">
+			<link rel="stylesheet" href="css/main.css?v=123">
 		</helmet>
 
 		<div class="site">
-			<!-- NAV -->
-			<header ref="{{ headerRef }}" class="site-header" style="background:{{ navBg }};border-bottom:{{ navBorder }};margin-bottom:{{ navMb }}">
-				<div class="site-header__inner">
-					<a href="index.html" class="site-header__brand">
-						<img src="assets/veritant-white.svg" alt="Veritant" class="site-header__logo">
-					</a>
-					<nav class="site-nav">
-						<sc-for list="{{ navItems }}" as="n" hint-placeholder-count="6">
-							<div onMouseEnter="{{ n.open }}" onMouseLeave="{{ n.close }}" class="site-nav__item">
-								<a href="{{ n.href }}" aria-haspopup="{{ n.hasKids }}" class="site-nav__link" style="color:{{ n.color }};border-bottom:1px solid {{ n.underline }}">{{ n.label }}</a>
-								<sc-if value="{{ n.showKids }}" hint-placeholder-val="{{ false }}">
-									<div class="site-nav__dropdown">
-										<div class="site-nav__dropdown-panel" style="background:{{ dropBg }};border:1px solid {{ dropBorder }}">
-											<sc-for list="{{ n.kids }}" as="k" hint-placeholder-count="3">
-												<a href="{{ k.href }}" class="site-nav__dropdown-link" style="color:{{ k.color }}">{{ k.label }}</a>
-											</sc-for>
-										</div>
-									</div>
-								</sc-if>
-							</div>
-						</sc-for>
-					</nav>
-					<a href="#contact" onClick="{{ contact }}" class="site-header__contact" style="background:{{ contactBg }};color:{{ contactFg }}">Contact us</a>
-					<button type="button" onClick="{{ toggleMenu }}" aria-label="{{ menuLabel }}" aria-expanded="{{ menuOpen }}" class="site-header__menu-toggle">
-						<sc-if value="{{ menuClosed }}" hint-placeholder-val="{{ true }}">
-							<svg viewBox="0 0 24 24" width="24" height="24" aria-hidden="true">
-								<path d="M2 6h20M2 12h20M2 18h20" stroke="{{ navFg }}" stroke-width="1.5"></path>
-							</svg>
-						</sc-if>
-						<sc-if value="{{ menuOpen }}" hint-placeholder-val="{{ false }}">
-							<svg viewBox="0 0 24 24" width="24" height="24" aria-hidden="true">
-								<path d="M4 4l16 16M20 4L4 20" stroke="{{ navFg }}" stroke-width="1.5"></path>
-							</svg>
-						</sc-if>
-					</button>
-				</div>
-				<sc-if value="{{ menuOpen }}" hint-placeholder-val="{{ false }}">
-					<div class="mobile-menu" style="background:{{ navBg }}">
-						<sc-for list="{{ navItems }}" as="n" hint-placeholder-count="6">
-							<a href="{{ n.href }}" class="mobile-menu__link" style="color:{{ n.color }}">{{ n.label }}</a>
-							<sc-for list="{{ n.kids }}" as="k" hint-placeholder-count="0">
-								<a href="{{ k.href }}" class="mobile-menu__sublink" style="color:{{ k.color }}">{{ k.label }}</a>
-							</sc-for>
-						</sc-for>
-						<a href="#contact" onClick="{{ contact }}" class="mobile-menu__contact" style="background:{{ contactBg }};color:{{ contactFg }}">Contact us</a>
-					</div>
-				</sc-if>
-			</header>
-
-			<sc-if value="{{ toast }}" hint-placeholder-val="{{ false }}">
+<sc-if value="{{ toast }}" hint-placeholder-val="{{ false }}">
 				<div class="toast">{{ toast }}</div>
 			</sc-if>
 
@@ -207,73 +158,11 @@
 						</div>
 					</div>
 				</section>
-
-				<!-- NEWSLETTER -->
-				<section data-screen-label="Newsletter" class="newsletter" style="background:{{ nlBg }}">
-					<sc-if value="{{ nlPhoto }}" hint-placeholder-val="{{ true }}">
-						<div class="newsletter__backdrop">
-							<img src="assets/photo/newsletter-skyline-web.jpg" alt="" class="newsletter__image">
-						</div>
-						<div class="newsletter__tint"></div>
-					</sc-if>
-					<div class="newsletter__inner" style="padding:{{ nlPad }}">
-						<h2 class="newsletter__title" style="color:{{ nlHead }}">What’s next.</h2>
-						<p class="newsletter__text" style="color:{{ nlText }}">Get the latest from Veritant, including research, insights and company updates.</p>
-						<sc-if value="{{ subscribed }}" hint-placeholder-val="{{ false }}">
-							<p class="newsletter__success">Thanks. We measure twice, publish once; you will hear from us when there is something worth reading.</p>
-						</sc-if>
-						<sc-if value="{{ notSubscribed }}" hint-placeholder-val="{{ true }}">
-							<form onSubmit="{{ subscribe }}" class="newsletter__form">
-								<input type="email" required="{{ true }}" value="{{ email }}" onChange="{{ setEmail }}" placeholder="Email address" aria-label="Email address" class="newsletter__input" style="border:1px solid {{ emailBorder }}">
-								<button type="submit" class="newsletter__submit" style="background:{{ nlBtn }};color:{{ nlBtnFg }}">Keep me posted</button>
-							</form>
-							<sc-if value="{{ emailError }}" hint-placeholder-val="{{ false }}">
-								<p class="newsletter__error">{{ emailError }}</p>
-							</sc-if>
-						</sc-if>
-					</div>
-				</section>
 			</main>
-
-			<!-- FOOTER -->
-			<footer class="site-footer">
-				<div class="site-footer__inner">
-					<a href="index.html">
-						<img src="assets/veritant-white.svg" alt="Veritant" class="site-footer__logo">
-					</a>
-					<div>
-						<div class="site-footer__heading">Who We Are</div>
-						<div class="site-footer__links">
-							<a href="our-why.html" class="site-footer__link">Our Why</a>
-							<a href="independence-charter.html" class="site-footer__link">Independence Charter</a>
-							<a href="team.html" class="site-footer__link">Team</a>
-							<a href="forbes-partnership.html" class="site-footer__link">Forbes Partnership</a>
-						</div>
-					</div>
-					<div>
-						<div class="site-footer__heading">Our Approach</div>
-						<div class="site-footer__links">
-							<a href="methodology.html" class="site-footer__link">Methodology</a>
-							<a href="rankings.html" class="site-footer__link">Rankings</a>
-						</div>
-					</div>
-					<div>
-						<div class="site-footer__heading">Explore</div>
-						<div class="site-footer__links">
-							<a href="events.html" class="site-footer__link">Events</a>
-							<a href="news-insights.html" class="site-footer__link">News &amp; Insights</a>
-							<a href="faq.html" class="site-footer__link">FAQs</a>
-						</div>
-					</div>
-				</div>
-				<div class="site-footer__bottom">
-					<span>© 2026 Veritant Research. All rights reserved.</span>
-					<a href="#legal" onClick="{{ comingSoon }}" class="site-footer__legal-link">User Agreement and Privacy Statement</a>
-				</div>
-			</footer>
+			<div data-vt-site-end></div>
 		</div>
 	</x-dc>
 
-	<script type="text/x-dc" data-dc-script data-src="js/content.js?v=106 js/app.js?v=106"></script>
+	<script type="text/x-dc" data-dc-script data-src="js/content.js?v=123 js/site-chrome.js?v=123 js/app.js?v=123"></script>
 </body>
 </html>

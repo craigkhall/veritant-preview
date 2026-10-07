@@ -81,7 +81,9 @@
 }
 
 .newsletter__submit {
+	pointer-events: auto;
 	border: 0;
+	font: inherit;
 	font-size: 11px;
 	letter-spacing: .14em;
 	text-transform: uppercase;
