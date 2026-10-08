@@ -278,12 +278,15 @@
 	height: 100%;
 	object-fit: cover;
 	opacity: .85;
+	transform: scale(1);
+	transition: transform 700ms var(--ease-standard), opacity 700ms var(--ease-standard);
 }
 
 .insight-card__gradient {
 	position: absolute;
 	inset: 0;
 	background: linear-gradient(180deg,rgba(47,134,232,0) 10%,rgba(47,134,232,.55) 40%,rgba(5,86,204,.9) 75%,rgba(5,72,224,.96) 100%);
+	transition: opacity 700ms var(--ease-standard);
 }
 
 .insight-card__body {
@@ -323,6 +326,39 @@
 	letter-spacing: .14em;
 	text-transform: uppercase;
 	color: var(--color-white);
+	transition: color 200ms var(--ease-standard), transform 200ms var(--ease-standard);
+}
+
+@media (hover: hover) and (pointer: fine) {
+	.insight-card:hover .insight-card__image {
+		transform: scale(1.04);
+		opacity: .95;
+	}
+
+	.insight-card:hover .insight-card__gradient {
+		opacity: 0.92;
+	}
+
+	.insight-card:hover .insight-card__cta {
+		color: var(--color-bright-blue);
+		transform: translateX(2px);
+	}
+}
+
+@media (prefers-reduced-motion: reduce) {
+	.insight-card__image,
+	.insight-card__gradient,
+	.insight-card__cta {
+		transition: none;
+	}
+
+	.insight-card:hover .insight-card__image {
+		transform: none;
+	}
+
+	.insight-card:hover .insight-card__cta {
+		transform: none;
+	}
 }
 
 .home-team__photo--sapphire {
