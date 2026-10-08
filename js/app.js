@@ -633,11 +633,6 @@ class Component extends DCLogic {
       spBd0: (s.heroSpeed || 0) === 0 ? 'rgba(255,255,255,.45)' : 'rgba(255,255,255,.12)',
       spBd1: s.heroSpeed === 1 ? 'rgba(255,255,255,.45)' : 'rgba(255,255,255,.12)',
       spBd2: s.heroSpeed === 2 ? 'rgba(255,255,255,.45)' : 'rgba(255,255,255,.12)',
-      prImg: s.prImg !== false,
-      prImgOn: () => this.setState({ prImg: true }),
-      prImgOff: () => this.setState({ prImg: false }),
-      prLineOn: s.prImg !== false ? '#0556CC' : 'transparent',
-      prLineOff: s.prImg === false ? '#0556CC' : 'transparent',
       ...((() => {
         const icon = {
           independence: 'momentum',
