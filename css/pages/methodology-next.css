@@ -1,5 +1,5 @@
 /* ==========================================================================
-   Methodology v2 WIP (methodology-next.html)
+   Methodology page (methodology.html)
    Reuses site tokens, home-band eyebrows, methodology spacing, cycle diagram.
    ========================================================================== */
 
@@ -292,10 +292,10 @@
 	overflow: visible;
 }
 
-/* Meth cycle intro: same timing as home [data-cyc]; thinner stroke; then morph to play */
+/* Meth cycle intro: same timing + stroke weight as home [data-cyc]; then morph to play */
 @media (prefers-reduced-motion: no-preference) {
 	[data-cyc-meth] .cyc-base {
-		opacity: 0.2;
+		opacity: 0.28;
 	}
 
 	[data-cyc-meth] .cyc-trail {
@@ -364,7 +364,7 @@
 		opacity: 1;
 	}
 
-	/* Intro center stays through full draw; Design center only via data-center-in */
+	/* Intro center stays through full draw; play shell shows after handoff */
 	[data-cyc-meth][data-phase='intro'] .cyc-meth-center-play {
 		opacity: 0 !important;
 		visibility: hidden;
@@ -379,16 +379,25 @@
 
 	[data-cyc-meth][data-phase='play'] .cyc-meth-center-play {
 		visibility: visible;
-		opacity: 0;
-		transition: opacity 400ms var(--ease-standard);
-	}
-
-	[data-cyc-meth][data-phase='play'][data-center-in='1'] .cyc-meth-center-play {
 		opacity: 1;
 	}
 
-	[data-cyc-meth][data-phase='play'][data-center-in='0'] .cyc-meth-center-play {
+	/* Only step # / name crossfade — tagline stays put */
+	[data-cyc-meth][data-phase='play'] .cyc-meth-center-step {
 		opacity: 0;
+		transition: opacity 360ms var(--ease-standard);
+	}
+
+	[data-cyc-meth][data-phase='play'][data-center-in='1'] .cyc-meth-center-step {
+		opacity: 1;
+	}
+
+	[data-cyc-meth][data-phase='play'][data-center-in='0'] .cyc-meth-center-step {
+		opacity: 0;
+	}
+
+	[data-cyc-meth][data-phase='play'] .cyc-meth-center-tagline {
+		opacity: 1;
 	}
 
 	[data-cyc-meth][data-phase='play'] .cyc-lab {
@@ -431,9 +440,17 @@
 		opacity: 1;
 	}
 
-	[data-cyc-meth][data-phase='play'][data-center-in='1'] .cyc-meth-center-play {
+	[data-cyc-meth][data-phase='play'] .cyc-meth-center-play {
 		opacity: 1;
 		visibility: visible;
+	}
+
+	[data-cyc-meth][data-phase='play'][data-center-in='1'] .cyc-meth-center-step {
+		opacity: 1;
+	}
+
+	[data-cyc-meth][data-phase='play'] .cyc-meth-center-tagline {
+		opacity: 1;
 	}
 }
 

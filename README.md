@@ -10,8 +10,7 @@ python3 -m http.server 8765 --directory _mw_dev
 
 Then open http://127.0.0.1:8765/
 
-WIP Methodology v2 (local only): http://127.0.0.1:8765/methodology-next.html  
-Current Methodology (unchanged): http://127.0.0.1:8765/methodology.html
+Methodology: http://127.0.0.1:8765/methodology.html
 
 **Invent is LIVE** — do not push invent from this folder. Sync into `_invent_push/` first; invent push only after explicit approval. See `_shipping/REPO_MAP.md`.
 

@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en" data-page="methodology">
+<html lang="en" data-page="methodology" data-vt-methodology-lane="next">
 <head>
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
@@ -10,11 +10,11 @@
 	<meta name="robots" content="index, follow">
 
 	<!-- Favicons -->
-	<link rel="icon" href="assets/favicon/favicon-32.png?v=143" type="image/png" sizes="32x32">
-	<link rel="icon" href="assets/favicon/favicon-16.png?v=143" type="image/png" sizes="16x16">
-	<link rel="icon" href="assets/favicon/favicon.svg?v=143" type="image/svg+xml">
-	<link rel="shortcut icon" href="favicon.ico?v=143">
-	<link rel="apple-touch-icon" href="assets/favicon/apple-touch-icon.png?v=143">
+	<link rel="icon" href="assets/favicon/favicon-32.png?v=144" type="image/png" sizes="32x32">
+	<link rel="icon" href="assets/favicon/favicon-16.png?v=144" type="image/png" sizes="16x16">
+	<link rel="icon" href="assets/favicon/favicon.svg?v=144" type="image/svg+xml">
+	<link rel="shortcut icon" href="favicon.ico?v=144">
+	<link rel="apple-touch-icon" href="assets/favicon/apple-touch-icon.png?v=144">
 	<link rel="manifest" href="site.webmanifest">
 	<meta name="theme-color" content="#022E59">
 
@@ -97,74 +97,237 @@
 	<x-dc>
 		<helmet>
 			<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter+Tight:ital,wght@0,200..800;1,200..800&display=swap">
-			<link rel="stylesheet" href="css/main.css?v=145">
+			<link rel="stylesheet" href="css/main.css?v=172">
 		</helmet>
 
 		<div class="site">
-<sc-if value="{{ toast }}" hint-placeholder-val="{{ false }}">
+			<sc-if value="{{ toast }}" hint-placeholder-val="{{ false }}">
 				<div class="toast">{{ toast }}</div>
 			</sc-if>
 
-			<sc-if value="{{ introOn }}" hint-placeholder-val="{{ false }}">
-				<div data-vt-intro="1" onClick="{{ closeIntro }}" class="intro-modal" style="animation:{{ introAnim }}">
-					<div role="dialog" aria-modal="true" aria-label="Announcement" onClick="{{ stopProp }}" class="intro-modal__dialog" style="animation:{{ introContentAnim }}">
-						<div aria-hidden="true" class="intro-modal__rings">
-							<div class="intro-modal__ring intro-modal__ring--1"></div>
-							<div class="intro-modal__ring intro-modal__ring--2"></div>
-							<div class="intro-modal__ring intro-modal__ring--3"></div>
-							<div class="intro-modal__ring intro-modal__ring--4"></div>
-						</div>
-						<div class="intro-modal__body">
-							<div class="intro-modal__top">
-								<img src="assets/veritant-white.svg" alt="Veritant" class="intro-modal__logo">
-								<button onClick="{{ closeIntro }}" aria-label="Close" class="intro-modal__close">Close</button>
+			<main class="site-main meth-next">
+				<!-- Hero -->
+				<section data-screen-label="Methodology hero" data-vt-hero="1" class="meth-next-hero">
+					<div data-hero-art="1" class="meth-next-hero__art" style="background:{{ artColor }};-webkit-mask-image:{{ artMask }};mask-image:{{ artMask }}"></div>
+					<div class="meth-next-hero__inner">
+						<h1 class="meth-next-hero__title">Data is a starting point.<br>Not the measure.</h1>
+						<p class="meth-next-hero__text">Veritant Research combines quantitative analysis with qualitative due diligence to develop a fuller view of advisor excellence.</p>
+					</div>
+				</section>
+
+				<!-- Independence -->
+				<section id="independence" data-screen-label="Methodology independence" class="meth-next-commit">
+					<div class="meth-next-commit__inner">
+						<div class="meth-next-commit__copy">
+							<div class="home-band__label">
+								<span class="home-band__rule" aria-hidden="true"></span>
+								<p class="home-band__eyebrow">Our Commitment</p>
 							</div>
-							<div class="intro-modal__content">
-								<div class="intro-modal__rule"></div>
-								<h1 class="intro-modal__title">SHOOK Research is now Veritant.</h1>
-								<div class="intro-modal__action">
-									<button onClick="{{ closeIntro }}" class="intro-modal__enter link-chevron">Enter site</button>
+							<h2 class="meth-next-commit__title">
+								<span class="heading-line">Independent </span>
+								<span class="heading-line meth-next-hi">at every stage.</span>
+							</h2>
+							<p class="meth-next-commit__text">Veritant alone designs the methodology, evaluates the data, conducts due diligence, and determines the rankings. Advisors, firms, sponsors, and commercial partners have no influence over those decisions.</p>
+							<a href="independence-charter.html" class="button button--sapphire link-arrow">Read our Independence Charter</a>
+						</div>
+						<div class="meth-next-commit__rail" aria-label="Independence principles">
+							<div class="meth-next-commit__row">
+								<div class="meth-next-commit__meta">
+									<span class="meth-next-commit__n">01</span>
+									<h3 class="meth-next-commit__label">Verification</h3>
+								</div>
+								<p class="meth-next-commit__detail">Confirming data with an advisor or firm is part of verification. It gives them no role in the methodology, evaluation, or ranking decisions.</p>
+							</div>
+							<div class="meth-next-commit__row">
+								<div class="meth-next-commit__meta">
+									<span class="meth-next-commit__n">02</span>
+									<h3 class="meth-next-commit__label">Commercial activity</h3>
+								</div>
+								<p class="meth-next-commit__detail">Purchasing marketing materials, attending events, or engaging with Veritant commercially has no bearing on scoring or placement. We evaluate applications without bias toward any firm, distribution channel, or affiliation model.</p>
+							</div>
+							<div class="meth-next-commit__row">
+								<div class="meth-next-commit__meta">
+									<span class="meth-next-commit__n">03</span>
+									<h3 class="meth-next-commit__label">Oversight</h3>
+								</div>
+								<p class="meth-next-commit__detail">Our Independence Charter explains how we manage conflicts of interest and the annual third-party review of our methodology.</p>
+							</div>
+						</div>
+					</div>
+				</section>
+
+				<!-- Research cycle -->
+				<section id="cycle" data-screen-label="Methodology cycle" class="meth-next-cycle">
+					<div class="meth-next-cycle__inner">
+						<div class="meth-next-cycle__copy">
+							<div class="home-band__label">
+								<span class="home-band__rule home-band__rule--on-dark" aria-hidden="true"></span>
+								<p class="home-band__eyebrow home-band__eyebrow--on-dark">Our Approach</p>
+							</div>
+							<h2 class="meth-next-cycle__title">Every ranking begins <span class="meth-next-hi-bright">with research.</span></h2>
+							<p class="meth-next-cycle__lead">Our process brings data and human judgment together, from the first application to the final review. Each cycle informs the next.</p>
+							<div class="meth-next-cycle__card">
+								<div class="meth-next-cycle__steps">
+									<sc-for list="{{ methSteps }}" as="st" hint-placeholder-count="7">
+										<div class="meth-next-cycle__step {{ st.onClass }}" aria-hidden="{{ st.ariaHidden }}">
+											<h3 class="meth-next-cycle__step-title">{{ st.name }}</h3>
+											<p class="meth-next-cycle__step-body">{{ st.body }}</p>
+										</div>
+									</sc-for>
+								</div>
+								<div class="meth-next-cycle__footer">
+									<button type="button" class="meth-next-cycle__btn" onClick="{{ methPrev }}" aria-label="Previous step">‹</button>
+									<span class="meth-next-cycle__num {{ methCopyClass }}">{{ methStepNum }} / 07</span>
+									<button type="button" class="meth-next-cycle__btn" onClick="{{ methNext }}" aria-label="Next step">›</button>
 								</div>
 							</div>
 						</div>
+						<div class="meth-next-cycle__diagram">
+							{{ cycleMeth }}
+						</div>
 					</div>
-				</div>
-			</sc-if>
+				</section>
 
-			<main class="site-main">
-				<!-- ================= METHODOLOGY ================= -->
-				<section data-screen-label="Methodology hero" data-vt-hero="1" style="background:linear-gradient(160deg,#0548E0 0%,#0556CC 45%,#2F86E8 100%);position:relative;overflow:hidden">
-					<div data-hero-art="1" style="position:absolute;right:4%;top:50%;transform:translateY(-46%);width:clamp(280px,36vw,500px);aspect-ratio:1;background:{{ artColor }};opacity:.85;-webkit-mask-image:{{ artMask }};mask-image:{{ artMask }};-webkit-mask-size:contain;mask-size:contain;-webkit-mask-repeat:no-repeat;mask-repeat:no-repeat;-webkit-mask-position:center;mask-position:center;pointer-events:none"></div>
-					<div data-rsp-pad="1" style="max-width:1280px;margin:0 auto;padding:150px 40px 170px;box-sizing:border-box;position:relative">
-						<h1 style="margin:0 0 24px;color:#fff;font-weight:300;font-size:clamp(32px,3.6vw,46px);line-height:1.15;max-width:560px">Data is a starting point. <br>Not the measure.</h1>
-						<p style="margin:0;color:#fff;font-size:18px;line-height:1.55;max-width:680px;font-weight:300">Veritant Research combines quantitative analysis with qualitative due diligence to develop a fuller view of advisor excellence.</p>
-					</div>
-				</section>
-				<section class="methodology-transparency">
-					<div class="methodology-transparency__inner">
-						<h2 class="methodology-transparency__title">We show how the research works, including the data sources, quantitative factors and qualitative considerations <span class="methodology-transparency__highlight">behind the rankings.</span></h2>
-						<p class="methodology-transparency__text methodology-transparency__text--spaced">That transparency starts during the research process, not after a ranking is published.</p>
-						<p class="methodology-transparency__text methodology-transparency__text--last">We listen directly to advisors, firms, compliance teams and sponsors. Their feedback helps us continually strengthen the research and the Independence Charter.</p>
-					</div>
-				</section>
-				<section data-screen-label="Methodology cycle" class="methodology-cycle">
-					<div class="methodology-cycle__inner">
-						<div>
-							<h2 class="methodology-cycle__title"><span class="heading-line">Research from</span> <span class="heading-line methodology-cycle__highlight">every angle.</span></h2>
-							<p class="methodology-cycle__text">Each step is designed to improve consistency, depth and accountability.</p>
+				<!-- What we evaluate -->
+				<section id="evaluate" data-screen-label="Methodology what we evaluate" class="meth-next-eval">
+					<div class="meth-next-eval__inner">
+						<div class="meth-next-eval__intro">
+							<div class="home-band__label meth-next-eval__label">
+								<span class="home-band__rule" aria-hidden="true"></span>
+								<p class="home-band__eyebrow">Our Metrics</p>
+							</div>
+							<h2 class="meth-next-eval__title">What we <span class="meth-next-hi">evaluate.</span></h2>
+							<p class="meth-next-eval__text">Our framework considers both the measurable characteristics of a business and how it serves clients. Factors and weightings vary by ranking.</p>
 						</div>
-						<div class="methodology-cycle__diagram">{{ cycleDark }}</div>
+						<div class="meth-next-eval__legend">
+							<div class="meth-next-eval__legend-item">
+								<span class="meth-next-eval__diamond meth-next-eval__diamond--quant" aria-hidden="true"></span>
+								<span>Quantitative factors</span>
+							</div>
+							<div class="meth-next-eval__legend-item">
+								<span class="meth-next-eval__diamond meth-next-eval__diamond--qual" aria-hidden="true"></span>
+								<span>Qualitative factors</span>
+							</div>
+						</div>
+						<div class="meth-next-eval__rows" aria-label="Evaluation factors">
+							<ul class="meth-next-eval__tags meth-next-eval__tags--quant">
+								<sc-for list="{{ methQuantFactors }}" as="f" hint-placeholder-count="5">
+									<li class="meth-next-eval__tag meth-next-eval__tag--quant">
+										<span class="meth-next-eval__tag-diamond" aria-hidden="true"></span>
+										{{ f.t }}
+										<span class="visually-hidden">(quantitative)</span>
+									</li>
+								</sc-for>
+							</ul>
+							<ul class="meth-next-eval__tags meth-next-eval__tags--qual">
+								<sc-for list="{{ methQualRow1 }}" as="f" hint-placeholder-count="3">
+									<li class="meth-next-eval__tag meth-next-eval__tag--qual">
+										<span class="meth-next-eval__tag-diamond" aria-hidden="true"></span>
+										{{ f.t }}
+										<span class="visually-hidden">(qualitative)</span>
+									</li>
+								</sc-for>
+							</ul>
+							<ul class="meth-next-eval__tags meth-next-eval__tags--qual">
+								<sc-for list="{{ methQualRow2 }}" as="f" hint-placeholder-count="3">
+									<li class="meth-next-eval__tag meth-next-eval__tag--qual">
+										<span class="meth-next-eval__tag-diamond" aria-hidden="true"></span>
+										{{ f.t }}
+										<span class="visually-hidden">(qualitative)</span>
+									</li>
+								</sc-for>
+							</ul>
+						</div>
+						<div class="meth-next-eval__divider">
+							<span>Factors and weightings vary by ranking</span>
+						</div>
+						<p class="meth-next-eval__note">Quantitative factors draw on verified data. Qualitative factors combine applicant information with our research and interviews.</p>
 					</div>
 				</section>
-				<section class="methodology-cost">
-					<div class="methodology-cost__inner">
-						<div>
-							<h2 class="methodology-cost__title"><span class="heading-line">There is no cost</span> <span class="heading-line">to be considered.</span></h2>
-							<p class="methodology-cost__text">Buying marketing materials, attending an event or supporting a philanthropic initiative does not affect an advisor's evaluation or placement. Research alone determines who is recognized. Commercial activity comes only after recognition.</p>
-							<a href="independence-charter.html" class="button button--sapphire link-arrow">Read the Independence Charter</a>
+
+				<!-- Process vs returns -->
+				<section id="process" data-screen-label="Methodology process not returns" class="meth-next-process">
+					<div class="meth-next-process__art" aria-hidden="true"></div>
+					<div class="meth-next-process__inner">
+						<div class="meth-next-process__copy">
+							<div class="home-band__label">
+								<span class="home-band__rule" aria-hidden="true"></span>
+								<p class="home-band__eyebrow">Our Research Focus</p>
+							</div>
+							<h2 class="meth-next-process__title">Why we evaluate process, <span class="meth-next-hi">not investment returns.</span></h2>
+							<p class="meth-next-process__text">A forward-looking evaluation of how a business operates provides a more reliable basis for assessing the quality, consistency, and long-term value of advice than past investment returns alone.</p>
 						</div>
-						<div class="methodology-cost__media">
-							<img src="assets/photo/texture-architecture.jpg" alt="" class="methodology-cost__image">
+					</div>
+				</section>
+
+				<!-- Verification -->
+				<section id="verification" data-screen-label="Methodology verification" class="meth-next-verify">
+					<div class="meth-next-verify__inner">
+						<div class="home-band__label">
+							<span class="home-band__rule" aria-hidden="true"></span>
+							<p class="home-band__eyebrow">Our Rigor</p>
+						</div>
+						<h2 class="meth-next-verify__title">Verification goes <span class="meth-next-hi">beyond the application.</span></h2>
+						<div class="meth-next-verify__rule" aria-hidden="true"></div>
+						<div class="meth-next-verify__grid">
+							<div class="meth-next-verify__col">
+								<span class="meth-next-verify__label">Applications received</span>
+								<p class="meth-next-verify__stat">
+									<span data-meth-count="53000">0</span><span class="meth-next-verify__plus meth-next-verify__plus--sap">+</span>
+								</p>
+								<p class="meth-next-verify__body">Across our research process, we have received more than 53,000 applications and conducted more than 40,000 due diligence conversations. These conversations help us confirm information and form an independent view of each applicant’s qualitative strengths.</p>
+							</div>
+							<div class="meth-next-verify__col">
+								<span class="meth-next-verify__label meth-next-verify__label--teal">Due diligence conversations</span>
+								<p class="meth-next-verify__stat">
+									<span data-meth-count="40000">0</span><span class="meth-next-verify__plus meth-next-verify__plus--teal">+</span>
+								</p>
+								<p class="meth-next-verify__body">We also review regulatory disclosures through FINRA BrokerCheck, SEC filings, NAIC databases, and state insurance registries, and screen for adverse media. An unresolved material disclosure may make an advisor or firm ineligible for a given year’s ranking.</p>
+							</div>
+						</div>
+						<div class="meth-next-verify__banner">
+							<p class="meth-next-verify__banner-lead">We combine verified data with firsthand due diligence.</p>
+							<p class="meth-next-verify__banner-body">To identify advisors, teams, and firms that reflect what clients value most: trust, clear communication, appropriate fees, expertise, and advice built around their full financial picture.</p>
+						</div>
+					</div>
+				</section>
+
+				<!-- Eligibility -->
+				<section id="eligibility" data-screen-label="Methodology eligibility" class="meth-next-elig">
+					<svg class="meth-next-elig__art" viewBox="0 0 400 460" fill="none" aria-hidden="true" focusable="false">
+						<!-- Prototype icon: 3 equal squares, even diagonal stair-step -->
+						<rect x="136" y="8" width="248" height="248" stroke="currentColor" stroke-width="1"/>
+						<rect x="72" y="92" width="248" height="248" stroke="currentColor" stroke-width="1"/>
+						<rect x="8" y="176" width="248" height="248" stroke="currentColor" stroke-width="1"/>
+					</svg>
+					<div class="meth-next-elig__inner">
+						<div class="meth-next-elig__copy">
+							<div class="home-band__label">
+								<span class="home-band__rule" aria-hidden="true"></span>
+								<p class="home-band__eyebrow">Qualification Criteria</p>
+							</div>
+							<h2 class="meth-next-elig__title">Who can be <span class="meth-next-hi">considered.</span></h2>
+							<p class="meth-next-elig__text">Any advisor, team, or firm that meets a ranking’s minimum eligibility criteria is invited to apply, regardless of size, business model, or affiliation. A completed application is required for consideration.</p>
+							<p class="meth-next-elig__text">Eligibility varies by list. Every applicant is evaluated against the same published criteria for that ranking.</p>
+							<blockquote class="meth-next-elig__callout">
+								<p>There is no cost to apply. <span class="meth-next-hi">No advisor, firm, or other party can pay for placement.</span></p>
+							</blockquote>
+						</div>
+					</div>
+				</section>
+
+				<!-- Scoring -->
+				<section id="scoring" data-screen-label="Methodology scoring" class="meth-next-score">
+					<div class="meth-next-score__inner">
+						<div class="meth-next-score__card">
+							<div>
+								<div class="home-band__label">
+									<span class="home-band__rule" aria-hidden="true"></span>
+									<p class="home-band__eyebrow">Scoring Integrity</p>
+								</div>
+								<h2 class="meth-next-score__title">Clear criteria. <span class="meth-next-hi">Protected scoring.</span></h2>
+							</div>
+							<p class="meth-next-score__text">We share what we measure and how we verify it, while keeping our exact scoring formula confidential to protect the integrity of the process. We continually review our methodology and publish meaningful updates here.</p>
 						</div>
 					</div>
 				</section>
@@ -173,6 +336,6 @@
 		</div>
 	</x-dc>
 
-	<script type="text/x-dc" data-dc-script data-src="js/content.js?v=145 js/site-chrome.js?v=145 js/app.js?v=145"></script>
+	<script type="text/x-dc" data-dc-script data-src="js/content.js?v=172 js/site-chrome.js?v=172 js/app.js?v=172"></script>
 </body>
 </html>

@@ -113,7 +113,7 @@ const PEOPLE = [];
 const TEAM = [["Molly Bennard","Chief Executive Officer",[1,2]],["Ian McGuinness","Chief Revenue Officer",[1,4]],["Frank Berland","Managing Partner",[1,4]],["Blake Eggemeyer","Chief Marketing Officer",[1,3]],["Lindsey Winderman","Vice President, Director of Operations",[2]],["Josh Opp","Vice President, Finance & Accounting",[1,2]],["Brooke Jacobazzi","Vice President of Events",[3]],["LoriAnn LaSalle","Vice President, Business Manager",[2]],["Callie Askins","Sr. Associate VP, Senior Project Leader",[2]],["Iris Testiler","Senior Associate VP, Events",[3]],["Jordan Merrill","Associate VP, Senior Research Manager",[2]],["Erick Lopez","Associate VP, Research Manager",[2]],["Erica Horak","Associate VP, Honors and Recognition",[3]],["Dylan Ferrante","Associate VP, Marketing Strategist",[3]],["Skylar Finkel","Senior Analyst",[2]],["Vincent Huynh","Senior Analyst",[4]],["Amman Ilyas Chuhan","Systems & Data Analyst",[2]],["Maxwell Bennett","Analyst",[2]],["Olivia Knier","Analyst",[2]]];
 TEAM.forEach(([name, title, groups]) => PEOPLE.push({ name, title, groups, img: PHOTOS[name] || '' }));
 const STEPS = ['Design','Collect','Validate','Interview','Weight','Check','Re-evaluate'];
-// Methodology v2 (methodology-next.html) — step bodies + evaluation factors
+// Methodology page — step bodies + evaluation factors
 const METH_STEPS = [
 	['Design', 'We apply lessons from the previous cycle and refine the application to capture the most relevant criteria.'],
 	['Collect', 'Applicants share data on their business and approach, including revenue, assets, growth, team structure, investment process, and succession planning.'],

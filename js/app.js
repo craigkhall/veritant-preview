@@ -770,7 +770,7 @@ class Component extends DCLogic {
         strokeWidth: 1,
         style: { pointerEvents: 'none' },
       }),
-      // Full-ring draw (intro) — same cadence as home, thinner elegant stroke
+      // Full-ring draw (intro) — same cadence and stroke weight as home cycle
       h('circle', {
         className: 'cyc-base',
         cx,
@@ -778,7 +778,7 @@ class Component extends DCLogic {
         r,
         fill: 'none',
         stroke: `url(#${gid})`,
-        strokeWidth: 2.25,
+        strokeWidth: 9,
         style: { pointerEvents: 'none' },
       }),
       h('circle', {
@@ -788,7 +788,7 @@ class Component extends DCLogic {
         r,
         fill: 'none',
         stroke: `url(#${gid})`,
-        strokeWidth: 2.25,
+        strokeWidth: 9,
         strokeLinecap: 'round',
         pathLength: 100,
         transform: `rotate(${offDeg} ${cx} ${cy})`,
@@ -832,7 +832,7 @@ class Component extends DCLogic {
             textAnchor: 'middle',
             style: { fontSize: 30, fontWeight: 300, fill: '#fff' },
           },
-          'Refined each cycle',
+          'Refine Each Cycle',
         ),
         h(
           'text',
@@ -845,7 +845,7 @@ class Component extends DCLogic {
           'as the industry and best-practices evolve',
         ),
       ),
-      // Play center copy — [data-center-in] only (card uses methCopyIn separately)
+      // Play center: step # / name fade via data-center-in; tagline stays once play starts
       h(
         'g',
         {
@@ -853,28 +853,33 @@ class Component extends DCLogic {
           style: { pointerEvents: 'none' },
         },
         h(
-          'text',
-          {
-            x: cx,
-            y: cy - 36,
-            textAnchor: 'middle',
-            style: { fontSize: 13, letterSpacing: '.16em', fontWeight: 400, fill: '#03D0FF' },
-          },
-          stepNum + ' / 07',
+          'g',
+          { className: 'cyc-meth-center-step' },
+          h(
+            'text',
+            {
+              x: cx,
+              y: cy - 36,
+              textAnchor: 'middle',
+              style: { fontSize: 13, letterSpacing: '.16em', fontWeight: 400, fill: '#03D0FF' },
+            },
+            stepNum + ' / 07',
+          ),
+          h(
+            'text',
+            {
+              x: cx,
+              y: cy + 8,
+              textAnchor: 'middle',
+              style: { fontSize: 28, fontWeight: 300, letterSpacing: '.06em', fill: '#fff' },
+            },
+            stepName,
+          ),
         ),
         h(
           'text',
           {
-            x: cx,
-            y: cy + 8,
-            textAnchor: 'middle',
-            style: { fontSize: 28, fontWeight: 300, letterSpacing: '.06em', fill: '#fff' },
-          },
-          stepName,
-        ),
-        h(
-          'text',
-          {
+            className: 'cyc-meth-center-tagline',
             x: cx,
             y: cy + 40,
             textAnchor: 'middle',
