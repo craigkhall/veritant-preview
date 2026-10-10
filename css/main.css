@@ -42,8 +42,10 @@
 @import url("pages/event.css");
 @import url("pages/rankings.css");
 @import url("pages/methodology.css");
+@import url("pages/methodology-next.css?v=169");
 @import url("pages/team.css?v=139");
 @import url("pages/faq.css");
 @import url("pages/contact.css");
+@import url("pages/legal.css");
 @import url("layout/footer.css");
 @import url("layout/newsletter-embed.css?v=138");

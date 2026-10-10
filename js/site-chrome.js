@@ -70,7 +70,7 @@ const VT_SITE_END_HTML = `
 	</div>
 	<div class="site-footer__bottom">
 		<span>© 2026 Veritant Research. All rights reserved.</span>
-		<a href="#legal" class="site-footer__legal-link">User Agreement and Privacy Statement</a>
+		<a href="user-agreement-and-privacy-statement.html" class="site-footer__legal-link">User Agreement and Privacy Statement</a>
 	</div>
 </footer>
 `;

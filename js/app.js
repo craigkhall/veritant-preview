@@ -17,6 +17,13 @@ class Component extends DCLogic {
     subscribed: false,
     emailError: '',
     toast: '',
+    methStep: 0,
+    methCopyStep: 0,
+    methCopyIn: true,
+    methCenterIn: false,
+    methTick: 0,
+    methPhase: 'intro',
+    methAuto: true,
   };
   closeIntro = () => {
     if (this.state.intro !== 'in') return;
@@ -86,6 +93,132 @@ class Component extends DCLogic {
       this.scheduleReveal();
       this.watchDom();
     }, 300);
+    this.startMethIntro();
+  }
+  startMethIntro() {
+    if (typeof METH_NEXT === 'undefined' || !METH_NEXT) return;
+    clearTimeout(this._methIntroT);
+    this._methIntroArmed = false;
+    const reduced = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    if (reduced) {
+      this.setState(
+        {
+          methPhase: 'play',
+          methStep: 0,
+          methCopyStep: 0,
+          methCopyIn: true,
+          methCenterIn: true,
+          methAuto: true,
+        },
+        () => this.startMethCycle(),
+      );
+      return;
+    }
+    // Hand off only after the draw animation has actually started (data-in) and finished
+    this.armMethIntro();
+  }
+  armMethIntro() {
+    if (typeof METH_NEXT === 'undefined' || !METH_NEXT) return;
+    if (this.state.methPhase === 'play' || this._methIntroArmed) return;
+    const el = document.querySelector('[data-cyc-meth]');
+    if (!el || !el.hasAttribute('data-in')) {
+      clearTimeout(this._methIntroPoll);
+      this._methIntroPoll = setTimeout(() => this.armMethIntro(), 200);
+      return;
+    }
+    this._methIntroArmed = true;
+    clearTimeout(this._methIntroT);
+    // Full circle (4.9s) + intro center fade-in (4.7s + ~0.9s) + short hold.
+    // Card already shows Design; circle center Design waits until intro copy finishes.
+    this._methIntroT = setTimeout(() => {
+      if (this.state.methPhase === 'play') {
+        if (this.state.methAuto) this.startMethCycle();
+        return;
+      }
+      this.setState(
+        {
+          methPhase: 'play',
+          methStep: 0,
+          methCopyStep: 0,
+          methCopyIn: true,
+          methCenterIn: false,
+          methTick: 1,
+          methAuto: true,
+        },
+        () => {
+          clearTimeout(this._methFadeT);
+          this._methFadeT = setTimeout(() => {
+            this.setState({ methCenterIn: true }, () => this.startMethCycle());
+          }, 420);
+        },
+      );
+    }, 6200);
+  }
+  startMethCycle() {
+    if (typeof METH_NEXT === 'undefined' || !METH_NEXT) return;
+    this.stopMethCycle();
+    if (!this.state.methAuto || this.state.methPhase !== 'play') return;
+    const reduced = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    if (reduced) return;
+    this._methTimer = setInterval(() => {
+      if (!this.state.methAuto) return;
+      const n = (typeof METH_STEPS !== 'undefined' && METH_STEPS.length) || STEPS.length;
+      this.methGoTo(((this.state.methStep || 0) + 1) % n, false);
+    }, 4800);
+  }
+  stopMethCycle() {
+    if (this._methTimer) {
+      clearInterval(this._methTimer);
+      this._methTimer = null;
+    }
+  }
+  methPick(i, fromUser) {
+    this.methGoTo(i, fromUser);
+  }
+  methGoTo(i, fromUser) {
+    if (typeof METH_NEXT === 'undefined' || !METH_NEXT) return;
+    const n = (typeof METH_STEPS !== 'undefined' && METH_STEPS.length) || STEPS.length;
+    const step = ((i % n) + n) % n;
+    clearTimeout(this._methFadeT);
+    const wasIntro = this.state.methPhase !== 'play';
+    if (fromUser) {
+      this.stopMethCycle();
+      clearTimeout(this._methIntroT);
+      this._methIntroArmed = true;
+    }
+    const base = {
+      methStep: step,
+      methTick: (this.state.methTick || 0) + 1,
+    };
+    if (fromUser) {
+      base.methPhase = 'play';
+      base.methAuto = false;
+    }
+    // User takeover during intro — keep Design card; reveal circle center for the picked step
+    if (wasIntro && fromUser) {
+      const sameDesign = step === 0;
+      this.setState({
+        ...base,
+        methPhase: 'play',
+        methCopyStep: step,
+        methCopyIn: sameDesign,
+        methCenterIn: false,
+      });
+      this._methFadeT = setTimeout(() => {
+        this.setState({ methCopyIn: true, methCenterIn: true });
+      }, sameDesign ? 280 : 320);
+      return;
+    }
+    // Same copy already visible — just move the arc / state
+    if (step === this.state.methCopyStep && this.state.methCopyIn) {
+      this.setState({ ...base, methCenterIn: true });
+      return;
+    }
+    // Fade out → swap copy → fade in (card + circle center together)
+    this.setState({ ...base, methCopyIn: false, methCenterIn: false });
+    this._methFadeT = setTimeout(() => {
+      this.setState({ methCopyStep: step, methCopyIn: true, methCenterIn: true });
+    }, 280);
   }
   componentDidUpdate() {
     setTimeout(() => this.valAnim(), 60);
@@ -95,10 +228,7 @@ class Component extends DCLogic {
   mountSiteChrome() {
     if (typeof VT_SITE_CHROME === 'undefined') return;
     VT_SITE_CHROME.mount({
-      onLegal: e => {
-        e.preventDefault();
-        this.flash('Legal page coming soon.');
-      },
+      onLegal: null,
       toggleMenu: () => this.setState({ menuOpen: !this.state.menuOpen }),
       closeMenu: () => {
         if (this.state.menuOpen) this.setState({ menuOpen: false });
@@ -211,12 +341,44 @@ class Component extends DCLogic {
     el.style.opacity = el.dataset.vtOpacity;
     el.style.transform = el.dataset.vtTransform;
   }
+  runMethCounters() {
+    if (typeof METH_NEXT === 'undefined' || !METH_NEXT) return;
+    const vh = window.innerHeight;
+    const reduced = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    document.querySelectorAll('[data-meth-count]').forEach(el => {
+      if (el.dataset.counted === '1') return;
+      const r = el.getBoundingClientRect();
+      if (!(r.height && r.top < vh * 0.88 && r.bottom > 0)) return;
+      el.dataset.counted = '1';
+      const target = Math.max(0, parseInt(el.getAttribute('data-meth-count'), 10) || 0);
+      const fmt = n => Math.round(n).toLocaleString('en-US');
+      if (reduced) {
+        el.textContent = fmt(target);
+        return;
+      }
+      // Rapid count — short (~0.9s), ease-out so it settles quickly
+      const dur = 900;
+      const t0 = performance.now();
+      const tick = now => {
+        const p = Math.min(1, (now - t0) / dur);
+        const e = 1 - Math.pow(1 - p, 3);
+        el.textContent = fmt(target * e);
+        if (p < 1) requestAnimationFrame(tick);
+        else el.textContent = fmt(target);
+      };
+      requestAnimationFrame(tick);
+    });
+  }
   valAnim() {
     const vh = window.innerHeight;
+    this.runMethCounters();
     document.querySelectorAll('[data-cyc]').forEach(el => {
       if (el.hasAttribute('data-in')) return;
       const r = el.getBoundingClientRect();
-      if (r.height && r.top < vh * 0.7 && r.bottom > vh * 0.2) el.setAttribute('data-in', '');
+      if (r.height && r.top < vh * 0.7 && r.bottom > vh * 0.2) {
+        el.setAttribute('data-in', '');
+        if (el.hasAttribute('data-cyc-meth')) this.armMethIntro();
+      }
     });
     document.querySelectorAll('[data-v2-title]').forEach(el => {
       const r = el.getBoundingClientRect();
@@ -377,7 +539,14 @@ class Component extends DCLogic {
       this._seen.add(el);
       if (el.closest('[data-vt-hero]')) return;
       const isDecor = el.parentElement.tagName === 'SECTION';
-      if (isDecor && !(el.getAttribute('src') || '').includes('/icons/')) return;
+      if (isDecor) {
+        const src = el.getAttribute('src') || '';
+        const isIcon = el.tagName === 'IMG' && src.includes('/icons/');
+        // Decorative section SVGs (e.g. qualification squares) stay CSS-owned — don't force opacity 1
+        if (el.classList && el.classList.contains('meth-next-elig__art')) return;
+        const isArtSvg = el.tagName === 'SVG';
+        if (!isIcon && !isArtSvg) return;
+      }
       if (/^(A|BUTTON|FORM|INPUT)$/.test(el.tagName) || el.getAttribute('role') === 'button') return;
       fresh.push([el, isDecor]);
     });
@@ -418,6 +587,303 @@ class Component extends DCLogic {
     window.removeEventListener('resize', this.onVtScroll);
     if (this._io) this._io.disconnect();
     if (this._mo) this._mo.disconnect();
+    this.stopMethCycle();
+    clearTimeout(this._methIntroT);
+    clearTimeout(this._methIntroPoll);
+    clearTimeout(this._methFadeT);
+  }
+  cycleMeth(active, phase, copyStep, copyIn, centerIn) {
+    const h = React.createElement,
+      play = phase === 'play',
+      cx = 260,
+      cy = 260,
+      r = 190,
+      n = STEPS.length,
+      step = ((active % n) + n) % n,
+      copy = ((copyStep % n) + n) % n,
+      textIn = copyIn !== false,
+      centerOn = centerIn !== false && play,
+      // Align segment 0 (Design) at top, matching classic cycle offset
+      off = -Math.PI / 2 - Math.PI / n;
+    const pt = (a, rr) => [cx + rr * Math.cos(a), cy + rr * Math.sin(a)];
+    const gid = 'cyc-meth-grad';
+    const pick = i => e => {
+      if (e && e.preventDefault) e.preventDefault();
+      if (e && e.stopPropagation) e.stopPropagation();
+      this.methPick(i, true);
+    };
+    // Clickable ring sections (the arc between nodes)
+    const segHits = STEPS.map((_, i) => {
+      const a0 = off + (i / n) * 2 * Math.PI,
+        a1 = off + ((i + 1) / n) * 2 * Math.PI,
+        [x0, y0] = pt(a0, r),
+        [x1, y1] = pt(a1, r);
+      return h('path', {
+        key: 'hit' + i,
+        className: 'cyc-meth-seg-hit',
+        d: `M${x0} ${y0} A${r} ${r} 0 0 1 ${x1} ${y1}`,
+        fill: 'none',
+        stroke: 'rgba(0,0,0,0.001)',
+        strokeWidth: 44,
+        style: { pointerEvents: 'stroke', cursor: 'pointer' },
+        onClick: pick(i),
+      });
+    });
+    // Same stagger as home cycle (4.9s draw ÷ 7 steps)
+    const nodeDelay = 700;
+    const nodes = STEPS.map((_, i) => {
+      const a = off + (i / n) * 2 * Math.PI,
+        [x, y] = pt(a, r),
+        rot = (a * 180) / Math.PI + 90,
+        on = play && i === step;
+      return h(
+        'g',
+        {
+          key: 'n' + i,
+          transform: `translate(${x} ${y}) rotate(${rot})`,
+          style: { cursor: 'pointer' },
+          onClick: pick(i),
+        },
+        h('circle', {
+          cx: 0,
+          cy: 0,
+          r: 22,
+          fill: 'rgba(0,0,0,0.001)',
+        }),
+        h(
+          'g',
+          { className: 'cyc-node', style: { '--d': i * nodeDelay + 'ms', pointerEvents: 'none' } },
+          h('rect', {
+            x: -6,
+            y: -6,
+            width: 12,
+            height: 12,
+            fill: '#022138',
+            stroke: on ? '#03D0FF' : play ? 'rgba(110,180,247,.55)' : '#6EB4F7',
+            strokeWidth: 1,
+          }),
+          h('path', {
+            d: 'M-2 -3 L2 0 L-2 3',
+            fill: 'none',
+            stroke: on ? '#03D0FF' : '#fff',
+            strokeWidth: 1.2,
+          }),
+        ),
+      );
+    });
+    const labels = STEPS.map((s, i) => {
+      const a0 = off + (i / n) * 2 * Math.PI,
+        a1 = off + ((i + 1) / n) * 2 * Math.PI,
+        mid = (a0 + a1) / 2;
+      const bottom = Math.sin(mid) > 0.15,
+        rr = bottom ? r + 42 : r + 32,
+        id = `cyc-meth-p${i}`,
+        on = play && i === step;
+      const [sx, sy] = pt(bottom ? a1 : a0, rr),
+        [ex, ey] = pt(bottom ? a0 : a1, rr),
+        [hx, hy] = pt(mid, rr);
+      return h(
+        'g',
+        {
+          key: 'l' + i,
+          className: 'cyc-lab cyc-meth-lab' + (on ? ' is-on' : ''),
+          style: { cursor: 'pointer', '--d': i * nodeDelay + 'ms' },
+          onClick: pick(i),
+        },
+        h('defs', null, h('path', { id, d: `M${sx} ${sy} A${rr} ${rr} 0 0 ${bottom ? 0 : 1} ${ex} ${ey}` })),
+        h('circle', {
+          cx: hx,
+          cy: hy,
+          r: 30,
+          fill: 'rgba(0,0,0,0.001)',
+        }),
+        h('path', {
+          d: `M${sx} ${sy} A${rr} ${rr} 0 0 ${bottom ? 0 : 1} ${ex} ${ey}`,
+          fill: 'none',
+          stroke: 'rgba(0,0,0,0.001)',
+          strokeWidth: 28,
+          style: { pointerEvents: 'stroke' },
+        }),
+        h(
+          'text',
+          {
+            style: {
+              fontSize: 13,
+              letterSpacing: '.18em',
+              fontWeight: on ? 500 : 400,
+              fill: on ? '#03D0FF' : play ? 'rgba(255,255,255,.38)' : 'rgba(255,255,255,.85)',
+              transition: 'fill 420ms ease',
+              pointerEvents: 'none',
+            },
+          },
+          h(
+            'textPath',
+            { href: '#' + id, xlinkHref: '#' + id, startOffset: '50%', textAnchor: 'middle' },
+            s.toUpperCase(),
+          ),
+        ),
+      );
+    });
+    const stepName = (STEPS[copy] || '').toUpperCase();
+    const stepNum = String(copy + 1).padStart(2, '0');
+    const offDeg = (off * 180) / Math.PI;
+    const rotDeg = offDeg + (step / n) * 360;
+    const dotDeg = offDeg + 90;
+    const svgProps = {
+      'data-cyc': '1',
+      'data-cyc-meth': '1',
+      'data-phase': play ? 'play' : 'intro',
+      'data-copy-in': play && textIn ? '1' : '0',
+      'data-center-in': centerOn ? '1' : '0',
+      viewBox: '0 0 520 520',
+      xmlns: 'http\://www.w3.org/2000/svg',
+      xmlnsXlink: 'http\://www.w3.org/1999/xlink',
+      style: { width: '100%', maxWidth: 540, height: 'auto', display: 'block', overflow: 'visible' },
+    };
+    // Keep drawn state across the intro→play handoff so the ring does not restart
+    if (play) svgProps['data-in'] = '';
+    return h(
+      'svg',
+      svgProps,
+      h(
+        'defs',
+        null,
+        h(
+          'linearGradient',
+          { id: gid, x1: '0', y1: '0', x2: '0', y2: '1' },
+          h('stop', { offset: '0', stopColor: '#03D0FF' }),
+          h('stop', { offset: '1', stopColor: '#0556CC' }),
+        ),
+        h(
+          'filter',
+          { id: 'cyc-meth-glow', x: '-20%', y: '-20%', width: '140%', height: '140%' },
+          h('feGaussianBlur', { stdDeviation: '2', result: 'b' }),
+          h('feMerge', null, h('feMergeNode', { in: 'b' }), h('feMergeNode', { in: 'SourceGraphic' })),
+        ),
+      ),
+      h('circle', {
+        cx,
+        cy,
+        r: r - 26,
+        fill: 'none',
+        stroke: 'rgba(255,255,255,.16)',
+        strokeWidth: 1,
+        style: { pointerEvents: 'none' },
+      }),
+      // Full-ring draw (intro) — same cadence as home, thinner elegant stroke
+      h('circle', {
+        className: 'cyc-base',
+        cx,
+        cy,
+        r,
+        fill: 'none',
+        stroke: `url(#${gid})`,
+        strokeWidth: 2.25,
+        style: { pointerEvents: 'none' },
+      }),
+      h('circle', {
+        className: 'cyc-trail',
+        cx,
+        cy,
+        r,
+        fill: 'none',
+        stroke: `url(#${gid})`,
+        strokeWidth: 2.25,
+        strokeLinecap: 'round',
+        pathLength: 100,
+        transform: `rotate(${offDeg} ${cx} ${cy})`,
+        style: { pointerEvents: 'none' },
+      }),
+      // Segment highlight (play)
+      h('circle', {
+        className: 'cyc-meth-arc',
+        cx,
+        cy,
+        r,
+        fill: 'none',
+        stroke: `url(#${gid})`,
+        strokeWidth: 5,
+        strokeLinecap: 'round',
+        pathLength: 100,
+        strokeDasharray: `${100 / n} ${100 - 100 / n}`,
+        strokeDashoffset: 0,
+        transform: `rotate(${rotDeg} ${cx} ${cy})`,
+        filter: 'url(#cyc-meth-glow)',
+        style: { transition: 'transform 480ms cubic-bezier(.2,0,.2,1), opacity 520ms ease', pointerEvents: 'none' },
+      }),
+      segHits,
+      nodes,
+      labels,
+      h(
+        'g',
+        { className: 'cyc-dot', style: { '--a0': dotDeg + 'deg', '--a1': dotDeg + 360 + 'deg', pointerEvents: 'none' } },
+        h('circle', { cx, cy: cy - r, r: 13, fill: '#03D0FF', opacity: 0.35 }),
+        h('circle', { cx, cy: cy - r, r: 5.5, fill: '#fff' }),
+      ),
+      // Intro center copy
+      h(
+        'g',
+        { className: 'cyc-center cyc-meth-center-intro', style: { pointerEvents: 'none' } },
+        h(
+          'text',
+          {
+            x: cx,
+            y: cy - 6,
+            textAnchor: 'middle',
+            style: { fontSize: 30, fontWeight: 300, fill: '#fff' },
+          },
+          'Refined each cycle',
+        ),
+        h(
+          'text',
+          {
+            x: cx,
+            y: cy + 30,
+            textAnchor: 'middle',
+            style: { fontSize: 14, fontWeight: 300, fill: '#D2F0FC' },
+          },
+          'as the industry and best-practices evolve',
+        ),
+      ),
+      // Play center copy — [data-center-in] only (card uses methCopyIn separately)
+      h(
+        'g',
+        {
+          className: 'cyc-meth-center-play',
+          style: { pointerEvents: 'none' },
+        },
+        h(
+          'text',
+          {
+            x: cx,
+            y: cy - 36,
+            textAnchor: 'middle',
+            style: { fontSize: 13, letterSpacing: '.16em', fontWeight: 400, fill: '#03D0FF' },
+          },
+          stepNum + ' / 07',
+        ),
+        h(
+          'text',
+          {
+            x: cx,
+            y: cy + 8,
+            textAnchor: 'middle',
+            style: { fontSize: 28, fontWeight: 300, letterSpacing: '.06em', fill: '#fff' },
+          },
+          stepName,
+        ),
+        h(
+          'text',
+          {
+            x: cx,
+            y: cy + 40,
+            textAnchor: 'middle',
+            style: { fontSize: 13, fontWeight: 300, fill: 'rgba(210,240,252,.75)' },
+          },
+          'Each cycle informs the next',
+        ),
+      ),
+    );
   }
   flash(msg) {
     clearTimeout(this._t);
@@ -644,6 +1110,7 @@ class Component extends DCLogic {
           methodology: 'comparison',
           faq: 'assessment',
           contact: 'assessment',
+          legal: 'assessment',
         };
         const iconName = icon[p] || icon.independence;
         // Locked hero treatments (selectors removed on all pages except home)
@@ -730,6 +1197,43 @@ class Component extends DCLogic {
       dropBg: EVENT_THEME ? EVENT_THEME.drop : '#0556CC',
       dropBorder: 'rgba(255,255,255,.18)',
       cycleDark: this.cycle(true),
+      cycleMeth: this.cycleMeth(
+        s.methStep || 0,
+        s.methPhase || 'intro',
+        s.methCopyStep || 0,
+        s.methCopyIn !== false,
+        s.methCenterIn === true,
+      ),
+      methIntro: s.methPhase !== 'play',
+      methPlay: s.methPhase === 'play',
+      methCopyClass: s.methCopyIn !== false ? 'is-in' : '',
+      methStepNum: String((s.methPhase !== 'play' ? 0 : s.methCopyStep || 0) + 1).padStart(2, '0'),
+      methPrev: () => {
+        const n = (typeof METH_STEPS !== 'undefined' && METH_STEPS.length) || STEPS.length;
+        this.methPick(((s.methStep || 0) - 1 + n) % n, true);
+      },
+      methNext: () => {
+        const n = (typeof METH_STEPS !== 'undefined' && METH_STEPS.length) || STEPS.length;
+        this.methPick(((s.methStep || 0) + 1) % n, true);
+      },
+      methSteps: (typeof METH_STEPS !== 'undefined' ? METH_STEPS : STEPS.map(name => [name, ''])).map(
+        ([name, body], i) => {
+          // Card shows Design during intro so users can take over; circle center waits
+          const intro = s.methPhase !== 'play';
+          const on = intro
+            ? i === 0 && s.methCopyIn !== false
+            : i === (s.methCopyStep || 0) && s.methCopyIn !== false;
+          return {
+            name,
+            body,
+            onClass: on ? 'is-in' : '',
+            ariaHidden: !on,
+          };
+        },
+      ),
+      methQuantFactors: (typeof METH_QUANT !== 'undefined' ? METH_QUANT : []).map(t => ({ t })),
+      methQualRow1: (typeof METH_QUAL !== 'undefined' ? METH_QUAL.slice(0, 3) : []).map(t => ({ t })),
+      methQualRow2: (typeof METH_QUAL !== 'undefined' ? METH_QUAL.slice(3) : []).map(t => ({ t })),
       faqItems: acc(FAQ, 'faqOpen'),
       eventSubnav: EVENT_SUBNAV.map(([id, label]) => {
         const on = (s.eventSection || 'overview') === id;

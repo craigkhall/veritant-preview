@@ -22,6 +22,14 @@
 	color: var(--color-white);
 	overflow: hidden;
 	box-shadow: 0 40px 120px rgba(0,0,0,.45);
+	max-height: 100%;
+	overflow-y: auto;
+	-ms-overflow-style: none;
+  	scrollbar-width: none;
+}
+
+.intro-modal__dialog:-webkit-scrollbar {
+  display: none;
 }
 
 .intro-modal__rings {
