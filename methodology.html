@@ -97,7 +97,7 @@
 	<x-dc>
 		<helmet>
 			<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter+Tight:ital,wght@0,200..800;1,200..800&display=swap">
-			<link rel="stylesheet" href="css/main.css?v=172">
+			<link rel="stylesheet" href="css/main.css?v=173">
 		</helmet>
 
 		<div class="site">
@@ -159,31 +159,31 @@
 				<!-- Research cycle -->
 				<section id="cycle" data-screen-label="Methodology cycle" class="meth-next-cycle">
 					<div class="meth-next-cycle__inner">
-						<div class="meth-next-cycle__copy">
+						<div class="meth-next-cycle__intro">
 							<div class="home-band__label">
 								<span class="home-band__rule home-band__rule--on-dark" aria-hidden="true"></span>
 								<p class="home-band__eyebrow home-band__eyebrow--on-dark">Our Approach</p>
 							</div>
 							<h2 class="meth-next-cycle__title">Every ranking begins <span class="meth-next-hi-bright">with research.</span></h2>
 							<p class="meth-next-cycle__lead">Our process brings data and human judgment together, from the first application to the final review. Each cycle informs the next.</p>
-							<div class="meth-next-cycle__card">
-								<div class="meth-next-cycle__steps">
-									<sc-for list="{{ methSteps }}" as="st" hint-placeholder-count="7">
-										<div class="meth-next-cycle__step {{ st.onClass }}" aria-hidden="{{ st.ariaHidden }}">
-											<h3 class="meth-next-cycle__step-title">{{ st.name }}</h3>
-											<p class="meth-next-cycle__step-body">{{ st.body }}</p>
-										</div>
-									</sc-for>
-								</div>
-								<div class="meth-next-cycle__footer">
-									<button type="button" class="meth-next-cycle__btn" onClick="{{ methPrev }}" aria-label="Previous step">‹</button>
-									<span class="meth-next-cycle__num {{ methCopyClass }}">{{ methStepNum }} / 07</span>
-									<button type="button" class="meth-next-cycle__btn" onClick="{{ methNext }}" aria-label="Next step">›</button>
-								</div>
-							</div>
 						</div>
 						<div class="meth-next-cycle__diagram">
 							{{ cycleMeth }}
+						</div>
+						<div class="meth-next-cycle__card">
+							<div class="meth-next-cycle__steps">
+								<sc-for list="{{ methSteps }}" as="st" hint-placeholder-count="7">
+									<div class="meth-next-cycle__step {{ st.onClass }}" aria-hidden="{{ st.ariaHidden }}">
+										<h3 class="meth-next-cycle__step-title">{{ st.name }}</h3>
+										<p class="meth-next-cycle__step-body">{{ st.body }}</p>
+									</div>
+								</sc-for>
+							</div>
+							<div class="meth-next-cycle__footer">
+								<button type="button" class="meth-next-cycle__btn" onClick="{{ methPrev }}" aria-label="Previous step">‹</button>
+								<span class="meth-next-cycle__num {{ methCopyClass }}">{{ methStepNum }} / 07</span>
+								<button type="button" class="meth-next-cycle__btn" onClick="{{ methNext }}" aria-label="Next step">›</button>
+							</div>
 						</div>
 					</div>
 				</section>
@@ -336,6 +336,6 @@
 		</div>
 	</x-dc>
 
-	<script type="text/x-dc" data-dc-script data-src="js/content.js?v=172 js/site-chrome.js?v=172 js/app.js?v=172"></script>
+	<script type="text/x-dc" data-dc-script data-src="js/content.js?v=173 js/site-chrome.js?v=173 js/app.js?v=173"></script>
 </body>
 </html>
